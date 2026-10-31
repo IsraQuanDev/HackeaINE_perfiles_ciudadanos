@@ -1,0 +1,2870 @@
+{
+  "nota_metodologica": "Los perfiles describen TERRITORIOS municipales (cve_geo) basados en conteos censales agregados 2009-2024 del INE, nunca individuos (prevención de falacia ecológica).",
+  "referencia_nacional": {
+    "n_municipios_nacional": 2477,
+    "lista_nominal_2024_nacional": 98330348,
+    "medias_nacionales": {
+      "part_media_global": 0.561645,
+      "caida_presidencial_intermedia": 0.103217,
+      "pendiente_tendencia": 0.01393,
+      "volatilidad": 0.101106,
+      "constancia_sobre_mediana": 0.499125,
+      "brecha_genero_media": 0.077205,
+      "brecha_genero_tendencia": 0.004592,
+      "brecha_generacional_60_vs_18_29": 0.141321,
+      "pct_ln_rural": 0.334531,
+      "cagr_ln_2009_2024": 0.01354,
+      "part_2009": 0.45841,
+      "part_2012": 0.638031,
+      "part_2015": 0.494637,
+      "part_2018": 0.618863,
+      "part_2021": 0.577064,
+      "part_2024": 0.582867,
+      "part_media_presidencial": 0.613254,
+      "part_media_intermedia": 0.510037,
+      "part_media_jovenes_18_29": 0.475411,
+      "part_media_adultos_30_59": 0.588061,
+      "part_media_adultos_60_mas": 0.616823,
+      "pct_ln_jovenes_18_29": 0.27881,
+      "pct_ln_adultos_60_mas": 0.201096,
+      "pct_ln_urbana": 0.347391,
+      "pct_ln_mixta": 0.318078,
+      "ln_2024": 39697.354865,
+      "tasa_voto_anticipado_por_10k": 0.26309
+    },
+    "trayectoria_nacional_media": {
+      "2009": 0.45841,
+      "2012": 0.638031,
+      "2015": 0.494637,
+      "2018": 0.618863,
+      "2021": 0.577064,
+      "2024": 0.582867
+    }
+  },
+  "explicabilidad_global": {
+    "decision_tree_accuracy": 0.6702,
+    "lgbm_accuracy": 1.0,
+    "global_shap_ranking": [
+      {
+        "feature": "volatilidad",
+        "mean_abs_shap": 0.8306
+      },
+      {
+        "feature": "part_media_global",
+        "mean_abs_shap": 0.74205
+      },
+      {
+        "feature": "brecha_genero_tendencia",
+        "mean_abs_shap": 0.72089
+      },
+      {
+        "feature": "brecha_genero_media",
+        "mean_abs_shap": 0.70519
+      },
+      {
+        "feature": "caida_presidencial_intermedia",
+        "mean_abs_shap": 0.61024
+      },
+      {
+        "feature": "brecha_generacional_60_vs_18_29",
+        "mean_abs_shap": 0.54438
+      },
+      {
+        "feature": "cagr_ln_2009_2024",
+        "mean_abs_shap": 0.53605
+      },
+      {
+        "feature": "pendiente_tendencia",
+        "mean_abs_shap": 0.52186
+      },
+      {
+        "feature": "constancia_sobre_mediana",
+        "mean_abs_shap": 0.22677
+      },
+      {
+        "feature": "pct_ln_rural",
+        "mean_abs_shap": 0.22471
+      }
+    ]
+  },
+  "perfiles": [
+    {
+      "cluster_id": 0,
+      "n_municipios": 539,
+      "pct_municipios_nacional": 21.76,
+      "poblacion_lista_nominal_2024": 8089025,
+      "pct_lista_nominal_nacional": 8.23,
+      "n_municipios_baja_confiabilidad": 12,
+      "pct_baja_confiabilidad": 2.23,
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "part_media_global",
+          "mean_abs_shap": 2.86741,
+          "cluster_mean": 0.67759,
+          "national_mean": 0.56165,
+          "z_score_vs_nacional": 1.1324,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_generacional_60_vs_18_29",
+          "mean_abs_shap": 1.82862,
+          "cluster_mean": 0.07569,
+          "national_mean": 0.14132,
+          "z_score_vs_nacional": -0.8733,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "caida_presidencial_intermedia",
+          "mean_abs_shap": 1.25535,
+          "cluster_mean": 0.04038,
+          "national_mean": 0.10322,
+          "z_score_vs_nacional": -0.7461,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "volatilidad",
+          "mean_abs_shap": 0.73873,
+          "cluster_mean": 0.0701,
+          "national_mean": 0.10111,
+          "z_score_vs_nacional": -0.6502,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "constancia_sobre_mediana",
+          "mean_abs_shap": 0.73197,
+          "cluster_mean": 0.85683,
+          "national_mean": 0.49913,
+          "z_score_vs_nacional": 1.0178,
+          "direccion": "ALTA (+)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "14",
+          "nom_ent": "JALISCO",
+          "n_municipios_en_cluster": 95,
+          "pct_del_cluster": 17.63
+        },
+        {
+          "cve_ent": "31",
+          "nom_ent": "YUCATAN",
+          "n_municipios_en_cluster": 90,
+          "pct_del_cluster": 16.7
+        },
+        {
+          "cve_ent": "15",
+          "nom_ent": "ESTADO DE MEXICO",
+          "n_municipios_en_cluster": 70,
+          "pct_del_cluster": 12.99
+        },
+        {
+          "cve_ent": "26",
+          "nom_ent": "SONORA",
+          "n_municipios_en_cluster": 37,
+          "pct_del_cluster": 6.86
+        },
+        {
+          "cve_ent": "24",
+          "nom_ent": "SAN LUIS POTOSI",
+          "n_municipios_en_cluster": 35,
+          "pct_del_cluster": 6.49
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "28011",
+          "nom_mun": "GÃ³mez FarÃ­as",
+          "nom_ent": "TAMAULIPAS",
+          "distancia_centroide": 0.7733,
+          "part_media_global": 0.6675,
+          "part_media_global_pct": 66.75,
+          "ln_2024": 7282
+        },
+        {
+          "cve_geo": "14061",
+          "nom_mun": "Mazamitla",
+          "nom_ent": "JALISCO",
+          "distancia_centroide": 0.7899,
+          "part_media_global": 0.6517,
+          "part_media_global_pct": 65.17,
+          "ln_2024": 12507
+        },
+        {
+          "cve_geo": "14033",
+          "nom_mun": "ChiquilistlÃ¡n",
+          "nom_ent": "JALISCO",
+          "distancia_centroide": 0.7941,
+          "part_media_global": 0.6619,
+          "part_media_global_pct": 66.19,
+          "ln_2024": 5047
+        },
+        {
+          "cve_geo": "17026",
+          "nom_mun": "Tlayacapan",
+          "nom_ent": "MORELOS",
+          "distancia_centroide": 0.8323,
+          "part_media_global": 0.6869,
+          "part_media_global_pct": 68.69,
+          "ln_2024": 15264
+        },
+        {
+          "cve_geo": "17021",
+          "nom_mun": "Tetecala",
+          "nom_ent": "MORELOS",
+          "distancia_centroide": 0.8693,
+          "part_media_global": 0.7072,
+          "part_media_global_pct": 70.72,
+          "ln_2024": 6517
+        },
+        {
+          "cve_geo": "07046",
+          "nom_mun": "Jiquipilas",
+          "nom_ent": "CHIAPAS",
+          "distancia_centroide": 0.8999,
+          "part_media_global": 0.6192,
+          "part_media_global_pct": 61.92,
+          "ln_2024": 33061
+        },
+        {
+          "cve_geo": "15108",
+          "nom_mun": "Tonatico",
+          "nom_ent": "ESTADO DE MEXICO",
+          "distancia_centroide": 0.9499,
+          "part_media_global": 0.6661,
+          "part_media_global_pct": 66.61,
+          "ln_2024": 11407
+        },
+        {
+          "cve_geo": "17027",
+          "nom_mun": "Totolapan",
+          "nom_ent": "MORELOS",
+          "distancia_centroide": 0.9613,
+          "part_media_global": 0.7001,
+          "part_media_global_pct": 70.01,
+          "ln_2024": 8976
+        },
+        {
+          "cve_geo": "14002",
+          "nom_mun": "AcatlÃ¡n de JuÃ¡rez",
+          "nom_ent": "JALISCO",
+          "distancia_centroide": 0.9757,
+          "part_media_global": 0.6187,
+          "part_media_global_pct": 61.87,
+          "ln_2024": 18963
+        },
+        {
+          "cve_geo": "17023",
+          "nom_mun": "Tlalnepantla",
+          "nom_ent": "MORELOS",
+          "distancia_centroide": 0.9831,
+          "part_media_global": 0.7066,
+          "part_media_global_pct": 70.66,
+          "ln_2024": 5607
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.610313,
+        "2012": 0.737113,
+        "2015": 0.676677,
+        "2018": 0.697819,
+        "2021": 0.685218,
+        "2024": 0.65842
+      },
+      "trayectoria_media_pct": {
+        "2009": 61.03,
+        "2012": 73.71,
+        "2015": 67.67,
+        "2018": 69.78,
+        "2021": 68.52,
+        "2024": 65.84
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.677593,
+          "media_pct": 67.76,
+          "p10": 0.58022,
+          "p25": 0.622955,
+          "p50_mediana": 0.672438,
+          "p75": 0.727533,
+          "p90": 0.787566,
+          "z_score_vs_nacional": 1.1324
+        },
+        "caida_presidencial_intermedia": {
+          "media": 0.040381,
+          "media_pct": 4.04,
+          "p10": -0.024672,
+          "p25": 0.007001,
+          "p50_mediana": 0.037175,
+          "p75": 0.074046,
+          "p90": 0.113289,
+          "z_score_vs_nacional": -0.7461
+        },
+        "pendiente_tendencia": {
+          "media": 0.000336,
+          "media_pct": 0.03,
+          "p10": -0.021952,
+          "p25": -0.012578,
+          "p50_mediana": -0.001942,
+          "p75": 0.010814,
+          "p90": 0.03021,
+          "z_score_vs_nacional": -0.4677
+        },
+        "volatilidad": {
+          "media": 0.070097,
+          "media_pct": 7.01,
+          "p10": 0.033078,
+          "p25": 0.042731,
+          "p50_mediana": 0.06377,
+          "p75": 0.094976,
+          "p90": 0.115774,
+          "z_score_vs_nacional": -0.6502
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.856834,
+          "media_pct": 85.68,
+          "p10": 0.5,
+          "p25": 0.833333,
+          "p50_mediana": 1.0,
+          "p75": 1.0,
+          "p90": 1.0,
+          "z_score_vs_nacional": 1.0178
+        },
+        "brecha_genero_media": {
+          "media": 0.079071,
+          "media_pct": 7.91,
+          "p10": 0.044062,
+          "p25": 0.061062,
+          "p50_mediana": 0.078541,
+          "p75": 0.096279,
+          "p90": 0.113829,
+          "z_score_vs_nacional": 0.0518
+        },
+        "brecha_genero_tendencia": {
+          "media": 0.000871,
+          "media_pct": 0.09,
+          "p10": -0.00602,
+          "p25": -0.002213,
+          "p50_mediana": 0.001092,
+          "p75": 0.004481,
+          "p90": 0.007413,
+          "z_score_vs_nacional": -0.4352
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.075686,
+          "media_pct": 7.57,
+          "p10": 0.000221,
+          "p25": 0.034841,
+          "p50_mediana": 0.076344,
+          "p75": 0.12003,
+          "p90": 0.153884,
+          "z_score_vs_nacional": -0.8733
+        },
+        "pct_ln_rural": {
+          "media": 0.348687,
+          "media_pct": 34.87,
+          "p10": 0.0,
+          "p25": 0.129219,
+          "p50_mediana": 0.307214,
+          "p75": 0.560032,
+          "p90": 0.742379,
+          "z_score_vs_nacional": 0.0505
+        },
+        "cagr_ln_2009_2024": {
+          "media": 0.0134,
+          "media_pct": 1.34,
+          "p10": 0.001691,
+          "p25": 0.006705,
+          "p50_mediana": 0.012872,
+          "p75": 0.019975,
+          "p90": 0.026003,
+          "z_score_vs_nacional": -0.0053
+        },
+        "part_2009": {
+          "media": 0.610313,
+          "media_pct": 61.03,
+          "p10": 0.497714,
+          "p25": 0.555202,
+          "p50_mediana": 0.60831,
+          "p75": 0.669113,
+          "p90": 0.727062,
+          "z_score_vs_nacional": 1.1127
+        },
+        "part_2012": {
+          "media": 0.737113,
+          "media_pct": 73.71,
+          "p10": 0.636203,
+          "p25": 0.673827,
+          "p50_mediana": 0.726421,
+          "p75": 0.786371,
+          "p90": 0.863216,
+          "z_score_vs_nacional": 0.9139
+        },
+        "part_2015": {
+          "media": 0.676677,
+          "media_pct": 67.67,
+          "p10": 0.539117,
+          "p25": 0.604293,
+          "p50_mediana": 0.665202,
+          "p75": 0.740691,
+          "p90": 0.836757,
+          "z_score_vs_nacional": 1.1286
+        },
+        "part_2018": {
+          "media": 0.697819,
+          "media_pct": 69.78,
+          "p10": 0.562696,
+          "p25": 0.633356,
+          "p50_mediana": 0.698997,
+          "p75": 0.764271,
+          "p90": 0.835088,
+          "z_score_vs_nacional": 0.6095
+        },
+        "part_2021": {
+          "media": 0.685218,
+          "media_pct": 68.52,
+          "p10": 0.536741,
+          "p25": 0.608776,
+          "p50_mediana": 0.684356,
+          "p75": 0.769212,
+          "p90": 0.836255,
+          "z_score_vs_nacional": 0.7115
+        },
+        "part_2024": {
+          "media": 0.65842,
+          "media_pct": 65.84,
+          "p10": 0.528002,
+          "p25": 0.584263,
+          "p50_mediana": 0.651756,
+          "p75": 0.727951,
+          "p90": 0.811644,
+          "z_score_vs_nacional": 0.5824
+        },
+        "part_media_presidencial": {
+          "media": 0.697784,
+          "media_pct": 69.78,
+          "p10": 0.594877,
+          "p25": 0.64206,
+          "p50_mediana": 0.695291,
+          "p75": 0.752079,
+          "p90": 0.807069,
+          "z_score_vs_nacional": 0.8482
+        },
+        "part_media_intermedia": {
+          "media": 0.657403,
+          "media_pct": 65.74,
+          "p10": 0.561827,
+          "p25": 0.598019,
+          "p50_mediana": 0.652213,
+          "p75": 0.706051,
+          "p90": 0.770403,
+          "z_score_vs_nacional": 1.2203
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.622789,
+          "media_pct": 62.28,
+          "p10": 0.513499,
+          "p25": 0.553992,
+          "p50_mediana": 0.615134,
+          "p75": 0.683279,
+          "p90": 0.753734,
+          "z_score_vs_nacional": 1.2223
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.700787,
+          "media_pct": 70.08,
+          "p10": 0.601328,
+          "p25": 0.647274,
+          "p50_mediana": 0.695591,
+          "p75": 0.753804,
+          "p90": 0.806801,
+          "z_score_vs_nacional": 1.0736
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.698475,
+          "media_pct": 69.85,
+          "p10": 0.584896,
+          "p25": 0.646651,
+          "p50_mediana": 0.705309,
+          "p75": 0.752582,
+          "p90": 0.805421,
+          "z_score_vs_nacional": 0.8551
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.275236,
+          "media_pct": 27.52,
+          "p10": 0.227339,
+          "p25": 0.251121,
+          "p50_mediana": 0.276405,
+          "p75": 0.300788,
+          "p90": 0.320042,
+          "z_score_vs_nacional": -0.0868
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.203259,
+          "media_pct": 20.33,
+          "p10": 0.145569,
+          "p25": 0.162764,
+          "p50_mediana": 0.1962,
+          "p75": 0.234698,
+          "p90": 0.269698,
+          "z_score_vs_nacional": 0.0364
+        },
+        "pct_ln_urbana": {
+          "media": 0.307773,
+          "media_pct": 30.78,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.268142,
+          "p75": 0.526112,
+          "p90": 0.699537,
+          "z_score_vs_nacional": -0.1199
+        },
+        "pct_ln_mixta": {
+          "media": 0.343541,
+          "media_pct": 34.35,
+          "p10": 0.02679,
+          "p25": 0.15627,
+          "p50_mediana": 0.306986,
+          "p75": 0.477684,
+          "p90": 0.694952,
+          "z_score_vs_nacional": 0.0885
+        },
+        "ln_2024": {
+          "media": 15007.467532,
+          "media_pct": 15007.47,
+          "p10": 2222.0,
+          "p25": 4318.5,
+          "p50_mediana": 9486.0,
+          "p75": 19003.0,
+          "p90": 32439.6,
+          "z_score_vs_nacional": -0.2099
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.187202,
+          "media_pct": 0.19,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.0,
+          "p90": 0.62951,
+          "z_score_vs_nacional": -0.0857
+        }
+      }
+    },
+    {
+      "cluster_id": 1,
+      "n_municipios": 378,
+      "pct_municipios_nacional": 15.26,
+      "poblacion_lista_nominal_2024": 6851597,
+      "pct_lista_nominal_nacional": 6.97,
+      "n_municipios_baja_confiabilidad": 15,
+      "pct_baja_confiabilidad": 3.97,
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "brecha_genero_tendencia",
+          "mean_abs_shap": 3.58103,
+          "cluster_mean": 0.01438,
+          "national_mean": 0.00459,
+          "z_score_vs_nacional": 1.1444,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_genero_media",
+          "mean_abs_shap": 2.55054,
+          "cluster_mean": 0.11348,
+          "national_mean": 0.0772,
+          "z_score_vs_nacional": 1.0061,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "pct_ln_rural",
+          "mean_abs_shap": 1.05395,
+          "cluster_mean": 0.55922,
+          "national_mean": 0.33453,
+          "z_score_vs_nacional": 0.8021,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "part_media_global",
+          "mean_abs_shap": 0.76106,
+          "cluster_mean": 0.59204,
+          "national_mean": 0.56165,
+          "z_score_vs_nacional": 0.2968,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_generacional_60_vs_18_29",
+          "mean_abs_shap": 0.28933,
+          "cluster_mean": 0.16391,
+          "national_mean": 0.14132,
+          "z_score_vs_nacional": 0.3005,
+          "direccion": "ALTA (+)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "20",
+          "nom_ent": "OAXACA",
+          "n_municipios_en_cluster": 67,
+          "pct_del_cluster": 17.72
+        },
+        {
+          "cve_ent": "21",
+          "nom_ent": "PUEBLA",
+          "n_municipios_en_cluster": 50,
+          "pct_del_cluster": 13.23
+        },
+        {
+          "cve_ent": "07",
+          "nom_ent": "CHIAPAS",
+          "n_municipios_en_cluster": 43,
+          "pct_del_cluster": 11.38
+        },
+        {
+          "cve_ent": "30",
+          "nom_ent": "VERACRUZ",
+          "n_municipios_en_cluster": 42,
+          "pct_del_cluster": 11.11
+        },
+        {
+          "cve_ent": "12",
+          "nom_ent": "GUERRERO",
+          "n_municipios_en_cluster": 36,
+          "pct_del_cluster": 9.52
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "16022",
+          "nom_mun": "Charo",
+          "nom_ent": "MICHOACAN",
+          "distancia_centroide": 0.7312,
+          "part_media_global": 0.5535,
+          "part_media_global_pct": 55.35,
+          "ln_2024": 18141
+        },
+        {
+          "cve_geo": "12046",
+          "nom_mun": "OlinalÃ¡",
+          "nom_ent": "GUERRERO",
+          "distancia_centroide": 0.7735,
+          "part_media_global": 0.6309,
+          "part_media_global_pct": 63.09,
+          "ln_2024": 20948
+        },
+        {
+          "cve_geo": "07015",
+          "nom_mun": "CacahoatÃ¡n",
+          "nom_ent": "CHIAPAS",
+          "distancia_centroide": 0.8328,
+          "part_media_global": 0.5882,
+          "part_media_global_pct": 58.82,
+          "ln_2024": 35965
+        },
+        {
+          "cve_geo": "32035",
+          "nom_mun": "Noria de Ãngeles",
+          "nom_ent": "ZACATECAS",
+          "distancia_centroide": 0.8437,
+          "part_media_global": 0.5937,
+          "part_media_global_pct": 59.37,
+          "ln_2024": 12255
+        },
+        {
+          "cve_geo": "21036",
+          "nom_mun": "CoxcatlÃ¡n",
+          "nom_ent": "PUEBLA",
+          "distancia_centroide": 0.8582,
+          "part_media_global": 0.555,
+          "part_media_global_pct": 55.5,
+          "ln_2024": 15849
+        },
+        {
+          "cve_geo": "21186",
+          "nom_mun": "Tlatlauquitepec",
+          "nom_ent": "PUEBLA",
+          "distancia_centroide": 0.8622,
+          "part_media_global": 0.5708,
+          "part_media_global_pct": 57.08,
+          "ln_2024": 41565
+        },
+        {
+          "cve_geo": "01002",
+          "nom_mun": "Asientos",
+          "nom_ent": "AGUASCALIENTES",
+          "distancia_centroide": 0.8884,
+          "part_media_global": 0.5691,
+          "part_media_global_pct": 56.91,
+          "ln_2024": 38773
+        },
+        {
+          "cve_geo": "21110",
+          "nom_mun": "PahuatlÃ¡n",
+          "nom_ent": "PUEBLA",
+          "distancia_centroide": 0.8975,
+          "part_media_global": 0.6002,
+          "part_media_global_pct": 60.02,
+          "ln_2024": 15216
+        },
+        {
+          "cve_geo": "12005",
+          "nom_mun": "Alpoyeca",
+          "nom_ent": "GUERRERO",
+          "distancia_centroide": 0.9146,
+          "part_media_global": 0.6299,
+          "part_media_global_pct": 62.99,
+          "ln_2024": 5733
+        },
+        {
+          "cve_geo": "16017",
+          "nom_mun": "Contepec",
+          "nom_ent": "MICHOACAN",
+          "distancia_centroide": 0.933,
+          "part_media_global": 0.548,
+          "part_media_global_pct": 54.8,
+          "ln_2024": 24899
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.464795,
+        "2012": 0.654416,
+        "2015": 0.536843,
+        "2018": 0.648974,
+        "2021": 0.638024,
+        "2024": 0.609165
+      },
+      "trayectoria_media_pct": {
+        "2009": 46.48,
+        "2012": 65.44,
+        "2015": 53.68,
+        "2018": 64.9,
+        "2021": 63.8,
+        "2024": 60.92
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.592036,
+          "media_pct": 59.2,
+          "p10": 0.510318,
+          "p25": 0.553642,
+          "p50_mediana": 0.593874,
+          "p75": 0.636231,
+          "p90": 0.681421,
+          "z_score_vs_nacional": 0.2968
+        },
+        "caida_presidencial_intermedia": {
+          "media": 0.090964,
+          "media_pct": 9.1,
+          "p10": 0.012141,
+          "p25": 0.053878,
+          "p50_mediana": 0.098516,
+          "p75": 0.131913,
+          "p90": 0.15559,
+          "z_score_vs_nacional": -0.1455
+        },
+        "pendiente_tendencia": {
+          "media": 0.01717,
+          "media_pct": 1.72,
+          "p10": -0.01181,
+          "p25": 2.1e-05,
+          "p50_mediana": 0.019711,
+          "p75": 0.034764,
+          "p90": 0.047947,
+          "z_score_vs_nacional": 0.1115
+        },
+        "volatilidad": {
+          "media": 0.094464,
+          "media_pct": 9.45,
+          "p10": 0.047856,
+          "p25": 0.074291,
+          "p50_mediana": 0.093489,
+          "p75": 0.116285,
+          "p90": 0.133346,
+          "z_score_vs_nacional": -0.1393
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.645503,
+          "media_pct": 64.55,
+          "p10": 0.166667,
+          "p25": 0.5,
+          "p50_mediana": 0.666667,
+          "p75": 0.833333,
+          "p90": 1.0,
+          "z_score_vs_nacional": 0.4165
+        },
+        "brecha_genero_media": {
+          "media": 0.113484,
+          "media_pct": 11.35,
+          "p10": 0.069105,
+          "p25": 0.090016,
+          "p50_mediana": 0.111366,
+          "p75": 0.135803,
+          "p90": 0.16003,
+          "z_score_vs_nacional": 1.0061
+        },
+        "brecha_genero_tendencia": {
+          "media": 0.014378,
+          "media_pct": 1.44,
+          "p10": 0.005663,
+          "p25": 0.008541,
+          "p50_mediana": 0.013068,
+          "p75": 0.018341,
+          "p90": 0.023555,
+          "z_score_vs_nacional": 1.1444
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.163906,
+          "media_pct": 16.39,
+          "p10": 0.091501,
+          "p25": 0.12709,
+          "p50_mediana": 0.165869,
+          "p75": 0.199618,
+          "p90": 0.23511,
+          "z_score_vs_nacional": 0.3005
+        },
+        "pct_ln_rural": {
+          "media": 0.559223,
+          "media_pct": 55.92,
+          "p10": 0.153696,
+          "p25": 0.388259,
+          "p50_mediana": 0.624648,
+          "p75": 0.766212,
+          "p90": 0.868624,
+          "z_score_vs_nacional": 0.8021
+        },
+        "cagr_ln_2009_2024": {
+          "media": 0.018738,
+          "media_pct": 1.87,
+          "p10": 0.003867,
+          "p25": 0.009948,
+          "p50_mediana": 0.016474,
+          "p75": 0.022013,
+          "p90": 0.029971,
+          "z_score_vs_nacional": 0.1955
+        },
+        "part_2009": {
+          "media": 0.464795,
+          "media_pct": 46.48,
+          "p10": 0.32916,
+          "p25": 0.379772,
+          "p50_mediana": 0.456805,
+          "p75": 0.541658,
+          "p90": 0.623571,
+          "z_score_vs_nacional": 0.0468
+        },
+        "part_2012": {
+          "media": 0.654416,
+          "media_pct": 65.44,
+          "p10": 0.538265,
+          "p25": 0.605552,
+          "p50_mediana": 0.665528,
+          "p75": 0.713244,
+          "p90": 0.758614,
+          "z_score_vs_nacional": 0.1511
+        },
+        "part_2015": {
+          "media": 0.536843,
+          "media_pct": 53.68,
+          "p10": 0.403017,
+          "p25": 0.462211,
+          "p50_mediana": 0.532005,
+          "p75": 0.613046,
+          "p90": 0.675343,
+          "z_score_vs_nacional": 0.2617
+        },
+        "part_2018": {
+          "media": 0.648974,
+          "media_pct": 64.9,
+          "p10": 0.540468,
+          "p25": 0.603083,
+          "p50_mediana": 0.655695,
+          "p75": 0.708708,
+          "p90": 0.751886,
+          "z_score_vs_nacional": 0.2324
+        },
+        "part_2021": {
+          "media": 0.638024,
+          "media_pct": 63.8,
+          "p10": 0.494074,
+          "p25": 0.570675,
+          "p50_mediana": 0.638045,
+          "p75": 0.71061,
+          "p90": 0.774357,
+          "z_score_vs_nacional": 0.401
+        },
+        "part_2024": {
+          "media": 0.609165,
+          "media_pct": 60.92,
+          "p10": 0.500026,
+          "p25": 0.560042,
+          "p50_mediana": 0.611809,
+          "p75": 0.663289,
+          "p90": 0.714001,
+          "z_score_vs_nacional": 0.2027
+        },
+        "part_media_presidencial": {
+          "media": 0.637518,
+          "media_pct": 63.75,
+          "p10": 0.557081,
+          "p25": 0.597192,
+          "p50_mediana": 0.641714,
+          "p75": 0.683461,
+          "p90": 0.723904,
+          "z_score_vs_nacional": 0.2435
+        },
+        "part_media_intermedia": {
+          "media": 0.546554,
+          "media_pct": 54.66,
+          "p10": 0.454156,
+          "p25": 0.490072,
+          "p50_mediana": 0.545088,
+          "p75": 0.598434,
+          "p90": 0.650783,
+          "z_score_vs_nacional": 0.3024
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.491827,
+          "media_pct": 49.18,
+          "p10": 0.391718,
+          "p25": 0.448225,
+          "p50_mediana": 0.495945,
+          "p75": 0.539226,
+          "p90": 0.58082,
+          "z_score_vs_nacional": 0.1361
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.629531,
+          "media_pct": 62.95,
+          "p10": 0.537293,
+          "p25": 0.581786,
+          "p50_mediana": 0.630192,
+          "p75": 0.680435,
+          "p90": 0.719885,
+          "z_score_vs_nacional": 0.395
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.655733,
+          "media_pct": 65.57,
+          "p10": 0.571971,
+          "p25": 0.609348,
+          "p50_mediana": 0.662785,
+          "p75": 0.698535,
+          "p90": 0.738618,
+          "z_score_vs_nacional": 0.4075
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.307702,
+          "media_pct": 30.77,
+          "p10": 0.26019,
+          "p25": 0.282065,
+          "p50_mediana": 0.308272,
+          "p75": 0.329752,
+          "p90": 0.35514,
+          "z_score_vs_nacional": 0.7015
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.18156,
+          "media_pct": 18.16,
+          "p10": 0.129551,
+          "p25": 0.152253,
+          "p50_mediana": 0.177838,
+          "p75": 0.203865,
+          "p90": 0.236438,
+          "z_score_vs_nacional": -0.3289
+        },
+        "pct_ln_urbana": {
+          "media": 0.174664,
+          "media_pct": 17.47,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.098871,
+          "p75": 0.267092,
+          "p90": 0.458824,
+          "z_score_vs_nacional": -0.5226
+        },
+        "pct_ln_mixta": {
+          "media": 0.266113,
+          "media_pct": 26.61,
+          "p10": 0.0,
+          "p25": 0.081973,
+          "p50_mediana": 0.20404,
+          "p75": 0.370215,
+          "p90": 0.588602,
+          "z_score_vs_nacional": -0.1806
+        },
+        "ln_2024": {
+          "media": 18125.917989,
+          "media_pct": 18125.92,
+          "p10": 2924.5,
+          "p25": 6170.75,
+          "p50_mediana": 12414.5,
+          "p75": 20883.0,
+          "p90": 38015.9,
+          "z_score_vs_nacional": -0.1834
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.208545,
+          "media_pct": 0.21,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.0,
+          "p90": 0.82094,
+          "z_score_vs_nacional": -0.0616
+        }
+      }
+    },
+    {
+      "cluster_id": 2,
+      "n_municipios": 440,
+      "pct_municipios_nacional": 17.76,
+      "poblacion_lista_nominal_2024": 13283697,
+      "pct_lista_nominal_nacional": 13.51,
+      "n_municipios_baja_confiabilidad": 31,
+      "pct_baja_confiabilidad": 7.05,
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "volatilidad",
+          "mean_abs_shap": 4.12843,
+          "cluster_mean": 0.1573,
+          "national_mean": 0.10111,
+          "z_score_vs_nacional": 1.1782,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "caida_presidencial_intermedia",
+          "mean_abs_shap": 2.52855,
+          "cluster_mean": 0.20634,
+          "national_mean": 0.10322,
+          "z_score_vs_nacional": 1.2245,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "pendiente_tendencia",
+          "mean_abs_shap": 2.12727,
+          "cluster_mean": 0.04394,
+          "national_mean": 0.01393,
+          "z_score_vs_nacional": 1.0325,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "pct_ln_rural",
+          "mean_abs_shap": 0.21688,
+          "cluster_mean": 0.22394,
+          "national_mean": 0.33453,
+          "z_score_vs_nacional": -0.3948,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "brecha_genero_tendencia",
+          "mean_abs_shap": 0.15682,
+          "cluster_mean": 0.00645,
+          "national_mean": 0.00459,
+          "z_score_vs_nacional": 0.217,
+          "direccion": "ALTA (+)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "20",
+          "nom_ent": "OAXACA",
+          "n_municipios_en_cluster": 132,
+          "pct_del_cluster": 30.0
+        },
+        {
+          "cve_ent": "21",
+          "nom_ent": "PUEBLA",
+          "n_municipios_en_cluster": 124,
+          "pct_del_cluster": 28.18
+        },
+        {
+          "cve_ent": "29",
+          "nom_ent": "TLAXCALA",
+          "n_municipios_en_cluster": 46,
+          "pct_del_cluster": 10.45
+        },
+        {
+          "cve_ent": "07",
+          "nom_ent": "CHIAPAS",
+          "n_municipios_en_cluster": 28,
+          "pct_del_cluster": 6.36
+        },
+        {
+          "cve_ent": "13",
+          "nom_ent": "HIDALGO",
+          "n_municipios_en_cluster": 17,
+          "pct_del_cluster": 3.86
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "20334",
+          "nom_mun": "San Pedro y San Pablo Teposcolula",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 0.6292,
+          "part_media_global": 0.5746,
+          "part_media_global_pct": 57.46,
+          "ln_2024": 3433
+        },
+        {
+          "cve_geo": "20539",
+          "nom_mun": "Villa de TamazulÃ¡pam del Progreso",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 0.7047,
+          "part_media_global": 0.5742,
+          "part_media_global_pct": 57.42,
+          "ln_2024": 6273
+        },
+        {
+          "cve_geo": "29039",
+          "nom_mun": "Xaloztoc",
+          "nom_ent": "TLAXCALA",
+          "distancia_centroide": 0.7354,
+          "part_media_global": 0.5366,
+          "part_media_global_pct": 53.66,
+          "ln_2024": 18969
+        },
+        {
+          "cve_geo": "29044",
+          "nom_mun": "Zacatelco",
+          "nom_ent": "TLAXCALA",
+          "distancia_centroide": 0.748,
+          "part_media_global": 0.5509,
+          "part_media_global_pct": 55.09,
+          "ln_2024": 36983
+        },
+        {
+          "cve_geo": "20545",
+          "nom_mun": "TeotitlÃ¡n de Flores MagÃ³n",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 0.7481,
+          "part_media_global": 0.5815,
+          "part_media_global_pct": 58.15,
+          "ln_2024": 7688
+        },
+        {
+          "cve_geo": "13066",
+          "nom_mun": "Tezontepec de Aldama",
+          "nom_ent": "HIDALGO",
+          "distancia_centroide": 0.7597,
+          "part_media_global": 0.5347,
+          "part_media_global_pct": 53.47,
+          "ln_2024": 40536
+        },
+        {
+          "cve_geo": "20292",
+          "nom_mun": "San Pablo Huitzo",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 0.7718,
+          "part_media_global": 0.5926,
+          "part_media_global_pct": 59.26,
+          "ln_2024": 5627
+        },
+        {
+          "cve_geo": "20296",
+          "nom_mun": "San Pablo Villa de Mitla",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 0.8029,
+          "part_media_global": 0.6048,
+          "part_media_global_pct": 60.48,
+          "ln_2024": 10083
+        },
+        {
+          "cve_geo": "07037",
+          "nom_mun": "HuehuetÃ¡n",
+          "nom_ent": "CHIAPAS",
+          "distancia_centroide": 0.8285,
+          "part_media_global": 0.5413,
+          "part_media_global_pct": 54.13,
+          "ln_2024": 28988
+        },
+        {
+          "cve_geo": "21137",
+          "nom_mun": "San Miguel Xoxtla",
+          "nom_ent": "PUEBLA",
+          "distancia_centroide": 0.8472,
+          "part_media_global": 0.5472,
+          "part_media_global_pct": 54.72,
+          "ln_2024": 9787
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.368057,
+        "2012": 0.62935,
+        "2015": 0.372545,
+        "2018": 0.678607,
+        "2021": 0.603644,
+        "2024": 0.655306
+      },
+      "trayectoria_media_pct": {
+        "2009": 36.81,
+        "2012": 62.94,
+        "2015": 37.25,
+        "2018": 67.86,
+        "2021": 60.36,
+        "2024": 65.53
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.551252,
+          "media_pct": 55.13,
+          "p10": 0.455491,
+          "p25": 0.503727,
+          "p50_mediana": 0.550325,
+          "p75": 0.600938,
+          "p90": 0.64981,
+          "z_score_vs_nacional": -0.1015
+        },
+        "caida_presidencial_intermedia": {
+          "media": 0.206339,
+          "media_pct": 20.63,
+          "p10": 0.135681,
+          "p25": 0.167419,
+          "p50_mediana": 0.203132,
+          "p75": 0.24412,
+          "p90": 0.280395,
+          "z_score_vs_nacional": 1.2245
+        },
+        "pendiente_tendencia": {
+          "media": 0.043941,
+          "media_pct": 4.39,
+          "p10": 0.009498,
+          "p25": 0.026722,
+          "p50_mediana": 0.045563,
+          "p75": 0.061385,
+          "p90": 0.076109,
+          "z_score_vs_nacional": 1.0325
+        },
+        "volatilidad": {
+          "media": 0.157301,
+          "media_pct": 15.73,
+          "p10": 0.117073,
+          "p25": 0.130383,
+          "p50_mediana": 0.147653,
+          "p75": 0.1703,
+          "p90": 0.217879,
+          "z_score_vs_nacional": 1.1782
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.491667,
+          "media_pct": 49.17,
+          "p10": 0.0,
+          "p25": 0.333333,
+          "p50_mediana": 0.5,
+          "p75": 0.666667,
+          "p90": 0.833333,
+          "z_score_vs_nacional": -0.0212
+        },
+        "brecha_genero_media": {
+          "media": 0.073052,
+          "media_pct": 7.31,
+          "p10": 0.038771,
+          "p25": 0.055794,
+          "p50_mediana": 0.073509,
+          "p75": 0.089002,
+          "p90": 0.107406,
+          "z_score_vs_nacional": -0.1152
+        },
+        "brecha_genero_tendencia": {
+          "media": 0.006447,
+          "media_pct": 0.64,
+          "p10": -0.001226,
+          "p25": 0.002606,
+          "p50_mediana": 0.006574,
+          "p75": 0.010385,
+          "p90": 0.014662,
+          "z_score_vs_nacional": 0.217
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.139242,
+          "media_pct": 13.92,
+          "p10": 0.061878,
+          "p25": 0.110276,
+          "p50_mediana": 0.144415,
+          "p75": 0.176635,
+          "p90": 0.204065,
+          "z_score_vs_nacional": -0.0277
+        },
+        "pct_ln_rural": {
+          "media": 0.223943,
+          "media_pct": 22.39,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.154775,
+          "p75": 0.393839,
+          "p90": 0.61839,
+          "z_score_vs_nacional": -0.3948
+        },
+        "cagr_ln_2009_2024": {
+          "media": 0.017057,
+          "media_pct": 1.71,
+          "p10": 0.001775,
+          "p25": 0.007533,
+          "p50_mediana": 0.01483,
+          "p75": 0.021233,
+          "p90": 0.028306,
+          "z_score_vs_nacional": 0.1323
+        },
+        "part_2009": {
+          "media": 0.368057,
+          "media_pct": 36.81,
+          "p10": 0.253083,
+          "p25": 0.312513,
+          "p50_mediana": 0.368619,
+          "p75": 0.425346,
+          "p90": 0.500613,
+          "z_score_vs_nacional": -0.6619
+        },
+        "part_2012": {
+          "media": 0.62935,
+          "media_pct": 62.94,
+          "p10": 0.525851,
+          "p25": 0.584587,
+          "p50_mediana": 0.632115,
+          "p75": 0.674111,
+          "p90": 0.721212,
+          "z_score_vs_nacional": -0.0801
+        },
+        "part_2015": {
+          "media": 0.372545,
+          "media_pct": 37.25,
+          "p10": 0.161649,
+          "p25": 0.308756,
+          "p50_mediana": 0.382475,
+          "p75": 0.456516,
+          "p90": 0.543568,
+          "z_score_vs_nacional": -0.757
+        },
+        "part_2018": {
+          "media": 0.678607,
+          "media_pct": 67.86,
+          "p10": 0.578045,
+          "p25": 0.6176,
+          "p50_mediana": 0.671802,
+          "p75": 0.739992,
+          "p90": 0.799187,
+          "z_score_vs_nacional": 0.4612
+        },
+        "part_2021": {
+          "media": 0.603644,
+          "media_pct": 60.36,
+          "p10": 0.396402,
+          "p25": 0.519903,
+          "p50_mediana": 0.627776,
+          "p75": 0.716588,
+          "p90": 0.792585,
+          "z_score_vs_nacional": 0.1749
+        },
+        "part_2024": {
+          "media": 0.655306,
+          "media_pct": 65.53,
+          "p10": 0.534808,
+          "p25": 0.58797,
+          "p50_mediana": 0.654722,
+          "p75": 0.724752,
+          "p90": 0.782224,
+          "z_score_vs_nacional": 0.5584
+        },
+        "part_media_presidencial": {
+          "media": 0.654421,
+          "media_pct": 65.44,
+          "p10": 0.567293,
+          "p25": 0.607993,
+          "p50_mediana": 0.651398,
+          "p75": 0.700353,
+          "p90": 0.744487,
+          "z_score_vs_nacional": 0.4131
+        },
+        "part_media_intermedia": {
+          "media": 0.448082,
+          "media_pct": 44.81,
+          "p10": 0.322078,
+          "p25": 0.388632,
+          "p50_mediana": 0.45083,
+          "p75": 0.507749,
+          "p90": 0.564355,
+          "z_score_vs_nacional": -0.513
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.470942,
+          "media_pct": 47.09,
+          "p10": 0.361798,
+          "p25": 0.421935,
+          "p50_mediana": 0.471489,
+          "p75": 0.524274,
+          "p90": 0.567623,
+          "z_score_vs_nacional": -0.0371
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.574577,
+          "media_pct": 57.46,
+          "p10": 0.474297,
+          "p25": 0.52653,
+          "p50_mediana": 0.574166,
+          "p75": 0.621697,
+          "p90": 0.679411,
+          "z_score_vs_nacional": -0.1284
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.610165,
+          "media_pct": 61.02,
+          "p10": 0.509929,
+          "p25": 0.568587,
+          "p50_mediana": 0.615929,
+          "p75": 0.657763,
+          "p90": 0.696653,
+          "z_score_vs_nacional": -0.0697
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.283874,
+          "media_pct": 28.39,
+          "p10": 0.23647,
+          "p25": 0.261632,
+          "p50_mediana": 0.287164,
+          "p75": 0.307752,
+          "p90": 0.328322,
+          "z_score_vs_nacional": 0.123
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.189356,
+          "media_pct": 18.94,
+          "p10": 0.133478,
+          "p25": 0.150932,
+          "p50_mediana": 0.182468,
+          "p75": 0.217426,
+          "p90": 0.255267,
+          "z_score_vs_nacional": -0.1976
+        },
+        "pct_ln_urbana": {
+          "media": 0.427218,
+          "media_pct": 42.72,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.37471,
+          "p75": 0.74833,
+          "p90": 1.0,
+          "z_score_vs_nacional": 0.2415
+        },
+        "pct_ln_mixta": {
+          "media": 0.348839,
+          "media_pct": 34.88,
+          "p10": 0.0,
+          "p25": 0.039829,
+          "p50_mediana": 0.305226,
+          "p75": 0.526621,
+          "p90": 0.924137,
+          "z_score_vs_nacional": 0.1069
+        },
+        "ln_2024": {
+          "media": 30190.220455,
+          "media_pct": 30190.22,
+          "p10": 1471.0,
+          "p25": 3562.75,
+          "p50_mediana": 8472.5,
+          "p75": 18271.0,
+          "p90": 47913.2,
+          "z_score_vs_nacional": -0.0808
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.388457,
+          "media_pct": 0.39,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.215362,
+          "p90": 1.32765,
+          "z_score_vs_nacional": 0.1416
+        }
+      }
+    },
+    {
+      "cluster_id": 3,
+      "n_municipios": 79,
+      "pct_municipios_nacional": 3.19,
+      "poblacion_lista_nominal_2024": 715243,
+      "pct_lista_nominal_nacional": 0.73,
+      "n_municipios_baja_confiabilidad": 14,
+      "pct_baja_confiabilidad": 17.72,
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "volatilidad",
+          "mean_abs_shap": 6.68233,
+          "cluster_mean": 0.20633,
+          "national_mean": 0.10111,
+          "z_score_vs_nacional": 2.2062,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "caida_presidencial_intermedia",
+          "mean_abs_shap": 5.75449,
+          "cluster_mean": -0.05931,
+          "national_mean": 0.10322,
+          "z_score_vs_nacional": -1.9298,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "pendiente_tendencia",
+          "mean_abs_shap": 0.99965,
+          "cluster_mean": -0.01372,
+          "national_mean": 0.01393,
+          "z_score_vs_nacional": -0.9513,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "brecha_genero_media",
+          "mean_abs_shap": 0.97186,
+          "cluster_mean": 0.05399,
+          "national_mean": 0.0772,
+          "z_score_vs_nacional": -0.6438,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "brecha_genero_tendencia",
+          "mean_abs_shap": 0.43404,
+          "cluster_mean": -0.00056,
+          "national_mean": 0.00459,
+          "z_score_vs_nacional": -0.6031,
+          "direccion": "BAJA (-)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "20",
+          "nom_ent": "OAXACA",
+          "n_municipios_en_cluster": 21,
+          "pct_del_cluster": 26.58
+        },
+        {
+          "cve_ent": "07",
+          "nom_ent": "CHIAPAS",
+          "n_municipios_en_cluster": 10,
+          "pct_del_cluster": 12.66
+        },
+        {
+          "cve_ent": "26",
+          "nom_ent": "SONORA",
+          "n_municipios_en_cluster": 10,
+          "pct_del_cluster": 12.66
+        },
+        {
+          "cve_ent": "13",
+          "nom_ent": "HIDALGO",
+          "n_municipios_en_cluster": 7,
+          "pct_del_cluster": 8.86
+        },
+        {
+          "cve_ent": "30",
+          "nom_ent": "VERACRUZ",
+          "n_municipios_en_cluster": 6,
+          "pct_del_cluster": 7.59
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "30013",
+          "nom_mun": "AmatitlÃ¡n",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 1.3249,
+          "part_media_global": 0.5253,
+          "part_media_global_pct": 52.53,
+          "ln_2024": 6067
+        },
+        {
+          "cve_geo": "13052",
+          "nom_mun": "San Bartolo Tutotepec",
+          "nom_ent": "HIDALGO",
+          "distancia_centroide": 1.3802,
+          "part_media_global": 0.4938,
+          "part_media_global_pct": 49.38,
+          "ln_2024": 13626
+        },
+        {
+          "cve_geo": "20515",
+          "nom_mun": "Santo Domingo Tehuantepec",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 1.4476,
+          "part_media_global": 0.5038,
+          "part_media_global_pct": 50.38,
+          "ln_2024": 51532
+        },
+        {
+          "cve_geo": "07030",
+          "nom_mun": "Chicomuselo",
+          "nom_ent": "CHIAPAS",
+          "distancia_centroide": 1.5621,
+          "part_media_global": 0.4781,
+          "part_media_global_pct": 47.81,
+          "ln_2024": 26330
+        },
+        {
+          "cve_geo": "21108",
+          "nom_mun": "Olintla",
+          "nom_ent": "PUEBLA",
+          "distancia_centroide": 1.5935,
+          "part_media_global": 0.6378,
+          "part_media_global_pct": 63.78,
+          "ln_2024": 8895
+        },
+        {
+          "cve_geo": "08051",
+          "nom_mun": "Ocampo",
+          "nom_ent": "CHIHUAHUA",
+          "distancia_centroide": 1.6373,
+          "part_media_global": 0.4378,
+          "part_media_global_pct": 43.78,
+          "ln_2024": 6496
+        },
+        {
+          "cve_geo": "30095",
+          "nom_mun": "Juan RodrÃ­guez Clara",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 1.665,
+          "part_media_global": 0.4698,
+          "part_media_global_pct": 46.98,
+          "ln_2024": 26920
+        },
+        {
+          "cve_geo": "20306",
+          "nom_mun": "San Pedro Huilotepec",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 1.6848,
+          "part_media_global": 0.5541,
+          "part_media_global_pct": 55.41,
+          "ln_2024": 2501
+        },
+        {
+          "cve_geo": "13004",
+          "nom_mun": "Agua Blanca de Iturbide",
+          "nom_ent": "HIDALGO",
+          "distancia_centroide": 1.6917,
+          "part_media_global": 0.4472,
+          "part_media_global_pct": 44.72,
+          "ln_2024": 8048
+        },
+        {
+          "cve_geo": "14019",
+          "nom_mun": "BolaÃ±os",
+          "nom_ent": "JALISCO",
+          "distancia_centroide": 1.741,
+          "part_media_global": 0.6114,
+          "part_media_global_pct": 61.14,
+          "ln_2024": 6630
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.528543,
+        "2012": 0.654808,
+        "2015": 0.524527,
+        "2018": 0.386996,
+        "2021": 0.574468,
+        "2024": 0.407819
+      },
+      "trayectoria_media_pct": {
+        "2009": 52.85,
+        "2012": 65.48,
+        "2015": 52.45,
+        "2018": 38.7,
+        "2021": 57.45,
+        "2024": 40.78
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.51286,
+          "media_pct": 51.29,
+          "p10": 0.387713,
+          "p25": 0.458099,
+          "p50_mediana": 0.49378,
+          "p75": 0.569202,
+          "p90": 0.642685,
+          "z_score_vs_nacional": -0.4764
+        },
+        "caida_presidencial_intermedia": {
+          "media": -0.059305,
+          "media_pct": -5.93,
+          "p10": -0.189443,
+          "p25": -0.116877,
+          "p50_mediana": -0.062174,
+          "p75": -0.003856,
+          "p90": 0.04846,
+          "z_score_vs_nacional": -1.9298
+        },
+        "pendiente_tendencia": {
+          "media": -0.013721,
+          "media_pct": -1.37,
+          "p10": -0.058259,
+          "p25": -0.035765,
+          "p50_mediana": -0.004784,
+          "p75": 0.006159,
+          "p90": 0.027069,
+          "z_score_vs_nacional": -0.9513
+        },
+        "volatilidad": {
+          "media": 0.20633,
+          "media_pct": 20.63,
+          "p10": 0.147573,
+          "p25": 0.165477,
+          "p50_mediana": 0.20297,
+          "p75": 0.2395,
+          "p90": 0.278211,
+          "z_score_vs_nacional": 2.2062
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.505485,
+          "media_pct": 50.55,
+          "p10": 0.166667,
+          "p25": 0.333333,
+          "p50_mediana": 0.5,
+          "p75": 0.666667,
+          "p90": 0.833333,
+          "z_score_vs_nacional": 0.0181
+        },
+        "brecha_genero_media": {
+          "media": 0.053989,
+          "media_pct": 5.4,
+          "p10": 0.020745,
+          "p25": 0.033912,
+          "p50_mediana": 0.054788,
+          "p75": 0.0659,
+          "p90": 0.091413,
+          "z_score_vs_nacional": -0.6438
+        },
+        "brecha_genero_tendencia": {
+          "media": -0.000565,
+          "media_pct": -0.06,
+          "p10": -0.012962,
+          "p25": -0.006353,
+          "p50_mediana": 0.0,
+          "p75": 0.005329,
+          "p90": 0.009869,
+          "z_score_vs_nacional": -0.6031
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.109406,
+          "media_pct": 10.94,
+          "p10": 0.002309,
+          "p25": 0.053725,
+          "p50_mediana": 0.116528,
+          "p75": 0.148266,
+          "p90": 0.179285,
+          "z_score_vs_nacional": -0.4246
+        },
+        "pct_ln_rural": {
+          "media": 0.34708,
+          "media_pct": 34.71,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.29148,
+          "p75": 0.667511,
+          "p90": 0.768355,
+          "z_score_vs_nacional": 0.0448
+        },
+        "cagr_ln_2009_2024": {
+          "media": 0.010909,
+          "media_pct": 1.09,
+          "p10": -0.004254,
+          "p25": 0.004986,
+          "p50_mediana": 0.012281,
+          "p75": 0.016519,
+          "p90": 0.023751,
+          "z_score_vs_nacional": -0.099
+        },
+        "part_2009": {
+          "media": 0.528543,
+          "media_pct": 52.85,
+          "p10": 0.346623,
+          "p25": 0.42437,
+          "p50_mediana": 0.511295,
+          "p75": 0.607996,
+          "p90": 0.746734,
+          "z_score_vs_nacional": 0.5137
+        },
+        "part_2012": {
+          "media": 0.654808,
+          "media_pct": 65.48,
+          "p10": 0.534761,
+          "p25": 0.608575,
+          "p50_mediana": 0.682938,
+          "p75": 0.744325,
+          "p90": 0.854376,
+          "z_score_vs_nacional": 0.1547
+        },
+        "part_2015": {
+          "media": 0.524527,
+          "media_pct": 52.45,
+          "p10": 0.332107,
+          "p25": 0.420512,
+          "p50_mediana": 0.525962,
+          "p75": 0.619948,
+          "p90": 0.80561,
+          "z_score_vs_nacional": 0.1853
+        },
+        "part_2018": {
+          "media": 0.386996,
+          "media_pct": 38.7,
+          "p10": 0.0,
+          "p25": 0.104276,
+          "p50_mediana": 0.415864,
+          "p75": 0.630949,
+          "p90": 0.712072,
+          "z_score_vs_nacional": -1.7898
+        },
+        "part_2021": {
+          "media": 0.574468,
+          "media_pct": 57.45,
+          "p10": 0.339189,
+          "p25": 0.426561,
+          "p50_mediana": 0.595932,
+          "p75": 0.736802,
+          "p90": 0.827437,
+          "z_score_vs_nacional": -0.0171
+        },
+        "part_2024": {
+          "media": 0.407819,
+          "media_pct": 40.78,
+          "p10": 0.0,
+          "p25": 0.147922,
+          "p50_mediana": 0.493257,
+          "p75": 0.641737,
+          "p90": 0.705808,
+          "z_score_vs_nacional": -1.3495
+        },
+        "part_media_presidencial": {
+          "media": 0.483208,
+          "media_pct": 48.32,
+          "p10": 0.391486,
+          "p25": 0.419377,
+          "p50_mediana": 0.47462,
+          "p75": 0.541622,
+          "p90": 0.614436,
+          "z_score_vs_nacional": -1.3049
+        },
+        "part_media_intermedia": {
+          "media": 0.542513,
+          "media_pct": 54.25,
+          "p10": 0.372556,
+          "p25": 0.464293,
+          "p50_mediana": 0.531837,
+          "p75": 0.614137,
+          "p90": 0.709648,
+          "z_score_vs_nacional": 0.2689
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.439438,
+          "media_pct": 43.94,
+          "p10": 0.287517,
+          "p25": 0.365478,
+          "p50_mediana": 0.419484,
+          "p75": 0.503164,
+          "p90": 0.637247,
+          "z_score_vs_nacional": -0.2983
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.533935,
+          "media_pct": 53.39,
+          "p10": 0.407059,
+          "p25": 0.483386,
+          "p50_mediana": 0.517834,
+          "p75": 0.595299,
+          "p90": 0.666953,
+          "z_score_vs_nacional": -0.5155
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.551784,
+          "media_pct": 55.18,
+          "p10": 0.452657,
+          "p25": 0.483156,
+          "p50_mediana": 0.539172,
+          "p75": 0.616726,
+          "p90": 0.669041,
+          "z_score_vs_nacional": -0.6811
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.273748,
+          "media_pct": 27.37,
+          "p10": 0.214841,
+          "p25": 0.240717,
+          "p50_mediana": 0.275354,
+          "p75": 0.30023,
+          "p90": 0.332447,
+          "z_score_vs_nacional": -0.1229
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.210092,
+          "media_pct": 21.01,
+          "p10": 0.138929,
+          "p25": 0.165377,
+          "p50_mediana": 0.203427,
+          "p75": 0.245291,
+          "p90": 0.266086,
+          "z_score_vs_nacional": 0.1514
+        },
+        "pct_ln_urbana": {
+          "media": 0.201536,
+          "media_pct": 20.15,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.315542,
+          "p90": 0.790169,
+          "z_score_vs_nacional": -0.4413
+        },
+        "pct_ln_mixta": {
+          "media": 0.451384,
+          "media_pct": 45.14,
+          "p10": 0.062825,
+          "p25": 0.176839,
+          "p50_mediana": 0.353688,
+          "p75": 0.731084,
+          "p90": 1.0,
+          "z_score_vs_nacional": 0.4632
+        },
+        "ln_2024": {
+          "media": 9053.708861,
+          "media_pct": 9053.71,
+          "p10": 778.2,
+          "p25": 1674.0,
+          "p50_mediana": 5465.0,
+          "p75": 10459.5,
+          "p90": 23638.0,
+          "z_score_vs_nacional": -0.2606
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.311063,
+          "media_pct": 0.31,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.0,
+          "p90": 0.413609,
+          "z_score_vs_nacional": 0.0542
+        }
+      }
+    },
+    {
+      "cluster_id": 4,
+      "n_municipios": 553,
+      "pct_municipios_nacional": 22.33,
+      "poblacion_lista_nominal_2024": 57777865,
+      "pct_lista_nominal_nacional": 58.76,
+      "n_municipios_baja_confiabilidad": 35,
+      "pct_baja_confiabilidad": 6.33,
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "brecha_generacional_60_vs_18_29",
+          "mean_abs_shap": 1.42159,
+          "cluster_mean": 0.19359,
+          "national_mean": 0.14132,
+          "z_score_vs_nacional": 0.6955,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_genero_tendencia",
+          "mean_abs_shap": 1.27379,
+          "cluster_mean": 5e-05,
+          "national_mean": 0.00459,
+          "z_score_vs_nacional": -0.5314,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "part_media_global",
+          "mean_abs_shap": 0.96316,
+          "cluster_mean": 0.50082,
+          "national_mean": 0.56165,
+          "z_score_vs_nacional": -0.5941,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "pendiente_tendencia",
+          "mean_abs_shap": 0.74067,
+          "cluster_mean": -6e-05,
+          "national_mean": 0.01393,
+          "z_score_vs_nacional": -0.4813,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "cagr_ln_2009_2024",
+          "mean_abs_shap": 0.71691,
+          "cluster_mean": 0.01934,
+          "national_mean": 0.01354,
+          "z_score_vs_nacional": 0.218,
+          "direccion": "ALTA (+)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "20",
+          "nom_ent": "OAXACA",
+          "n_municipios_en_cluster": 158,
+          "pct_del_cluster": 28.57
+        },
+        {
+          "cve_ent": "30",
+          "nom_ent": "VERACRUZ",
+          "n_municipios_en_cluster": 57,
+          "pct_del_cluster": 10.31
+        },
+        {
+          "cve_ent": "15",
+          "nom_ent": "ESTADO DE MEXICO",
+          "n_municipios_en_cluster": 45,
+          "pct_del_cluster": 8.14
+        },
+        {
+          "cve_ent": "13",
+          "nom_ent": "HIDALGO",
+          "n_municipios_en_cluster": 31,
+          "pct_del_cluster": 5.61
+        },
+        {
+          "cve_ent": "11",
+          "nom_ent": "GUANAJUATO",
+          "n_municipios_en_cluster": 21,
+          "pct_del_cluster": 3.8
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "11027",
+          "nom_mun": "Salamanca",
+          "nom_ent": "GUANAJUATO",
+          "distancia_centroide": 0.638,
+          "part_media_global": 0.4892,
+          "part_media_global_pct": 48.92,
+          "ln_2024": 227007
+        },
+        {
+          "cve_geo": "10005",
+          "nom_mun": "Durango",
+          "nom_ent": "DURANGO",
+          "distancia_centroide": 0.6881,
+          "part_media_global": 0.4707,
+          "part_media_global_pct": 47.07,
+          "ln_2024": 519542
+        },
+        {
+          "cve_geo": "30042",
+          "nom_mun": "Coatzintla",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.7039,
+          "part_media_global": 0.5089,
+          "part_media_global_pct": 50.89,
+          "ln_2024": 40007
+        },
+        {
+          "cve_geo": "32010",
+          "nom_mun": "Fresnillo",
+          "nom_ent": "ZACATECAS",
+          "distancia_centroide": 0.7192,
+          "part_media_global": 0.5308,
+          "part_media_global_pct": 53.08,
+          "ln_2024": 174741
+        },
+        {
+          "cve_geo": "11031",
+          "nom_mun": "San Francisco del RincÃ³n",
+          "nom_ent": "GUANAJUATO",
+          "distancia_centroide": 0.7517,
+          "part_media_global": 0.502,
+          "part_media_global_pct": 50.2,
+          "ln_2024": 101714
+        },
+        {
+          "cve_geo": "15019",
+          "nom_mun": "Capulhuac",
+          "nom_ent": "ESTADO DE MEXICO",
+          "distancia_centroide": 0.7679,
+          "part_media_global": 0.5342,
+          "part_media_global_pct": 53.42,
+          "ln_2024": 28816
+        },
+        {
+          "cve_geo": "23002",
+          "nom_mun": "Cozumel",
+          "nom_ent": "QUINTANA ROO",
+          "distancia_centroide": 0.7687,
+          "part_media_global": 0.533,
+          "part_media_global_pct": 53.3,
+          "ln_2024": 73184
+        },
+        {
+          "cve_geo": "20014",
+          "nom_mun": "Candelaria Loxicha",
+          "nom_ent": "OAXACA",
+          "distancia_centroide": 0.7714,
+          "part_media_global": 0.4985,
+          "part_media_global_pct": 49.85,
+          "ln_2024": 7667
+        },
+        {
+          "cve_geo": "17018",
+          "nom_mun": "Temixco",
+          "nom_ent": "MORELOS",
+          "distancia_centroide": 0.8006,
+          "part_media_global": 0.4796,
+          "part_media_global_pct": 47.96,
+          "ln_2024": 92580
+        },
+        {
+          "cve_geo": "16113",
+          "nom_mun": "ZitÃ¡cuaro",
+          "nom_ent": "MICHOACAN",
+          "distancia_centroide": 0.8138,
+          "part_media_global": 0.4915,
+          "part_media_global_pct": 49.15,
+          "ln_2024": 125890
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.436812,
+        "2012": 0.598882,
+        "2015": 0.434372,
+        "2018": 0.561773,
+        "2021": 0.466476,
+        "2024": 0.506576
+      },
+      "trayectoria_media_pct": {
+        "2009": 43.68,
+        "2012": 59.89,
+        "2015": 43.44,
+        "2018": 56.18,
+        "2021": 46.65,
+        "2024": 50.66
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.500815,
+          "media_pct": 50.08,
+          "p10": 0.409218,
+          "p25": 0.460766,
+          "p50_mediana": 0.505493,
+          "p75": 0.549385,
+          "p90": 0.586896,
+          "z_score_vs_nacional": -0.5941
+        },
+        "caida_presidencial_intermedia": {
+          "media": 0.109857,
+          "media_pct": 10.99,
+          "p10": 0.034138,
+          "p25": 0.073728,
+          "p50_mediana": 0.110833,
+          "p75": 0.149001,
+          "p90": 0.179052,
+          "z_score_vs_nacional": 0.0789
+        },
+        "pendiente_tendencia": {
+          "media": -6.1e-05,
+          "media_pct": -0.01,
+          "p10": -0.023597,
+          "p25": -0.011733,
+          "p50_mediana": 0.000654,
+          "p75": 0.013872,
+          "p90": 0.024252,
+          "z_score_vs_nacional": -0.4813
+        },
+        "volatilidad": {
+          "media": 0.083006,
+          "media_pct": 8.3,
+          "p10": 0.053109,
+          "p25": 0.06476,
+          "p50_mediana": 0.083154,
+          "p75": 0.098276,
+          "p90": 0.115698,
+          "z_score_vs_nacional": -0.3795
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.273779,
+          "media_pct": 27.38,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.166667,
+          "p75": 0.5,
+          "p90": 0.666667,
+          "z_score_vs_nacional": -0.6412
+        },
+        "brecha_genero_media": {
+          "media": 0.084771,
+          "media_pct": 8.48,
+          "p10": 0.055323,
+          "p25": 0.06672,
+          "p50_mediana": 0.080877,
+          "p75": 0.100638,
+          "p90": 0.119313,
+          "z_score_vs_nacional": 0.2098
+        },
+        "brecha_genero_tendencia": {
+          "media": 4.9e-05,
+          "media_pct": 0.0,
+          "p10": -0.00659,
+          "p25": -0.002763,
+          "p50_mediana": 0.0002,
+          "p75": 0.003535,
+          "p90": 0.006779,
+          "z_score_vs_nacional": -0.5314
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.19359,
+          "media_pct": 19.36,
+          "p10": 0.124455,
+          "p25": 0.16111,
+          "p50_mediana": 0.192844,
+          "p75": 0.220131,
+          "p90": 0.262826,
+          "z_score_vs_nacional": 0.6955
+        },
+        "pct_ln_rural": {
+          "media": 0.23778,
+          "media_pct": 23.78,
+          "p10": 0.0,
+          "p25": 0.016928,
+          "p50_mediana": 0.171789,
+          "p75": 0.406517,
+          "p90": 0.572457,
+          "z_score_vs_nacional": -0.3454
+        },
+        "cagr_ln_2009_2024": {
+          "media": 0.019337,
+          "media_pct": 1.93,
+          "p10": 0.004315,
+          "p25": 0.010163,
+          "p50_mediana": 0.015636,
+          "p75": 0.02215,
+          "p90": 0.032878,
+          "z_score_vs_nacional": 0.218
+        },
+        "part_2009": {
+          "media": 0.436812,
+          "media_pct": 43.68,
+          "p10": 0.312927,
+          "p25": 0.369803,
+          "p50_mediana": 0.439201,
+          "p75": 0.502845,
+          "p90": 0.563673,
+          "z_score_vs_nacional": -0.1582
+        },
+        "part_2012": {
+          "media": 0.598882,
+          "media_pct": 59.89,
+          "p10": 0.503808,
+          "p25": 0.557826,
+          "p50_mediana": 0.606688,
+          "p75": 0.651267,
+          "p90": 0.693185,
+          "z_score_vs_nacional": -0.3611
+        },
+        "part_2015": {
+          "media": 0.434372,
+          "media_pct": 43.44,
+          "p10": 0.304811,
+          "p25": 0.378716,
+          "p50_mediana": 0.43728,
+          "p75": 0.501219,
+          "p90": 0.554214,
+          "z_score_vs_nacional": -0.3736
+        },
+        "part_2018": {
+          "media": 0.561773,
+          "media_pct": 56.18,
+          "p10": 0.436492,
+          "p25": 0.509512,
+          "p50_mediana": 0.577275,
+          "p75": 0.628561,
+          "p90": 0.665506,
+          "z_score_vs_nacional": -0.4407
+        },
+        "part_2021": {
+          "media": 0.466476,
+          "media_pct": 46.65,
+          "p10": 0.327421,
+          "p25": 0.397494,
+          "p50_mediana": 0.464169,
+          "p75": 0.532896,
+          "p90": 0.599869,
+          "z_score_vs_nacional": -0.7275
+        },
+        "part_2024": {
+          "media": 0.506576,
+          "media_pct": 50.66,
+          "p10": 0.385215,
+          "p25": 0.454079,
+          "p50_mediana": 0.518067,
+          "p75": 0.570188,
+          "p90": 0.614538,
+          "z_score_vs_nacional": -0.5881
+        },
+        "part_media_presidencial": {
+          "media": 0.555744,
+          "media_pct": 55.57,
+          "p10": 0.458104,
+          "p25": 0.511538,
+          "p50_mediana": 0.564172,
+          "p75": 0.609585,
+          "p90": 0.646171,
+          "z_score_vs_nacional": -0.5771
+        },
+        "part_media_intermedia": {
+          "media": 0.445887,
+          "media_pct": 44.59,
+          "p10": 0.340049,
+          "p25": 0.400388,
+          "p50_mediana": 0.446654,
+          "p75": 0.500246,
+          "p90": 0.544129,
+          "z_score_vs_nacional": -0.5312
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.396528,
+          "media_pct": 39.65,
+          "p10": 0.295998,
+          "p25": 0.350868,
+          "p50_mediana": 0.404471,
+          "p75": 0.45305,
+          "p90": 0.488009,
+          "z_score_vs_nacional": -0.6542
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.52717,
+          "media_pct": 52.72,
+          "p10": 0.437947,
+          "p25": 0.488287,
+          "p50_mediana": 0.530672,
+          "p75": 0.577741,
+          "p90": 0.617312,
+          "z_score_vs_nacional": -0.5799
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.590118,
+          "media_pct": 59.01,
+          "p10": 0.498603,
+          "p25": 0.547252,
+          "p50_mediana": 0.595371,
+          "p75": 0.645471,
+          "p90": 0.684368,
+          "z_score_vs_nacional": -0.2797
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.288842,
+          "media_pct": 28.88,
+          "p10": 0.258758,
+          "p25": 0.272461,
+          "p50_mediana": 0.288592,
+          "p75": 0.30642,
+          "p90": 0.323719,
+          "z_score_vs_nacional": 0.2436
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.174449,
+          "media_pct": 17.44,
+          "p10": 0.12465,
+          "p25": 0.148143,
+          "p50_mediana": 0.17262,
+          "p75": 0.196263,
+          "p90": 0.22677,
+          "z_score_vs_nacional": -0.4486
+        },
+        "pct_ln_urbana": {
+          "media": 0.475031,
+          "media_pct": 47.5,
+          "p10": 0.0,
+          "p25": 0.167232,
+          "p50_mediana": 0.499918,
+          "p75": 0.742478,
+          "p90": 0.934967,
+          "z_score_vs_nacional": 0.3862
+        },
+        "pct_ln_mixta": {
+          "media": 0.287188,
+          "media_pct": 28.72,
+          "p10": 0.0,
+          "p25": 0.072443,
+          "p50_mediana": 0.188225,
+          "p75": 0.423008,
+          "p90": 0.779935,
+          "z_score_vs_nacional": -0.1073
+        },
+        "ln_2024": {
+          "media": 104480.768535,
+          "media_pct": 104480.77,
+          "p10": 1804.4,
+          "p25": 5428.0,
+          "p50_mediana": 33512.0,
+          "p75": 94265.0,
+          "p90": 267129.6,
+          "z_score_vs_nacional": 0.5508
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.269904,
+          "media_pct": 0.27,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.331197,
+          "p90": 0.713341,
+          "z_score_vs_nacional": 0.0077
+        }
+      }
+    },
+    {
+      "cluster_id": 5,
+      "n_municipios": 488,
+      "pct_municipios_nacional": 19.7,
+      "poblacion_lista_nominal_2024": 11612921,
+      "pct_lista_nominal_nacional": 11.81,
+      "n_municipios_baja_confiabilidad": 86,
+      "pct_baja_confiabilidad": 17.62,
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "cagr_ln_2009_2024",
+          "mean_abs_shap": 3.2131,
+          "cluster_mean": 0.00036,
+          "national_mean": 0.01354,
+          "z_score_vs_nacional": -0.4958,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "brecha_genero_media",
+          "mean_abs_shap": 2.33627,
+          "cluster_mean": 0.04597,
+          "national_mean": 0.0772,
+          "z_score_vs_nacional": -0.8662,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "part_media_global",
+          "mean_abs_shap": 0.50707,
+          "cluster_mean": 0.49624,
+          "national_mean": 0.56165,
+          "z_score_vs_nacional": -0.6387,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "constancia_sobre_mediana",
+          "mean_abs_shap": 0.47105,
+          "cluster_mean": 0.25171,
+          "national_mean": 0.49913,
+          "z_score_vs_nacional": -0.704,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "volatilidad",
+          "mean_abs_shap": 0.3132,
+          "cluster_mean": 0.09331,
+          "national_mean": 0.10111,
+          "z_score_vs_nacional": -0.1635,
+          "direccion": "BAJA (-)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "20",
+          "nom_ent": "OAXACA",
+          "n_municipios_en_cluster": 179,
+          "pct_del_cluster": 36.68
+        },
+        {
+          "cve_ent": "30",
+          "nom_ent": "VERACRUZ",
+          "n_municipios_en_cluster": 61,
+          "pct_del_cluster": 12.5
+        },
+        {
+          "cve_ent": "16",
+          "nom_ent": "MICHOACAN",
+          "n_municipios_en_cluster": 56,
+          "pct_del_cluster": 11.48
+        },
+        {
+          "cve_ent": "08",
+          "nom_ent": "CHIHUAHUA",
+          "n_municipios_en_cluster": 43,
+          "pct_del_cluster": 8.81
+        },
+        {
+          "cve_ent": "10",
+          "nom_ent": "DURANGO",
+          "n_municipios_en_cluster": 27,
+          "pct_del_cluster": 5.53
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "30191",
+          "nom_mun": "Vega de Alatorre",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.7987,
+          "part_media_global": 0.5276,
+          "part_media_global_pct": 52.76,
+          "ln_2024": 15198
+        },
+        {
+          "cve_geo": "12058",
+          "nom_mun": "TÃ©cpan de Galeana",
+          "nom_ent": "GUERRERO",
+          "distancia_centroide": 0.8054,
+          "part_media_global": 0.528,
+          "part_media_global_pct": 52.8,
+          "ln_2024": 50603
+        },
+        {
+          "cve_geo": "30173",
+          "nom_mun": "Tierra Blanca",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.8091,
+          "part_media_global": 0.5003,
+          "part_media_global_pct": 50.03,
+          "ln_2024": 74586
+        },
+        {
+          "cve_geo": "08031",
+          "nom_mun": "Guerrero",
+          "nom_ent": "CHIHUAHUA",
+          "distancia_centroide": 0.8735,
+          "part_media_global": 0.4486,
+          "part_media_global_pct": 44.86,
+          "ln_2024": 30790
+        },
+        {
+          "cve_geo": "16038",
+          "nom_mun": "Huetamo",
+          "nom_ent": "MICHOACAN",
+          "distancia_centroide": 0.9091,
+          "part_media_global": 0.4649,
+          "part_media_global_pct": 46.49,
+          "ln_2024": 34332
+        },
+        {
+          "cve_geo": "32007",
+          "nom_mun": "ConcepciÃ³n del Oro",
+          "nom_ent": "ZACATECAS",
+          "distancia_centroide": 0.9265,
+          "part_media_global": 0.5634,
+          "part_media_global_pct": 56.34,
+          "ln_2024": 9795
+        },
+        {
+          "cve_geo": "30204",
+          "nom_mun": "Tres Valles",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.9275,
+          "part_media_global": 0.4651,
+          "part_media_global_pct": 46.51,
+          "ln_2024": 31893
+        },
+        {
+          "cve_geo": "30063",
+          "nom_mun": "Las Choapas",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.9334,
+          "part_media_global": 0.4634,
+          "part_media_global_pct": 46.34,
+          "ln_2024": 56521
+        },
+        {
+          "cve_geo": "30145",
+          "nom_mun": "Sayula de AlemÃ¡n",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.9368,
+          "part_media_global": 0.5468,
+          "part_media_global_pct": 54.68,
+          "ln_2024": 23125
+        },
+        {
+          "cve_geo": "30143",
+          "nom_mun": "San Juan Evangelista",
+          "nom_ent": "VERACRUZ",
+          "distancia_centroide": 0.944,
+          "part_media_global": 0.5144,
+          "part_media_global_pct": 51.44,
+          "ln_2024": 24147
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.380276,
+        "2012": 0.565377,
+        "2015": 0.434418,
+        "2018": 0.556694,
+        "2021": 0.512159,
+        "2024": 0.528525
+      },
+      "trayectoria_media_pct": {
+        "2009": 38.03,
+        "2012": 56.54,
+        "2015": 43.44,
+        "2018": 55.67,
+        "2021": 51.22,
+        "2024": 52.85
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.496241,
+          "media_pct": 49.62,
+          "p10": 0.399155,
+          "p25": 0.452057,
+          "p50_mediana": 0.499926,
+          "p75": 0.547365,
+          "p90": 0.587387,
+          "z_score_vs_nacional": -0.6387
+        },
+        "caida_presidencial_intermedia": {
+          "media": 0.107914,
+          "media_pct": 10.79,
+          "p10": 0.033127,
+          "p25": 0.074487,
+          "p50_mediana": 0.112992,
+          "p75": 0.146952,
+          "p90": 0.174894,
+          "z_score_vs_nacional": 0.0558
+        },
+        "pendiente_tendencia": {
+          "media": 0.019707,
+          "media_pct": 1.97,
+          "p10": -0.005909,
+          "p25": 0.007255,
+          "p50_mediana": 0.01988,
+          "p75": 0.03361,
+          "p90": 0.042238,
+          "z_score_vs_nacional": 0.1987
+        },
+        "volatilidad": {
+          "media": 0.093309,
+          "media_pct": 9.33,
+          "p10": 0.062272,
+          "p25": 0.075302,
+          "p50_mediana": 0.092128,
+          "p75": 0.110336,
+          "p90": 0.123932,
+          "z_score_vs_nacional": -0.1635
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.251708,
+          "media_pct": 25.17,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.166667,
+          "p75": 0.333333,
+          "p90": 0.666667,
+          "z_score_vs_nacional": -0.704
+        },
+        "brecha_genero_media": {
+          "media": 0.045969,
+          "media_pct": 4.6,
+          "p10": 0.006555,
+          "p25": 0.028061,
+          "p50_mediana": 0.049351,
+          "p75": 0.066341,
+          "p90": 0.08421,
+          "z_score_vs_nacional": -0.8662
+        },
+        "brecha_genero_tendencia": {
+          "media": 0.005433,
+          "media_pct": 0.54,
+          "p10": -0.00339,
+          "p25": 0.000851,
+          "p50_mediana": 0.004872,
+          "p75": 0.010167,
+          "p90": 0.014276,
+          "z_score_vs_nacional": 0.0983
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.144134,
+          "media_pct": 14.41,
+          "p10": 0.0466,
+          "p25": 0.094874,
+          "p50_mediana": 0.14617,
+          "p75": 0.196858,
+          "p90": 0.243772,
+          "z_score_vs_nacional": 0.0374
+        },
+        "pct_ln_rural": {
+          "media": 0.352168,
+          "media_pct": 35.22,
+          "p10": 0.0,
+          "p25": 0.092619,
+          "p50_mediana": 0.365387,
+          "p75": 0.560187,
+          "p90": 0.708866,
+          "z_score_vs_nacional": 0.063
+        },
+        "cagr_ln_2009_2024": {
+          "media": 0.000355,
+          "media_pct": 0.04,
+          "p10": -0.01095,
+          "p25": -0.004975,
+          "p50_mediana": 0.001444,
+          "p75": 0.006522,
+          "p90": 0.010644,
+          "z_score_vs_nacional": -0.4958
+        },
+        "part_2009": {
+          "media": 0.380276,
+          "media_pct": 38.03,
+          "p10": 0.268554,
+          "p25": 0.306767,
+          "p50_mediana": 0.385693,
+          "p75": 0.44105,
+          "p90": 0.500369,
+          "z_score_vs_nacional": -0.5724
+        },
+        "part_2012": {
+          "media": 0.565377,
+          "media_pct": 56.54,
+          "p10": 0.445125,
+          "p25": 0.508862,
+          "p50_mediana": 0.57946,
+          "p75": 0.631361,
+          "p90": 0.67118,
+          "z_score_vs_nacional": -0.6701
+        },
+        "part_2015": {
+          "media": 0.434418,
+          "media_pct": 43.44,
+          "p10": 0.290174,
+          "p25": 0.362559,
+          "p50_mediana": 0.439236,
+          "p75": 0.509783,
+          "p90": 0.583202,
+          "z_score_vs_nacional": -0.3733
+        },
+        "part_2018": {
+          "media": 0.556694,
+          "media_pct": 55.67,
+          "p10": 0.445148,
+          "p25": 0.508264,
+          "p50_mediana": 0.566495,
+          "p75": 0.62154,
+          "p90": 0.661124,
+          "z_score_vs_nacional": -0.4799
+        },
+        "part_2021": {
+          "media": 0.512159,
+          "media_pct": 51.22,
+          "p10": 0.357143,
+          "p25": 0.433341,
+          "p50_mediana": 0.511938,
+          "p75": 0.586598,
+          "p90": 0.672213,
+          "z_score_vs_nacional": -0.427
+        },
+        "part_2024": {
+          "media": 0.528525,
+          "media_pct": 52.85,
+          "p10": 0.412862,
+          "p25": 0.48149,
+          "p50_mediana": 0.534309,
+          "p75": 0.585255,
+          "p90": 0.635023,
+          "z_score_vs_nacional": -0.4189
+        },
+        "part_media_presidencial": {
+          "media": 0.550199,
+          "media_pct": 55.02,
+          "p10": 0.451288,
+          "p25": 0.502579,
+          "p50_mediana": 0.555553,
+          "p75": 0.601055,
+          "p90": 0.642468,
+          "z_score_vs_nacional": -0.6327
+        },
+        "part_media_intermedia": {
+          "media": 0.442284,
+          "media_pct": 44.23,
+          "p10": 0.328279,
+          "p25": 0.389731,
+          "p50_mediana": 0.443284,
+          "p75": 0.498892,
+          "p90": 0.540755,
+          "z_score_vs_nacional": -0.561
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.399157,
+          "media_pct": 39.92,
+          "p10": 0.283273,
+          "p25": 0.353262,
+          "p50_mediana": 0.410866,
+          "p75": 0.456065,
+          "p90": 0.491144,
+          "z_score_vs_nacional": -0.6324
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.521352,
+          "media_pct": 52.14,
+          "p10": 0.416613,
+          "p25": 0.474263,
+          "p50_mediana": 0.52271,
+          "p75": 0.574857,
+          "p90": 0.623807,
+          "z_score_vs_nacional": -0.6354
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.543291,
+          "media_pct": 54.33,
+          "p10": 0.438067,
+          "p25": 0.48817,
+          "p50_mediana": 0.544096,
+          "p75": 0.596387,
+          "p90": 0.647516,
+          "z_score_vs_nacional": -0.7701
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.245263,
+          "media_pct": 24.53,
+          "p10": 0.197408,
+          "p25": 0.221588,
+          "p50_mediana": 0.245376,
+          "p75": 0.271783,
+          "p90": 0.293469,
+          "z_score_vs_nacional": -0.8145
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.253164,
+          "media_pct": 25.32,
+          "p10": 0.176946,
+          "p25": 0.204148,
+          "p50_mediana": 0.240891,
+          "p75": 0.289948,
+          "p90": 0.346114,
+          "z_score_vs_nacional": 0.8766
+        },
+        "pct_ln_urbana": {
+          "media": 0.331938,
+          "media_pct": 33.19,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.261238,
+          "p75": 0.557558,
+          "p90": 0.94528,
+          "z_score_vs_nacional": -0.0468
+        },
+        "pct_ln_mixta": {
+          "media": 0.315894,
+          "media_pct": 31.59,
+          "p10": 0.0,
+          "p25": 0.079252,
+          "p50_mediana": 0.232233,
+          "p75": 0.456541,
+          "p90": 0.798664,
+          "z_score_vs_nacional": -0.0076
+        },
+        "ln_2024": {
+          "media": 23796.969262,
+          "media_pct": 23796.97,
+          "p10": 604.5,
+          "p25": 1539.0,
+          "p50_mediana": 6650.5,
+          "p75": 20551.75,
+          "p90": 37981.0,
+          "z_score_vs_nacional": -0.1352
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.260637,
+          "media_pct": 0.26,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.0,
+          "p90": 0.698538,
+          "z_score_vs_nacional": -0.0028
+        }
+      }
+    }
+  ]
+}
