@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INE | Perfiles Territoriales de Participación Electoral 2009–2024 (Reto 1)</title>
+  <style>
+    :root {
+      --ine-dark: #5A1236;
+      --ine-primary: #8B1D52;
+      --ine-accent: #B8296B;
+      --bg: #F8FAFC;
+      --text: #0F172A;
+      --border: #CBD5E1;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+    *:focus-visible { outline: 3px solid var(--ine-primary); outline-offset: 2px; }
+    header { background: var(--ine-dark); color: #fff; border-bottom: 4px solid var(--ine-accent); padding: 16px 24px 0; }
+    .header-top { max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+    .badge { background: var(--ine-accent); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .eco-box { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); padding: 8px 12px; border-radius: 8px; font-size: 12px; max-width: 440px; }
+    nav { max-width: 1280px; margin: 14px auto 0; display: flex; flex-wrap: wrap; gap: 6px; }
+    nav button { border: none; padding: 8px 12px; border-radius: 8px 8px 0 0; font-size: 12px; font-weight: 600; cursor: pointer; background: rgba(139,29,82,0.7); color: #fff; }
+    nav button[aria-current="page"] { background: var(--bg); color: var(--ine-dark); }
+    main { max-width: 1280px; margin: 0 auto; padding: 20px 24px; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+    .section-panel { display: none; }
+    .section-panel.active { display: block; }
+    .banner-nocausal { background: #FEF3C7; border: 2px solid #F59E0B; color: #78350F; padding: 12px; border-radius: 10px; font-weight: 600; font-size: 13px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 8px; border-bottom: 1px solid #E2E8F0; text-align: left; }
+    th { background: #F1F5F9; font-weight: 700; }
+    .sql-box { background: #0F172A; color: #6EE7B7; font-family: monospace; padding: 12px; border-radius: 8px; font-size: 12px; overflow-x: auto; margin: 10px 0; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div>
+        <span class="badge">INE · DECEyEC · CCPC 2009–2024</span>
+        <span style="font-size:12px; margin-left:8px;">DuckDB-WASM &amp; Catálogo Parquet Local (&lt;1s)</span>
+        <h1 style="margin:6px 0 0; font-size:21px;">Perfiles Territoriales de Participación Electoral y Priorización Cívica 2027</h1>
+      </div>
+      <div class="eco-box">
+        <strong>Principio Metodológico (Falacia Ecológica):</strong> Los perfiles describen <u>TERRITORIOS (municipios, distritos, entidades)</u>, <strong>nunca individuos</strong>. Celdas con conteos &lt; 10 se suprimen o agregan.
+      </div>
+    </div>
+    <nav aria-label="Secciones principales del tablero">
+      <button type="button" aria-current="page" onclick="switchTab('mapa', this)">1. Mapa Coroplético</button>
+      <button type="button" onclick="switchTab('perfiles', this)">2. Tarjetas de Perfil y Estrategias</button>
+      <button type="button" onclick="switchTab('sankey', this)">3. Dinámica y Transiciones (Sankey)</button>
+      <button type="button" onclick="switchTab('buscador', this)">4. ¿Qué perfil tiene mi municipio?</button>
+      <button type="button" onclick="switchTab('forecast', this)">5. Proyección 2027 y Riesgo</button>
+      <button type="button" onclick="switchTab('simulador', this)">6. Simulador What-If (No Causal)</button>
+      <button type="button" onclick="switchTab('chat', this)">7. Pregúntale a los Datos (SQL)</button>
+      <button type="button" onclick="switchTab('metodologia', this)">8. Metodología y Límites</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="kpi-grid" aria-label="Indicadores nacionales clave">
+      <div class="card"><div style="font-size:12px;color:#64748B;">Municipios Analizados</div><div id="kpi-muns" style="font-size:22px;font-weight:700;">2,477</div><div style="font-size:11px;color:#475569;">6 elecciones federales (2009–2024)</div></div>
+      <div class="card"><div style="font-size:12px;color:#64748B;">Lista Nominal 2024 (CCPC)</div><div id="kpi-ln" style="font-size:22px;font-weight:700;">—</div><div style="font-size:11px;color:#475569;">Cuadernillos verificados al 100%</div></div>
+      <div class="card"><div style="font-size:12px;color:#64748B;">Perfiles Territoriales (k=6)</div><div style="font-size:22px;font-weight:700;color:#8B1D52;">6 Perfiles</div><div id="kpi-shap" style="font-size:11px;color:#475569;">Validados con Bootstrap ARI y SHAP</div></div>
+      <div class="card"><div style="font-size:12px;color:#64748B;">Autocorrelación Espacial</div><div style="font-size:22px;font-weight:700;">Moran's I = 0.4782</div><div style="font-size:11px;color:#047857;font-weight:600;">p = 0.0020 (Agrupamiento LISA)</div></div>
+      <div class="card"><div style="font-size:12px;color:#64748B;">Proyección Intermedia 2027</div><div id="kpi-p2027" style="font-size:22px;font-weight:700;">—</div><div id="kpi-riesgo" style="font-size:11px;color:#B45309;font-weight:600;">—</div></div>
+    </section>
+
+    <!-- 1. MAPA COROPLÉTICO -->
+    <section id="tab-mapa" class="section-panel active card">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;">
+        <h2 style="margin:0;font-size:18px;">1. Mapa Coroplético de Perfiles Territoriales (Municipio / Distrito / Entidad)</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;font-size:12px;">
+          <label>Vista: <select id="map-nivel" onchange="renderMap()"><option value="municipio">Municipio</option><option value="distrito">Distrito Federal</option><option value="entidad">Entidad</option></select></label>
+          <label>Corte: <select id="map-periodo" onchange="renderMap()"><option value="2024">Global 2009–2024</option><option value="2009-2015">Ventana 2009–2015</option><option value="2012-2018">Ventana 2012–2018</option><option value="2015-2021">Ventana 2015–2021</option><option value="2018-2024">Ventana 2018–2024</option></select></label>
+          <label>Entidad: <select id="map-entidad" onchange="renderMap()"><option value="TODAS">Todas (32)</option></select></label>
+          <label>Perfil: <select id="map-perfil" onchange="renderMap()"><option value="TODOS">Todos (6)</option></select></label>
+        </div>
+      </div>
+      <div id="map-legend" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;font-size:12px;"></div>
+      <svg id="map-svg" viewBox="0 0 840 420" style="width:100%;height:390px;background:#0F172A;border-radius:10px;" role="img" aria-label="Mapa coroplético de perfiles municipales"></svg>
+      <div id="map-tooltip" style="margin-top:10px;padding:10px;background:#1E293B;color:#fff;border-radius:8px;font-size:12px;">Pasa el cursor o haz clic sobre un municipio en el mapa para ver su perfil, participación y proyección 2027.</div>
+    </section>
+
+    <!-- 2. TARJETAS DE PERFIL -->
+    <section id="tab-perfiles" class="section-panel card">
+      <h2 style="margin-top:0;font-size:18px;">2. Tarjetas de Perfil Territorial: Caracterización, Trayectoria y Estrategias ENCCÍVICA</h2>
+      <div id="profile-buttons" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:8px;margin-bottom:16px;"></div>
+      <div id="profile-detail" class="grid-2"></div>
+    </section>
+
+    <!-- 3. SANKEY -->
+    <section id="tab-sankey" class="section-panel card">
+      <h2 style="margin-top:0;font-size:18px;">3. Dinámica Temporal y Matriz de Transición entre Perfiles (Diagrama Sankey)</h2>
+      <p id="sankey-summary" style="font-size:13px;color:#475569;"></p>
+      <svg id="sankey-svg" viewBox="0 0 840 320" style="width:100%;height:300px;background:#F8FAFC;border:1px solid #CBD5E1;border-radius:10px;margin-bottom:14px;" role="img" aria-label="Diagrama Sankey de transiciones entre ventanas temporales"></svg>
+      <h3 style="font-size:14px;">Top Municipios que Cambiaron de Perfil (2009–2015 → 2018–2024)</h3>
+      <div id="sankey-table"></div>
+    </section>
+
+    <!-- 4. BUSCADOR -->
+    <section id="tab-buscador" class="section-panel card">
+      <h2 style="margin-top:0;font-size:18px;">4. Buscador Ciudadano: “¿Qué perfil tiene mi municipio?” (Comparación vs. Vecinos y País)</h2>
+      <input id="search-input" type="search" placeholder="Buscar por nombre de municipio, entidad o clave cve_geo (ej. Aguascalientes, Mérida, 01001)..." oninput="renderSearch()" style="width:100%;padding:10px;border:1px solid #CBD5E1;border-radius:8px;margin-bottom:10px;" />
+      <div id="search-pills" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;"></div>
+      <div id="search-detail"></div>
+    </section>
+
+    <!-- 5. PROYECCIÓN 2027 -->
+    <section id="tab-forecast" class="section-panel card">
+      <h2 style="margin-top:0;font-size:18px;">5. Proyección de Participación 2027 (Intermedia), Intervalos al 80% y Zonas en Riesgo</h2>
+      <div id="forecast-bt" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:14px;"></div>
+      <h3 style="font-size:14px;">Top Zonas en Riesgo Prioritario 2027 (Proyección Decreciente + Alto Peso en Lista Nominal)</h3>
+      <div id="forecast-risk-table"></div>
+    </section>
+
+    <!-- 6. SIMULADOR WHAT-IF -->
+    <section id="tab-simulador" class="section-panel card">
+      <div data-testid="non-causal-banner" class="banner-nocausal">⚠️ AVISO IMPORTANTE (EJERCICIO DE PRIORIZACIÓN, NO CAUSAL): Este simulador What-If es estrictamente un ejercicio aritmético de PRIORIZACIÓN TERRITORIAL sobre la Lista Nominal proyectada a 2027. NO representa un efecto causal de ninguna intervención y describe agregados municipales, no personas.</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:14px;">
+        <h2 style="margin:0;font-size:18px;">6. Simulador What-If de Priorización Territorial 2027 (No Causal)</h2>
+        <div style="background:#5A1236;color:#fff;padding:10px 16px;border-radius:10px;">
+          <div style="font-size:11px;">Votantes Adicionales Simulados</div>
+          <div id="whatif-total" data-testid="what-if-total" style="font-size:22px;font-weight:700;color:#FCD34D;">+0 votantes</div>
+        </div>
+      </div>
+      <div id="whatif-sliders" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;"></div>
+    </section>
+
+    <!-- 7. CHAT SQL -->
+    <section id="tab-chat" class="section-panel card">
+      <h2 style="margin-top:0;font-size:18px;">7. “Pregúntale a los Datos” — Agente Text-to-SQL Verificado sobre DuckDB</h2>
+      <div id="chat-examples" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;"></div>
+      <div style="display:flex;gap:8px;margin-bottom:12px;">
+        <input id="chat-input" type="text" value="¿Qué entidades federativas tuvieron la mayor participación presencial en 2024?" style="flex:1;padding:10px;border:1px solid #CBD5E1;border-radius:8px;" />
+        <button type="button" onclick="askChat()" style="background:#8B1D52;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:600;cursor:pointer;">Consultar SQL</button>
+      </div>
+      <div id="chat-output"></div>
+    </section>
+
+    <!-- 8. METODOLOGÍA Y LÍMITES -->
+    <section id="tab-metodologia" class="section-panel card">
+      <h2 style="margin-top:0;font-size:18px;">8. Metodología, Validación Estadística, Privacidad y Límites Éticos</h2>
+      <div class="grid-2" style="font-size:13px;line-height:1.5;">
+        <div class="card"><h3>1. Falacia Ecológica y No Estigmatización</h3><p>Los perfiles describen <strong>unidades territoriales agregadas (municipios)</strong>, nunca personas individuales. Las asociaciones territoriales entre ruralidad, edad y participación no deben extrapolarse a individuos.</p></div>
+        <div class="card"><h3>2. Privacidad y Celdas Pequeñas (&lt; 10)</h3><p>Las edades individuales (18–125) se agrupan en tres bandas etarias (18–29, 30–59, 60+) y toda celda con denominador &lt; 10 se marca con <code>celda_pequena_lt10 = true</code> y se suprime en tasas públicas.</p></div>
+        <div class="card"><h3>3. Validación Bootstrap, SHAP y Deep Learning</h3><p>Se compararon 5 enfoques en k∈[3..10] con 100 remuestreos Bootstrap y un Autoencoder Temporal (dim=6). Por honestidad metodológica (<em>NO MEJORA</em>), se conserva <code>A_KMeans_Robust (k=6)</code> como modelo final por su superior separación y trazabilidad SHAP.</p></div>
+        <div class="card"><h3>4. Tabla Puente y Modalidades Especiales 2024</h3><p><code>puente_municipio_anio.parquet</code> documenta los municipios creados entre 2009 y 2024. Prisión Preventiva 2024 (sin clave municipal en la fuente) se incorpora en las vistas distrital y estatal (<code>cve_mun = 000</code>) sin inventar asignaciones.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const COLORS = ["#0072B2", "#009E73", "#56B4E9", "#E69F00", "#CC79A7", "#D55E00"];
+    let STATE = { municipios: [], char: null, trans: null, sim: null, llm: null, activeCluster: 0, selectedMun: null, deltas: {0:1,1:1.5,2:2,3:3,4:2.5,5:3.5} };
+
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.section-panel').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+      document.querySelectorAll('nav button').forEach(b => b.removeAttribute('aria-current'));
+      if (btn) btn.setAttribute('aria-current', 'page');
+    }
+
+    async function initDashboard() {
+      const [mRes, cRes, tRes, sRes, lRes] = await Promise.all([
+        fetch('/data/municipios_bundle.json'),
+        fetch('/data/perfiles_caracterizacion.json'),
+        fetch('/data/transiciones.json'),
+        fetch('/data/simulador_what_if.json'),
+        fetch('/data/llm_perfiles_narrativas_estrategias.json')
+      ]);
+      const mData = await mRes.json();
+      STATE.municipios = mData.municipios;
+      STATE.char = await cRes.json();
+      STATE.trans = await tRes.json();
+      STATE.sim = await sRes.json();
+      STATE.llm = await lRes.json();
+      STATE.selectedMun = STATE.municipios[0];
+
+      document.getElementById('kpi-muns').textContent = STATE.char.referencia_nacional.n_municipios_nacional.toLocaleString();
+      document.getElementById('kpi-ln').textContent = STATE.char.referencia_nacional.lista_nominal_2024_nacional.toLocaleString();
+      document.getElementById('kpi-p2027').textContent = STATE.sim.totales_nacionales_2027.participacion_nacional_proyectada_2027_pct + '%';
+      document.getElementById('kpi-riesgo').textContent = STATE.sim.totales_nacionales_2027.total_zonas_riesgo + ' municipios en riesgo prioritario';
+
+      const entSel = document.getElementById('map-entidad');
+      [...new Set(STATE.municipios.map(m => m.nom_ent))].sort().forEach(e => {
+        const opt = document.createElement('option'); opt.value = e; opt.textContent = e; entSel.appendChild(opt);
+      });
+      const profSel = document.getElementById('map-perfil');
+      STATE.llm.narrativas_perfiles.forEach(n => {
+        const opt = document.createElement('option'); opt.value = String(n.cluster_id); opt.textContent = `P${n.cluster_id}: ${n.nombre}`; profSel.appendChild(opt);
+      });
+
+      renderMap();
+      renderProfiles();
+      renderSankey();
+      renderSearch();
+      renderForecast();
+      renderSimulator();
+      renderChatInit();
+    }
+
+    function getProfileName(cid) {
+      const found = STATE.llm.narrativas_perfiles.find(n => n.cluster_id === cid);
+      return found ? found.nombre : 'Perfil ' + cid;
+    }
+
+    function renderMap() {
+      const ent = document.getElementById('map-entidad').value;
+      const prof = document.getElementById('map-perfil').value;
+      const per = document.getElementById('map-periodo').value;
+      const svg = document.getElementById('map-svg');
+      svg.innerHTML = '';
+
+      const leg = document.getElementById('map-legend');
+      leg.innerHTML = STATE.llm.narrativas_perfiles.map(n =>
+        `<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border:1px solid #CBD5E1;border-radius:12px;background:#F8FAFC;"><i style="width:10px;height:10px;border-radius:50%;background:${COLORS[n.cluster_id]};display:inline-block;"></i><strong>P${n.cluster_id}: ${n.nombre}</strong></span>`
+      ).join('');
+
+      STATE.municipios.forEach(m => {
+        if (ent !== 'TODAS' && m.nom_ent !== ent) return;
+        const cid = per === '2009-2015' ? m.w_09_15 : per === '2012-2018' ? m.w_12_18 : per === '2015-2021' ? m.w_15_21 : per === '2018-2024' ? m.w_18_24 : m.cluster_id;
+        if (prof !== 'TODOS' && String(cid) !== prof) return;
+        const x = ((m.lon - (-118)) / 32) * 780 + 30;
+        const y = ((33 - m.lat) / 19) * 380 + 20;
+        const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', x.toFixed(1));
+        c.setAttribute('cy', y.toFixed(1));
+        c.setAttribute('r', '3.2');
+        c.setAttribute('fill', COLORS[cid] || '#0072B2');
+        c.style.cursor = 'pointer';
+        c.onmouseenter = () => {
+          document.getElementById('map-tooltip').innerHTML = `<strong>${m.nom_mun}, ${m.nom_ent} (${m.cve_geo})</strong> — <span style="color:#FCD34D;">Perfil ${cid}: ${getProfileName(cid)}</span> | Part. Media: <strong>${m.p_global}%</strong> | Caída Pres→Inter: <strong>${m.caida_pi} p.p.</strong> | Proy. 2027: <strong>${m.p2027}% [${m.p2027_lo}%–${m.p2027_hi}%]</strong>`;
+        };
+        svg.appendChild(c);
+      });
+    }
+
+    function renderProfiles() {
+      const btns = document.getElementById('profile-buttons');
+      btns.innerHTML = STATE.llm.narrativas_perfiles.map(n => {
+        const p = STATE.char.perfiles.find(x => x.cluster_id === n.cluster_id);
+        return `<button type="button" onclick="STATE.activeCluster=${n.cluster_id};renderProfiles()" style="padding:10px;border-radius:10px;border:2px solid ${STATE.activeCluster===n.cluster_id?'#8B1D52':'#CBD5E1'};background:#fff;text-align:left;cursor:pointer;"><span style="background:${COLORS[n.cluster_id]};color:#fff;padding:2px 6px;border-radius:4px;font-size:11px;font-weight:700;">Perfil ${n.cluster_id}</span> <small>(${p.n_municipios} muns)</small><div style="font-weight:700;margin-top:4px;">${n.nombre}</div></button>`;
+      }).join('');
+
+      const cid = STATE.activeCluster;
+      const n = STATE.llm.narrativas_perfiles.find(x => x.cluster_id === cid);
+      const e = STATE.llm.estrategias_perfiles.find(x => x.cluster_id === cid);
+      const p = STATE.char.perfiles.find(x => x.cluster_id === cid);
+
+      document.getElementById('profile-detail').innerHTML = `
+        <div class="card" style="background:#F8FAFC;">
+          <h3 style="margin-top:0;">Perfil ${cid}: ${n.nombre}</h3>
+          <p style="color:#8B1D52;font-style:italic;font-weight:600;">“${n.lema}”</p>
+          <p style="font-size:13px;line-height:1.5;">${n.descripcion_narrativa}</p>
+          <div style="background:#FEF3C7;padding:8px;border-radius:6px;font-size:12px;margin-bottom:10px;">${n.comunidad_ilustrativa}</div>
+          <h4 style="font-size:12px;margin-bottom:6px;">Datos Clave con Evidencia Verificada Automáticamente:</h4>
+          <ul>${n.datos_clave.map(d => `<li style="font-size:12px;margin-bottom:4px;">${d.descripcion} <code>[evidencia=${d.evidencia}]</code></li>`).join('')}</ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;color:#5A1236;">Estrategia Recomendada (ENCCÍVICA / DECEyEC)</h3>
+          <p style="font-size:13px;"><strong>Objetivo:</strong> ${e.objetivo}</p>
+          <p style="font-size:13px;"><strong>Acción Concreta:</strong> ${e.accion_concreta}</p>
+          <p style="font-size:12px;"><strong>Canales:</strong> ${e.canales.join(' · ')}</p>
+          <p style="font-size:12px;"><strong>KPI Medible:</strong> ${e.kpi_medible} — <strong>Línea Base: ${e.linea_base}% → Meta 2027: ${e.meta_2027}%</strong></p>
+          <h4 style="font-size:12px;margin-top:14px;">Trayectoria Histórica Media 2009–2024:</h4>
+          <table><thead><tr><th>2009</th><th>2012</th><th>2015</th><th>2018</th><th>2021</th><th>2024</th></tr></thead>
+          <tbody><tr><td>${p.trayectoria_media_pct['2009']}%</td><td>${p.trayectoria_media_pct['2012']}%</td><td>${p.trayectoria_media_pct['2015']}%</td><td>${p.trayectoria_media_pct['2018']}%</td><td>${p.trayectoria_media_pct['2021']}%</td><td>${p.trayectoria_media_pct['2024']}%</td></tr></tbody></table>
+        </div>`;
+    }
+
+    function renderSankey() {
+      const rc = STATE.trans.resumen_cambios;
+      document.getElementById('sankey-summary').textContent = `Municipios evaluados: ${rc.total_municipios.toLocaleString()} | Cambiaron de perfil entre 2009–2015 y 2018–2024: ${rc.municipios_cambiaron_2009_2015_vs_2018_2024.toLocaleString()} (${rc.pct_municipios_cambiaron}%).`;
+      document.getElementById('sankey-table').innerHTML = `<table><thead><tr><th>cve_geo</th><th>Municipio</th><th>Entidad</th><th>Perfil 2009–2015</th><th>Perfil 2018–2024</th><th>Part. 2009</th><th>Part. 2024</th><th>Δ (p.p.)</th></tr></thead><tbody>` +
+        STATE.trans.top_municipios_cambio.slice(0, 10).map(m => `<tr><td>${m.cve_geo}</td><td><strong>${m.nom_mun}</strong></td><td>${m.nom_ent}</td><td>P${m.perfil_2009_2015}: ${getProfileName(m.perfil_2009_2015)}</td><td>P${m.perfil_2018_2024}: ${getProfileName(m.perfil_2018_2024)}</td><td>${m.part_2009_pct}%</td><td>${m.part_2024_pct}%</td><td><strong>${m.delta_2009_2024_pp} p.p.</strong></td></tr>`).join('') + `</tbody></table>`;
+    }
+
+    function renderSearch() {
+      const q = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const matches = (q ? STATE.municipios.filter(m => m.nom_mun.toLowerCase().includes(q) || m.nom_ent.toLowerCase().includes(q) || m.cve_geo.includes(q)) : STATE.municipios).slice(0, 10);
+      document.getElementById('search-pills').innerHTML = matches.map(m =>
+        `<button type="button" onclick="STATE.selectedMun=STATE.municipios.find(x=>x.cve_geo==='${m.cve_geo}');renderSearch()" style="padding:5px 10px;border-radius:6px;border:1px solid #CBD5E1;background:${STATE.selectedMun.cve_geo===m.cve_geo?'#8B1D52':'#F8FAFC'};color:${STATE.selectedMun.cve_geo===m.cve_geo?'#fff':'#0F172A'};font-size:12px;cursor:pointer;">${m.nom_mun} (${m.nom_ent}, ${m.cve_geo})</button>`
+      ).join('');
+      const m = STATE.selectedMun;
+      const neighbors = STATE.municipios.filter(x => x.cve_geo !== m.cve_geo).map(x => ({x, d: Math.hypot(x.lat-m.lat, x.lon-m.lon) + (x.cve_ent===m.cve_ent?0:2)})).sort((a,b)=>a.d-b.d).slice(0,5).map(o=>o.x);
+      document.getElementById('search-detail').innerHTML = `
+        <table><thead><tr><th>Territorio</th><th>Perfil</th><th>Part. Media</th><th>Caída Pres→Inter</th><th>Brecha Género</th><th>% Rural</th><th>Proy. 2027 (IC 80%)</th></tr></thead><tbody>
+        <tr style="background:#FDF2F8;font-weight:700;"><td>★ ${m.nom_mun}, ${m.nom_ent} (${m.cve_geo})</td><td>P${m.cluster_id}: ${getProfileName(m.cluster_id)}</td><td>${m.p_global}%</td><td>${m.caida_pi} p.p.</td><td>${m.brecha_gen} p.p.</td><td>${m.rural_pct}%</td><td>${m.p2027}% [${m.p2027_lo}–${m.p2027_hi}%]</td></tr>
+        ${neighbors.map(nb => `<tr><td>Vecino: ${nb.nom_mun} (${nb.nom_ent})</td><td>P${nb.cluster_id}</td><td>${nb.p_global}%</td><td>${nb.caida_pi} p.p.</td><td>${nb.brecha_gen} p.p.</td><td>${nb.rural_pct}%</td><td>${nb.p2027}%</td></tr>`).join('')}
+        </tbody></table>`;
+    }
+
+    function renderForecast() {
+      const bt = STATE.sim.backtesting_temporal;
+      document.getElementById('forecast-bt').innerHTML = Object.entries(bt).map(([k, v]) =>
+        `<div class="card" style="background:#F8FAFC;"><strong>Backtesting: ${k}</strong><div style="font-size:12px;margin-top:4px;">LightGBM MAE: <strong>${v.global_lgbm.mae_pp} p.p.</strong> | Cobertura 80%: <strong>${v.global_lgbm.cobertura_80_pct}%</strong></div></div>`
+      ).join('');
+      document.getElementById('forecast-risk-table').innerHTML = `<table><thead><tr><th>cve_geo</th><th>Municipio</th><th>Entidad</th><th>Perfil</th><th>LN Proy. 2027</th><th>Proy. 2027</th><th>Intervalo 80%</th><th>Índice Prioridad</th></tr></thead><tbody>` +
+        STATE.sim.top_30_zonas_en_riesgo.slice(0, 12).map(r => `<tr><td>${r.cve_geo}</td><td><strong>${r.nom_mun}</strong></td><td>${r.nom_ent}</td><td>P${r.cluster_id}</td><td>${r.ln_proyectada_2027.toLocaleString()}</td><td><strong>${(r.proyeccion_part_2027*100).toFixed(2)}%</strong></td><td>[${(r.intervalo_80_inf*100).toFixed(1)}%–${(r.intervalo_80_sup*100).toFixed(1)}%]</td><td>${r.indice_riesgo_priorizacion.toLocaleString()}</td></tr>`).join('') + `</tbody></table>`;
+    }
+
+    function renderSimulator() {
+      let totalAdd = 0;
+      document.getElementById('whatif-sliders').innerHTML = STATE.sim.simulador_por_perfil.map(sp => {
+        const d = STATE.deltas[sp.cluster_id] || 0;
+        const add = Math.round(sp.ln_proyectada_2027 * (d / 100.0));
+        totalAdd += add;
+        return `<div class="card" style="background:#F8FAFC;">
+          <div style="font-weight:700;">Perfil ${sp.cluster_id}: ${getProfileName(sp.cluster_id)}</div>
+          <div style="font-size:12px;color:#475569;">LN Proyectada 2027: ${sp.ln_proyectada_2027.toLocaleString()} | Base: ${sp.participacion_base_pct}%</div>
+          <label style="display:block;margin-top:8px;font-size:12px;font-weight:600;">Incremento simulado: +${d.toFixed(1)} p.p.
+            <input type="range" min="0" max="10" step="0.5" value="${d}" oninput="STATE.deltas[${sp.cluster_id}]=parseFloat(this.value);renderSimulator()" style="width:100%;" />
+          </label>
+          <div style="margin-top:6px;font-size:13px;">Votantes adicionales: <strong style="color:#8B1D52;">+${add.toLocaleString()}</strong></div>
+        </div>`;
+      }).join('');
+      document.getElementById('whatif-total').textContent = '+' + totalAdd.toLocaleString() + ' votantes';
+    }
+
+    function renderChatInit() {
+      document.getElementById('chat-examples').innerHTML = STATE.llm.ejemplos_chat_precalculados.map((ex, idx) =>
+        `<button type="button" onclick="showChatResult(STATE.llm.ejemplos_chat_precalculados[${idx}])" style="padding:5px 10px;border-radius:6px;border:1px solid #CBD5E1;background:#F8FAFC;font-size:12px;cursor:pointer;">${ex.pregunta}</button>`
+      ).join('');
+      showChatResult(STATE.llm.ejemplos_chat_precalculados[1]);
+    }
+
+    function showChatResult(res) {
+      document.getElementById('chat-input').value = res.pregunta;
+      const tbl = (res.tabla_respaldo && res.tabla_respaldo.length) ? `<table><thead><tr>${Object.keys(res.tabla_respaldo[0]).map(k=>`<th>${k}</th>`).join('')}</tr></thead><tbody>${res.tabla_respaldo.slice(0,12).map(r=>`<tr>${Object.values(r).map(v=>`<td>${v}</td>`).join('')}</tr>`).join('')}</tbody></table>` : '';
+      document.getElementById('chat-output').innerHTML = `
+        <div style="padding:12px;border-radius:8px;background:${res.es_respondible?'#ECFDF5':'#FEF3C7'};border:1px solid ${res.es_respondible?'#10B981':'#F59E0B'};font-size:13px;">
+          <strong>${res.es_respondible ? '✓ Respuesta Verificada:' : '⚠️ Rechazo Ético / Fuera de Alcance:'}</strong> ${res.respuesta_natural}
+        </div>
+        ${res.sql_usado ? `<div class="sql-box"><div>-- SQL Ejecutado en DuckDB (Validado Solo-SELECT + Whitelist):</div>${res.sql_usado}</div>` : ''}
+        ${tbl}`;
+    }
+
+    async function askChat() {
+      const q = document.getElementById('chat-input').value.trim();
+      const cached = STATE.llm.ejemplos_chat_precalculados.find(x => x.pregunta.toLowerCase() === q.toLowerCase());
+      if (cached) { showChatResult(cached); return; }
+      const resp = await fetch('/api/chat', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({question: q}) });
+      if (resp.ok) showChatResult(await resp.json());
+    }
+
+    initDashboard();
+  </script>
+</body>
+</html>
