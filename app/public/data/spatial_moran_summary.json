@@ -1,0 +1,13 @@
+{
+  "moran_global_I": 0.4781542076988394,
+  "moran_global_p_sim": 0.002,
+  "moran_global_z_sim": 52.84287182206208,
+  "n_municipios": 2477,
+  "lisa_counts": {
+    "NS (No significativo)": 1450,
+    "HH (Alto-Alto)": 437,
+    "LL (Bajo-Bajo)": 418,
+    "HL (Alto-Bajo)": 91,
+    "LH (Bajo-Alto)": 81
+  }
+}

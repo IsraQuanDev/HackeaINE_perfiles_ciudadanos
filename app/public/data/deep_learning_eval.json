@@ -1,0 +1,25 @@
+{
+  "backend": "Neural Autoencoder CPU (Arquitectura 16-6-16, tanh, seed=42)",
+  "latent_dim": 6,
+  "reconstruction_mse": 0.091679,
+  "k_evaluated": 6,
+  "ari_vs_baseline_winner": 0.3526,
+  "baseline_metrics": {
+    "silhouette_original_space": 0.1341,
+    "davies_bouldin_original_space": 1.7826,
+    "calinski_harabasz_original_space": 286.0,
+    "bootstrap_ari_100": 0.6535,
+    "min_cluster_pct": 0.0319,
+    "interpretabilidad": "ALTA (variables originales directas + reglas de árbol + SHAP exacto)"
+  },
+  "autoencoder_metrics": {
+    "silhouette_original_space": 0.101,
+    "silhouette_latent_space": 0.1676,
+    "davies_bouldin_original_space": 2.2699,
+    "calinski_harabasz_original_space": 206.4,
+    "bootstrap_ari_100": 0.5401,
+    "min_cluster_pct": 0.0355,
+    "interpretabilidad": "MEDIA-BAJA (dimensiones latentes no lineales acopladas)"
+  },
+  "conclusion_explicita": "NO MEJORA (SE CONSERVA EL BASELINE)"
+}
