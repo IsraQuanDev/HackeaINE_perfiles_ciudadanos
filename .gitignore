@@ -1,0 +1,33 @@
+# Datos crudos y procesados pesados
+DatosAbiertos_*/
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*.parquet
+data/interim/**/*.parquet
+data/processed/*.parquet
+data/processed/**/*.parquet
+data/*.duckdb
+data/*.duckdb.wal
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Frontend Next.js
+app/node_modules/
+app/.next/
+app/out/
+app/build/
+app/playwright-report/
+app/test-results/
