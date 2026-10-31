@@ -1,0 +1,128 @@
+version: "1.0"
+proyecto: "Perfiles Ciudadanos de Participación Electoral (Hackatón INE - Reto 1)"
+principio_etico: "Los datos representan exclusivamente agregados territoriales (municipios, distritos, entidades), nunca personas individuales."
+
+whitelist_tables:
+  - v_municipio_eleccion
+  - v_distrito_eleccion
+  - v_entidad_eleccion
+  - features_municipio
+  - perfiles_municipio
+  - proyeccion_2027
+  - puente_municipio_anio
+  - ccpc_unificado
+
+limites_seguridad:
+  solo_select: true
+  max_filas: 100
+  timeout_segundos: 5.0
+  palabras_prohibidas:
+    - DROP
+    - DELETE
+    - UPDATE
+    - INSERT
+    - ALTER
+    - CREATE
+    - TRUNCATE
+    - ATTACH
+    - DETACH
+    - COPY
+    - EXPORT
+    - PRAGMA
+    - INSTALL
+    - LOAD
+
+tablas:
+  v_entidad_eleccion:
+    descripcion: "Totales y tasas de participación por entidad federativa, año electoral (2009, 2012, 2015, 2018, 2021, 2024) y modalidad (presencial, anticipado, prision_preventiva)."
+    columnas_clave:
+      - anio: "Año de elección (2009, 2012, 2015, 2018, 2021, 2024)"
+      - tipo_eleccion: "'presidencial' o 'intermedia'"
+      - modalidad: "'presencial', 'anticipado', 'prision_preventiva'"
+      - cve_ent: "Clave INE de entidad ('01' a '32')"
+      - nom_ent: "Nombre oficial de la entidad en mayúsculas sin acentos (ej. 'AGUASCALIENTES', 'CIUDAD DE MEXICO', 'YUCATAN')"
+      - lista_nominal: "Total de personas en lista nominal"
+      - votantes: "Total de personas que votaron (SV)"
+      - participacion: "Tasa de participación (votantes / lista_nominal) en [0, 1]"
+
+  v_municipio_eleccion:
+    descripcion: "Participación electoral por municipio y año (2009-2024), con desgloses por sexo (mujeres, hombres), grupos de edad (18-29, 30-59, 60+), tipo de sección (urbana, mixta, rural) y voto anticipado."
+    columnas_clave:
+      - anio: "Año electoral"
+      - cve_geo: "Clave municipal de 5 dígitos (cve_ent + cve_mun)"
+      - nom_ent: "Nombre de la entidad federativa"
+      - nom_mun: "Nombre del municipio"
+      - lista_nominal: "Lista nominal municipal"
+      - votantes: "Votantes presenciales en el municipio"
+      - participacion: "Tasa de participación municipal [0, 1]"
+      - part_mujeres: "Tasa de participación de mujeres [0, 1]"
+      - part_hombres: "Tasa de participación de hombres [0, 1]"
+      - part_18_29: "Tasa de participación de jóvenes de 18 a 29 años [0, 1]"
+      - part_60_mas: "Tasa de participación de adultos mayores de 60+ años [0, 1]"
+      - votantes_anticipado: "Votantes en modalidad de voto anticipado (2024)"
+
+  features_municipio:
+    descripcion: "Matriz consolidada con una fila por municipio (2,469 municipios) y sus indicadores históricos 2009-2024."
+    columnas_clave:
+      - cve_geo: "Clave municipal de 5 dígitos"
+      - nom_ent: "Nombre de entidad"
+      - nom_mun: "Nombre del municipio"
+      - part_2009: "Participación en 2009"
+      - part_2012: "Participación en 2012"
+      - part_2015: "Participación en 2015"
+      - part_2018: "Participación en 2018"
+      - part_2021: "Participación en 2021"
+      - part_2024: "Participación en 2024"
+      - part_media_global: "Participación promedio 2009-2024"
+      - part_media_presidencial: "Participación media en presidenciales (2012, 2018, 2024)"
+      - part_media_intermedia: "Participación media en intermedias (2009, 2015, 2021)"
+      - caida_presidencial_intermedia: "Brecha entre presidenciales e intermedias"
+      - pendiente_tendencia: "Pendiente de tendencia temporal 2009-2024"
+      - volatilidad: "Desviación estándar de la participación"
+      - brecha_genero_media: "Diferencia media de participación mujeres menos hombres"
+      - brecha_generacional_60_vs_18_29: "Diferencia media de participación 60+ menos 18-29"
+      - pct_ln_rural: "Proporción de lista nominal en secciones rurales"
+      - pct_ln_urbana: "Proporción de lista nominal en secciones urbanas"
+      - ln_2024: "Lista nominal en 2024"
+      - tasa_voto_anticipado_por_10k: "Votantes anticipados por cada 10,000 en lista nominal 2024"
+      - lisa_cluster: "Cluster espacial LISA ('HH (Alto-Alto)', 'LL (Bajo-Bajo)', etc.)"
+
+  perfiles_municipio:
+    descripcion: "Asignación de perfil (cluster_id) y probabilidad de pertenencia para cada municipio."
+    columnas_clave:
+      - cve_geo: "Clave municipal de 5 dígitos"
+      - nom_ent: "Nombre de entidad"
+      - nom_mun: "Nombre del municipio"
+      - cluster_id: "Identificador entero del perfil territorial (0 a k-1)"
+      - probabilidad_pertenencia: "Probabilidad de pertenencia al perfil [0, 1]"
+
+  proyeccion_2027:
+    descripcion: "Proyección de participación electoral municipal para la elección intermedia de 2027 con intervalos al 80% y bandera de zona en riesgo."
+    columnas_clave:
+      - cve_geo: "Clave municipal de 5 dígitos"
+      - nom_ent: "Nombre de entidad"
+      - nom_mun: "Nombre del municipio"
+      - cluster_id: "Perfil territorial del municipio"
+      - ln_proyectada_2027: "Lista nominal proyectada para 2027"
+      - proyeccion_part_2027: "Participación proyectada para 2027 [0, 1]"
+      - intervalo_80_inf: "Límite inferior del intervalo de predicción al 80%"
+      - intervalo_80_sup: "Límite superior del intervalo de predicción al 80%"
+      - es_zona_riesgo_2027: "Booleano que identifica municipios en zona de riesgo para priorización"
+      - indice_riesgo_priorizacion: "Índice cuantitativo de votantes en riesgo para priorización"
+
+sinonimos_frecuentes:
+  "participación": "participacion, part_media_global"
+  "abstencionismo": "1.0 - participacion"
+  "jóvenes": "part_18_29, part_media_jovenes_18_29, pct_ln_jovenes_18_29"
+  "adultos mayores": "part_60_mas, part_media_adultos_60_mas, pct_ln_adultos_60_mas"
+  "mujeres": "part_mujeres, brecha_genero_media"
+  "rural": "pct_ln_rural"
+  "urbano": "pct_ln_urbana"
+  "CDMX / Distrito Federal": "nom_ent = 'CIUDAD DE MEXICO' (cve_ent = '09')"
+  "Estado de México / Edomex": "nom_ent = 'ESTADO DE MEXICO' (cve_ent = '15')"
+
+temas_no_respondibles:
+  - "Preferencias partidistas, votos por partido político o coalición, quién ganó una elección"
+  - "Datos personales o reidentificación de votantes individuales"
+  - "Religión, ingresos salariales individuales, filiación sindical"
+  - "Resultados de casillas especiales o voto en el extranjero (no incluidos en cuadernillos CCPC)"
