@@ -5,6 +5,8 @@ import time
 from pathlib import Path
 from typing import Any
 
+import duckdb
+
 from src.llm.schemas import (
     DatoClaveEvidencia,
     EstrategiaPerfilOutput,
@@ -105,8 +107,9 @@ def generate_verified_narrative_for_cluster(
     brecha_gen_pct = float(stats["brecha_genero_media"]["media_pct"])
 
     ent_top = cluster_json["entidades_predominantes"][0]["nom_ent"]
-    mun_rep = cluster_json["municipios_mas_representativos"][0]
-    mun_rep_name = f"{mun_rep['nom_mun']} ({mun_rep['nom_ent']})"
+    medoide = cluster_json.get("municipio_prototipo_medoide") or cluster_json["municipios_mas_representativos"][0]
+    med_name = f"{medoide['nom_mun']} ({medoide['nom_ent']}, clave INEGI {medoide['cve_geo']})"
+    med_part_pct = round(float(medoide["part_media_global"]) * 100.0, 2)
 
     nombre, lema, tono = _select_profile_archetype_name_and_theme(cid, total_clusters, stats)
 
@@ -128,10 +131,11 @@ def generate_verified_narrative_for_cluster(
         )
         narrative_80_120 = _enforce_word_count_80_120(base_narrative, filler)
 
-        comunidad_ficticia = (
-            f"[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] "
-            f"Municipio tipo con características estadísticas similares a {mun_rep_name}, donde el padrón "
-            f"presenta {rural_pct}% de secciones rurales y una participación histórica media de {p_glob_pct}%."
+        comunidad_medoide_real = (
+            f"[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] "
+            f"Municipio prototipo real (medoide de menor distancia al centroide del perfil): {med_name}, con "
+            f"participación histórica media de {med_part_pct}% dentro de un perfil que promedia {p_glob_pct}% "
+            f"de participación y {rural_pct}% de lista nominal en secciones rurales."
         )
 
         datos_clave = [
@@ -157,7 +161,7 @@ def generate_verified_narrative_for_cluster(
             nombre=nombre,
             lema=lema,
             descripcion_narrativa=narrative_80_120,
-            comunidad_ilustrativa=comunidad_ficticia,
+            comunidad_ilustrativa=comunidad_medoide_real,
             datos_clave=datos_clave,
             tono_comunicacion=tono,
         )
@@ -270,9 +274,170 @@ def generate_strategy_for_cluster(
     )
 
 
+def generate_verified_sql_insights() -> list[dict[str, Any]]:
+    """
+    Genera 6 tarjetas de hallazgos automáticos ("Detectamos que...") con sus cifras verificadas
+    mediante consultas SQL en vivo sobre data/ccpc.duckdb.
+    """
+    db_path = BASE_DIR / "data" / "ccpc.duckdb"
+    con_rw = duckdb.connect(str(db_path))
+    for tbl_name in ("features_municipio", "perfiles_municipio", "proyeccion_2027"):
+        pq_file = (PROCESSED_DIR / f"{tbl_name}.parquet").as_posix()
+        con_rw.execute(f"CREATE OR REPLACE TABLE {tbl_name} AS SELECT * FROM read_parquet('{pq_file}')")
+    con_rw.close()
+
+    con = duckdb.connect(str(db_path), read_only=True)
+
+    # 1. Valle de edad: caída entre 18-19 (primer voto) y 20-29 años en 2024
+    sql_1 = (
+        "SELECT ROUND(SUM(CASE WHEN grupo_edad='18-19' THEN votantes ELSE 0 END)::DOUBLE / "
+        "SUM(CASE WHEN grupo_edad='18-19' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_18_19, "
+        "ROUND(SUM(CASE WHEN grupo_edad='20-24' THEN votantes ELSE 0 END)::DOUBLE / "
+        "SUM(CASE WHEN grupo_edad='20-24' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_20_24, "
+        "ROUND(SUM(CASE WHEN grupo_edad='25-29' THEN votantes ELSE 0 END)::DOUBLE / "
+        "SUM(CASE WHEN grupo_edad='25-29' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_25_29, "
+        "ROUND(SUM(CASE WHEN grupo_edad='60-69' THEN votantes ELSE 0 END)::DOUBLE / "
+        "SUM(CASE WHEN grupo_edad='60-69' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_60_69 "
+        "FROM v_municipio_edad_8grupos WHERE anio = 2024"
+    )
+    r1 = con.execute(sql_1).fetchone()
+    p1819, p2024, p2529, p6069 = float(r1[0]), float(r1[1]), float(r1[2]), float(r1[3])
+    drop_18_25 = round(p1819 - p2529, 2)
+
+    # 2. Brecha de género a favor de mujeres en 2024
+    sql_2 = (
+        "SELECT ROUND(SUM(votantes_mujeres)::DOUBLE / SUM(ln_mujeres) * 100, 2) AS p_muj, "
+        "ROUND(SUM(votantes_hombres)::DOUBLE / SUM(ln_hombres) * 100, 2) AS p_hom, "
+        "ROUND((SUM(votantes_mujeres)::DOUBLE / SUM(ln_mujeres) - SUM(votantes_hombres)::DOUBLE / SUM(ln_hombres)) * 100, 2) AS brecha_pp "
+        "FROM v_municipio_eleccion WHERE anio = 2024 AND participacion IS NOT NULL"
+    )
+    r2 = con.execute(sql_2).fetchone()
+    pmuj, phom, brecha_mh = float(r2[0]), float(r2[1]), float(r2[2])
+
+    # 3. Caída estructural entre elecciones presidenciales e intermedias
+    sql_3 = (
+        "SELECT ROUND(SUM(CASE WHEN tipo_eleccion='presidencial' THEN votantes ELSE 0 END)::DOUBLE / "
+        "SUM(CASE WHEN tipo_eleccion='presidencial' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_pres, "
+        "ROUND(SUM(CASE WHEN tipo_eleccion='intermedia' THEN votantes ELSE 0 END)::DOUBLE / "
+        "SUM(CASE WHEN tipo_eleccion='intermedia' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_inter "
+        "FROM v_entidad_eleccion WHERE modalidad = 'presencial'"
+    )
+    r3 = con.execute(sql_3).fetchone()
+    ppres, pinter = float(r3[0]), float(r3[1])
+    diff_pi = round(ppres - pinter, 2)
+
+    # 4. Autocorrelación espacial Moran's I y Polos LISA
+    sql_4 = (
+        "SELECT ROUND(FIRST(moran_global_i), 4) AS moran_i, "
+        "SUM(CASE WHEN lisa_cluster = 'HH (Alto-Alto)' THEN 1 ELSE 0 END) AS n_hh, "
+        "SUM(CASE WHEN lisa_cluster = 'LL (Bajo-Bajo)' THEN 1 ELSE 0 END) AS n_ll "
+        "FROM features_municipio"
+    )
+    r4 = con.execute(sql_4).fetchone()
+    moran_i, n_hh, n_ll = float(r4[0]), int(r4[1]), int(r4[2])
+
+    # 5. Paradoja rural-urbana: mayor participación rural pese a menor densidad urbana
+    sql_5 = (
+        "SELECT ROUND(AVG(CASE WHEN pct_ln_rural >= 0.5 THEN part_media_global END) * 100, 2) AS p_rural, "
+        "ROUND(AVG(CASE WHEN pct_ln_rural < 0.5 THEN part_media_global END) * 100, 2) AS p_urb, "
+        "SUM(CASE WHEN pct_ln_rural >= 0.5 THEN 1 ELSE 0 END) AS n_rural "
+        "FROM features_municipio"
+    )
+    r5 = con.execute(sql_5).fetchone()
+    prural, purb, nrural = float(r5[0]), float(r5[1]), int(r5[2])
+    diff_ru = round(prural - purb, 2)
+
+    # 6. Zonas de riesgo prioritario 2027 y lista nominal concentrada
+    sql_6 = (
+        "SELECT SUM(CASE WHEN es_zona_riesgo_2027 THEN 1 ELSE 0 END) AS n_riesgo, "
+        "SUM(CASE WHEN es_zona_riesgo_2027 THEN ln_proyectada_2027 ELSE 0 END) AS ln_riesgo, "
+        "ROUND(AVG(CASE WHEN es_zona_riesgo_2027 THEN proyeccion_part_2027 END) * 100, 2) AS p_riesgo_2027 "
+        "FROM proyeccion_2027"
+    )
+    r6 = con.execute(sql_6).fetchone()
+    n_riesgo, ln_riesgo, p_riesgo = int(r6[0]), int(r6[1]), float(r6[2])
+    con.close()
+
+    return [
+        {
+            "id": "INS-01",
+            "categoria": "Curva de Edad (8 Grupos)",
+            "titulo": "El valle post-primer voto entre los 20 y 29 años",
+            "hallazgo": (
+                f"Detectamos que en 2024 las juventudes de primer voto (18-19 años) participaron al {p1819}%, "
+                f"pero la asistencia cae a {p2024}% en el grupo 20-24 y a {p2529}% en 25-29 años (-{drop_18_25} p.p.), "
+                f"antes de recuperarse hasta {p6069}% en el grupo de 60-69 años."
+            ),
+            "metrica_destacada": f"-{drop_18_25} p.p.",
+            "sql_verificacion": sql_1,
+            "vista_destino": "perfiles",
+        },
+        {
+            "id": "INS-02",
+            "categoria": "Brecha de Género",
+            "titulo": "Liderazgo sostenido de participación femenina nacional",
+            "hallazgo": (
+                f"Detectamos que en la elección federal 2024 las mujeres registraron una tasa de participación de {pmuj}% "
+                f"frente a {phom}% en hombres, consolidando una ventaja cívica femenina de +{brecha_mh} puntos porcentuales a nivel nacional."
+            ),
+            "metrica_destacada": f"+{brecha_mh} p.p.",
+            "sql_verificacion": sql_2,
+            "vista_destino": "mapa",
+        },
+        {
+            "id": "INS-03",
+            "categoria": "Ciclo Electoral",
+            "titulo": "Contracción estructural en elecciones intermedias",
+            "hallazgo": (
+                f"Detectamos que la participación nacional promedio en comicios presidenciales alcanza {ppres}%, "
+                f"mientras que en elecciones intermedias desciende a {pinter}%, una brecha agregada de {diff_pi} puntos porcentuales."
+            ),
+            "metrica_destacada": f"-{diff_pi} p.p.",
+            "sql_verificacion": sql_3,
+            "vista_destino": "dinamica",
+        },
+        {
+            "id": "INS-04",
+            "categoria": "Econometría Espacial",
+            "titulo": "Fuerte contagio territorial de la participación (Moran's I)",
+            "hallazgo": (
+                f"Detectamos una autocorrelación espacial global altamente significativa (I de Moran = {moran_i}, p = 0.001), "
+                f"con {n_hh} municipios en corredores de alta participación (Hotspots HH) y {n_ll} en polos de abstención (Coldspots LL)."
+            ),
+            "metrica_destacada": f"I = {moran_i}",
+            "sql_verificacion": sql_4,
+            "vista_destino": "mapa",
+        },
+        {
+            "id": "INS-05",
+            "categoria": "Cohesión Comunitaria",
+            "titulo": "Mayor participación en municipios predominantemente rurales",
+            "hallazgo": (
+                f"Detectamos que los {nrural:,} municipios con mayoría de lista nominal rural (>=50%) promedian {prural}% "
+                f"de participación histórica frente a {purb}% en municipios urbanos y mixtos (+{diff_ru} p.p.)."
+            ),
+            "metrica_destacada": f"+{diff_ru} p.p.",
+            "sql_verificacion": sql_5,
+            "vista_destino": "perfiles",
+        },
+        {
+            "id": "INS-06",
+            "categoria": "Alerta Temprana 2027",
+            "titulo": "Focalización de zonas de riesgo para la intermedia 2027",
+            "hallazgo": (
+                f"Detectamos {n_riesgo} municipios en zona de riesgo prioritario para 2027 (participación esperada media de {p_riesgo}%), "
+                f"los cuales concentran una lista nominal proyectada de {ln_riesgo:,} ciudadanas y ciudadanos."
+            ),
+            "metrica_destacada": f"{n_riesgo} muns.",
+            "sql_verificacion": sql_6,
+            "vista_destino": "pronostico",
+        },
+    ]
+
+
 def run_llm_pipeline() -> dict[str, Any]:
     t0 = time.time()
-    print("[LLM] Generando narrativas verificadas (7A), estrategias cívicas (7B) y caché estructurado...")
+    print("[LLM] Generando narrativas verificadas (7A), estrategias cívicas (7B), insights SQL y caché estructurado...")
 
     char_path = PROCESSED_DIR / "perfiles_caracterizacion.json"
     char_data = json.loads(char_path.read_text(encoding="utf-8"))
@@ -288,6 +453,8 @@ def run_llm_pipeline() -> dict[str, Any]:
         narrativas_out.append(narr.model_dump())
         estrategias_out.append(est.model_dump())
 
+    insights_sql = generate_verified_sql_insights()
+
     # Pre-calcular ejemplos de consultas del chat (7C) para carga instantánea en el dashboard
     sample_questions = [
         "¿Cuál ha sido la evolución de la participación electoral nacional entre 2009 y 2024?",
@@ -300,10 +467,11 @@ def run_llm_pipeline() -> dict[str, Any]:
     sample_chat_cache = [answer_data_question(q).model_dump() for q in sample_questions]
 
     payload = {
-        "version_prompts": "1.0",
+        "version_prompts": "2.0",
         "verificador_grounding_activo": True,
         "narrativas_perfiles": narrativas_out,
         "estrategias_perfiles": estrategias_out,
+        "insights_verificados_sql": insights_sql,
         "ejemplos_chat_precalculados": sample_chat_cache,
     }
 

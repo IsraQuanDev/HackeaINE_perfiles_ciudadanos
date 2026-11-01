@@ -1,4 +1,4 @@
-# Reporte de Calidad de Datos e Integridad de Ingesta (CCPC 2009–2024)
+# Reporte de Calidad de Datos e Integridad de Ingesta Medallion (CCPC 2009–2024 · v2)
 
 ## 1. Resumen de Validación y Conciliación de Totales
 
@@ -7,6 +7,8 @@
 - **Celdas con participación > 100% (`SV > LN`):** 0
 - **Celdas con participación < 0% (`SV < 0` o `LN < 0`):** 0
 - **Celdas donde `LN != SV + NV + NS`:** 0
+- **Celdas municipio-año con `cobertura < 90%` convertidas a `NA` (nunca `0%`):** 1889
+- **Normalización Unicode:** `UTF-8 NFC` verificado en los 2,477 municipios y 32 entidades (`0` ocurrencias de mojibake `Ã` o `Â`).
 
 ## 2. Métricas de Calidad por Año Electoral (Modalidad Presencial)
 
@@ -19,20 +21,18 @@
 | 2021 | 9,430,502 | 0 | 0 | 13,216 | 13,530 | 764,135 | 4,043,320 | 0 | 0 |
 | 2024 | 9,773,730 | 0 | 20,912 | 12,891 | 13,197 | 1,123,163 | 6,325,654 | 0 | 0 |
 
-## 3. Hallazgos de Calidad y Reglas Aplicadas
+## 3. Reglas Contractuales Silver/Gold (Plan v2)
 
-1. **Nulos en `DEL` (Distrito Electoral Local) en 2024:** Se detectaron valores nulos en la columna `DEL` en secciones electorales de 2024. Se normalizaron con el código `'SN'` (Sin Número/No especificado) sin afectar la agregación municipal (`cve_geo`) ni distrital federal (`DEF`).
-2. **Edades extremas (`EDAD > 100`):** Existen registros censales de personas con edades reportadas entre 101 y 125 años en el padrón. Al agrupar en el esquema unificado bajo el corte `rango_edad = '60+'`, se evita distorsión por valores extremos individuales sin perder un solo elector de la Lista Nominal.
-3. **Registros No Especificados (`NS > 0`):** Corresponden a cuadernillos no disponibles para captura o requeridos por autoridades jurisdiccionales. Se preservan explícitamente en la columna `no_especificados`.
-4. **Regla de Privacidad (`< 10`):** Toda celda en el esquema unificado con `lista_nominal < 10` (o `< 10` votantes en modalidades sin LN) lleva la bandera `celda_pequena_lt10 = true`, y en las vistas analíticas (`v_municipio_eleccion`, `v_distrito_eleccion`) las tasas de subgrupos con denominador `< 10` se suprimen (`NULL`).
+1. **Definición Oficial de Participación y Cobertura:** $\text{participacion} = SV / (SV + NV)$ excluyendo `NS` del denominador; $\text{cobertura} = (SV + NV) / LN$. Si $\text{cobertura} < 0.90$, la participación se marca como `NULL` (`NA`) y `flag_calidad = 'BAJA_COBERTURA_NS'`.
+2. **Codificación UTF-8 NFC por Archivo:** Los archivos 2009–2024 se inspeccionan individualmente con `detect_file_encoding()` y se reparan con `fix_mojibake_utf8_nfc()`.
+3. **Curvas Etarias (8 Grupos) y Cohortes:** Se preservan los 8 tramos (`18-19`, `20-24`, `25-29`, `30-39`, `40-49`, `50-59`, `60-69`, `70+`) y las pseudo-cohortes de primer voto (`18-20` y `21-23`).
+4. **Privacidad (`< 10` y `SEXO = 2`):** Celdas con denominador `< 10` se suprimen en tasas agregadas (`NULL`).
 
 ## 4. Tabla Puente Municipio-Año (`puente_municipio_anio`)
 
 - **Total de claves municipales únicas (`cve_geo`) 2009–2024:** 2,477
 - **Municipios con panel completo (6 de 6 elecciones):** 2,455
-- **Municipios con cambio en el marco geográfico (nueva creación o fusión):** 22
-
-### Desglose por Estatus del Marco Geográfico
+- **Municipios de nueva creación post-2009:** 22
 
 | Estatus | Número de Municipios |
 | :--- | ---: |
@@ -41,30 +41,3 @@
 | `NUEVA_CREACION_2021` | 5 |
 | `NUEVA_CREACION_2018` | 5 |
 | `INTERMITENTE_O_CASO_ESPECIAL` | 3 |
-
-### Detalle de Municipios con Cambios de Marco Geográfico (2009–2024)
-
-| `cve_geo` | Entidad | Municipio | Primer Año | Último Año | Elecciones Presente | Estatus |
-| :---: | :--- | :--- | :---: | :---: | :---: | :--- |
-| `07117` | CHIAPAS | San AndrÃ©s Duraznal | 2009 | 2024 | 5 | `INTERMITENTE_O_CASO_ESPECIAL` |
-| `20144` | OAXACA | San Francisco NuxaÃ±o | 2009 | 2024 | 5 | `INTERMITENTE_O_CASO_ESPECIAL` |
-| `20218` | OAXACA | San Juan Teita | 2009 | 2024 | 5 | `INTERMITENTE_O_CASO_ESPECIAL` |
-| `07120` | CHIAPAS | RincÃ³n Chamula San Pedro | 2018 | 2024 | 3 | `NUEVA_CREACION_2018` |
-| `07121` | CHIAPAS | El Parral | 2018 | 2024 | 3 | `NUEVA_CREACION_2018` |
-| `07122` | CHIAPAS | Emiliano Zapata | 2018 | 2024 | 3 | `NUEVA_CREACION_2018` |
-| `07123` | CHIAPAS | Mezcalapa | 2018 | 2024 | 3 | `NUEVA_CREACION_2018` |
-| `07124` | CHIAPAS | Honduras de la Sierra | 2018 | 2024 | 3 | `NUEVA_CREACION_2018` |
-| `04012` | CAMPECHE | DzitbalchÃ© | 2021 | 2024 | 2 | `NUEVA_CREACION_2021` |
-| `04013` | CAMPECHE | Seybaplaya | 2021 | 2024 | 2 | `NUEVA_CREACION_2021` |
-| `07119` | CHIAPAS | CapitÃ¡n Luis Ãngel Vidal | 2021 | 2024 | 2 | `NUEVA_CREACION_2021` |
-| `17034` | MORELOS | Coatetelco | 2021 | 2024 | 2 | `NUEVA_CREACION_2021` |
-| `17035` | MORELOS | Xoxocotla | 2021 | 2024 | 2 | `NUEVA_CREACION_2021` |
-| `02006` | BAJA CALIFORNIA | San Quintin | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `02007` | BAJA CALIFORNIA | San Felipe | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `12082` | GUERRERO | Ãuu Savi | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `12083` | GUERRERO | Las Vigas | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `12084` | GUERRERO | San NicolÃ¡s | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `12085` | GUERRERO | Santa Cruz del RincÃ³n | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `17036` | MORELOS | Hueyapan | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `25019` | SINALOA | Eldorado | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |
-| `25020` | SINALOA | Juan JosÃ© RÃ­os | 2024 | 2024 | 1 | `NUEVA_CREACION_2024` |

@@ -1,194 +1,152 @@
-# Explicabilidad de Perfiles y Dinámica Territorial (`docs/explicabilidad.md`)
+# Explicabilidad de Perfiles, Medoides Reales y Dinámica Markoviana (`docs/explicabilidad.md` · v2)
 
 ## 1. Modelos Sustitutos de Explicabilidad Global (Árbol de Decisión + LightGBM SHAP)
 
-- **Exactitud del Árbol de Decisión interpretable (`max_depth=3`):** `67.02%`
-- **Exactitud del modelo LightGBM + TreeExplainer SHAP:** `100.00%`
+- **Exactitud del Árbol de Decisión interpretable (`max_depth=3`):** `68.55%`
+- **Exactitud del modelo LightGBM sustituto + TreeExplainer SHAP:** `100.00%`
 
 ### Ranking Global de Importancia SHAP (`mean(|SHAP|)`)
 
 | Orden | Variable | Importancia Media Absoluta SHAP |
 | :---: | :--- | ---: |
-| 1 | `volatilidad` | `0.83060` |
-| 2 | `part_media_global` | `0.74205` |
-| 3 | `brecha_genero_tendencia` | `0.72089` |
-| 4 | `brecha_genero_media` | `0.70519` |
-| 5 | `caida_presidencial_intermedia` | `0.61024` |
-| 6 | `brecha_generacional_60_vs_18_29` | `0.54438` |
-| 7 | `cagr_ln_2009_2024` | `0.53605` |
-| 8 | `pendiente_tendencia` | `0.52186` |
-| 9 | `constancia_sobre_mediana` | `0.22677` |
-| 10 | `pct_ln_rural` | `0.22471` |
+| 1 | `brecha_juvenil_18_29_vs_30_59` | `0.82733` |
+| 2 | `volatilidad` | `0.78793` |
+| 3 | `retencion_primer_voto` | `0.70308` |
+| 4 | `part_media_global` | `0.61856` |
+| 5 | `rezago_espacial_part` | `0.53039` |
+| 6 | `pendiente_tendencia` | `0.49873` |
+| 7 | `caida_presidencial_intermedia` | `0.49612` |
+| 8 | `constancia_sobre_mediana` | `0.37963` |
+| 9 | `brecha_genero_media` | `0.37568` |
+| 10 | `pct_ln_rural` | `0.28787` |
 
 ### Reglas del Árbol de Decisión de Poca Profundidad (`max_depth=3`)
 
 ```text
-|--- part_media_global <= 0.61
-|   |--- volatilidad <= 0.12
-|   |   |--- cagr_ln_2009_2024 <= 0.01
-|   |   |   |--- class: 5
-|   |   |--- cagr_ln_2009_2024 >  0.01
+|--- volatilidad <= 0.06
+|   |--- brecha_juvenil_18_29_vs_30_59 <= -0.13
+|   |   |--- part_media_global <= 0.57
+|   |   |   |--- class: 2
+|   |   |--- part_media_global >  0.57
+|   |   |   |--- class: 2
+|   |--- brecha_juvenil_18_29_vs_30_59 >  -0.13
+|   |   |--- rezago_espacial_part <= 0.55
 |   |   |   |--- class: 4
-|   |--- volatilidad >  0.12
-|   |   |--- caida_presidencial_intermedia <= 0.09
-|   |   |   |--- class: 3
-|   |   |--- caida_presidencial_intermedia >  0.09
-|   |   |   |--- class: 2
-|--- part_media_global >  0.61
-|   |--- brecha_genero_tendencia <= 0.01
-|   |   |--- caida_presidencial_intermedia <= 0.15
-|   |   |   |--- class: 0
-|   |   |--- caida_presidencial_intermedia >  0.15
-|   |   |   |--- class: 2
-|   |--- brecha_genero_tendencia >  0.01
-|   |   |--- brecha_generacional_60_vs_18_29 <= 0.05
-|   |   |   |--- class: 0
-|   |   |--- brecha_generacional_60_vs_18_29 >  0.05
+|   |   |--- rezago_espacial_part >  0.55
 |   |   |   |--- class: 1
+|--- volatilidad >  0.06
+|   |--- volatilidad <= 0.12
+|   |   |--- part_media_global <= 0.57
+|   |   |   |--- class: 4
+|   |   |--- part_media_global >  0.57
+|   |   |   |--- class: 2
+|   |--- volatilidad >  0.12
+|   |   |--- rezago_espacial_part <= 0.68
+|   |   |   |--- class: 3
+|   |   |--- rezago_espacial_part >  0.68
+|   |   |   |--- class: 0
 ```
 
 ---
 
-## 2. Variables Definitorias (SHAP) y Municipios Representativos por Perfil
+## 2. Variables Definitorias (SHAP), Curvas de Edad y Municipio Prototipo Real (Medoide)
 
-### Perfil 0 (539 municipios — 21.76% del total; Lista Nominal 2024: 8,089,025)
+### Perfil 0 (111 municipios — 4.48% del total; Lista Nominal 2024: 1,718,428)
 
-**Top 5 variables que definen el perfil (SHAP por cluster):**
-
-| Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| `part_media_global` | `2.8674` | `0.6776` | `0.5616` | `+1.13` | ALTA (+) |
-| `brecha_generacional_60_vs_18_29` | `1.8286` | `0.0757` | `0.1413` | `-0.87` | BAJA (-) |
-| `caida_presidencial_intermedia` | `1.2553` | `0.0404` | `0.1032` | `-0.75` | BAJA (-) |
-| `volatilidad` | `0.7387` | `0.0701` | `0.1011` | `-0.65` | BAJA (-) |
-| `constancia_sobre_mediana` | `0.7320` | `0.8568` | `0.4991` | `+1.02` | ALTA (+) |
-
-- **Entidades predominantes:** JALISCO (95 muns, 17.63%), YUCATAN (90 muns, 16.7%), ESTADO DE MEXICO (70 muns, 12.99%), SONORA (37 muns, 6.86%), SAN LUIS POTOSI (35 muns, 6.49%)
-- **Municipios más representativos (cercanos al centroide):** GÃ³mez FarÃ­as (TAMAULIPAS, `cve_geo=28011`, part=66.75%), Mazamitla (JALISCO, `cve_geo=14061`, part=65.17%), ChiquilistlÃ¡n (JALISCO, `cve_geo=14033`, part=66.19%), Tlayacapan (MORELOS, `cve_geo=17026`, part=68.69%), Tetecala (MORELOS, `cve_geo=17021`, part=70.72%)
-
-### Perfil 1 (378 municipios — 15.26% del total; Lista Nominal 2024: 6,851,597)
-
-**Top 5 variables que definen el perfil (SHAP por cluster):**
+- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **Baca, Yucatán** (`cve_geo = 31004`, participación media `81.14%`, distancia al centroide `0.4099`).
 
 | Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| `brecha_genero_tendencia` | `3.5810` | `0.0144` | `0.0046` | `+1.14` | ALTA (+) |
-| `brecha_genero_media` | `2.5505` | `0.1135` | `0.0772` | `+1.01` | ALTA (+) |
-| `pct_ln_rural` | `1.0539` | `0.5592` | `0.3345` | `+0.80` | ALTA (+) |
-| `part_media_global` | `0.7611` | `0.5920` | `0.5616` | `+0.30` | ALTA (+) |
-| `brecha_generacional_60_vs_18_29` | `0.2893` | `0.1639` | `0.1413` | `+0.30` | ALTA (+) |
+| `rezago_espacial_part` | `9.1161` | `0.7811` | `0.5845` | `+2.75` | ALTA (+) |
+| `part_media_global` | `4.3739` | `0.7926` | `0.5837` | `+2.11` | ALTA (+) |
+| `volatilidad` | `1.2356` | `0.1019` | `0.0873` | `+0.37` | ALTA (+) |
+| `retencion_primer_voto` | `1.1254` | `0.9843` | `0.8877` | `+0.93` | ALTA (+) |
+| `brecha_juvenil_18_29_vs_30_59` | `0.4464` | `-0.0639` | `-0.1167` | `+0.95` | ALTA (+) |
 
-- **Entidades predominantes:** OAXACA (67 muns, 17.72%), PUEBLA (50 muns, 13.23%), CHIAPAS (43 muns, 11.38%), VERACRUZ (42 muns, 11.11%), GUERRERO (36 muns, 9.52%)
-- **Municipios más representativos (cercanos al centroide):** Charo (MICHOACAN, `cve_geo=16022`, part=55.35%), OlinalÃ¡ (GUERRERO, `cve_geo=12046`, part=63.09%), CacahoatÃ¡n (CHIAPAS, `cve_geo=07015`, part=58.82%), Noria de Ãngeles (ZACATECAS, `cve_geo=32035`, part=59.37%), CoxcatlÃ¡n (PUEBLA, `cve_geo=21036`, part=55.5%)
+### Perfil 1 (537 municipios — 21.68% del total; Lista Nominal 2024: 23,639,337)
 
-### Perfil 2 (440 municipios — 17.76% del total; Lista Nominal 2024: 13,283,697)
-
-**Top 5 variables que definen el perfil (SHAP por cluster):**
+- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **Mazamitla, Jalisco** (`cve_geo = 14061`, participación media `66.07%`, distancia al centroide `0.6913`).
 
 | Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| `volatilidad` | `4.1284` | `0.1573` | `0.1011` | `+1.18` | ALTA (+) |
-| `caida_presidencial_intermedia` | `2.5286` | `0.2063` | `0.1032` | `+1.22` | ALTA (+) |
-| `pendiente_tendencia` | `2.1273` | `0.0439` | `0.0139` | `+1.03` | ALTA (+) |
-| `pct_ln_rural` | `0.2169` | `0.2239` | `0.3345` | `-0.39` | BAJA (-) |
-| `brecha_genero_tendencia` | `0.1568` | `0.0065` | `0.0046` | `+0.22` | ALTA (+) |
+| `volatilidad` | `3.4724` | `0.0432` | `0.0873` | `-1.12` | BAJA (-) |
+| `rezago_espacial_part` | `1.4024` | `0.6342` | `0.5845` | `+0.70` | ALTA (+) |
+| `brecha_juvenil_18_29_vs_30_59` | `1.3821` | `-0.0757` | `-0.1167` | `+0.74` | ALTA (+) |
+| `caida_presidencial_intermedia` | `1.2785` | `0.0452` | `0.1157` | `-0.99` | BAJA (-) |
+| `part_media_global` | `0.5879` | `0.6508` | `0.5837` | `+0.68` | ALTA (+) |
 
-- **Entidades predominantes:** OAXACA (132 muns, 30.0%), PUEBLA (124 muns, 28.18%), TLAXCALA (46 muns, 10.45%), CHIAPAS (28 muns, 6.36%), HIDALGO (17 muns, 3.86%)
-- **Municipios más representativos (cercanos al centroide):** San Pedro y San Pablo Teposcolula (OAXACA, `cve_geo=20334`, part=57.46%), Villa de TamazulÃ¡pam del Progreso (OAXACA, `cve_geo=20539`, part=57.42%), Xaloztoc (TLAXCALA, `cve_geo=29039`, part=53.66%), Zacatelco (TLAXCALA, `cve_geo=29044`, part=55.09%), TeotitlÃ¡n de Flores MagÃ³n (OAXACA, `cve_geo=20545`, part=58.15%)
+### Perfil 2 (425 municipios — 17.16% del total; Lista Nominal 2024: 9,287,589)
 
-### Perfil 3 (79 municipios — 3.19% del total; Lista Nominal 2024: 715,243)
-
-**Top 5 variables que definen el perfil (SHAP por cluster):**
+- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **Altotonga, Veracruz** (`cve_geo = 30011`, participación media `59.9%`, distancia al centroide `0.64`).
 
 | Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| `volatilidad` | `6.6823` | `0.2063` | `0.1011` | `+2.21` | ALTA (+) |
-| `caida_presidencial_intermedia` | `5.7545` | `-0.0593` | `0.1032` | `-1.93` | BAJA (-) |
-| `pendiente_tendencia` | `0.9997` | `-0.0137` | `0.0139` | `-0.95` | BAJA (-) |
-| `brecha_genero_media` | `0.9719` | `0.0540` | `0.0772` | `-0.64` | BAJA (-) |
-| `brecha_genero_tendencia` | `0.4340` | `-0.0006` | `0.0046` | `-0.60` | BAJA (-) |
+| `brecha_juvenil_18_29_vs_30_59` | `2.5298` | `-0.1659` | `-0.1167` | `-0.89` | BAJA (-) |
+| `pct_ln_rural` | `1.5223` | `0.5789` | `0.3345` | `+0.87` | ALTA (+) |
+| `brecha_genero_media` | `0.9573` | `0.1000` | `0.0798` | `+0.54` | ALTA (+) |
+| `part_media_global` | `0.7347` | `0.6178` | `0.5837` | `+0.35` | ALTA (+) |
+| `caida_presidencial_intermedia` | `0.5960` | `0.0822` | `0.1157` | `-0.47` | BAJA (-) |
 
-- **Entidades predominantes:** OAXACA (21 muns, 26.58%), CHIAPAS (10 muns, 12.66%), SONORA (10 muns, 12.66%), HIDALGO (7 muns, 8.86%), VERACRUZ (6 muns, 7.59%)
-- **Municipios más representativos (cercanos al centroide):** AmatitlÃ¡n (VERACRUZ, `cve_geo=30013`, part=52.53%), San Bartolo Tutotepec (HIDALGO, `cve_geo=13052`, part=49.38%), Santo Domingo Tehuantepec (OAXACA, `cve_geo=20515`, part=50.38%), Chicomuselo (CHIAPAS, `cve_geo=07030`, part=47.81%), Olintla (PUEBLA, `cve_geo=21108`, part=63.78%)
+### Perfil 3 (554 municipios — 22.37% del total; Lista Nominal 2024: 18,074,124)
 
-### Perfil 4 (553 municipios — 22.33% del total; Lista Nominal 2024: 57,777,865)
-
-**Top 5 variables que definen el perfil (SHAP por cluster):**
+- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **Oriental, Puebla** (`cve_geo = 21109`, participación media `59.82%`, distancia al centroide `0.4548`).
 
 | Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| `brecha_generacional_60_vs_18_29` | `1.4216` | `0.1936` | `0.1413` | `+0.70` | ALTA (+) |
-| `brecha_genero_tendencia` | `1.2738` | `0.0001` | `0.0046` | `-0.53` | BAJA (-) |
-| `part_media_global` | `0.9632` | `0.5008` | `0.5616` | `-0.59` | BAJA (-) |
-| `pendiente_tendencia` | `0.7407` | `-0.0001` | `0.0139` | `-0.48` | BAJA (-) |
-| `cagr_ln_2009_2024` | `0.7169` | `0.0193` | `0.0135` | `+0.22` | ALTA (+) |
+| `pendiente_tendencia` | `3.0632` | `0.0597` | `0.0228` | `+1.07` | ALTA (+) |
+| `volatilidad` | `2.6039` | `0.1353` | `0.0873` | `+1.22` | ALTA (+) |
+| `caida_presidencial_intermedia` | `1.4522` | `0.1829` | `0.1157` | `+0.95` | ALTA (+) |
+| `retencion_primer_voto` | `0.6813` | `0.9151` | `0.8877` | `+0.26` | ALTA (+) |
+| `part_media_global` | `0.2585` | `0.5803` | `0.5837` | `-0.03` | BAJA (-) |
 
-- **Entidades predominantes:** OAXACA (158 muns, 28.57%), VERACRUZ (57 muns, 10.31%), ESTADO DE MEXICO (45 muns, 8.14%), HIDALGO (31 muns, 5.61%), GUANAJUATO (21 muns, 3.8%)
-- **Municipios más representativos (cercanos al centroide):** Salamanca (GUANAJUATO, `cve_geo=11027`, part=48.92%), Durango (DURANGO, `cve_geo=10005`, part=47.07%), Coatzintla (VERACRUZ, `cve_geo=30042`, part=50.89%), Fresnillo (ZACATECAS, `cve_geo=32010`, part=53.08%), San Francisco del RincÃ³n (GUANAJUATO, `cve_geo=11031`, part=50.2%)
+### Perfil 4 (659 municipios — 26.6% del total; Lista Nominal 2024: 45,053,420)
 
-### Perfil 5 (488 municipios — 19.7% del total; Lista Nominal 2024: 11,612,921)
-
-**Top 5 variables que definen el perfil (SHAP por cluster):**
+- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **La Antigua, Veracruz** (`cve_geo = 30017`, participación media `52.7%`, distancia al centroide `0.6366`).
 
 | Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| `cagr_ln_2009_2024` | `3.2131` | `0.0004` | `0.0135` | `-0.50` | BAJA (-) |
-| `brecha_genero_media` | `2.3363` | `0.0460` | `0.0772` | `-0.87` | BAJA (-) |
-| `part_media_global` | `0.5071` | `0.4962` | `0.5616` | `-0.64` | BAJA (-) |
-| `constancia_sobre_mediana` | `0.4711` | `0.2517` | `0.4991` | `-0.70` | BAJA (-) |
-| `volatilidad` | `0.3132` | `0.0933` | `0.1011` | `-0.16` | BAJA (-) |
+| `retencion_primer_voto` | `1.7775` | `0.8203` | `0.8877` | `-0.65` | BAJA (-) |
+| `constancia_sobre_mediana` | `1.3701` | `0.1345` | `0.4865` | `-0.94` | BAJA (-) |
+| `part_media_global` | `1.3523` | `0.4997` | `0.5837` | `-0.85` | BAJA (-) |
+| `brecha_genero_media` | `0.5540` | `0.0672` | `0.0798` | `-0.34` | BAJA (-) |
+| `brecha_juvenil_18_29_vs_30_59` | `0.4303` | `-0.1157` | `-0.1167` | `+0.02` | ALTA (+) |
 
-- **Entidades predominantes:** OAXACA (179 muns, 36.68%), VERACRUZ (61 muns, 12.5%), MICHOACAN (56 muns, 11.48%), CHIHUAHUA (43 muns, 8.81%), DURANGO (27 muns, 5.53%)
-- **Municipios más representativos (cercanos al centroide):** Vega de Alatorre (VERACRUZ, `cve_geo=30191`, part=52.76%), TÃ©cpan de Galeana (GUERRERO, `cve_geo=12058`, part=52.8%), Tierra Blanca (VERACRUZ, `cve_geo=30173`, part=50.03%), Guerrero (CHIHUAHUA, `cve_geo=08031`, part=44.86%), Huetamo (MICHOACAN, `cve_geo=16038`, part=46.49%)
+### Perfil 5 (191 municipios — 7.71% del total; Lista Nominal 2024: 557,450)
+
+- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **San Pedro Molinos, Oaxaca** (`cve_geo = 20318`, participación media `52.38%`, distancia al centroide `0.7335`).
+
+| Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| `retencion_primer_voto` | `4.7117` | `1.0469` | `0.8877` | `+1.53` | ALTA (+) |
+| `brecha_juvenil_18_29_vs_30_59` | `3.0713` | `-0.1909` | `-0.1167` | `-1.34` | BAJA (-) |
+| `brecha_genero_media` | `1.4385` | `0.0467` | `0.0798` | `-0.88` | BAJA (-) |
+| `constancia_sobre_mediana` | `0.7688` | `0.1266` | `0.4865` | `-0.96` | BAJA (-) |
+| `rezago_espacial_part` | `0.6718` | `0.5209` | `0.5845` | `-0.89` | BAJA (-) |
 
 ---
 
-## 3. Dinámica Temporal por Ventanas Móviles (`2009-2015` $\rightarrow$ `2012-2018` $\rightarrow$ `2015-2021` $\rightarrow$ `2018-2024`)
+## 3. Dinámica Temporal por Ventanas Móviles y Cadena de Markov
 
 - **Municipios evaluados:** `2,477`
-- **Municipios que cambiaron de perfil entre `2009-2015` y `2018-2024`:** `1,565` (`63.18%`)
-- **Municipios que permanecieron en el mismo perfil estructural:** `912`
+- **Permanencia media en la diagonal de Markov:** `72.5%` vs. `16.7%` bajo azar uniforme (**`4.35x` más estable que el azar**).
+- **Municipios que cambiaron de perfil entre `2009-2015` y `2018-2024`:** `1,219` (`49.21%`).
 
-### Principales Flujos de Transición (`2009-2015` $\rightarrow$ `2018-2024`)
+### Top 15 Municipios con Cambio Real de Perfil (Excluyendo Celdas con Baja Cobertura `NS`)
 
-| Perfil Origen (`2009-2015`) | Perfil Destino (`2018-2024`) | Número de Municipios |
-| :---: | :---: | ---: |
-| Perfil 2 | Perfil 0 | 191 |
-| Perfil 4 | Perfil 1 | 158 |
-| Perfil 4 | Perfil 0 | 135 |
-| Perfil 5 | Perfil 0 | 133 |
-| Perfil 2 | Perfil 1 | 131 |
-| Perfil 2 | Perfil 4 | 114 |
-| Perfil 1 | Perfil 0 | 100 |
-| Perfil 0 | Perfil 1 | 95 |
-| Perfil 5 | Perfil 4 | 94 |
-| Perfil 1 | Perfil 4 | 79 |
-
-### Top 15 Municipios con Mayor Movimiento y Cambio de Perfil (`2009-2015` $\rightarrow$ `2018-2024`)
-
-| `cve_geo` | Municipio | Entidad | Perfil `09-15` | Perfil `18-24` | Part. 2009 | Part. 2024 | Cambio $\Delta$ (p.p.) | Lista Nominal 2024 |
+| `cve_geo` | Municipio | Entidad | Perfil `09-15` | Perfil `18-24` | Part. 2009 (Real) | Part. 2024 (Real) | Cambio $\Delta$ (p.p.) | Lista Nominal 2024 |
 | :---: | :--- | :--- | :---: | :---: | ---: | ---: | ---: | ---: |
-| `26006` | Atil | SONORA | Perfil 0 | Perfil 3 | 84.5% | 0.0% | -84.5 p.p. | 747 |
-| `19029` | Higueras | NUEVO LEON | Perfil 0 | Perfil 3 | 82.5% | 0.0% | -82.5 p.p. | 1,541 |
-| `20048` | Magdalena OcotlÃ¡n | OAXACA | Perfil 2 | Perfil 0 | 0.0% | 82.1% | +82.1 p.p. | 879 |
-| `26031` | Oquitoa | SONORA | Perfil 0 | Perfil 3 | 80.1% | 0.0% | -80.1 p.p. | 446 |
-| `26016` | Cucurpe | SONORA | Perfil 0 | Perfil 3 | 75.2% | 0.0% | -75.2 p.p. | 1,009 |
-| `26043` | Tubutama | SONORA | Perfil 0 | Perfil 3 | 73.8% | 0.0% | -73.8 p.p. | 1,381 |
-| `19044` | Rayones | NUEVO LEON | Perfil 2 | Perfil 0 | 0.0% | 65.3% | +65.3 p.p. | 3,040 |
-| `26038` | SÃ¡ric | SONORA | Perfil 0 | Perfil 3 | 70.4% | 5.2% | -65.2 p.p. | 1,807 |
-| `07055` | Metapa | CHIAPAS | Perfil 2 | Perfil 0 | 0.0% | 64.2% | +64.2 p.p. | 5,217 |
-| `07088` | Suchiate | CHIAPAS | Perfil 2 | Perfil 0 | 5.0% | 63.0% | +58.0 p.p. | 25,140 |
-| `20510` | Santo Domingo IxcatlÃ¡n | OAXACA | Perfil 2 | Perfil 0 | 0.0% | 58.0% | +58.0 p.p. | 514 |
-| `26052` | Pitiquito | SONORA | Perfil 0 | Perfil 3 | 65.2% | 7.8% | -57.5 p.p. | 6,420 |
-| `20280` | San Miguel Tenango | OAXACA | Perfil 4 | Perfil 3 | 57.1% | 0.0% | -57.1 p.p. | 637 |
-| `29049` | Santa Isabel Xiloxoxtla | TLAXCALA | Perfil 2 | Perfil 1 | 28.1% | 83.8% | +55.7 p.p. | 3,721 |
-| `29047` | San Juan Huactzinco | TLAXCALA | Perfil 1 | Perfil 0 | 25.7% | 80.7% | +55.0 p.p. | 5,894 |
-
----
-
-## 4. Limitaciones Metodológicas y Caveats Éticos
-
-1. **Falacia Ecológica (Principio Inquebrantable #2):** Las asociaciones estadísticas entre participación, estructura etaria, género y ruralidad están medidas a nivel de agregado territorial (`municipio`). Inferir conductas individuales a partir de estos perfiles constituiría una falacia ecológica.
-2. **Municipios con Lista Nominal Pequeña (`flag_baja_confiabilidad`):** En municipios con menos de 1,000 electores en lista nominal promedio, variaciones de pocas decenas de votantes (por migración estacional o conflictos locales) producen oscilaciones porcentuales amplias. Estos municipios están debidamente marcados con `flag_baja_confiabilidad = true`.
-3. **Cambios de Marco Cartográfico Electoral (2009–2024):** Los municipios creados con posterioridad a 2009 (p. ej. Bacalar, Puerto Morelos, San Quintín, San Felipe, Seybaplaya, Dzitbalché) tienen trayectoria observada únicamente a partir de su primera elección federal tras su creación; los años previos utilizan imputación documentada por mediana estatal (`flag_imputacion_trayectoria = true`) y están identificados en `puente_municipio_anio.parquet`.
-4. **Exclusión de Casillas Especiales en Cuadernillos Censales:** Como documenta la DECEyEC del INE, los conteos censales provienen de los cuadernillos de lista nominal de casillas ordinarias/contiguas/extraordinarias, por lo que no incluyen votantes en tránsito en casillas especiales.
+| `29047` | San Juan Huactzinco | Tlaxcala | Perfil 4 | Perfil 3 | 25.7% | 80.7% | +55.0 p.p. | 5,894 |
+| `21069` | Hermenegildo Galeana | Puebla | Perfil 3 | Perfil 1 | 20.8% | 75.2% | +54.4 p.p. | 5,544 |
+| `21013` | Altepexi | Puebla | Perfil 3 | Perfil 1 | 24.1% | 77.6% | +53.5 p.p. | 15,121 |
+| `21006` | Ahuacatlán | Puebla | Perfil 3 | Perfil 1 | 30.5% | 80.9% | +50.4 p.p. | 11,390 |
+| `21005` | Acteopan | Puebla | Perfil 3 | Perfil 1 | 35.6% | 83.7% | +48.0 p.p. | 2,319 |
+| `08049` | Nonoava | Chihuahua | Perfil 4 | Perfil 1 | 28.5% | 75.4% | +46.9 p.p. | 2,918 |
+| `21147` | Santa Inés Ahuatempan | Puebla | Perfil 3 | Perfil 1 | 29.2% | 75.4% | +46.2 p.p. | 4,876 |
+| `29056` | San Jerónimo Zacualpan | Tlaxcala | Perfil 3 | Perfil 1 | 39.7% | 84.2% | +44.5 p.p. | 3,276 |
+| `21107` | Ocoyucan | Puebla | Perfil 4 | Perfil 1 | 20.8% | 64.8% | +44.1 p.p. | 33,389 |
+| `29039` | Xaloztoc | Tlaxcala | Perfil 3 | Perfil 1 | 27.8% | 71.8% | +43.9 p.p. | 18,969 |
+| `21181` | Tlaltenango | Puebla | Perfil 4 | Perfil 1 | 29.1% | 72.5% | +43.3 p.p. | 5,406 |
+| `29028` | Teolocholco | Tlaxcala | Perfil 3 | Perfil 1 | 33.0% | 76.1% | +43.2 p.p. | 19,434 |
+| `21139` | San Nicolás de los Ranchos | Puebla | Perfil 5 | Perfil 1 | 31.0% | 73.8% | +42.8 p.p. | 8,672 |
+| `21100` | Molcaxac | Puebla | Perfil 3 | Perfil 1 | 31.9% | 74.2% | +42.3 p.p. | 5,147 |
+| `29052` | La Magdalena Tlaltelulco | Tlaxcala | Perfil 3 | Perfil 1 | 36.0% | 78.2% | +42.3 p.p. | 15,172 |

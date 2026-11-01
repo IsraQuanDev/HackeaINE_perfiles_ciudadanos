@@ -1,13 +1,27 @@
 {
-  "moran_global_I": 0.4781542076988394,
-  "moran_global_p_sim": 0.002,
-  "moran_global_z_sim": 52.84287182206208,
+  "moran_global_I": 0.45257046808954227,
+  "moran_global_p_sim": 0.001,
+  "moran_global_z_sim": 47.73682002175351,
   "n_municipios": 2477,
   "lisa_counts": {
-    "NS (No significativo)": 1450,
-    "HH (Alto-Alto)": 437,
-    "LL (Bajo-Bajo)": 418,
-    "HL (Alto-Bajo)": 91,
-    "LH (Bajo-Alto)": 81
-  }
+    "NS (No significativo)": 1473,
+    "LL (Bajo-Bajo)": 497,
+    "HH (Alto-Alto)": 336,
+    "HL (Alto-Bajo)": 100,
+    "LH (Bajo-Alto)": 71
+  },
+  "gi_star_counts": {
+    "No Significativo": 1649,
+    "Cold Spot 95% (Baja Participación)": 266,
+    "Hot Spot 99% (Alta Participación)": 229,
+    "Cold Spot 99% (Baja Participación)": 215,
+    "Hot Spot 95% (Alta Participación)": 118
+  },
+  "shrinkage_small_mun_volatility_before": 0.08941,
+  "shrinkage_small_mun_volatility_after": 0.08102,
+  "fpca_explained_variance_ratio": [
+    0.8783,
+    0.0771,
+    0.0235
+  ]
 }

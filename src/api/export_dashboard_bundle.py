@@ -71,7 +71,19 @@ def export_dashboard_bundle() -> None:
 
     merged = (
         df_feat.merge(
-            df_prof[["cve_geo", "cluster_id", "probabilidad_pertenencia", "distancia_centroide", "pca_1", "pca_2", "umap_1", "umap_2"]],
+            df_prof[
+                [
+                    "cve_geo",
+                    "cluster_id",
+                    "probabilidad_pertenencia",
+                    "distancia_centroide",
+                    "es_medoide_perfil",
+                    "pca_1",
+                    "pca_2",
+                    "umap_1",
+                    "umap_2",
+                ]
+            ],
             on="cve_geo",
         )
         .merge(
@@ -80,6 +92,8 @@ def export_dashboard_bundle() -> None:
                     "cve_geo",
                     "ln_proyectada_2027",
                     "proyeccion_part_2027",
+                    "escenario_bajo_2027",
+                    "escenario_alto_2027",
                     "intervalo_80_inf",
                     "intervalo_80_sup",
                     "votantes_esperados_2027",
@@ -95,8 +109,11 @@ def export_dashboard_bundle() -> None:
         )
     )
 
+    def _opt_pct(val: object) -> float | None:
+        return None if pd.isna(val) else round(float(val) * 100, 2)
+
     municipios_records = []
-    for _, r in merged.iterrows():
+    for r in merged.to_dict(orient="records"):
         municipios_records.append(
             {
                 "cve_geo": str(r["cve_geo"]),
@@ -107,15 +124,21 @@ def export_dashboard_bundle() -> None:
                 "def": str(r.get("def_principal", "1")),
                 "cluster_id": int(r["cluster_id"]),
                 "prob": round(float(r["probabilidad_pertenencia"]), 3),
+                "es_medoide": bool(r.get("es_medoide_perfil", False)),
+                "pca_1": round(float(r["pca_1"]), 3),
+                "pca_2": round(float(r["pca_2"]), 3),
+                "umap_1": round(float(r["umap_1"]), 3),
+                "umap_2": round(float(r["umap_2"]), 3),
                 "lat": round(float(r["lat_aprox"]), 4),
                 "lon": round(float(r["lon_aprox"]), 4),
-                "p2009": round(float(r["part_2009"]) * 100, 2),
-                "p2012": round(float(r["part_2012"]) * 100, 2),
-                "p2015": round(float(r["part_2015"]) * 100, 2),
-                "p2018": round(float(r["part_2018"]) * 100, 2),
-                "p2021": round(float(r["part_2021"]) * 100, 2),
-                "p2024": round(float(r["part_2024"]) * 100, 2),
+                "p2009": _opt_pct(r["part_2009"]),
+                "p2012": _opt_pct(r["part_2012"]),
+                "p2015": _opt_pct(r["part_2015"]),
+                "p2018": _opt_pct(r["part_2018"]),
+                "p2021": _opt_pct(r["part_2021"]),
+                "p2024": _opt_pct(r["part_2024"]),
                 "p_global": round(float(r["part_media_global"]) * 100, 2),
+                "p_eb": round(float(r.get("part_media_global_eb", r["part_media_global"])) * 100, 2),
                 "p_pres": round(float(r["part_media_presidencial"]) * 100, 2),
                 "p_inter": round(float(r["part_media_intermedia"]) * 100, 2),
                 "caida_pi": round(float(r["caida_presidencial_intermedia"]) * 100, 2),
@@ -126,13 +149,29 @@ def export_dashboard_bundle() -> None:
                 "brecha_edad": round(float(r["brecha_generacional_60_vs_18_29"]) * 100, 2),
                 "p_joven": round(float(r["part_media_jovenes_18_29"]) * 100, 2),
                 "p_60mas": round(float(r["part_media_adultos_60_mas"]) * 100, 2),
+                "e18_19": round(float(r.get("part_edad_18_19", r["part_media_jovenes_18_29"])) * 100, 2),
+                "e20_24": round(float(r.get("part_edad_20_24", r["part_media_jovenes_18_29"])) * 100, 2),
+                "e25_29": round(float(r.get("part_edad_25_29", r["part_media_jovenes_18_29"])) * 100, 2),
+                "e30_39": round(float(r.get("part_edad_30_39", r["part_media_global"])) * 100, 2),
+                "e40_49": round(float(r.get("part_edad_40_49", r["part_media_global"])) * 100, 2),
+                "e50_59": round(float(r.get("part_edad_50_59", r["part_media_global"])) * 100, 2),
+                "e60_69": round(float(r.get("part_edad_60_69", r["part_media_adultos_60_mas"])) * 100, 2),
+                "e70_mas": round(float(r.get("part_edad_70_mas", r["part_media_adultos_60_mas"])) * 100, 2),
+                "ret_pv": round(float(r.get("retencion_cohorte_primer_voto", 0.0)) * 100, 2),
                 "rural_pct": round(float(r["pct_ln_rural"]) * 100, 1),
                 "urbana_pct": round(float(r["pct_ln_urbana"]) * 100, 1),
                 "ln_2024": int(r["ln_2024"]),
                 "va_2024": int(r["votantes_anticipado_2024"]),
                 "va_tasa_10k": round(float(r["tasa_voto_anticipado_por_10k"]), 2),
                 "baja_conf": bool(r["flag_baja_confiabilidad"]),
+                "anom_mad": bool(r.get("flag_anomalia_mad", False)),
+                "anom_if": bool(r.get("flag_anomalia_iforest", False)),
+                "pelt_n": int(r.get("pelt_n_changepoints", 0)),
+                "pelt_yr": int(r.get("pelt_ultimo_anio_quiebre", 0)),
+                "n_val": int(r.get("n_elecciones_validas", 6)),
                 "lisa": str(r["lisa_cluster"]),
+                "gi_z": round(float(r.get("getis_ord_gi_z", 0.0)), 3),
+                "gi_cat": str(r.get("getis_ord_categoria", "No significativo")),
                 "w_09_15": int(r["2009-2015"]),
                 "w_12_18": int(r["2012-2018"]),
                 "w_15_21": int(r["2015-2021"]),
@@ -140,6 +179,8 @@ def export_dashboard_bundle() -> None:
                 "cambio_w": bool(r["cambio_perfil_extremos"]),
                 "ln_2027": int(r["ln_proyectada_2027"]),
                 "p2027": round(float(r["proyeccion_part_2027"]) * 100, 2),
+                "p2027_bajo": round(float(r.get("escenario_bajo_2027", r["proyeccion_part_2027"])) * 100, 2),
+                "p2027_alto": round(float(r.get("escenario_alto_2027", r["proyeccion_part_2027"])) * 100, 2),
                 "p2027_lo": round(float(r["intervalo_80_inf"]) * 100, 2),
                 "p2027_hi": round(float(r["intervalo_80_sup"]) * 100, 2),
                 "riesgo_2027": bool(r["es_zona_riesgo_2027"]),

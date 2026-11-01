@@ -42,7 +42,26 @@ def test_dashboard_e2e_server_and_api_chat() -> None:
         assert elapsed < 3.0, f"La carga inicial del dashboard excedió 3s: {elapsed:.2f}s"
         assert len(bundle["municipios"]) >= 2450
 
-        # Verificar las 8 secciones requeridas en el DOM servido
+        # Verificar que no exista mojibake en el bundle JSON servido
+        raw_bundle_text = json.dumps(bundle, ensure_ascii=False)
+        assert "Ã" not in raw_bundle_text and "Â" not in raw_bundle_text, "Mojibake detectado en municipios_bundle.json"
+
+        # Verificar que el GeoJSON poligonal de municipios se sirva con los 2,477 polígonos
+        with urllib.request.urlopen(
+            f"http://127.0.0.1:{port}/data/geo/municipios_mx.geojson", timeout=8
+        ) as resp:
+            assert resp.status == 200
+            geojson = json.loads(resp.read().decode("utf-8"))
+            assert len(geojson["features"]) == 2477
+
+        # Verificar nuevos endpoints REST de la Fase A5
+        for ep in ("/api/profiles", "/api/transitions", "/api/forecast", "/api/insights", "/api/municipio/22014"):
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}{ep}", timeout=8) as resp:
+                assert resp.status == 200
+                ep_data = json.loads(resp.read().decode("utf-8"))
+                assert isinstance(ep_data, dict)
+
+        # Verificar las 8 secciones requeridas en el DOM servido + Calidad de Datos v2
         for heading in [
             "1. Mapa Coroplético",
             "2. Tarjetas de Perfil",
@@ -52,6 +71,7 @@ def test_dashboard_e2e_server_and_api_chat() -> None:
             "6. Simulador What-If (No Causal)",
             "7. Pregúntale a los Datos (SQL)",
             "8. Metodología y Límites",
+            "9. Calidad de Datos y Auditoría P0",
             "Falacia Ecológica",
             "NO CAUSAL",
         ]:

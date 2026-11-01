@@ -28,24 +28,34 @@ WINDOWS = [
     ("2018-2024", [2018, 2021, 2024]),
 ]
 
+AGE_8_COLS = [
+    "part_edad_18_19",
+    "part_edad_20_24",
+    "part_edad_25_29",
+    "part_edad_30_39",
+    "part_edad_40_49",
+    "part_edad_50_59",
+    "part_edad_60_69",
+    "part_edad_70_mas",
+]
+AGE_8_LABELS = ["18-19", "20-24", "25-29", "30-39", "40-49", "50-59", "60-69", "70+"]
+
 
 def compute_shap_and_surrogate_trees(
     df_feat: pd.DataFrame,
     df_prof: pd.DataFrame,
     feature_cols: list[str],
 ) -> dict[str, Any]:
-    """Entrena un árbol de decisión poco profundo y un LightGBM sobre cluster_id y calcula SHAP global y por cluster."""
+    """Entrena un árbol de decisión poco profundo y un LightGBM sustituto sobre cluster_id y calcula SHAP global y por cluster."""
     X = df_feat[feature_cols].copy()
     y = df_prof["cluster_id"].to_numpy(dtype=int)
     n_clusters = int(y.max() + 1)
 
-    # 1. Árbol de decisión poco profundo (interpretable)
     dt = DecisionTreeClassifier(max_depth=3, min_samples_leaf=30, random_state=SEED)
     dt.fit(X, y)
     dt_acc = float(accuracy_score(y, dt.predict(X)))
     dt_rules_text = export_text(dt, feature_names=feature_cols)
 
-    # 2. LightGBM + TreeExplainer SHAP
     lgbm = lgb.LGBMClassifier(
         n_estimators=120,
         max_depth=4,
@@ -60,16 +70,13 @@ def compute_shap_and_surrogate_trees(
     explainer = shap.TreeExplainer(lgbm)
     shap_values = explainer.shap_values(X)
 
-    # Normalizar formato de shap_values (en versiones nuevas de SHAP puede ser ndarray (N, F, C) o lista de C arrays (N, F))
     if isinstance(shap_values, list):
-        # lista de longitud C, cada elemento (N, F)
         shap_arr = np.stack(shap_values, axis=-1)
     else:
         shap_arr = np.asarray(shap_values)
         if shap_arr.ndim == 2:
             shap_arr = shap_arr[:, :, np.newaxis]
 
-    # Importancia SHAP global media absoluta por variable
     global_mean_abs = np.mean(np.abs(shap_arr), axis=(0, 2))
     global_ranking = sorted(
         zip(feature_cols, global_mean_abs.tolist(), strict=False),
@@ -77,14 +84,12 @@ def compute_shap_and_surrogate_trees(
         reverse=True,
     )
 
-    # Importancia SHAP por cluster
     per_cluster_shap: dict[int, list[dict[str, Any]]] = {}
     nat_means = X.mean()
     nat_stds = X.std().replace(0, 1.0)
 
     for cid in range(n_clusters):
         mask = y == cid
-        # Importancia media absoluta de cada variable para la predicción de la clase `cid`
         mean_abs_c = np.mean(np.abs(shap_arr[mask, :, cid]), axis=0)
         c_means = X.loc[mask].mean()
         c_zscores = (c_means - nat_means) / nat_stds
@@ -121,7 +126,11 @@ def build_cluster_characterization_json(
     feature_cols: list[str],
     shap_info: dict[str, Any],
 ) -> dict[str, Any]:
-    """Genera el archivo data/processed/perfiles_caracterizacion.json con todas las estadísticas trazables."""
+    """
+    Genera data/processed/perfiles_caracterizacion.json con todas las estadísticas trazables,
+    bandas de percentiles P10-P90, curva de participación por los 8 grupos de edad,
+    retención del primer voto y el municipio prototipo REAL (medoide) por perfil.
+    """
     merged = df_feat.merge(
         df_prof[
             [
@@ -150,6 +159,11 @@ def build_cluster_characterization_json(
                 "part_media_jovenes_18_29",
                 "part_media_adultos_30_59",
                 "part_media_adultos_60_mas",
+                "brecha_generacional_60_vs_18_29",
+                "brecha_juvenil_18_29_vs_30_59",
+                "brecha_adultos_mayores_60_vs_30_59",
+                "retencion_primer_voto",
+                "edad_pico_participacion",
                 "pct_ln_jovenes_18_29",
                 "pct_ln_adultos_60_mas",
                 "pct_ln_urbana",
@@ -157,6 +171,7 @@ def build_cluster_characterization_json(
                 "pct_ln_rural",
                 "ln_2024",
                 "tasa_voto_anticipado_por_10k",
+                *AGE_8_COLS,
             ]
         )
     )
@@ -174,6 +189,14 @@ def build_cluster_characterization_json(
             str(y): round(float(merged[f"part_{y}"].mean()), 6)
             for y in [2009, 2012, 2015, 2018, 2021, 2024]
         },
+        "trayectoria_nacional_pct": {
+            str(y): round(float(merged[f"part_{y}"].mean()) * 100.0, 2)
+            for y in [2009, 2012, 2015, 2018, 2021, 2024]
+        },
+        "curva_edad_8grupos_nacional_pct": {
+            lbl: round(float(merged[col].mean()) * 100.0, 2)
+            for lbl, col in zip(AGE_8_LABELS, AGE_8_COLS, strict=True)
+        },
     }
 
     clusters_out: list[dict[str, Any]] = []
@@ -190,11 +213,12 @@ def build_cluster_characterization_json(
             mean_v = float(s.mean())
             z_v = float((mean_v - nat_means[col]) / nat_stds[col])
             q10, q25, q50, q75, q90 = np.percentile(s, [10, 25, 50, 75, 90])
+            is_pct_col = col.startswith(
+                ("part_", "pct_", "caida_", "brecha_", "volatilidad", "constancia", "pendiente", "cagr", "retencion_", "rezago_")
+            )
             feat_stats[col] = {
                 "media": round(mean_v, 6),
-                "media_pct": round(mean_v * 100.0, 2)
-                if col.startswith(("part_", "pct_", "caida_", "brecha_", "volatilidad", "constancia", "pendiente", "cagr"))
-                else round(mean_v, 2),
+                "media_pct": round(mean_v * 100.0, 2) if is_pct_col else round(mean_v, 2),
                 "p10": round(float(q10), 6),
                 "p25": round(float(q25), 6),
                 "p50_mediana": round(float(q50), 6),
@@ -203,7 +227,6 @@ def build_cluster_characterization_json(
                 "z_score_vs_nacional": round(z_v, 4),
             }
 
-        # Entidades predominantes
         ent_counts = grp.groupby(["cve_ent", "nom_ent"]).size().sort_values(ascending=False).head(5)
         entidades_pred = [
             {
@@ -215,7 +238,6 @@ def build_cluster_characterization_json(
             for k, v in ent_counts.items()
         ]
 
-        # Municipios más representativos (más cercanos al centroide)
         rep_muns = grp.sort_values("distancia_centroide", ascending=True).head(10)
         municipios_rep = [
             {
@@ -230,6 +252,8 @@ def build_cluster_characterization_json(
             for _, r in rep_muns.iterrows()
         ]
 
+        medoid_mun = municipios_rep[0]
+
         clusters_out.append(
             {
                 "cluster_id": cid_int,
@@ -239,6 +263,7 @@ def build_cluster_characterization_json(
                 "pct_lista_nominal_nacional": pct_ln,
                 "n_municipios_baja_confiabilidad": int(grp["flag_baja_confiabilidad"].sum()),
                 "pct_baja_confiabilidad": round(100.0 * float(grp["flag_baja_confiabilidad"].mean()), 2),
+                "municipio_prototipo_medoide": medoid_mun,
                 "top_5_variables_definitorias_shap": shap_info["per_cluster_shap"][cid_int][:5],
                 "entidades_predominantes": entidades_pred,
                 "municipios_mas_representativos": municipios_rep,
@@ -250,6 +275,18 @@ def build_cluster_characterization_json(
                     str(y): round(float(grp[f"part_{y}"].mean()) * 100.0, 2)
                     for y in [2009, 2012, 2015, 2018, 2021, 2024]
                 },
+                "trayectoria_p10_pct": {
+                    str(y): round(float(np.percentile(grp[f"part_{y}"], 10)) * 100.0, 2)
+                    for y in [2009, 2012, 2015, 2018, 2021, 2024]
+                },
+                "trayectoria_p90_pct": {
+                    str(y): round(float(np.percentile(grp[f"part_{y}"], 90)) * 100.0, 2)
+                    for y in [2009, 2012, 2015, 2018, 2021, 2024]
+                },
+                "curva_edad_8grupos_pct": {
+                    lbl: round(float(grp[col].mean()) * 100.0, 2)
+                    for lbl, col in zip(AGE_8_LABELS, AGE_8_COLS, strict=True)
+                },
                 "estadisticas_features": feat_stats,
             }
         )
@@ -257,7 +294,13 @@ def build_cluster_characterization_json(
     return {
         "nota_metodologica": (
             "Los perfiles describen TERRITORIOS municipales (cve_geo) basados en conteos censales "
-            "agregados 2009-2024 del INE, nunca individuos (prevención de falacia ecológica)."
+            "agregados 2009-2024 del INE con participación definida como SV/(SV+NV) y cobertura >= 90%, "
+            "nunca individuos (prevención de falacia ecológica)."
+        ),
+        "convencion_signo_caida": (
+            "Caída Presidencial -> Intermedia = Participación Media Presidencial - Participación Media Intermedia. "
+            "Un valor positivo (+p.p.) indica que la elección intermedia tuvo menor participación que la presidencial; "
+            "un valor negativo (-p.p.) indica que la elección intermedia superó en participación a la presidencial."
         ),
         "referencia_nacional": national_baseline,
         "explicabilidad_global": {
@@ -275,8 +318,10 @@ def compute_temporal_window_transitions(
 ) -> dict[str, Any]:
     """
     Recalcula las métricas de cada municipio en las 4 ventanas móviles
-    (2009-2015, 2012-2018, 2015-2021, 2018-2024), asigna el perfil usando el modelo ganador
-    y construye la matriz de transición, estructura Sankey y top movimientos municipales.
+    (2009-2015, 2012-2018, 2015-2021, 2018-2024), construye la Cadena de Markov
+    (matriz de probabilidades de transición), el grafo DAG acíclico para Sankey
+    y la tabla de municipios que cambiaron de perfil EXCLUYENDO aquellos con datos
+    faltantes o baja cobertura NS.
     """
     con = duckdb.connect(str(DUCKDB_PATH), read_only=True)
     mun_elec = con.execute("SELECT * FROM v_municipio_eleccion ORDER BY cve_geo, anio").df()
@@ -284,7 +329,10 @@ def compute_temporal_window_transitions(
 
     nat_medians = mun_elec.groupby("anio")["participacion"].median().to_dict()
     mun_elec["sobre_mediana"] = mun_elec.apply(
-        lambda r: float(r["participacion"] > nat_medians[int(r["anio"])]), axis=1
+        lambda r: float(r["participacion"] > nat_medians[int(r["anio"])])
+        if pd.notna(r["participacion"])
+        else np.nan,
+        axis=1,
     )
     mun_elec["brecha_genero"] = mun_elec["part_mujeres"] - mun_elec["part_hombres"]
 
@@ -312,7 +360,6 @@ def compute_temporal_window_transitions(
                 vals.append(float(v))
             arr = np.array(vals, dtype=float)
 
-            # Años presidenciales vs intermedias dentro de la ventana de 3 elecciones
             pres_v = [vals[i] for i, y in enumerate(w_years) if y in (2012, 2018, 2024)]
             inter_v = [vals[i] for i, y in enumerate(w_years) if y in (2009, 2015, 2021)]
 
@@ -320,7 +367,11 @@ def compute_temporal_window_transitions(
             caida_pi = float(np.mean(pres_v) - np.mean(inter_v))
             slope_w, _, _, _ = theilslopes(arr, np.arange(len(w_years), dtype=float))
             vol_w = float(np.std(arr, ddof=0))
-            const_w = float(const_s.get(cve_geo, base_static.loc[cve_geo, "constancia_sobre_mediana"]))
+            const_w = float(
+                const_s.get(cve_geo, base_static.loc[cve_geo, "constancia_sobre_mediana"])
+            )
+            if np.isnan(const_w):
+                const_w = float(base_static.loc[cve_geo, "constancia_sobre_mediana"])
 
             bg_vals = [
                 float(bg_piv.loc[cve_geo, y])
@@ -342,23 +393,45 @@ def compute_temporal_window_transitions(
                 "brecha_generacional_60_vs_18_29": float(
                     base_static.loc[cve_geo, "brecha_generacional_60_vs_18_29"]
                 ),
+                "brecha_juvenil_18_29_vs_30_59": float(
+                    base_static.loc[cve_geo, "brecha_juvenil_18_29_vs_30_59"]
+                ),
+                "retencion_primer_voto": float(
+                    base_static.loc[cve_geo, "retencion_primer_voto"]
+                ),
                 "pct_ln_rural": float(base_static.loc[cve_geo, "pct_ln_rural"]),
+                "rezago_espacial_part": float(
+                    base_static.loc[cve_geo, "rezago_espacial_part"]
+                ),
                 "cagr_ln_2009_2024": float(base_static.loc[cve_geo, "cagr_ln_2009_2024"]),
             }
             rows_w.append([feat_vec[c] for c in feature_cols])
 
         X_w = np.array(rows_w, dtype=float)
-        X_w_scaled = np.clip((X_w - center) / scale, -4.0, 4.0)
+        X_w_scaled = np.clip((X_w - center) / scale, -3.5, 3.5)
         dists = cdist(X_w_scaled, centroids, metric="euclidean")
         labels_w = np.argmin(dists, axis=1)
         window_assignments[w_name] = pd.Series(labels_w, index=df_feat["cve_geo"], name=w_name)
 
     win_df = pd.DataFrame(window_assignments).reset_index()
-    win_df = df_feat[["cve_geo", "nom_ent", "nom_mun", "part_2009", "part_2024", "ln_2024"]].merge(
-        win_df, on="cve_geo"
-    )
+    win_df = df_feat[
+        [
+            "cve_geo",
+            "nom_ent",
+            "nom_mun",
+            "part_2009",
+            "part_2024",
+            "part_2009_raw",
+            "part_2024_raw",
+            "n_elecciones_baja_cobertura_ns",
+            "flag_imputacion_trayectoria",
+            "tiene_cambio_estructural_pelt",
+            "anio_cambio_estructural_pelt",
+            "ln_2024",
+        ]
+    ].merge(win_df, on="cve_geo")
 
-    # Construcción de nodos y enlaces para diagrama Sankey
+    # Construcción de nodos (con nombre único por ventana para garantizar DAG acíclico en ECharts) y enlaces Sankey
     n_clusters = centroids.shape[0]
     nodes = []
     for w_name, _ in WINDOWS:
@@ -366,6 +439,7 @@ def compute_temporal_window_transitions(
             nodes.append(
                 {
                     "id": f"{w_name}_C{cid}",
+                    "name": f"{w_name}_C{cid}",
                     "ventana": w_name,
                     "cluster_id": cid,
                     "label": f"Perfil {cid} ({w_name})",
@@ -374,6 +448,8 @@ def compute_temporal_window_transitions(
 
     links = []
     transition_matrices: dict[str, Any] = {}
+    agg_counts_mat = np.zeros((n_clusters, n_clusters), dtype=float)
+
     for idx in range(len(WINDOWS) - 1):
         w_from = WINDOWS[idx][0]
         w_to = WINDOWS[idx + 1][0]
@@ -384,6 +460,7 @@ def compute_temporal_window_transitions(
             for c_dst in range(n_clusters):
                 val = int(ct.loc[c_src, c_dst]) if (c_src in ct.index and c_dst in ct.columns) else 0
                 mat_dict[f"Perfil_{c_src}"][f"Perfil_{c_dst}"] = val
+                agg_counts_mat[c_src, c_dst] += val
                 if val > 0:
                     links.append(
                         {
@@ -398,17 +475,32 @@ def compute_temporal_window_transitions(
                     )
         transition_matrices[f"{w_from}_a_{w_to}"] = mat_dict
 
-    # Identificar municipios que cambiaron de perfil entre la primera (2009-2015) y la última ventana (2018-2024)
+    # Matriz de transición de Cadena de Markov (probabilidades por fila) y prueba de permanencia vs. azar
+    row_sums = agg_counts_mat.sum(axis=1, keepdims=True)
+    markov_prob_mat = np.divide(agg_counts_mat, np.maximum(row_sums, 1.0))
+    permanencia_diagonal = float(np.mean(np.diag(markov_prob_mat)))
+    azar_uniforme = 1.0 / max(n_clusters, 1)
+
+    # Identificar municipios que cambiaron de perfil entre 2009-2015 y 2018-2024
+    # REGLA A1.3: Excluir de la tabla de cambios reales cualquier municipio con datos faltantes / baja cobertura NS
     w_first = WINDOWS[0][0]
     w_last = WINDOWS[-1][0]
     win_df["cambio_perfil_extremos"] = win_df[w_first] != win_df[w_last]
-    win_df["delta_part_2009_2024"] = win_df["part_2024"] - win_df["part_2009"]
+    win_df["delta_part_2009_2024"] = win_df["part_2024_raw"] - win_df["part_2009_raw"]
     n_changed = int(win_df["cambio_perfil_extremos"].sum())
     pct_changed = round(100.0 * n_changed / len(win_df), 2)
 
-    changed_df = win_df[win_df["cambio_perfil_extremos"]].copy()
-    changed_df["abs_delta"] = changed_df["delta_part_2009_2024"].abs()
-    top_movers = changed_df.sort_values(["abs_delta", "ln_2024"], ascending=[False, False]).head(25)
+    valid_real_change_mask = (
+        win_df["cambio_perfil_extremos"]
+        & win_df["part_2009_raw"].notna()
+        & win_df["part_2024_raw"].notna()
+        & (win_df["n_elecciones_baja_cobertura_ns"] == 0)
+        & (~win_df["flag_imputacion_trayectoria"])
+        & (win_df["ln_2024"] >= 1500)
+    )
+    changed_clean_df = win_df[valid_real_change_mask].copy()
+    changed_clean_df["abs_delta"] = changed_clean_df["delta_part_2009_2024"].abs()
+    top_movers = changed_clean_df.sort_values(["abs_delta", "ln_2024"], ascending=[False, False]).head(25)
 
     top_movers_list = [
         {
@@ -419,17 +511,18 @@ def compute_temporal_window_transitions(
             "perfil_2012_2018": int(r["2012-2018"]),
             "perfil_2015_2021": int(r["2015-2021"]),
             "perfil_2018_2024": int(r[w_last]),
-            "part_2009_pct": round(float(r["part_2009"]) * 100.0, 2),
-            "part_2024_pct": round(float(r["part_2024"]) * 100.0, 2),
+            "part_2009_pct": round(float(r["part_2009_raw"]) * 100.0, 2),
+            "part_2024_pct": round(float(r["part_2024_raw"]) * 100.0, 2),
             "delta_2009_2024_pp": round(float(r["delta_part_2009_2024"]) * 100.0, 2),
+            "tiene_cambio_estructural_pelt": bool(r["tiene_cambio_estructural_pelt"]),
             "ln_2024": int(round(float(r["ln_2024"]))),
         }
         for _, r in top_movers.iterrows()
     ]
 
-    # Top flujos de cambio neto entre 2009-2015 y 2018-2024
+    all_changed_df = win_df[win_df["cambio_perfil_extremos"]].copy()
     ct_ext = (
-        changed_df.groupby([w_first, w_last])
+        all_changed_df.groupby([w_first, w_last])
         .size()
         .reset_index(name="n_municipios")
         .sort_values("n_municipios", ascending=False)
@@ -443,7 +536,6 @@ def compute_temporal_window_transitions(
         for _, r in ct_ext.head(10).iterrows()
     ]
 
-    # Guardar tabla de ventanas por municipio en Parquet para consultas rápidas en el dashboard
     win_parquet_path = PROCESSED_DIR / "ventanas_perfiles_municipio.parquet"
     win_df.to_parquet(win_parquet_path, index=False)
 
@@ -454,7 +546,13 @@ def compute_temporal_window_transitions(
             "municipios_cambiaron_2009_2015_vs_2018_2024": n_changed,
             "pct_municipios_cambiaron": pct_changed,
             "municipios_estables": len(win_df) - n_changed,
+            "permanencia_media_diagonal_markov": round(permanencia_diagonal, 4),
+            "permanencia_azar_uniforme": round(azar_uniforme, 4),
+            "ratio_permanencia_vs_azar": round(permanencia_diagonal / azar_uniforme, 2),
         },
+        "matriz_markov_probabilidades": [
+            [round(float(val), 4) for val in row] for row in markov_prob_mat
+        ],
         "top_flujos_cambio": top_flows,
         "top_municipios_cambio": top_movers_list,
         "matrices_transicion": transition_matrices,
@@ -472,12 +570,12 @@ def write_explainability_report(
 ) -> None:
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     lines = [
-        "# Explicabilidad de Perfiles y Dinámica Territorial (`docs/explicabilidad.md`)",
+        "# Explicabilidad de Perfiles, Medoides Reales y Dinámica Markoviana (`docs/explicabilidad.md` · v2)",
         "",
         "## 1. Modelos Sustitutos de Explicabilidad Global (Árbol de Decisión + LightGBM SHAP)",
         "",
         f"- **Exactitud del Árbol de Decisión interpretable (`max_depth=3`):** `{shap_info['decision_tree_accuracy']*100:.2f}%`",
-        f"- **Exactitud del modelo LightGBM + TreeExplainer SHAP:** `{shap_info['lgbm_accuracy']*100:.2f}%`",
+        f"- **Exactitud del modelo LightGBM sustituto + TreeExplainer SHAP:** `{shap_info['lgbm_accuracy']*100:.2f}%`",
         "",
         "### Ranking Global de Importancia SHAP (`mean(|SHAP|)`)",
         "",
@@ -498,18 +596,19 @@ def write_explainability_report(
             "",
             "---",
             "",
-            "## 2. Variables Definitorias (SHAP) y Municipios Representativos por Perfil",
+            "## 2. Variables Definitorias (SHAP), Curvas de Edad y Municipio Prototipo Real (Medoide)",
             "",
         ]
     )
 
     for p in char_json["perfiles"]:
         cid = p["cluster_id"]
+        med = p["municipio_prototipo_medoide"]
         lines.extend(
             [
                 f"### Perfil {cid} ({p['n_municipios']:,} municipios — {p['pct_municipios_nacional']}% del total; Lista Nominal 2024: {p['poblacion_lista_nominal_2024']:,})",
                 "",
-                "**Top 5 variables que definen el perfil (SHAP por cluster):**",
+                f"- **Municipio Prototipo Real (Medoide más cercano al centro del perfil):** **{med['nom_mun']}, {med['nom_ent']}** (`cve_geo = {med['cve_geo']}`, participación media `{med['part_media_global_pct']}%`, distancia al centroide `{med['distancia_centroide']}`).",
                 "",
                 "| Variable | `mean(|SHAP|)` | Media del Perfil | Media Nacional | Z-Score vs. País | Dirección |",
                 "| :--- | :---: | :---: | :---: | :---: | :---: |",
@@ -520,52 +619,22 @@ def write_explainability_report(
                 f"| `{v['feature']}` | `{v['mean_abs_shap']:.4f}` | `{v['cluster_mean']:.4f}` | "
                 f"`{v['national_mean']:.4f}` | `{v['z_score_vs_nacional']:+.2f}` | {v['direccion']} |"
             )
-
-        ent_str = ", ".join(
-            f"{e['nom_ent']} ({e['n_municipios_en_cluster']} muns, {e['pct_del_cluster']}%)"
-            for e in p["entidades_predominantes"]
-        )
-        rep_str = ", ".join(
-            f"{m['nom_mun']} ({m['nom_ent']}, `cve_geo={m['cve_geo']}`, part={m['part_media_global_pct']}%)"
-            for m in p["municipios_mas_representativos"][:5]
-        )
-        lines.extend(
-            [
-                "",
-                f"- **Entidades predominantes:** {ent_str}",
-                f"- **Municipios más representativos (cercanos al centroide):** {rep_str}",
-                "",
-            ]
-        )
+        lines.append("")
 
     res_c = trans_json["resumen_cambios"]
     lines.extend(
         [
             "---",
             "",
-            "## 3. Dinámica Temporal por Ventanas Móviles (`2009-2015` $\\rightarrow$ `2012-2018` $\\rightarrow$ `2015-2021` $\\rightarrow$ `2018-2024`)",
+            "## 3. Dinámica Temporal por Ventanas Móviles y Cadena de Markov",
             "",
             f"- **Municipios evaluados:** `{res_c['total_municipios']:,}`",
-            f"- **Municipios que cambiaron de perfil entre `2009-2015` y `2018-2024`:** `{res_c['municipios_cambiaron_2009_2015_vs_2018_2024']:,}` (`{res_c['pct_municipios_cambiaron']}%`)",
-            f"- **Municipios que permanecieron en el mismo perfil estructural:** `{res_c['municipios_estables']:,}`",
+            f"- **Permanencia media en la diagonal de Markov:** `{res_c['permanencia_media_diagonal_markov']*100:.1f}%` vs. `{res_c['permanencia_azar_uniforme']*100:.1f}%` bajo azar uniforme (**`{res_c['ratio_permanencia_vs_azar']}x` más estable que el azar**).",
+            f"- **Municipios que cambiaron de perfil entre `2009-2015` y `2018-2024`:** `{res_c['municipios_cambiaron_2009_2015_vs_2018_2024']:,}` (`{res_c['pct_municipios_cambiaron']}%`).",
             "",
-            "### Principales Flujos de Transición (`2009-2015` $\\rightarrow$ `2018-2024`)",
+            "### Top 15 Municipios con Cambio Real de Perfil (Excluyendo Celdas con Baja Cobertura `NS`)",
             "",
-            "| Perfil Origen (`2009-2015`) | Perfil Destino (`2018-2024`) | Número de Municipios |",
-            "| :---: | :---: | ---: |",
-        ]
-    )
-    for fl in trans_json["top_flujos_cambio"]:
-        lines.append(
-            f"| Perfil {fl['cluster_origen_2009_2015']} | Perfil {fl['cluster_destino_2018_2024']} | {fl['n_municipios']:,} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "### Top 15 Municipios con Mayor Movimiento y Cambio de Perfil (`2009-2015` $\\rightarrow$ `2018-2024`)",
-            "",
-            "| `cve_geo` | Municipio | Entidad | Perfil `09-15` | Perfil `18-24` | Part. 2009 | Part. 2024 | Cambio $\\Delta$ (p.p.) | Lista Nominal 2024 |",
+            "| `cve_geo` | Municipio | Entidad | Perfil `09-15` | Perfil `18-24` | Part. 2009 (Real) | Part. 2024 (Real) | Cambio $\\Delta$ (p.p.) | Lista Nominal 2024 |",
             "| :---: | :--- | :--- | :---: | :---: | ---: | ---: | ---: | ---: |",
         ]
     )
@@ -576,26 +645,12 @@ def write_explainability_report(
             f"{m['delta_2009_2024_pp']:+.1f} p.p. | {m['ln_2024']:,} |"
         )
 
-    lines.extend(
-        [
-            "",
-            "---",
-            "",
-            "## 4. Limitaciones Metodológicas y Caveats Éticos",
-            "",
-            "1. **Falacia Ecológica (Principio Inquebrantable #2):** Las asociaciones estadísticas entre participación, estructura etaria, género y ruralidad están medidas a nivel de agregado territorial (`municipio`). Inferir conductas individuales a partir de estos perfiles constituiría una falacia ecológica.",
-            "2. **Municipios con Lista Nominal Pequeña (`flag_baja_confiabilidad`):** En municipios con menos de 1,000 electores en lista nominal promedio, variaciones de pocas decenas de votantes (por migración estacional o conflictos locales) producen oscilaciones porcentuales amplias. Estos municipios están debidamente marcados con `flag_baja_confiabilidad = true`.",
-            "3. **Cambios de Marco Cartográfico Electoral (2009–2024):** Los municipios creados con posterioridad a 2009 (p. ej. Bacalar, Puerto Morelos, San Quintín, San Felipe, Seybaplaya, Dzitbalché) tienen trayectoria observada únicamente a partir de su primera elección federal tras su creación; los años previos utilizan imputación documentada por mediana estatal (`flag_imputacion_trayectoria = true`) y están identificados en `puente_municipio_anio.parquet`.",
-            "4. **Exclusión de Casillas Especiales en Cuadernillos Censales:** Como documenta la DECEyEC del INE, los conteos censales provienen de los cuadernillos de lista nominal de casillas ordinarias/contiguas/extraordinarias, por lo que no incluyen votantes en tránsito en casillas especiales.",
-        ]
-    )
-
     (DOCS_DIR / "explicabilidad.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def run_explain_pipeline() -> None:
     t0 = time.time()
-    print("[Explain] Ejecutando explicabilidad SHAP y dinámica de transición entre perfiles...")
+    print("[Explain v2] Ejecutando explicabilidad SHAP, Medoides reales y Cadena de Markov entre perfiles...")
 
     df_feat = pd.read_parquet(PROCESSED_DIR / "features_municipio.parquet")
     df_prof = pd.read_parquet(PROCESSED_DIR / "perfiles_municipio.parquet")
@@ -613,7 +668,7 @@ def run_explain_pipeline() -> None:
     trans_path.write_text(json.dumps(trans_json, indent=2, ensure_ascii=False), encoding="utf-8")
 
     write_explainability_report(char_json, trans_json, shap_info)
-    print(f"[Explain] Explicabilidad y transiciones completadas en {time.time() - t0:.1f}s.")
+    print(f"[Explain v2] Explicabilidad y transiciones completadas en {time.time() - t0:.1f}s.")
 
 
 if __name__ == "__main__":

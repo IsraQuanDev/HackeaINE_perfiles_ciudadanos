@@ -47,9 +47,10 @@ class PerfilNarrativaOutput(BaseModel):
     @field_validator("comunidad_ilustrativa")
     @classmethod
     def validate_fictional_marker(cls, v: str) -> str:
-        if "FICTICIO" not in v.upper() and "ILUSTRATIVO" not in v.upper():
+        up = v.upper()
+        if not any(tok in up for tok in ("DATO REAL", "PROTOTIPO", "FICTICIO", "ILUSTRATIVO")):
             raise ValueError(
-                "comunidad_ilustrativa debe estar marcada explícitamente como ejemplo ficticio/ilustrativo"
+                "comunidad_ilustrativa debe estar etiquetada explícitamente como DATO REAL (municipio prototipo) o ejemplo ilustrativo"
             )
         return v.strip()
 

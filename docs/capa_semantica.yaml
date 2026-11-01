@@ -4,12 +4,14 @@ principio_etico: "Los datos representan exclusivamente agregados territoriales (
 
 whitelist_tables:
   - v_municipio_eleccion
+  - v_municipio_edad_8grupos
   - v_distrito_eleccion
   - v_entidad_eleccion
   - features_municipio
   - perfiles_municipio
   - proyeccion_2027
   - puente_municipio_anio
+  - puente_distritos_2021_2023
   - ccpc_unificado
 
 limites_seguridad:

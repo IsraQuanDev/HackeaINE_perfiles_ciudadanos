@@ -1,10 +1,15 @@
-# Reporte de Segmentación Territorial y Validación de Perfiles (`docs/segmentacion.md`)
+# Reporte de Segmentación Territorial v2 — Ensemble por Consenso (`docs/segmentacion.md`)
 
 > **Principio metodológico (Falacia Ecológica):** Los perfiles obtenidos describen **territorios municipales (`cve_geo`)** según su comportamiento electoral agregado 2009–2024, y bajo ninguna circunstancia deben interpretarse como atributos psicológicos o individuales de las personas residentes.
 
-## 1. Enfoques Comparados y Variables de Segmentación
+## 1. Impacto de la Limpieza de Ceros Falsos (`NS`) y Shrinkage Bayesiano (`v2` vs. `v1-baseline`)
 
-Todos los modelos fueron evaluados sobre el mismo universo municipal (`N = 2,477` municipios) y el mismo conjunto de **10 variables de nivel, trayectoria, dinámica y brechas sociodemográficas** escaladas con `RobustScaler`:
+- **Municipios que cambiaron de perfil tras reparar ceros espurios (`NS == LN`) y aplicar Shrinkage Beta-Binomial:** `1962` municipios (`79.2%` del total; ARI entre v1 y v2 = `0.2209`).
+- **Diagnóstico del antiguo perfil «Dinámica Local Volátil» (P0-5):** En `v1-baseline`, los municipios con `NS == LN` (como *Atil, Higueras, Oquitoa, Cucurpe, Tubutama* en 2024 o *Rayones, Magdalena Ocotlán* en 2009) presentaban volatilidades artificiales de ~30 p.p. Al aplicar `cobertura < 0.90 -> NA` y Shrinkage Bayesiano, la volatilidad media de esos 7 municipios cayó de **`29.7 p.p.`** a **`4.8 p.p.`**, eliminando por completo el artefacto de ceros falsos.
+
+## 2. Enfoques Comparados y Variables de Segmentación v2
+
+Evaluados sobre `N = 2,477` municipios con ponderación por Lista Nominal ($\log(1 + \text{LN})$) y escalado `RobustScaler`:
 
 - `part_media_global`
 - `caida_presidencial_intermedia`
@@ -12,68 +17,50 @@ Todos los modelos fueron evaluados sobre el mismo universo municipal (`N = 2,477
 - `volatilidad`
 - `constancia_sobre_mediana`
 - `brecha_genero_media`
-- `brecha_genero_tendencia`
-- `brecha_generacional_60_vs_18_29`
+- `brecha_juvenil_18_29_vs_30_59`
+- `retencion_primer_voto`
 - `pct_ln_rural`
-- `cagr_ln_2009_2024`
+- `rezago_espacial_part`
 
-## 2. Validación Cuantitativa para $k \in [3..10]$ y Comparación de Enfoques (A, B, C, D, E)
+## 3. Validación Cuantitativa para $k \in [3..10]$ y Comparación de Enfoques (A, B, C, D, E, F)
 
 | Método / Enfoque | $k$ | Silhouette ($\uparrow$) | Davies-Bouldin ($\downarrow$) | Calinski-Harabasz ($\uparrow$) | Estabilidad Bootstrap ARI ($n=100, \uparrow$) | Tamaño Mín. de Cluster ($\% \ge 3\%$) | BIC |
 | :--- | :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `A_KMeans_Robust` | 3 | 0.1416 | 2.0631 | 389.6 | 0.9416 | 30.40% | N/A |
-| `B_GMM_BIC` | 3 | 0.0888 | 3.7483 | 175.8 | 0.2043 | 19.10% | 46,082 |
-| `A_KMeans_Robust` | 4 | 0.1334 | 1.9358 | 343.9 | 0.8208 | 19.14% | N/A |
-| `B_GMM_BIC` | 4 | 0.0374 | 3.2183 | 161.8 | 0.3736 | 15.46% | 45,366 |
-| `A_KMeans_Robust` | 5 | 0.1301 | 1.8931 | 312.4 | 0.8321 | 15.87% | N/A |
-| `B_GMM_BIC` | 5 | 0.0211 | 3.4692 | 128.5 | 0.1990 | 10.94% | 45,413 |
-| `A_KMeans_Robust` | 6 | 0.1341 | 1.7826 | 286.0 | 0.6535 | 3.19% | N/A |
-| `B_GMM_BIC` | 6 | 0.0359 | 2.9810 | 153.6 | 0.4017 | 12.03% | 41,335 |
-| `A_KMeans_Robust` | 7 | 0.1206 | 1.8547 | 267.8 | 0.6545 | 3.19% | N/A |
-| `B_GMM_BIC` | 7 | 0.0048 | 2.8903 | 142.5 | 0.4133 | 11.22% | 41,312 |
-| `A_KMeans_Robust` | 8 | 0.1255 | 1.8109 | 256.1 | 0.5893 | 3.23% | N/A |
-| `B_GMM_BIC` | 8 | 0.0070 | 2.9308 | 128.8 | 0.4784 | 6.30% | 38,241 |
-| `A_KMeans_Robust` | 9 | 0.1232 | 1.7300 | 243.5 | 0.6478 | 3.07% | N/A |
-| `B_GMM_BIC` | 9 | 0.0028 | 3.0189 | 119.5 | 0.4171 | 4.97% | 41,463 |
-| `A_KMeans_Robust` | 10 | 0.1227 | 1.7911 | 232.2 | 0.5916 | 3.03% | N/A |
-| `B_GMM_BIC` | 10 | 0.0030 | 3.0746 | 105.8 | 0.4147 | 1.13% | 38,357 |
-| `D_DTW_Trayectorias` | 5 | 0.0415 | 3.6246 | 159.4 | 0.8400 | 10.05% | N/A |
-| `D_DTW_Trayectorias` | 6 | 0.0379 | 3.5294 | 154.9 | 0.8400 | 8.48% | N/A |
-| `E_Espacial_Contiguo` | 6 | 0.0303 | 2.8078 | 145.5 | 0.7900 | 2.10% | N/A |
-| `C_HDBSCAN (min_cluster=45)` | 0 (+100.0% ruido) | 0.0000 | 99.0000 | 0.0 | N/A (densidad) | N/A | N/A |
+| `A_KMeans_Robust` | 3 | 0.1753 | 1.8170 | 523.5 | 0.9656 | 28.74% | N/A |
+| `B_GMM_BIC` | 3 | 0.1165 | 2.4368 | 336.1 | 0.4545 | 20.10% | 43,157 |
+| `A_KMeans_Robust` | 4 | 0.1657 | 1.8118 | 453.4 | 0.8625 | 19.10% | N/A |
+| `B_GMM_BIC` | 4 | 0.0596 | 3.9389 | 202.7 | 0.4021 | 17.48% | 37,131 |
+| `A_KMeans_Robust` | 5 | 0.1561 | 1.6945 | 423.2 | 0.8210 | 11.38% | N/A |
+| `B_GMM_BIC` | 5 | 0.0366 | 3.9753 | 165.4 | 0.4540 | 4.56% | 32,680 |
+| `A_KMeans_Robust` | 6 | 0.1716 | 1.5898 | 396.5 | 0.8059 | 4.48% | N/A |
+| `B_GMM_BIC` | 6 | 0.0293 | 4.1322 | 178.3 | 0.5685 | 4.16% | 32,335 |
+| `A_KMeans_Robust` | 7 | 0.1575 | 1.6723 | 369.7 | 0.6307 | 4.68% | N/A |
+| `B_GMM_BIC` | 7 | 0.0025 | 3.9235 | 158.3 | 0.7044 | 5.53% | 32,302 |
+| `A_KMeans_Robust` | 8 | 0.1496 | 1.6541 | 347.0 | 0.5522 | 4.28% | N/A |
+| `B_GMM_BIC` | 8 | 0.0152 | 3.2812 | 169.2 | 0.5377 | 3.75% | 31,985 |
+| `A_KMeans_Robust` | 9 | 0.1410 | 1.6457 | 328.9 | 0.5617 | 4.32% | N/A |
+| `B_GMM_BIC` | 9 | 0.0064 | 3.6857 | 151.5 | 0.5347 | 2.91% | 32,190 |
+| `A_KMeans_Robust` | 10 | 0.1377 | 1.6324 | 316.3 | 0.7171 | 4.16% | N/A |
+| `B_GMM_BIC` | 10 | -0.0143 | 3.1399 | 129.1 | 0.6078 | 1.98% | 31,259 |
+| `D_DTW_Trayectorias` | 5 | 0.0636 | 3.3792 | 228.2 | 0.8500 | 9.12% | N/A |
+| `D_DTW_Trayectorias` | 6 | 0.0519 | 3.5751 | 194.2 | 0.8500 | 8.52% | N/A |
+| `E_Espacial_Contiguo` | 6 | 0.0456 | 2.7551 | 183.6 | 0.8000 | 4.32% | N/A |
+| `F_Ensemble_Consenso_LN` | 6 | 0.1716 | 1.5902 | 396.4 | 0.9011 | 4.48% | N/A |
+| `C_HDBSCAN (min_cluster=45)` | 2 (+38.1% ruido) | 0.3372 | 0.8336 | 185.6 | N/A (densidad) | N/A | N/A |
 
-## 3. Análisis de Sensibilidad y Estabilidad
+## 4. Selección del Modelo Ganador y Municipios Prototipo Reales (Medoides)
 
-- **Sensibilidad al escalado (`RobustScaler` vs `StandardScaler`, ARI):** `0.4420` (el uso de `RobustScaler` evita que municipios con tasas de crecimiento demográfico extremas distorsionen los centroides).
-- **Sensibilidad a la selección de variables (Set completo 10 vars vs. Subset 8 vars puramente electorales, ARI):** `0.4334`.
+- **Modelo ganador seleccionado:** `F_Ensemble_Consenso_LN` con **$k = 6$ perfiles territoriales**.
+- **Sensibilidad al escalado (`RobustScaler` vs `StandardScaler`, ARI):** `0.5987`.
+- **Sensibilidad al subconjunto de features (ARI):** `0.5533`.
 
-## 4. Selección y Justificación del Modelo Ganador
+### Caracterización Cuantitativa y Municipio Prototipo Real (Medoide) por Perfil
 
-**Modelo ganador seleccionado:** `A_KMeans_Robust` con **$k = 6$ perfiles territoriales**.
-
-### Criterios de Decisión Verificados:
-1. **Estabilidad Bootstrap ($n=100$):** Supera a GMM y a las configuraciones con $k \ge 7$, manteniendo asignaciones consistentes ante perturbaciones muestrales.
-2. **Tamaño mínimo de cluster ($\ge 3\%$ de municipios):** Todos los perfiles superan el umbral mínimo del 3% del total municipal, evitando micro-clusters espurios.
-3. **Diferenciación multidimensional (más allá de alta/media/baja participación):** Como muestra la tabla de perfiles medios a continuación, los clusters se separan nítidamente por su **caída presidencial $\rightarrow$ intermedia**, su **pendiente temporal 2009–2024 (creciente vs. declinante)**, su **volatilidad**, su **brecha de género** y su **composición urbano-rural**.
-
-## 5. Caracterización Cuantitativa y Trayectorias por Perfil (`cluster_id`)
-
-| Cluster | Municipios ($N$) | % Municipios | Part. Media Global | Caída Pres $\rightarrow$ Inter | Pendiente 2009–2024 (p.p./ciclo) | Volatilidad | Brecha Género (M-H) | Brecha Edad (60+ vs 18-29) | % LN Rural |
-| :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Perfil 0** | 539 | 21.8% | 67.8% | +4.0 p.p. | +0.03 p.p. | 7.0 p.p. | +7.9 p.p. | +7.6 p.p. | 34.9% |
-| **Perfil 1** | 378 | 15.3% | 59.2% | +9.1 p.p. | +1.72 p.p. | 9.4 p.p. | +11.3 p.p. | +16.4 p.p. | 55.9% |
-| **Perfil 2** | 440 | 17.8% | 55.1% | +20.6 p.p. | +4.39 p.p. | 15.7 p.p. | +7.3 p.p. | +13.9 p.p. | 22.4% |
-| **Perfil 3** | 79 | 3.2% | 51.3% | -5.9 p.p. | -1.37 p.p. | 20.6 p.p. | +5.4 p.p. | +10.9 p.p. | 34.7% |
-| **Perfil 4** | 553 | 22.3% | 50.1% | +11.0 p.p. | -0.01 p.p. | 8.3 p.p. | +8.5 p.p. | +19.4 p.p. | 23.8% |
-| **Perfil 5** | 488 | 19.7% | 49.6% | +10.8 p.p. | +1.97 p.p. | 9.3 p.p. | +4.6 p.p. | +14.4 p.p. | 35.2% |
-
-### Trayectoria Histórica Media por Perfil (2009–2024)
-
-| Cluster | 2009 (Inter.) | 2012 (Pres.) | 2015 (Inter.) | 2018 (Pres.) | 2021 (Inter.) | 2024 (Pres.) |
-| :---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Perfil 0** | 61.0% | 73.7% | 67.7% | 69.8% | 68.5% | 65.8% |
-| **Perfil 1** | 46.5% | 65.4% | 53.7% | 64.9% | 63.8% | 60.9% |
-| **Perfil 2** | 36.8% | 62.9% | 37.3% | 67.9% | 60.4% | 65.5% |
-| **Perfil 3** | 52.9% | 65.5% | 52.5% | 38.7% | 57.4% | 40.8% |
-| **Perfil 4** | 43.7% | 59.9% | 43.4% | 56.2% | 46.6% | 50.7% |
-| **Perfil 5** | 38.0% | 56.5% | 43.4% | 55.7% | 51.2% | 52.9% |
+| Cluster | Municipios ($N$) | % Municipios | Part. Media Global | Caída Pres $\rightarrow$ Inter | Pendiente (p.p./ciclo) | Brecha Juvenil (18-29 vs 30-59) | Retención 1er Voto | Municipio Prototipo Real (Medoide) |
+| :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | :--- |
+| **Perfil 0** | 111 | 4.5% | 79.3% | +12.2 p.p. | +2.58 p.p. | -6.4 p.p. | 98.4% | **Baca, Yucatán** (`31004`) |
+| **Perfil 1** | 537 | 21.7% | 65.1% | +4.5 p.p. | +0.18 p.p. | -7.6 p.p. | 88.0% | **Mazamitla, Jalisco** (`14061`) |
+| **Perfil 2** | 425 | 17.2% | 61.8% | +8.2 p.p. | +1.36 p.p. | -16.6 p.p. | 87.0% | **Altotonga, Veracruz** (`30011`) |
+| **Perfil 3** | 554 | 22.4% | 58.0% | +18.3 p.p. | +5.97 p.p. | -10.5 p.p. | 91.5% | **Oriental, Puebla** (`21109`) |
+| **Perfil 4** | 659 | 26.6% | 50.0% | +13.6 p.p. | +1.72 p.p. | -11.6 p.p. | 82.0% | **La Antigua, Veracruz** (`30017`) |
+| **Perfil 5** | 191 | 7.7% | 49.8% | +12.1 p.p. | +1.36 p.p. | -19.1 p.p. | 104.7% | **San Pedro Molinos, Oaxaca** (`20318`) |

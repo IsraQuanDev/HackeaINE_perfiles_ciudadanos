@@ -1,0 +1,12 @@
+services:
+  ine-ccpc-atlas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ine-ccpc-atlas-v2
+    ports:
+      - "3000:3000"
+    environment:
+      - PYTHONIOENCODING=utf-8
+    command: python -u -m src.api.server
+    restart: unless-stopped

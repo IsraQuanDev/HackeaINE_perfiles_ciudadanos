@@ -1,2868 +1,3762 @@
 {
-  "nota_metodologica": "Los perfiles describen TERRITORIOS municipales (cve_geo) basados en conteos censales agregados 2009-2024 del INE, nunca individuos (prevención de falacia ecológica).",
+  "nota_metodologica": "Los perfiles describen TERRITORIOS municipales (cve_geo) basados en conteos censales agregados 2009-2024 del INE con participación definida como SV/(SV+NV) y cobertura >= 90%, nunca individuos (prevención de falacia ecológica).",
+  "convencion_signo_caida": "Caída Presidencial -> Intermedia = Participación Media Presidencial - Participación Media Intermedia. Un valor positivo (+p.p.) indica que la elección intermedia tuvo menor participación que la presidencial; un valor negativo (-p.p.) indica que la elección intermedia superó en participación a la presidencial.",
   "referencia_nacional": {
     "n_municipios_nacional": 2477,
     "lista_nominal_2024_nacional": 98330348,
     "medias_nacionales": {
-      "part_media_global": 0.561645,
-      "caida_presidencial_intermedia": 0.103217,
-      "pendiente_tendencia": 0.01393,
-      "volatilidad": 0.101106,
-      "constancia_sobre_mediana": 0.499125,
-      "brecha_genero_media": 0.077205,
-      "brecha_genero_tendencia": 0.004592,
-      "brecha_generacional_60_vs_18_29": 0.141321,
+      "part_media_global": 0.583727,
+      "caida_presidencial_intermedia": 0.115736,
+      "pendiente_tendencia": 0.022841,
+      "volatilidad": 0.087293,
+      "constancia_sobre_mediana": 0.486496,
+      "brecha_genero_media": 0.079819,
+      "brecha_juvenil_18_29_vs_30_59": -0.116698,
+      "retencion_primer_voto": 0.887727,
       "pct_ln_rural": 0.334531,
-      "cagr_ln_2009_2024": 0.01354,
-      "part_2009": 0.45841,
-      "part_2012": 0.638031,
-      "part_2015": 0.494637,
-      "part_2018": 0.618863,
-      "part_2021": 0.577064,
-      "part_2024": 0.582867,
-      "part_media_presidencial": 0.613254,
-      "part_media_intermedia": 0.510037,
-      "part_media_jovenes_18_29": 0.475411,
-      "part_media_adultos_30_59": 0.588061,
-      "part_media_adultos_60_mas": 0.616823,
+      "rezago_espacial_part": 0.584503,
+      "part_2009": 0.464494,
+      "part_2012": 0.639946,
+      "part_2015": 0.533134,
+      "part_2018": 0.665398,
+      "part_2021": 0.604734,
+      "part_2024": 0.625144,
+      "part_media_presidencial": 0.64238,
+      "part_media_intermedia": 0.526644,
+      "part_media_jovenes_18_29": 0.496134,
+      "part_media_adultos_30_59": 0.612831,
+      "part_media_adultos_60_mas": 0.643119,
+      "brecha_generacional_60_vs_18_29": 0.146985,
+      "brecha_adultos_mayores_60_vs_30_59": 0.030288,
+      "edad_pico_participacion": 58.208115,
       "pct_ln_jovenes_18_29": 0.27881,
       "pct_ln_adultos_60_mas": 0.201096,
       "pct_ln_urbana": 0.347391,
       "pct_ln_mixta": 0.318078,
       "ln_2024": 39697.354865,
-      "tasa_voto_anticipado_por_10k": 0.26309
+      "tasa_voto_anticipado_por_10k": 0.26309,
+      "part_edad_18_19": 0.579255,
+      "part_edad_20_24": 0.493819,
+      "part_edad_25_29": 0.484728,
+      "part_edad_30_39": 0.561073,
+      "part_edad_40_49": 0.639505,
+      "part_edad_50_59": 0.680852,
+      "part_edad_60_69": 0.701946,
+      "part_edad_70_mas": 0.596523
     },
     "trayectoria_nacional_media": {
-      "2009": 0.45841,
-      "2012": 0.638031,
-      "2015": 0.494637,
-      "2018": 0.618863,
-      "2021": 0.577064,
-      "2024": 0.582867
+      "2009": 0.464494,
+      "2012": 0.639946,
+      "2015": 0.533134,
+      "2018": 0.665398,
+      "2021": 0.604734,
+      "2024": 0.625144
+    },
+    "trayectoria_nacional_pct": {
+      "2009": 46.45,
+      "2012": 63.99,
+      "2015": 53.31,
+      "2018": 66.54,
+      "2021": 60.47,
+      "2024": 62.51
+    },
+    "curva_edad_8grupos_nacional_pct": {
+      "18-19": 57.93,
+      "20-24": 49.38,
+      "25-29": 48.47,
+      "30-39": 56.11,
+      "40-49": 63.95,
+      "50-59": 68.09,
+      "60-69": 70.19,
+      "70+": 59.65
     }
   },
   "explicabilidad_global": {
-    "decision_tree_accuracy": 0.6702,
+    "decision_tree_accuracy": 0.6855,
     "lgbm_accuracy": 1.0,
     "global_shap_ranking": [
       {
+        "feature": "brecha_juvenil_18_29_vs_30_59",
+        "mean_abs_shap": 0.82733
+      },
+      {
         "feature": "volatilidad",
-        "mean_abs_shap": 0.8306
+        "mean_abs_shap": 0.78793
+      },
+      {
+        "feature": "retencion_primer_voto",
+        "mean_abs_shap": 0.70308
       },
       {
         "feature": "part_media_global",
-        "mean_abs_shap": 0.74205
+        "mean_abs_shap": 0.61856
       },
       {
-        "feature": "brecha_genero_tendencia",
-        "mean_abs_shap": 0.72089
-      },
-      {
-        "feature": "brecha_genero_media",
-        "mean_abs_shap": 0.70519
-      },
-      {
-        "feature": "caida_presidencial_intermedia",
-        "mean_abs_shap": 0.61024
-      },
-      {
-        "feature": "brecha_generacional_60_vs_18_29",
-        "mean_abs_shap": 0.54438
-      },
-      {
-        "feature": "cagr_ln_2009_2024",
-        "mean_abs_shap": 0.53605
+        "feature": "rezago_espacial_part",
+        "mean_abs_shap": 0.53039
       },
       {
         "feature": "pendiente_tendencia",
-        "mean_abs_shap": 0.52186
+        "mean_abs_shap": 0.49873
+      },
+      {
+        "feature": "caida_presidencial_intermedia",
+        "mean_abs_shap": 0.49612
       },
       {
         "feature": "constancia_sobre_mediana",
-        "mean_abs_shap": 0.22677
+        "mean_abs_shap": 0.37963
+      },
+      {
+        "feature": "brecha_genero_media",
+        "mean_abs_shap": 0.37568
       },
       {
         "feature": "pct_ln_rural",
-        "mean_abs_shap": 0.22471
+        "mean_abs_shap": 0.28787
       }
     ]
   },
   "perfiles": [
     {
       "cluster_id": 0,
-      "n_municipios": 539,
-      "pct_municipios_nacional": 21.76,
-      "poblacion_lista_nominal_2024": 8089025,
-      "pct_lista_nominal_nacional": 8.23,
-      "n_municipios_baja_confiabilidad": 12,
-      "pct_baja_confiabilidad": 2.23,
+      "n_municipios": 111,
+      "pct_municipios_nacional": 4.48,
+      "poblacion_lista_nominal_2024": 1718428,
+      "pct_lista_nominal_nacional": 1.75,
+      "n_municipios_baja_confiabilidad": 47,
+      "pct_baja_confiabilidad": 42.34,
+      "municipio_prototipo_medoide": {
+        "cve_geo": "31004",
+        "nom_mun": "Baca",
+        "nom_ent": "Yucatán",
+        "distancia_centroide": 0.4099,
+        "part_media_global": 0.8114,
+        "part_media_global_pct": 81.14,
+        "ln_2024": 4854
+      },
       "top_5_variables_definitorias_shap": [
         {
-          "feature": "part_media_global",
-          "mean_abs_shap": 2.86741,
-          "cluster_mean": 0.67759,
-          "national_mean": 0.56165,
-          "z_score_vs_nacional": 1.1324,
+          "feature": "rezago_espacial_part",
+          "mean_abs_shap": 9.11606,
+          "cluster_mean": 0.78108,
+          "national_mean": 0.5845,
+          "z_score_vs_nacional": 2.7525,
           "direccion": "ALTA (+)"
         },
         {
-          "feature": "brecha_generacional_60_vs_18_29",
-          "mean_abs_shap": 1.82862,
-          "cluster_mean": 0.07569,
-          "national_mean": 0.14132,
-          "z_score_vs_nacional": -0.8733,
-          "direccion": "BAJA (-)"
-        },
-        {
-          "feature": "caida_presidencial_intermedia",
-          "mean_abs_shap": 1.25535,
-          "cluster_mean": 0.04038,
-          "national_mean": 0.10322,
-          "z_score_vs_nacional": -0.7461,
-          "direccion": "BAJA (-)"
+          "feature": "part_media_global",
+          "mean_abs_shap": 4.37394,
+          "cluster_mean": 0.7926,
+          "national_mean": 0.58373,
+          "z_score_vs_nacional": 2.1148,
+          "direccion": "ALTA (+)"
         },
         {
           "feature": "volatilidad",
-          "mean_abs_shap": 0.73873,
-          "cluster_mean": 0.0701,
-          "national_mean": 0.10111,
-          "z_score_vs_nacional": -0.6502,
+          "mean_abs_shap": 1.23557,
+          "cluster_mean": 0.1019,
+          "national_mean": 0.08729,
+          "z_score_vs_nacional": 0.3713,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "retencion_primer_voto",
+          "mean_abs_shap": 1.12542,
+          "cluster_mean": 0.98427,
+          "national_mean": 0.88773,
+          "z_score_vs_nacional": 0.9253,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_juvenil_18_29_vs_30_59",
+          "mean_abs_shap": 0.44644,
+          "cluster_mean": -0.06388,
+          "national_mean": -0.1167,
+          "z_score_vs_nacional": 0.9516,
+          "direccion": "ALTA (+)"
+        }
+      ],
+      "entidades_predominantes": [
+        {
+          "cve_ent": "31",
+          "nom_ent": "Yucatán",
+          "n_municipios_en_cluster": 103,
+          "pct_del_cluster": 92.79
+        },
+        {
+          "cve_ent": "07",
+          "nom_ent": "Chiapas",
+          "n_municipios_en_cluster": 5,
+          "pct_del_cluster": 4.5
+        },
+        {
+          "cve_ent": "26",
+          "nom_ent": "Sonora",
+          "n_municipios_en_cluster": 2,
+          "pct_del_cluster": 1.8
+        },
+        {
+          "cve_ent": "23",
+          "nom_ent": "Quintana Roo",
+          "n_municipios_en_cluster": 1,
+          "pct_del_cluster": 0.9
+        }
+      ],
+      "municipios_mas_representativos": [
+        {
+          "cve_geo": "31004",
+          "nom_mun": "Baca",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.4099,
+          "part_media_global": 0.8114,
+          "part_media_global_pct": 81.14,
+          "ln_2024": 4854
+        },
+        {
+          "cve_geo": "31097",
+          "nom_mun": "Tunkás",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.6002,
+          "part_media_global": 0.8088,
+          "part_media_global_pct": 80.88,
+          "ln_2024": 3108
+        },
+        {
+          "cve_geo": "31062",
+          "nom_mun": "Sacalum",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.7021,
+          "part_media_global": 0.8145,
+          "part_media_global_pct": 81.45,
+          "ln_2024": 3968
+        },
+        {
+          "cve_geo": "31088",
+          "nom_mun": "Teya",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.7199,
+          "part_media_global": 0.7982,
+          "part_media_global_pct": 79.82,
+          "ln_2024": 1749
+        },
+        {
+          "cve_geo": "31093",
+          "nom_mun": "Tixkokob",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.7775,
+          "part_media_global": 0.7607,
+          "part_media_global_pct": 76.07,
+          "ln_2024": 14534
+        },
+        {
+          "cve_geo": "31027",
+          "nom_mun": "Dzidzantún",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.8089,
+          "part_media_global": 0.7821,
+          "part_media_global_pct": 78.21,
+          "ln_2024": 6832
+        },
+        {
+          "cve_geo": "31085",
+          "nom_mun": "Temozón",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.8457,
+          "part_media_global": 0.8393,
+          "part_media_global_pct": 83.93,
+          "ln_2024": 12519
+        },
+        {
+          "cve_geo": "31066",
+          "nom_mun": "Santa Elena",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.8686,
+          "part_media_global": 0.7727,
+          "part_media_global_pct": 77.27,
+          "ln_2024": 3294
+        },
+        {
+          "cve_geo": "31009",
+          "nom_mun": "Cansahcab",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.8847,
+          "part_media_global": 0.7911,
+          "part_media_global_pct": 79.11,
+          "ln_2024": 3866
+        },
+        {
+          "cve_geo": "31078",
+          "nom_mun": "Tekantó",
+          "nom_ent": "Yucatán",
+          "distancia_centroide": 0.8997,
+          "part_media_global": 0.8338,
+          "part_media_global_pct": 83.38,
+          "ln_2024": 3249
+        }
+      ],
+      "trayectoria_media": {
+        "2009": 0.612277,
+        "2012": 0.859707,
+        "2015": 0.852562,
+        "2018": 0.857749,
+        "2021": 0.825151,
+        "2024": 0.843454
+      },
+      "trayectoria_media_pct": {
+        "2009": 61.23,
+        "2012": 85.97,
+        "2015": 85.26,
+        "2018": 85.77,
+        "2021": 82.52,
+        "2024": 84.35
+      },
+      "trayectoria_p10_pct": {
+        "2009": 51.05,
+        "2012": 77.81,
+        "2015": 77.84,
+        "2018": 80.39,
+        "2021": 72.72,
+        "2024": 76.77
+      },
+      "trayectoria_p90_pct": {
+        "2009": 71.85,
+        "2012": 91.76,
+        "2015": 89.82,
+        "2018": 90.24,
+        "2021": 88.93,
+        "2024": 89.35
+      },
+      "curva_edad_8grupos_pct": {
+        "18-19": 82.02,
+        "20-24": 76.49,
+        "25-29": 76.06,
+        "30-39": 80.23,
+        "40-49": 84.06,
+        "50-59": 86.31,
+        "60-69": 87.12,
+        "70+": 78.68
+      },
+      "estadisticas_features": {
+        "part_media_global": {
+          "media": 0.792598,
+          "media_pct": 79.26,
+          "p10": 0.711423,
+          "p25": 0.752423,
+          "p50_mediana": 0.803783,
+          "p75": 0.833336,
+          "p90": 0.862106,
+          "z_score_vs_nacional": 2.1148
+        },
+        "caida_presidencial_intermedia": {
+          "media": 0.121751,
+          "media_pct": 12.18,
+          "p10": 0.065134,
+          "p25": 0.085111,
+          "p50_mediana": 0.112054,
+          "p75": 0.138385,
+          "p90": 0.185991,
+          "z_score_vs_nacional": 0.0848
+        },
+        "pendiente_tendencia": {
+          "media": 0.025783,
+          "media_pct": 2.58,
+          "p10": -0.003805,
+          "p25": 0.002233,
+          "p50_mediana": 0.011241,
+          "p75": 0.034442,
+          "p90": 0.059889,
+          "z_score_vs_nacional": 0.0857
+        },
+        "volatilidad": {
+          "media": 0.101899,
+          "media_pct": 10.19,
+          "p10": 0.06705,
+          "p25": 0.080884,
+          "p50_mediana": 0.098189,
+          "p75": 0.120409,
+          "p90": 0.138147,
+          "z_score_vs_nacional": 0.3713
+        },
+        "constancia_sobre_mediana": {
+          "media": 0.977778,
+          "media_pct": 97.78,
+          "p10": 1.0,
+          "p25": 1.0,
+          "p50_mediana": 1.0,
+          "p75": 1.0,
+          "p90": 1.0,
+          "z_score_vs_nacional": 1.3107
+        },
+        "brecha_genero_media": {
+          "media": 0.074235,
+          "media_pct": 7.42,
+          "p10": 0.042455,
+          "p25": 0.056416,
+          "p50_mediana": 0.073082,
+          "p75": 0.093677,
+          "p90": 0.109952,
+          "z_score_vs_nacional": -0.1487
+        },
+        "brecha_juvenil_18_29_vs_30_59": {
+          "media": -0.063875,
+          "media_pct": -6.39,
+          "p10": -0.097615,
+          "p25": -0.083147,
+          "p50_mediana": -0.06132,
+          "p75": -0.046418,
+          "p90": -0.03127,
+          "z_score_vs_nacional": 0.9516
+        },
+        "retencion_primer_voto": {
+          "media": 0.984274,
+          "media_pct": 98.43,
+          "p10": 0.927582,
+          "p25": 0.950289,
+          "p50_mediana": 0.978332,
+          "p75": 1.004061,
+          "p90": 1.048474,
+          "z_score_vs_nacional": 0.9253
+        },
+        "pct_ln_rural": {
+          "media": 0.119284,
+          "media_pct": 11.93,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.06771,
+          "p75": 0.155974,
+          "p90": 0.311851,
+          "z_score_vs_nacional": -0.7684
+        },
+        "rezago_espacial_part": {
+          "media": 0.781078,
+          "media_pct": 78.11,
+          "p10": 0.745352,
+          "p25": 0.76375,
+          "p50_mediana": 0.788078,
+          "p75": 0.81208,
+          "p90": 0.822285,
+          "z_score_vs_nacional": 2.7525
+        },
+        "part_2009": {
+          "media": 0.612277,
+          "media_pct": 61.23,
+          "p10": 0.51051,
+          "p25": 0.54989,
+          "p50_mediana": 0.610467,
+          "p75": 0.670276,
+          "p90": 0.718498,
+          "z_score_vs_nacional": 1.2012
+        },
+        "part_2012": {
+          "media": 0.859707,
+          "media_pct": 85.97,
+          "p10": 0.778142,
+          "p25": 0.842107,
+          "p50_mediana": 0.870706,
+          "p75": 0.894876,
+          "p90": 0.917623,
+          "z_score_vs_nacional": 2.2639
+        },
+        "part_2015": {
+          "media": 0.852562,
+          "media_pct": 85.26,
+          "p10": 0.778394,
+          "p25": 0.842936,
+          "p50_mediana": 0.875,
+          "p75": 0.883956,
+          "p90": 0.898163,
+          "z_score_vs_nacional": 2.1658
+        },
+        "part_2018": {
+          "media": 0.857749,
+          "media_pct": 85.77,
+          "p10": 0.803924,
+          "p25": 0.854542,
+          "p50_mediana": 0.867701,
+          "p75": 0.875188,
+          "p90": 0.902406,
+          "z_score_vs_nacional": 2.1461
+        },
+        "part_2021": {
+          "media": 0.825151,
+          "media_pct": 82.52,
+          "p10": 0.72717,
+          "p25": 0.816787,
+          "p50_mediana": 0.847255,
+          "p75": 0.867023,
+          "p90": 0.889268,
+          "z_score_vs_nacional": 1.688
+        },
+        "part_2024": {
+          "media": 0.843454,
+          "media_pct": 84.35,
+          "p10": 0.767695,
+          "p25": 0.83119,
+          "p50_mediana": 0.864444,
+          "p75": 0.871776,
+          "p90": 0.893457,
+          "z_score_vs_nacional": 2.1422
+        },
+        "part_media_presidencial": {
+          "media": 0.853967,
+          "media_pct": 85.4,
+          "p10": 0.779889,
+          "p25": 0.829614,
+          "p50_mediana": 0.865104,
+          "p75": 0.89026,
+          "p90": 0.906113,
+          "z_score_vs_nacional": 2.2664
+        },
+        "part_media_intermedia": {
+          "media": 0.732216,
+          "media_pct": 73.22,
+          "p10": 0.607464,
+          "p25": 0.683324,
+          "p50_mediana": 0.759132,
+          "p75": 0.788417,
+          "p90": 0.82394,
+          "z_score_vs_nacional": 1.7824
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.751385,
+          "media_pct": 75.14,
+          "p10": 0.656272,
+          "p25": 0.712271,
+          "p50_mediana": 0.762492,
+          "p75": 0.809094,
+          "p90": 0.837803,
+          "z_score_vs_nacional": 2.0284
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.815261,
+          "media_pct": 81.53,
+          "p10": 0.730749,
+          "p25": 0.77118,
+          "p50_mediana": 0.82417,
+          "p75": 0.859502,
+          "p90": 0.894074,
+          "z_score_vs_nacional": 1.8855
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.818196,
+          "media_pct": 81.82,
+          "p10": 0.72801,
+          "p25": 0.787476,
+          "p50_mediana": 0.824457,
+          "p75": 0.855852,
+          "p90": 0.885112,
+          "z_score_vs_nacional": 1.8246
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.066811,
+          "media_pct": 6.68,
+          "p10": 0.009273,
+          "p25": 0.040867,
+          "p50_mediana": 0.063648,
+          "p75": 0.093562,
+          "p90": 0.123237,
+          "z_score_vs_nacional": -1.0216
+        },
+        "brecha_adultos_mayores_60_vs_30_59": {
+          "media": 0.002936,
+          "media_pct": 0.29,
+          "p10": -0.032587,
+          "p25": -0.011058,
+          "p50_mediana": 0.002143,
+          "p75": 0.020048,
+          "p90": 0.039313,
+          "z_score_vs_nacional": -0.5636
+        },
+        "edad_pico_participacion": {
+          "media": 57.761261,
+          "media_pct": 57.76,
+          "p10": 54.5,
+          "p25": 54.5,
+          "p50_mediana": 64.5,
+          "p75": 64.5,
+          "p90": 64.5,
+          "z_score_vs_nacional": -0.032
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.293316,
+          "media_pct": 29.33,
+          "p10": 0.249893,
+          "p25": 0.270282,
+          "p50_mediana": 0.287801,
+          "p75": 0.313776,
+          "p90": 0.336073,
+          "z_score_vs_nacional": 0.3522
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.182549,
+          "media_pct": 18.25,
+          "p10": 0.142492,
+          "p25": 0.160186,
+          "p50_mediana": 0.177556,
+          "p75": 0.202214,
+          "p90": 0.231783,
+          "z_score_vs_nacional": -0.3122
+        },
+        "pct_ln_urbana": {
+          "media": 0.502844,
+          "media_pct": 50.28,
+          "p10": 0.0,
+          "p25": 0.336093,
+          "p50_mediana": 0.565279,
+          "p75": 0.69687,
+          "p90": 0.793094,
+          "z_score_vs_nacional": 0.4703
+        },
+        "pct_ln_mixta": {
+          "media": 0.377871,
+          "media_pct": 37.79,
+          "p10": 0.127638,
+          "p25": 0.206384,
+          "p50_mediana": 0.316331,
+          "p75": 0.47533,
+          "p90": 0.776431,
+          "z_score_vs_nacional": 0.2078
+        },
+        "ln_2024": {
+          "media": 15481.333333,
+          "media_pct": 15481.33,
+          "p10": 2042.0,
+          "p25": 2999.5,
+          "p50_mediana": 4346.0,
+          "p75": 9067.5,
+          "p90": 24194.0,
+          "z_score_vs_nacional": -0.2059
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.099637,
+          "media_pct": 0.1,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "z_score_vs_nacional": -0.1846
+        },
+        "part_edad_18_19": {
+          "media": 0.820243,
+          "media_pct": 82.02,
+          "p10": 0.721193,
+          "p25": 0.779215,
+          "p50_mediana": 0.837542,
+          "p75": 0.871583,
+          "p90": 0.901677,
+          "z_score_vs_nacional": 1.7267
+        },
+        "part_edad_20_24": {
+          "media": 0.764902,
+          "media_pct": 76.49,
+          "p10": 0.6511,
+          "p25": 0.723468,
+          "p50_mediana": 0.776754,
+          "p75": 0.818874,
+          "p90": 0.854262,
+          "z_score_vs_nacional": 2.0842
+        },
+        "part_edad_25_29": {
+          "media": 0.760631,
+          "media_pct": 76.06,
+          "p10": 0.647271,
+          "p25": 0.717626,
+          "p50_mediana": 0.773705,
+          "p75": 0.811248,
+          "p90": 0.85432,
+          "z_score_vs_nacional": 2.2227
+        },
+        "part_edad_30_39": {
+          "media": 0.80233,
+          "media_pct": 80.23,
+          "p10": 0.713151,
+          "p25": 0.77257,
+          "p50_mediana": 0.812204,
+          "p75": 0.842828,
+          "p90": 0.885671,
+          "z_score_vs_nacional": 2.0725
+        },
+        "part_edad_40_49": {
+          "media": 0.840645,
+          "media_pct": 84.06,
+          "p10": 0.766401,
+          "p25": 0.80967,
+          "p50_mediana": 0.845125,
+          "p75": 0.873911,
+          "p90": 0.91159,
+          "z_score_vs_nacional": 1.8867
+        },
+        "part_edad_50_59": {
+          "media": 0.863062,
+          "media_pct": 86.31,
+          "p10": 0.795929,
+          "p25": 0.830847,
+          "p50_mediana": 0.870264,
+          "p75": 0.900564,
+          "p90": 0.922009,
+          "z_score_vs_nacional": 1.8087
+        },
+        "part_edad_60_69": {
+          "media": 0.871163,
+          "media_pct": 87.12,
+          "p10": 0.801161,
+          "p25": 0.845434,
+          "p50_mediana": 0.877461,
+          "p75": 0.905037,
+          "p90": 0.929709,
+          "z_score_vs_nacional": 1.7743
+        },
+        "part_edad_70_mas": {
+          "media": 0.786806,
+          "media_pct": 78.68,
+          "p10": 0.707512,
+          "p25": 0.757423,
+          "p50_mediana": 0.797122,
+          "p75": 0.826808,
+          "p90": 0.855082,
+          "z_score_vs_nacional": 1.9498
+        }
+      }
+    },
+    {
+      "cluster_id": 1,
+      "n_municipios": 537,
+      "pct_municipios_nacional": 21.68,
+      "poblacion_lista_nominal_2024": 23639337,
+      "pct_lista_nominal_nacional": 24.04,
+      "n_municipios_baja_confiabilidad": 136,
+      "pct_baja_confiabilidad": 25.33,
+      "municipio_prototipo_medoide": {
+        "cve_geo": "14061",
+        "nom_mun": "Mazamitla",
+        "nom_ent": "Jalisco",
+        "distancia_centroide": 0.6913,
+        "part_media_global": 0.6607,
+        "part_media_global_pct": 66.07,
+        "ln_2024": 12507
+      },
+      "top_5_variables_definitorias_shap": [
+        {
+          "feature": "volatilidad",
+          "mean_abs_shap": 3.47237,
+          "cluster_mean": 0.04322,
+          "national_mean": 0.08729,
+          "z_score_vs_nacional": -1.1204,
           "direccion": "BAJA (-)"
         },
         {
-          "feature": "constancia_sobre_mediana",
-          "mean_abs_shap": 0.73197,
-          "cluster_mean": 0.85683,
-          "national_mean": 0.49913,
-          "z_score_vs_nacional": 1.0178,
+          "feature": "rezago_espacial_part",
+          "mean_abs_shap": 1.40241,
+          "cluster_mean": 0.63416,
+          "national_mean": 0.5845,
+          "z_score_vs_nacional": 0.6953,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_juvenil_18_29_vs_30_59",
+          "mean_abs_shap": 1.38214,
+          "cluster_mean": -0.07571,
+          "national_mean": -0.1167,
+          "z_score_vs_nacional": 0.7384,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "caida_presidencial_intermedia",
+          "mean_abs_shap": 1.27846,
+          "cluster_mean": 0.04519,
+          "national_mean": 0.11574,
+          "z_score_vs_nacional": -0.9942,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "part_media_global",
+          "mean_abs_shap": 0.58788,
+          "cluster_mean": 0.65083,
+          "national_mean": 0.58373,
+          "z_score_vs_nacional": 0.6794,
           "direccion": "ALTA (+)"
         }
       ],
       "entidades_predominantes": [
         {
           "cve_ent": "14",
-          "nom_ent": "JALISCO",
-          "n_municipios_en_cluster": 95,
-          "pct_del_cluster": 17.63
-        },
-        {
-          "cve_ent": "31",
-          "nom_ent": "YUCATAN",
-          "n_municipios_en_cluster": 90,
-          "pct_del_cluster": 16.7
+          "nom_ent": "Jalisco",
+          "n_municipios_en_cluster": 115,
+          "pct_del_cluster": 21.42
         },
         {
           "cve_ent": "15",
-          "nom_ent": "ESTADO DE MEXICO",
-          "n_municipios_en_cluster": 70,
-          "pct_del_cluster": 12.99
+          "nom_ent": "Estado de México",
+          "n_municipios_en_cluster": 108,
+          "pct_del_cluster": 20.11
         },
         {
           "cve_ent": "26",
-          "nom_ent": "SONORA",
-          "n_municipios_en_cluster": 37,
-          "pct_del_cluster": 6.86
+          "nom_ent": "Sonora",
+          "n_municipios_en_cluster": 67,
+          "pct_del_cluster": 12.48
+        },
+        {
+          "cve_ent": "19",
+          "nom_ent": "Nuevo León",
+          "n_municipios_en_cluster": 51,
+          "pct_del_cluster": 9.5
         },
         {
           "cve_ent": "24",
-          "nom_ent": "SAN LUIS POTOSI",
-          "n_municipios_en_cluster": 35,
-          "pct_del_cluster": 6.49
+          "nom_ent": "San Luis Potosí",
+          "n_municipios_en_cluster": 42,
+          "pct_del_cluster": 7.82
         }
       ],
       "municipios_mas_representativos": [
-        {
-          "cve_geo": "28011",
-          "nom_mun": "GÃ³mez FarÃ­as",
-          "nom_ent": "TAMAULIPAS",
-          "distancia_centroide": 0.7733,
-          "part_media_global": 0.6675,
-          "part_media_global_pct": 66.75,
-          "ln_2024": 7282
-        },
         {
           "cve_geo": "14061",
           "nom_mun": "Mazamitla",
-          "nom_ent": "JALISCO",
-          "distancia_centroide": 0.7899,
-          "part_media_global": 0.6517,
-          "part_media_global_pct": 65.17,
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.6913,
+          "part_media_global": 0.6607,
+          "part_media_global_pct": 66.07,
           "ln_2024": 12507
         },
         {
-          "cve_geo": "14033",
-          "nom_mun": "ChiquilistlÃ¡n",
-          "nom_ent": "JALISCO",
-          "distancia_centroide": 0.7941,
-          "part_media_global": 0.6619,
-          "part_media_global_pct": 66.19,
-          "ln_2024": 5047
+          "cve_geo": "14009",
+          "nom_mun": "El Arenal",
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.7197,
+          "part_media_global": 0.6559,
+          "part_media_global_pct": 65.59,
+          "ln_2024": 16861
         },
         {
-          "cve_geo": "17026",
-          "nom_mun": "Tlayacapan",
-          "nom_ent": "MORELOS",
-          "distancia_centroide": 0.8323,
-          "part_media_global": 0.6869,
-          "part_media_global_pct": 68.69,
-          "ln_2024": 15264
+          "cve_geo": "14049",
+          "nom_mun": "Jamay",
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.7311,
+          "part_media_global": 0.6029,
+          "part_media_global_pct": 60.29,
+          "ln_2024": 20723
         },
         {
-          "cve_geo": "17021",
-          "nom_mun": "Tetecala",
-          "nom_ent": "MORELOS",
-          "distancia_centroide": 0.8693,
-          "part_media_global": 0.7072,
-          "part_media_global_pct": 70.72,
-          "ln_2024": 6517
+          "cve_geo": "14037",
+          "nom_mun": "Etzatlán",
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.7432,
+          "part_media_global": 0.6642,
+          "part_media_global_pct": 66.42,
+          "ln_2024": 16145
         },
         {
-          "cve_geo": "07046",
-          "nom_mun": "Jiquipilas",
-          "nom_ent": "CHIAPAS",
-          "distancia_centroide": 0.8999,
-          "part_media_global": 0.6192,
-          "part_media_global_pct": 61.92,
-          "ln_2024": 33061
+          "cve_geo": "17025",
+          "nom_mun": "Tlaquiltenango",
+          "nom_ent": "Morelos",
+          "distancia_centroide": 0.7683,
+          "part_media_global": 0.5915,
+          "part_media_global_pct": 59.15,
+          "ln_2024": 26079
         },
         {
-          "cve_geo": "15108",
-          "nom_mun": "Tonatico",
-          "nom_ent": "ESTADO DE MEXICO",
-          "distancia_centroide": 0.9499,
-          "part_media_global": 0.6661,
-          "part_media_global_pct": 66.61,
-          "ln_2024": 11407
+          "cve_geo": "14031",
+          "nom_mun": "Chapala",
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.7855,
+          "part_media_global": 0.6198,
+          "part_media_global_pct": 61.98,
+          "ln_2024": 42863
         },
         {
-          "cve_geo": "17027",
-          "nom_mun": "Totolapan",
-          "nom_ent": "MORELOS",
-          "distancia_centroide": 0.9613,
-          "part_media_global": 0.7001,
-          "part_media_global_pct": 70.01,
-          "ln_2024": 8976
+          "cve_geo": "24007",
+          "nom_mun": "Cedral",
+          "nom_ent": "San Luis Potosí",
+          "distancia_centroide": 0.7858,
+          "part_media_global": 0.6222,
+          "part_media_global_pct": 62.22,
+          "ln_2024": 15235
         },
         {
-          "cve_geo": "14002",
-          "nom_mun": "AcatlÃ¡n de JuÃ¡rez",
-          "nom_ent": "JALISCO",
-          "distancia_centroide": 0.9757,
-          "part_media_global": 0.6187,
-          "part_media_global_pct": 61.87,
-          "ln_2024": 18963
+          "cve_geo": "14038",
+          "nom_mun": "Gómez Farías",
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.7889,
+          "part_media_global": 0.6301,
+          "part_media_global_pct": 63.01,
+          "ln_2024": 13678
         },
         {
-          "cve_geo": "17023",
-          "nom_mun": "Tlalnepantla",
-          "nom_ent": "MORELOS",
-          "distancia_centroide": 0.9831,
-          "part_media_global": 0.7066,
-          "part_media_global_pct": 70.66,
-          "ln_2024": 5607
+          "cve_geo": "14109",
+          "nom_mun": "Tuxpan",
+          "nom_ent": "Jalisco",
+          "distancia_centroide": 0.7937,
+          "part_media_global": 0.5941,
+          "part_media_global_pct": 59.41,
+          "ln_2024": 29830
+        },
+        {
+          "cve_geo": "15116",
+          "nom_mun": "Xonacatlán",
+          "nom_ent": "Estado de México",
+          "distancia_centroide": 0.7947,
+          "part_media_global": 0.6634,
+          "part_media_global_pct": 66.34,
+          "ln_2024": 48732
         }
       ],
       "trayectoria_media": {
-        "2009": 0.610313,
-        "2012": 0.737113,
-        "2015": 0.676677,
-        "2018": 0.697819,
-        "2021": 0.685218,
-        "2024": 0.65842
+        "2009": 0.597577,
+        "2012": 0.68581,
+        "2015": 0.660485,
+        "2018": 0.682012,
+        "2021": 0.632613,
+        "2024": 0.646145
       },
       "trayectoria_media_pct": {
-        "2009": 61.03,
-        "2012": 73.71,
-        "2015": 67.67,
-        "2018": 69.78,
-        "2021": 68.52,
-        "2024": 65.84
+        "2009": 59.76,
+        "2012": 68.58,
+        "2015": 66.05,
+        "2018": 68.2,
+        "2021": 63.26,
+        "2024": 64.61
+      },
+      "trayectoria_p10_pct": {
+        "2009": 48.89,
+        "2012": 59.78,
+        "2015": 53.78,
+        "2018": 57.76,
+        "2021": 50.62,
+        "2024": 55.26
+      },
+      "trayectoria_p90_pct": {
+        "2009": 72.17,
+        "2012": 78.1,
+        "2015": 80.58,
+        "2018": 77.39,
+        "2021": 75.68,
+        "2024": 74.58
+      },
+      "curva_edad_8grupos_pct": {
+        "18-19": 68.84,
+        "20-24": 59.59,
+        "25-29": 56.8,
+        "30-39": 62.72,
+        "40-49": 69.49,
+        "50-59": 72.44,
+        "60-69": 73.87,
+        "70+": 63.87
       },
       "estadisticas_features": {
         "part_media_global": {
-          "media": 0.677593,
-          "media_pct": 67.76,
-          "p10": 0.58022,
-          "p25": 0.622955,
-          "p50_mediana": 0.672438,
-          "p75": 0.727533,
-          "p90": 0.787566,
-          "z_score_vs_nacional": 1.1324
+          "media": 0.650827,
+          "media_pct": 65.08,
+          "p10": 0.550495,
+          "p25": 0.595272,
+          "p50_mediana": 0.649012,
+          "p75": 0.704455,
+          "p90": 0.757019,
+          "z_score_vs_nacional": 0.6794
         },
         "caida_presidencial_intermedia": {
-          "media": 0.040381,
-          "media_pct": 4.04,
-          "p10": -0.024672,
-          "p25": 0.007001,
-          "p50_mediana": 0.037175,
-          "p75": 0.074046,
-          "p90": 0.113289,
-          "z_score_vs_nacional": -0.7461
+          "media": 0.045191,
+          "media_pct": 4.52,
+          "p10": 0.000342,
+          "p25": 0.017552,
+          "p50_mediana": 0.039313,
+          "p75": 0.073375,
+          "p90": 0.100991,
+          "z_score_vs_nacional": -0.9942
         },
         "pendiente_tendencia": {
-          "media": 0.000336,
-          "media_pct": 0.03,
-          "p10": -0.021952,
-          "p25": -0.012578,
-          "p50_mediana": -0.001942,
-          "p75": 0.010814,
-          "p90": 0.03021,
-          "z_score_vs_nacional": -0.4677
+          "media": 0.001778,
+          "media_pct": 0.18,
+          "p10": -0.016231,
+          "p25": -0.008056,
+          "p50_mediana": 0.000314,
+          "p75": 0.010277,
+          "p90": 0.02172,
+          "z_score_vs_nacional": -0.6134
         },
         "volatilidad": {
-          "media": 0.070097,
-          "media_pct": 7.01,
-          "p10": 0.033078,
-          "p25": 0.042731,
-          "p50_mediana": 0.06377,
-          "p75": 0.094976,
-          "p90": 0.115774,
-          "z_score_vs_nacional": -0.6502
+          "media": 0.043215,
+          "media_pct": 4.32,
+          "p10": 0.02209,
+          "p25": 0.031098,
+          "p50_mediana": 0.03949,
+          "p75": 0.051567,
+          "p90": 0.067648,
+          "z_score_vs_nacional": -1.1204
         },
         "constancia_sobre_mediana": {
-          "media": 0.856834,
-          "media_pct": 85.68,
-          "p10": 0.5,
-          "p25": 0.833333,
-          "p50_mediana": 1.0,
+          "media": 0.752886,
+          "media_pct": 75.29,
+          "p10": 0.333333,
+          "p25": 0.5,
+          "p50_mediana": 0.833333,
           "p75": 1.0,
           "p90": 1.0,
-          "z_score_vs_nacional": 1.0178
+          "z_score_vs_nacional": 0.7107
         },
         "brecha_genero_media": {
-          "media": 0.079071,
-          "media_pct": 7.91,
-          "p10": 0.044062,
-          "p25": 0.061062,
-          "p50_mediana": 0.078541,
-          "p75": 0.096279,
-          "p90": 0.113829,
-          "z_score_vs_nacional": 0.0518
+          "media": 0.089115,
+          "media_pct": 8.91,
+          "p10": 0.050739,
+          "p25": 0.067602,
+          "p50_mediana": 0.088389,
+          "p75": 0.110844,
+          "p90": 0.130404,
+          "z_score_vs_nacional": 0.2477
         },
-        "brecha_genero_tendencia": {
-          "media": 0.000871,
-          "media_pct": 0.09,
-          "p10": -0.00602,
-          "p25": -0.002213,
-          "p50_mediana": 0.001092,
-          "p75": 0.004481,
-          "p90": 0.007413,
-          "z_score_vs_nacional": -0.4352
+        "brecha_juvenil_18_29_vs_30_59": {
+          "media": -0.075712,
+          "media_pct": -7.57,
+          "p10": -0.119089,
+          "p25": -0.102886,
+          "p50_mediana": -0.083873,
+          "p75": -0.056886,
+          "p90": -0.017673,
+          "z_score_vs_nacional": 0.7384
         },
-        "brecha_generacional_60_vs_18_29": {
-          "media": 0.075686,
-          "media_pct": 7.57,
-          "p10": 0.000221,
-          "p25": 0.034841,
-          "p50_mediana": 0.076344,
-          "p75": 0.12003,
-          "p90": 0.153884,
-          "z_score_vs_nacional": -0.8733
+        "retencion_primer_voto": {
+          "media": 0.880103,
+          "media_pct": 88.01,
+          "p10": 0.829023,
+          "p25": 0.852556,
+          "p50_mediana": 0.880526,
+          "p75": 0.90699,
+          "p90": 0.93163,
+          "z_score_vs_nacional": -0.0731
         },
         "pct_ln_rural": {
-          "media": 0.348687,
-          "media_pct": 34.87,
+          "media": 0.317804,
+          "media_pct": 31.78,
           "p10": 0.0,
-          "p25": 0.129219,
-          "p50_mediana": 0.307214,
-          "p75": 0.560032,
-          "p90": 0.742379,
-          "z_score_vs_nacional": 0.0505
+          "p25": 0.102609,
+          "p50_mediana": 0.274134,
+          "p75": 0.487092,
+          "p90": 0.698449,
+          "z_score_vs_nacional": -0.0597
         },
-        "cagr_ln_2009_2024": {
-          "media": 0.0134,
-          "media_pct": 1.34,
-          "p10": 0.001691,
-          "p25": 0.006705,
-          "p50_mediana": 0.012872,
-          "p75": 0.019975,
-          "p90": 0.026003,
-          "z_score_vs_nacional": -0.0053
+        "rezago_espacial_part": {
+          "media": 0.63416,
+          "media_pct": 63.42,
+          "p10": 0.57978,
+          "p25": 0.609532,
+          "p50_mediana": 0.633775,
+          "p75": 0.665709,
+          "p90": 0.688691,
+          "z_score_vs_nacional": 0.6953
         },
         "part_2009": {
-          "media": 0.610313,
-          "media_pct": 61.03,
-          "p10": 0.497714,
-          "p25": 0.555202,
-          "p50_mediana": 0.60831,
-          "p75": 0.669113,
-          "p90": 0.727062,
-          "z_score_vs_nacional": 1.1127
+          "media": 0.597577,
+          "media_pct": 59.76,
+          "p10": 0.488932,
+          "p25": 0.546122,
+          "p50_mediana": 0.599138,
+          "p75": 0.653293,
+          "p90": 0.721652,
+          "z_score_vs_nacional": 1.0817
         },
         "part_2012": {
-          "media": 0.737113,
-          "media_pct": 73.71,
-          "p10": 0.636203,
-          "p25": 0.673827,
-          "p50_mediana": 0.726421,
-          "p75": 0.786371,
-          "p90": 0.863216,
-          "z_score_vs_nacional": 0.9139
+          "media": 0.68581,
+          "media_pct": 68.58,
+          "p10": 0.597826,
+          "p25": 0.638963,
+          "p50_mediana": 0.684182,
+          "p75": 0.734022,
+          "p90": 0.780971,
+          "z_score_vs_nacional": 0.4725
         },
         "part_2015": {
-          "media": 0.676677,
-          "media_pct": 67.67,
-          "p10": 0.539117,
-          "p25": 0.604293,
-          "p50_mediana": 0.665202,
-          "p75": 0.740691,
-          "p90": 0.836757,
-          "z_score_vs_nacional": 1.1286
+          "media": 0.660485,
+          "media_pct": 66.05,
+          "p10": 0.537834,
+          "p25": 0.587144,
+          "p50_mediana": 0.665061,
+          "p75": 0.724687,
+          "p90": 0.805812,
+          "z_score_vs_nacional": 0.8635
         },
         "part_2018": {
-          "media": 0.697819,
-          "media_pct": 69.78,
-          "p10": 0.562696,
-          "p25": 0.633356,
-          "p50_mediana": 0.698997,
-          "p75": 0.764271,
-          "p90": 0.835088,
-          "z_score_vs_nacional": 0.6095
+          "media": 0.682012,
+          "media_pct": 68.2,
+          "p10": 0.577633,
+          "p25": 0.631697,
+          "p50_mediana": 0.689877,
+          "p75": 0.729477,
+          "p90": 0.773927,
+          "z_score_vs_nacional": 0.1854
         },
         "part_2021": {
-          "media": 0.685218,
-          "media_pct": 68.52,
-          "p10": 0.536741,
-          "p25": 0.608776,
-          "p50_mediana": 0.684356,
-          "p75": 0.769212,
-          "p90": 0.836255,
-          "z_score_vs_nacional": 0.7115
+          "media": 0.632613,
+          "media_pct": 63.26,
+          "p10": 0.506201,
+          "p25": 0.561541,
+          "p50_mediana": 0.643181,
+          "p75": 0.695589,
+          "p90": 0.7568,
+          "z_score_vs_nacional": 0.2135
         },
         "part_2024": {
-          "media": 0.65842,
-          "media_pct": 65.84,
-          "p10": 0.528002,
-          "p25": 0.584263,
-          "p50_mediana": 0.651756,
-          "p75": 0.727951,
-          "p90": 0.811644,
-          "z_score_vs_nacional": 0.5824
+          "media": 0.646145,
+          "media_pct": 64.61,
+          "p10": 0.552555,
+          "p25": 0.592651,
+          "p50_mediana": 0.649158,
+          "p75": 0.704501,
+          "p90": 0.745763,
+          "z_score_vs_nacional": 0.2061
         },
         "part_media_presidencial": {
-          "media": 0.697784,
-          "media_pct": 69.78,
-          "p10": 0.594877,
-          "p25": 0.64206,
-          "p50_mediana": 0.695291,
-          "p75": 0.752079,
-          "p90": 0.807069,
-          "z_score_vs_nacional": 0.8482
+          "media": 0.673351,
+          "media_pct": 67.34,
+          "p10": 0.574252,
+          "p25": 0.619966,
+          "p50_mediana": 0.675113,
+          "p75": 0.727129,
+          "p90": 0.769475,
+          "z_score_vs_nacional": 0.3317
         },
         "part_media_intermedia": {
-          "media": 0.657403,
-          "media_pct": 65.74,
-          "p10": 0.561827,
-          "p25": 0.598019,
-          "p50_mediana": 0.652213,
-          "p75": 0.706051,
-          "p90": 0.770403,
-          "z_score_vs_nacional": 1.2203
+          "media": 0.62816,
+          "media_pct": 62.82,
+          "p10": 0.518283,
+          "p25": 0.570305,
+          "p50_mediana": 0.628972,
+          "p75": 0.684354,
+          "p90": 0.739446,
+          "z_score_vs_nacional": 0.8802
         },
         "part_media_jovenes_18_29": {
-          "media": 0.622789,
-          "media_pct": 62.28,
-          "p10": 0.513499,
-          "p25": 0.553992,
-          "p50_mediana": 0.615134,
-          "p75": 0.683279,
-          "p90": 0.753734,
-          "z_score_vs_nacional": 1.2223
+          "media": 0.599781,
+          "media_pct": 59.98,
+          "p10": 0.479125,
+          "p25": 0.526205,
+          "p50_mediana": 0.594424,
+          "p75": 0.66436,
+          "p90": 0.735006,
+          "z_score_vs_nacional": 0.8236
         },
         "part_media_adultos_30_59": {
-          "media": 0.700787,
-          "media_pct": 70.08,
-          "p10": 0.601328,
-          "p25": 0.647274,
-          "p50_mediana": 0.695591,
-          "p75": 0.753804,
-          "p90": 0.806801,
-          "z_score_vs_nacional": 1.0736
+          "media": 0.675493,
+          "media_pct": 67.55,
+          "p10": 0.572567,
+          "p25": 0.614113,
+          "p50_mediana": 0.672126,
+          "p75": 0.729134,
+          "p90": 0.788242,
+          "z_score_vs_nacional": 0.5837
         },
         "part_media_adultos_60_mas": {
-          "media": 0.698475,
-          "media_pct": 69.85,
-          "p10": 0.584896,
-          "p25": 0.646651,
-          "p50_mediana": 0.705309,
-          "p75": 0.752582,
-          "p90": 0.805421,
-          "z_score_vs_nacional": 0.8551
+          "media": 0.688354,
+          "media_pct": 68.84,
+          "p10": 0.58396,
+          "p25": 0.633552,
+          "p50_mediana": 0.692013,
+          "p75": 0.745382,
+          "p90": 0.78062,
+          "z_score_vs_nacional": 0.4714
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.088573,
+          "media_pct": 8.86,
+          "p10": -0.010613,
+          "p25": 0.041357,
+          "p50_mediana": 0.093659,
+          "p75": 0.142817,
+          "p90": 0.181486,
+          "z_score_vs_nacional": -0.7443
+        },
+        "brecha_adultos_mayores_60_vs_30_59": {
+          "media": 0.012861,
+          "media_pct": 1.29,
+          "p10": -0.046267,
+          "p25": -0.017377,
+          "p50_mediana": 0.011621,
+          "p75": 0.045225,
+          "p90": 0.073797,
+          "z_score_vs_nacional": -0.3591
+        },
+        "edad_pico_participacion": {
+          "media": 51.289572,
+          "media_pct": 51.29,
+          "p10": 18.5,
+          "p25": 18.5,
+          "p50_mediana": 64.5,
+          "p75": 64.5,
+          "p90": 64.5,
+          "z_score_vs_nacional": -0.4953
         },
         "pct_ln_jovenes_18_29": {
-          "media": 0.275236,
-          "media_pct": 27.52,
-          "p10": 0.227339,
-          "p25": 0.251121,
-          "p50_mediana": 0.276405,
-          "p75": 0.300788,
-          "p90": 0.320042,
-          "z_score_vs_nacional": -0.0868
+          "media": 0.276038,
+          "media_pct": 27.6,
+          "p10": 0.227264,
+          "p25": 0.252824,
+          "p50_mediana": 0.279719,
+          "p75": 0.300126,
+          "p90": 0.318504,
+          "z_score_vs_nacional": -0.0673
         },
         "pct_ln_adultos_60_mas": {
-          "media": 0.203259,
-          "media_pct": 20.33,
-          "p10": 0.145569,
-          "p25": 0.162764,
-          "p50_mediana": 0.1962,
-          "p75": 0.234698,
-          "p90": 0.269698,
-          "z_score_vs_nacional": 0.0364
+          "media": 0.19341,
+          "media_pct": 19.34,
+          "p10": 0.130535,
+          "p25": 0.152069,
+          "p50_mediana": 0.187151,
+          "p75": 0.23078,
+          "p90": 0.264483,
+          "z_score_vs_nacional": -0.1294
         },
         "pct_ln_urbana": {
-          "media": 0.307773,
-          "media_pct": 30.78,
+          "media": 0.355716,
+          "media_pct": 35.57,
           "p10": 0.0,
-          "p25": 0.0,
-          "p50_mediana": 0.268142,
-          "p75": 0.526112,
-          "p90": 0.699537,
-          "z_score_vs_nacional": -0.1199
+          "p25": 0.056694,
+          "p50_mediana": 0.335595,
+          "p75": 0.565045,
+          "p90": 0.785112,
+          "z_score_vs_nacional": 0.0252
         },
         "pct_ln_mixta": {
-          "media": 0.343541,
-          "media_pct": 34.35,
-          "p10": 0.02679,
-          "p25": 0.15627,
-          "p50_mediana": 0.306986,
-          "p75": 0.477684,
-          "p90": 0.694952,
-          "z_score_vs_nacional": 0.0885
+          "media": 0.32648,
+          "media_pct": 32.65,
+          "p10": 0.031769,
+          "p25": 0.131846,
+          "p50_mediana": 0.281938,
+          "p75": 0.465459,
+          "p90": 0.692016,
+          "z_score_vs_nacional": 0.0292
         },
         "ln_2024": {
-          "media": 15007.467532,
-          "media_pct": 15007.47,
-          "p10": 2222.0,
-          "p25": 4318.5,
-          "p50_mediana": 9486.0,
-          "p75": 19003.0,
-          "p90": 32439.6,
-          "z_score_vs_nacional": -0.2099
+          "media": 44021.111732,
+          "media_pct": 44021.11,
+          "p10": 2540.8,
+          "p25": 5882.0,
+          "p50_mediana": 15133.0,
+          "p75": 35048.0,
+          "p90": 80258.4,
+          "z_score_vs_nacional": 0.0368
         },
         "tasa_voto_anticipado_por_10k": {
-          "media": 0.187202,
-          "media_pct": 0.19,
+          "media": 0.215301,
+          "media_pct": 0.22,
           "p10": 0.0,
           "p25": 0.0,
           "p50_mediana": 0.0,
-          "p75": 0.0,
-          "p90": 0.62951,
-          "z_score_vs_nacional": -0.0857
-        }
-      }
-    },
-    {
-      "cluster_id": 1,
-      "n_municipios": 378,
-      "pct_municipios_nacional": 15.26,
-      "poblacion_lista_nominal_2024": 6851597,
-      "pct_lista_nominal_nacional": 6.97,
-      "n_municipios_baja_confiabilidad": 15,
-      "pct_baja_confiabilidad": 3.97,
-      "top_5_variables_definitorias_shap": [
-        {
-          "feature": "brecha_genero_tendencia",
-          "mean_abs_shap": 3.58103,
-          "cluster_mean": 0.01438,
-          "national_mean": 0.00459,
-          "z_score_vs_nacional": 1.1444,
-          "direccion": "ALTA (+)"
+          "p75": 0.200028,
+          "p90": 0.689992,
+          "z_score_vs_nacional": -0.054
         },
-        {
-          "feature": "brecha_genero_media",
-          "mean_abs_shap": 2.55054,
-          "cluster_mean": 0.11348,
-          "national_mean": 0.0772,
-          "z_score_vs_nacional": 1.0061,
-          "direccion": "ALTA (+)"
+        "part_edad_18_19": {
+          "media": 0.688393,
+          "media_pct": 68.84,
+          "p10": 0.556118,
+          "p25": 0.606519,
+          "p50_mediana": 0.682307,
+          "p75": 0.769647,
+          "p90": 0.839512,
+          "z_score_vs_nacional": 0.782
         },
-        {
-          "feature": "pct_ln_rural",
-          "mean_abs_shap": 1.05395,
-          "cluster_mean": 0.55922,
-          "national_mean": 0.33453,
-          "z_score_vs_nacional": 0.8021,
-          "direccion": "ALTA (+)"
+        "part_edad_20_24": {
+          "media": 0.59589,
+          "media_pct": 59.59,
+          "p10": 0.468071,
+          "p25": 0.516537,
+          "p50_mediana": 0.589232,
+          "p75": 0.664945,
+          "p90": 0.738978,
+          "z_score_vs_nacional": 0.7848
         },
-        {
-          "feature": "part_media_global",
-          "mean_abs_shap": 0.76106,
-          "cluster_mean": 0.59204,
-          "national_mean": 0.56165,
-          "z_score_vs_nacional": 0.2968,
-          "direccion": "ALTA (+)"
+        "part_edad_25_29": {
+          "media": 0.568029,
+          "media_pct": 56.8,
+          "p10": 0.44613,
+          "p25": 0.492921,
+          "p50_mediana": 0.561451,
+          "p75": 0.636914,
+          "p90": 0.705652,
+          "z_score_vs_nacional": 0.6711
         },
-        {
-          "feature": "brecha_generacional_60_vs_18_29",
-          "mean_abs_shap": 0.28933,
-          "cluster_mean": 0.16391,
-          "national_mean": 0.14132,
-          "z_score_vs_nacional": 0.3005,
-          "direccion": "ALTA (+)"
-        }
-      ],
-      "entidades_predominantes": [
-        {
-          "cve_ent": "20",
-          "nom_ent": "OAXACA",
-          "n_municipios_en_cluster": 67,
-          "pct_del_cluster": 17.72
+        "part_edad_30_39": {
+          "media": 0.627164,
+          "media_pct": 62.72,
+          "p10": 0.510106,
+          "p25": 0.559421,
+          "p50_mediana": 0.624403,
+          "p75": 0.691161,
+          "p90": 0.747418,
+          "z_score_vs_nacional": 0.5678
         },
-        {
-          "cve_ent": "21",
-          "nom_ent": "PUEBLA",
-          "n_municipios_en_cluster": 50,
-          "pct_del_cluster": 13.23
+        "part_edad_40_49": {
+          "media": 0.694915,
+          "media_pct": 69.49,
+          "p10": 0.588509,
+          "p25": 0.633486,
+          "p50_mediana": 0.696496,
+          "p75": 0.753698,
+          "p90": 0.804174,
+          "z_score_vs_nacional": 0.5197
         },
-        {
-          "cve_ent": "07",
-          "nom_ent": "CHIAPAS",
-          "n_municipios_en_cluster": 43,
-          "pct_del_cluster": 11.38
+        "part_edad_50_59": {
+          "media": 0.72442,
+          "media_pct": 72.44,
+          "p10": 0.621794,
+          "p25": 0.669815,
+          "p50_mediana": 0.727097,
+          "p75": 0.780252,
+          "p90": 0.827712,
+          "z_score_vs_nacional": 0.4325
         },
-        {
-          "cve_ent": "30",
-          "nom_ent": "VERACRUZ",
-          "n_municipios_en_cluster": 42,
-          "pct_del_cluster": 11.11
+        "part_edad_60_69": {
+          "media": 0.738694,
+          "media_pct": 73.87,
+          "p10": 0.632861,
+          "p25": 0.684075,
+          "p50_mediana": 0.742538,
+          "p75": 0.798756,
+          "p90": 0.839853,
+          "z_score_vs_nacional": 0.3853
         },
-        {
-          "cve_ent": "12",
-          "nom_ent": "GUERRERO",
-          "n_municipios_en_cluster": 36,
-          "pct_del_cluster": 9.52
-        }
-      ],
-      "municipios_mas_representativos": [
-        {
-          "cve_geo": "16022",
-          "nom_mun": "Charo",
-          "nom_ent": "MICHOACAN",
-          "distancia_centroide": 0.7312,
-          "part_media_global": 0.5535,
-          "part_media_global_pct": 55.35,
-          "ln_2024": 18141
-        },
-        {
-          "cve_geo": "12046",
-          "nom_mun": "OlinalÃ¡",
-          "nom_ent": "GUERRERO",
-          "distancia_centroide": 0.7735,
-          "part_media_global": 0.6309,
-          "part_media_global_pct": 63.09,
-          "ln_2024": 20948
-        },
-        {
-          "cve_geo": "07015",
-          "nom_mun": "CacahoatÃ¡n",
-          "nom_ent": "CHIAPAS",
-          "distancia_centroide": 0.8328,
-          "part_media_global": 0.5882,
-          "part_media_global_pct": 58.82,
-          "ln_2024": 35965
-        },
-        {
-          "cve_geo": "32035",
-          "nom_mun": "Noria de Ãngeles",
-          "nom_ent": "ZACATECAS",
-          "distancia_centroide": 0.8437,
-          "part_media_global": 0.5937,
-          "part_media_global_pct": 59.37,
-          "ln_2024": 12255
-        },
-        {
-          "cve_geo": "21036",
-          "nom_mun": "CoxcatlÃ¡n",
-          "nom_ent": "PUEBLA",
-          "distancia_centroide": 0.8582,
-          "part_media_global": 0.555,
-          "part_media_global_pct": 55.5,
-          "ln_2024": 15849
-        },
-        {
-          "cve_geo": "21186",
-          "nom_mun": "Tlatlauquitepec",
-          "nom_ent": "PUEBLA",
-          "distancia_centroide": 0.8622,
-          "part_media_global": 0.5708,
-          "part_media_global_pct": 57.08,
-          "ln_2024": 41565
-        },
-        {
-          "cve_geo": "01002",
-          "nom_mun": "Asientos",
-          "nom_ent": "AGUASCALIENTES",
-          "distancia_centroide": 0.8884,
-          "part_media_global": 0.5691,
-          "part_media_global_pct": 56.91,
-          "ln_2024": 38773
-        },
-        {
-          "cve_geo": "21110",
-          "nom_mun": "PahuatlÃ¡n",
-          "nom_ent": "PUEBLA",
-          "distancia_centroide": 0.8975,
-          "part_media_global": 0.6002,
-          "part_media_global_pct": 60.02,
-          "ln_2024": 15216
-        },
-        {
-          "cve_geo": "12005",
-          "nom_mun": "Alpoyeca",
-          "nom_ent": "GUERRERO",
-          "distancia_centroide": 0.9146,
-          "part_media_global": 0.6299,
-          "part_media_global_pct": 62.99,
-          "ln_2024": 5733
-        },
-        {
-          "cve_geo": "16017",
-          "nom_mun": "Contepec",
-          "nom_ent": "MICHOACAN",
-          "distancia_centroide": 0.933,
-          "part_media_global": 0.548,
-          "part_media_global_pct": 54.8,
-          "ln_2024": 24899
-        }
-      ],
-      "trayectoria_media": {
-        "2009": 0.464795,
-        "2012": 0.654416,
-        "2015": 0.536843,
-        "2018": 0.648974,
-        "2021": 0.638024,
-        "2024": 0.609165
-      },
-      "trayectoria_media_pct": {
-        "2009": 46.48,
-        "2012": 65.44,
-        "2015": 53.68,
-        "2018": 64.9,
-        "2021": 63.8,
-        "2024": 60.92
-      },
-      "estadisticas_features": {
-        "part_media_global": {
-          "media": 0.592036,
-          "media_pct": 59.2,
-          "p10": 0.510318,
-          "p25": 0.553642,
-          "p50_mediana": 0.593874,
-          "p75": 0.636231,
-          "p90": 0.681421,
-          "z_score_vs_nacional": 0.2968
-        },
-        "caida_presidencial_intermedia": {
-          "media": 0.090964,
-          "media_pct": 9.1,
-          "p10": 0.012141,
-          "p25": 0.053878,
-          "p50_mediana": 0.098516,
-          "p75": 0.131913,
-          "p90": 0.15559,
-          "z_score_vs_nacional": -0.1455
-        },
-        "pendiente_tendencia": {
-          "media": 0.01717,
-          "media_pct": 1.72,
-          "p10": -0.01181,
-          "p25": 2.1e-05,
-          "p50_mediana": 0.019711,
-          "p75": 0.034764,
-          "p90": 0.047947,
-          "z_score_vs_nacional": 0.1115
-        },
-        "volatilidad": {
-          "media": 0.094464,
-          "media_pct": 9.45,
-          "p10": 0.047856,
-          "p25": 0.074291,
-          "p50_mediana": 0.093489,
-          "p75": 0.116285,
-          "p90": 0.133346,
-          "z_score_vs_nacional": -0.1393
-        },
-        "constancia_sobre_mediana": {
-          "media": 0.645503,
-          "media_pct": 64.55,
-          "p10": 0.166667,
-          "p25": 0.5,
-          "p50_mediana": 0.666667,
-          "p75": 0.833333,
-          "p90": 1.0,
-          "z_score_vs_nacional": 0.4165
-        },
-        "brecha_genero_media": {
-          "media": 0.113484,
-          "media_pct": 11.35,
-          "p10": 0.069105,
-          "p25": 0.090016,
-          "p50_mediana": 0.111366,
-          "p75": 0.135803,
-          "p90": 0.16003,
-          "z_score_vs_nacional": 1.0061
-        },
-        "brecha_genero_tendencia": {
-          "media": 0.014378,
-          "media_pct": 1.44,
-          "p10": 0.005663,
-          "p25": 0.008541,
-          "p50_mediana": 0.013068,
-          "p75": 0.018341,
-          "p90": 0.023555,
-          "z_score_vs_nacional": 1.1444
-        },
-        "brecha_generacional_60_vs_18_29": {
-          "media": 0.163906,
-          "media_pct": 16.39,
-          "p10": 0.091501,
-          "p25": 0.12709,
-          "p50_mediana": 0.165869,
-          "p75": 0.199618,
-          "p90": 0.23511,
-          "z_score_vs_nacional": 0.3005
-        },
-        "pct_ln_rural": {
-          "media": 0.559223,
-          "media_pct": 55.92,
-          "p10": 0.153696,
-          "p25": 0.388259,
-          "p50_mediana": 0.624648,
-          "p75": 0.766212,
-          "p90": 0.868624,
-          "z_score_vs_nacional": 0.8021
-        },
-        "cagr_ln_2009_2024": {
-          "media": 0.018738,
-          "media_pct": 1.87,
-          "p10": 0.003867,
-          "p25": 0.009948,
-          "p50_mediana": 0.016474,
-          "p75": 0.022013,
-          "p90": 0.029971,
-          "z_score_vs_nacional": 0.1955
-        },
-        "part_2009": {
-          "media": 0.464795,
-          "media_pct": 46.48,
-          "p10": 0.32916,
-          "p25": 0.379772,
-          "p50_mediana": 0.456805,
-          "p75": 0.541658,
-          "p90": 0.623571,
-          "z_score_vs_nacional": 0.0468
-        },
-        "part_2012": {
-          "media": 0.654416,
-          "media_pct": 65.44,
-          "p10": 0.538265,
-          "p25": 0.605552,
-          "p50_mediana": 0.665528,
-          "p75": 0.713244,
-          "p90": 0.758614,
-          "z_score_vs_nacional": 0.1511
-        },
-        "part_2015": {
-          "media": 0.536843,
-          "media_pct": 53.68,
-          "p10": 0.403017,
-          "p25": 0.462211,
-          "p50_mediana": 0.532005,
-          "p75": 0.613046,
-          "p90": 0.675343,
-          "z_score_vs_nacional": 0.2617
-        },
-        "part_2018": {
-          "media": 0.648974,
-          "media_pct": 64.9,
-          "p10": 0.540468,
-          "p25": 0.603083,
-          "p50_mediana": 0.655695,
-          "p75": 0.708708,
-          "p90": 0.751886,
-          "z_score_vs_nacional": 0.2324
-        },
-        "part_2021": {
-          "media": 0.638024,
-          "media_pct": 63.8,
-          "p10": 0.494074,
-          "p25": 0.570675,
-          "p50_mediana": 0.638045,
-          "p75": 0.71061,
-          "p90": 0.774357,
-          "z_score_vs_nacional": 0.401
-        },
-        "part_2024": {
-          "media": 0.609165,
-          "media_pct": 60.92,
-          "p10": 0.500026,
-          "p25": 0.560042,
-          "p50_mediana": 0.611809,
-          "p75": 0.663289,
-          "p90": 0.714001,
-          "z_score_vs_nacional": 0.2027
-        },
-        "part_media_presidencial": {
-          "media": 0.637518,
-          "media_pct": 63.75,
-          "p10": 0.557081,
-          "p25": 0.597192,
-          "p50_mediana": 0.641714,
-          "p75": 0.683461,
-          "p90": 0.723904,
-          "z_score_vs_nacional": 0.2435
-        },
-        "part_media_intermedia": {
-          "media": 0.546554,
-          "media_pct": 54.66,
-          "p10": 0.454156,
-          "p25": 0.490072,
-          "p50_mediana": 0.545088,
-          "p75": 0.598434,
-          "p90": 0.650783,
-          "z_score_vs_nacional": 0.3024
-        },
-        "part_media_jovenes_18_29": {
-          "media": 0.491827,
-          "media_pct": 49.18,
-          "p10": 0.391718,
-          "p25": 0.448225,
-          "p50_mediana": 0.495945,
-          "p75": 0.539226,
-          "p90": 0.58082,
-          "z_score_vs_nacional": 0.1361
-        },
-        "part_media_adultos_30_59": {
-          "media": 0.629531,
-          "media_pct": 62.95,
-          "p10": 0.537293,
-          "p25": 0.581786,
-          "p50_mediana": 0.630192,
-          "p75": 0.680435,
-          "p90": 0.719885,
-          "z_score_vs_nacional": 0.395
-        },
-        "part_media_adultos_60_mas": {
-          "media": 0.655733,
-          "media_pct": 65.57,
-          "p10": 0.571971,
-          "p25": 0.609348,
-          "p50_mediana": 0.662785,
-          "p75": 0.698535,
-          "p90": 0.738618,
-          "z_score_vs_nacional": 0.4075
-        },
-        "pct_ln_jovenes_18_29": {
-          "media": 0.307702,
-          "media_pct": 30.77,
-          "p10": 0.26019,
-          "p25": 0.282065,
-          "p50_mediana": 0.308272,
-          "p75": 0.329752,
-          "p90": 0.35514,
-          "z_score_vs_nacional": 0.7015
-        },
-        "pct_ln_adultos_60_mas": {
-          "media": 0.18156,
-          "media_pct": 18.16,
-          "p10": 0.129551,
-          "p25": 0.152253,
-          "p50_mediana": 0.177838,
-          "p75": 0.203865,
-          "p90": 0.236438,
-          "z_score_vs_nacional": -0.3289
-        },
-        "pct_ln_urbana": {
-          "media": 0.174664,
-          "media_pct": 17.47,
-          "p10": 0.0,
-          "p25": 0.0,
-          "p50_mediana": 0.098871,
-          "p75": 0.267092,
-          "p90": 0.458824,
-          "z_score_vs_nacional": -0.5226
-        },
-        "pct_ln_mixta": {
-          "media": 0.266113,
-          "media_pct": 26.61,
-          "p10": 0.0,
-          "p25": 0.081973,
-          "p50_mediana": 0.20404,
-          "p75": 0.370215,
-          "p90": 0.588602,
-          "z_score_vs_nacional": -0.1806
-        },
-        "ln_2024": {
-          "media": 18125.917989,
-          "media_pct": 18125.92,
-          "p10": 2924.5,
-          "p25": 6170.75,
-          "p50_mediana": 12414.5,
-          "p75": 20883.0,
-          "p90": 38015.9,
-          "z_score_vs_nacional": -0.1834
-        },
-        "tasa_voto_anticipado_por_10k": {
-          "media": 0.208545,
-          "media_pct": 0.21,
-          "p10": 0.0,
-          "p25": 0.0,
-          "p50_mediana": 0.0,
-          "p75": 0.0,
-          "p90": 0.82094,
-          "z_score_vs_nacional": -0.0616
+        "part_edad_70_mas": {
+          "media": 0.638702,
+          "media_pct": 63.87,
+          "p10": 0.532083,
+          "p25": 0.577327,
+          "p50_mediana": 0.642548,
+          "p75": 0.696973,
+          "p90": 0.737804,
+          "z_score_vs_nacional": 0.4322
         }
       }
     },
     {
       "cluster_id": 2,
-      "n_municipios": 440,
-      "pct_municipios_nacional": 17.76,
-      "poblacion_lista_nominal_2024": 13283697,
-      "pct_lista_nominal_nacional": 13.51,
-      "n_municipios_baja_confiabilidad": 31,
-      "pct_baja_confiabilidad": 7.05,
+      "n_municipios": 425,
+      "pct_municipios_nacional": 17.16,
+      "poblacion_lista_nominal_2024": 9287589,
+      "pct_lista_nominal_nacional": 9.45,
+      "n_municipios_baja_confiabilidad": 59,
+      "pct_baja_confiabilidad": 13.88,
+      "municipio_prototipo_medoide": {
+        "cve_geo": "30011",
+        "nom_mun": "Altotonga",
+        "nom_ent": "Veracruz",
+        "distancia_centroide": 0.64,
+        "part_media_global": 0.599,
+        "part_media_global_pct": 59.9,
+        "ln_2024": 45775
+      },
       "top_5_variables_definitorias_shap": [
         {
-          "feature": "volatilidad",
-          "mean_abs_shap": 4.12843,
-          "cluster_mean": 0.1573,
-          "national_mean": 0.10111,
-          "z_score_vs_nacional": 1.1782,
+          "feature": "brecha_juvenil_18_29_vs_30_59",
+          "mean_abs_shap": 2.52984,
+          "cluster_mean": -0.16594,
+          "national_mean": -0.1167,
+          "z_score_vs_nacional": -0.8871,
+          "direccion": "BAJA (-)"
+        },
+        {
+          "feature": "pct_ln_rural",
+          "mean_abs_shap": 1.52233,
+          "cluster_mean": 0.57893,
+          "national_mean": 0.33453,
+          "z_score_vs_nacional": 0.8725,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_genero_media",
+          "mean_abs_shap": 0.95733,
+          "cluster_mean": 0.10003,
+          "national_mean": 0.07982,
+          "z_score_vs_nacional": 0.5384,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "part_media_global",
+          "mean_abs_shap": 0.73472,
+          "cluster_mean": 0.61783,
+          "national_mean": 0.58373,
+          "z_score_vs_nacional": 0.3453,
           "direccion": "ALTA (+)"
         },
         {
           "feature": "caida_presidencial_intermedia",
-          "mean_abs_shap": 2.52855,
-          "cluster_mean": 0.20634,
-          "national_mean": 0.10322,
-          "z_score_vs_nacional": 1.2245,
-          "direccion": "ALTA (+)"
-        },
-        {
-          "feature": "pendiente_tendencia",
-          "mean_abs_shap": 2.12727,
-          "cluster_mean": 0.04394,
-          "national_mean": 0.01393,
-          "z_score_vs_nacional": 1.0325,
-          "direccion": "ALTA (+)"
-        },
-        {
-          "feature": "pct_ln_rural",
-          "mean_abs_shap": 0.21688,
-          "cluster_mean": 0.22394,
-          "national_mean": 0.33453,
-          "z_score_vs_nacional": -0.3948,
+          "mean_abs_shap": 0.59605,
+          "cluster_mean": 0.08223,
+          "national_mean": 0.11574,
+          "z_score_vs_nacional": -0.4721,
           "direccion": "BAJA (-)"
-        },
-        {
-          "feature": "brecha_genero_tendencia",
-          "mean_abs_shap": 0.15682,
-          "cluster_mean": 0.00645,
-          "national_mean": 0.00459,
-          "z_score_vs_nacional": 0.217,
-          "direccion": "ALTA (+)"
         }
       ],
       "entidades_predominantes": [
         {
+          "cve_ent": "30",
+          "nom_ent": "Veracruz",
+          "n_municipios_en_cluster": 107,
+          "pct_del_cluster": 25.18
+        },
+        {
           "cve_ent": "20",
-          "nom_ent": "OAXACA",
-          "n_municipios_en_cluster": 132,
-          "pct_del_cluster": 30.0
+          "nom_ent": "Oaxaca",
+          "n_municipios_en_cluster": 100,
+          "pct_del_cluster": 23.53
         },
         {
           "cve_ent": "21",
-          "nom_ent": "PUEBLA",
-          "n_municipios_en_cluster": 124,
-          "pct_del_cluster": 28.18
-        },
-        {
-          "cve_ent": "29",
-          "nom_ent": "TLAXCALA",
-          "n_municipios_en_cluster": 46,
-          "pct_del_cluster": 10.45
-        },
-        {
-          "cve_ent": "07",
-          "nom_ent": "CHIAPAS",
-          "n_municipios_en_cluster": 28,
-          "pct_del_cluster": 6.36
+          "nom_ent": "Puebla",
+          "n_municipios_en_cluster": 32,
+          "pct_del_cluster": 7.53
         },
         {
           "cve_ent": "13",
-          "nom_ent": "HIDALGO",
-          "n_municipios_en_cluster": 17,
-          "pct_del_cluster": 3.86
+          "nom_ent": "Hidalgo",
+          "n_municipios_en_cluster": 30,
+          "pct_del_cluster": 7.06
+        },
+        {
+          "cve_ent": "12",
+          "nom_ent": "Guerrero",
+          "n_municipios_en_cluster": 29,
+          "pct_del_cluster": 6.82
         }
       ],
       "municipios_mas_representativos": [
         {
-          "cve_geo": "20334",
-          "nom_mun": "San Pedro y San Pablo Teposcolula",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 0.6292,
-          "part_media_global": 0.5746,
-          "part_media_global_pct": 57.46,
-          "ln_2024": 3433
+          "cve_geo": "30011",
+          "nom_mun": "Altotonga",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.64,
+          "part_media_global": 0.599,
+          "part_media_global_pct": 59.9,
+          "ln_2024": 45775
         },
         {
-          "cve_geo": "20539",
-          "nom_mun": "Villa de TamazulÃ¡pam del Progreso",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 0.7047,
-          "part_media_global": 0.5742,
-          "part_media_global_pct": 57.42,
-          "ln_2024": 6273
+          "cve_geo": "30068",
+          "nom_mun": "Espinal",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.6539,
+          "part_media_global": 0.6086,
+          "part_media_global_pct": 60.86,
+          "ln_2024": 20604
         },
         {
-          "cve_geo": "29039",
-          "nom_mun": "Xaloztoc",
-          "nom_ent": "TLAXCALA",
-          "distancia_centroide": 0.7354,
-          "part_media_global": 0.5366,
-          "part_media_global_pct": 53.66,
-          "ln_2024": 18969
-        },
-        {
-          "cve_geo": "29044",
-          "nom_mun": "Zacatelco",
-          "nom_ent": "TLAXCALA",
-          "distancia_centroide": 0.748,
-          "part_media_global": 0.5509,
-          "part_media_global_pct": 55.09,
-          "ln_2024": 36983
-        },
-        {
-          "cve_geo": "20545",
-          "nom_mun": "TeotitlÃ¡n de Flores MagÃ³n",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 0.7481,
-          "part_media_global": 0.5815,
-          "part_media_global_pct": 58.15,
-          "ln_2024": 7688
-        },
-        {
-          "cve_geo": "13066",
-          "nom_mun": "Tezontepec de Aldama",
-          "nom_ent": "HIDALGO",
-          "distancia_centroide": 0.7597,
-          "part_media_global": 0.5347,
-          "part_media_global_pct": 53.47,
-          "ln_2024": 40536
-        },
-        {
-          "cve_geo": "20292",
-          "nom_mun": "San Pablo Huitzo",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 0.7718,
+          "cve_geo": "30163",
+          "nom_mun": "Teocelo",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.6754,
           "part_media_global": 0.5926,
           "part_media_global_pct": 59.26,
-          "ln_2024": 5627
+          "ln_2024": 12938
         },
         {
-          "cve_geo": "20296",
-          "nom_mun": "San Pablo Villa de Mitla",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 0.8029,
-          "part_media_global": 0.6048,
-          "part_media_global_pct": 60.48,
-          "ln_2024": 10083
+          "cve_geo": "30105",
+          "nom_mun": "Mecayapan",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.8471,
+          "part_media_global": 0.6211,
+          "part_media_global_pct": 62.11,
+          "ln_2024": 14207
         },
         {
-          "cve_geo": "07037",
-          "nom_mun": "HuehuetÃ¡n",
-          "nom_ent": "CHIAPAS",
-          "distancia_centroide": 0.8285,
-          "part_media_global": 0.5413,
-          "part_media_global_pct": 54.13,
-          "ln_2024": 28988
+          "cve_geo": "30074",
+          "nom_mun": "Huayacocotla",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.8595,
+          "part_media_global": 0.6387,
+          "part_media_global_pct": 63.87,
+          "ln_2024": 15283
         },
         {
-          "cve_geo": "21137",
-          "nom_mun": "San Miguel Xoxtla",
-          "nom_ent": "PUEBLA",
-          "distancia_centroide": 0.8472,
-          "part_media_global": 0.5472,
-          "part_media_global_pct": 54.72,
-          "ln_2024": 9787
+          "cve_geo": "30035",
+          "nom_mun": "Cazones De Herrera",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.8602,
+          "part_media_global": 0.6312,
+          "part_media_global_pct": 63.12,
+          "ln_2024": 18961
+        },
+        {
+          "cve_geo": "12044",
+          "nom_mun": "Metlatónoc",
+          "nom_ent": "Guerrero",
+          "distancia_centroide": 0.8939,
+          "part_media_global": 0.5844,
+          "part_media_global_pct": 58.44,
+          "ln_2024": 14144
+        },
+        {
+          "cve_geo": "30158",
+          "nom_mun": "Tecolutla",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.906,
+          "part_media_global": 0.6016,
+          "part_media_global_pct": 60.16,
+          "ln_2024": 19298
+        },
+        {
+          "cve_geo": "30059",
+          "nom_mun": "Chiconquiaco",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.9067,
+          "part_media_global": 0.6437,
+          "part_media_global_pct": 64.37,
+          "ln_2024": 9965
+        },
+        {
+          "cve_geo": "21208",
+          "nom_mun": "Zacatlán",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.9177,
+          "part_media_global": 0.5617,
+          "part_media_global_pct": 56.17,
+          "ln_2024": 65740
         }
       ],
       "trayectoria_media": {
-        "2009": 0.368057,
-        "2012": 0.62935,
-        "2015": 0.372545,
-        "2018": 0.678607,
-        "2021": 0.603644,
-        "2024": 0.655306
+        "2009": 0.505503,
+        "2012": 0.668756,
+        "2015": 0.556668,
+        "2018": 0.679233,
+        "2021": 0.651844,
+        "2024": 0.626527
       },
       "trayectoria_media_pct": {
-        "2009": 36.81,
-        "2012": 62.94,
-        "2015": 37.25,
-        "2018": 67.86,
-        "2021": 60.36,
-        "2024": 65.53
+        "2009": 50.55,
+        "2012": 66.88,
+        "2015": 55.67,
+        "2018": 67.92,
+        "2021": 65.18,
+        "2024": 62.65
+      },
+      "trayectoria_p10_pct": {
+        "2009": 38.96,
+        "2012": 56.78,
+        "2015": 42.87,
+        "2018": 59.87,
+        "2021": 49.6,
+        "2024": 52.91
+      },
+      "trayectoria_p90_pct": {
+        "2009": 63.29,
+        "2012": 75.12,
+        "2015": 69.71,
+        "2018": 75.86,
+        "2021": 77.97,
+        "2024": 72.68
+      },
+      "curva_edad_8grupos_pct": {
+        "18-19": 57.3,
+        "20-24": 48.48,
+        "25-29": 49.48,
+        "30-39": 59.91,
+        "40-49": 69.0,
+        "50-59": 73.69,
+        "60-69": 75.5,
+        "70+": 63.73
       },
       "estadisticas_features": {
         "part_media_global": {
-          "media": 0.551252,
-          "media_pct": 55.13,
-          "p10": 0.455491,
-          "p25": 0.503727,
-          "p50_mediana": 0.550325,
-          "p75": 0.600938,
-          "p90": 0.64981,
-          "z_score_vs_nacional": -0.1015
+          "media": 0.617828,
+          "media_pct": 61.78,
+          "p10": 0.533392,
+          "p25": 0.575035,
+          "p50_mediana": 0.619515,
+          "p75": 0.659301,
+          "p90": 0.699254,
+          "z_score_vs_nacional": 0.3453
         },
         "caida_presidencial_intermedia": {
-          "media": 0.206339,
-          "media_pct": 20.63,
-          "p10": 0.135681,
-          "p25": 0.167419,
-          "p50_mediana": 0.203132,
-          "p75": 0.24412,
-          "p90": 0.280395,
-          "z_score_vs_nacional": 1.2245
+          "media": 0.082235,
+          "media_pct": 8.22,
+          "p10": 0.019036,
+          "p25": 0.053479,
+          "p50_mediana": 0.089592,
+          "p75": 0.115674,
+          "p90": 0.136651,
+          "z_score_vs_nacional": -0.4721
         },
         "pendiente_tendencia": {
-          "media": 0.043941,
-          "media_pct": 4.39,
-          "p10": 0.009498,
-          "p25": 0.026722,
-          "p50_mediana": 0.045563,
-          "p75": 0.061385,
-          "p90": 0.076109,
-          "z_score_vs_nacional": 1.0325
+          "media": 0.013564,
+          "media_pct": 1.36,
+          "p10": -0.011313,
+          "p25": 0.0,
+          "p50_mediana": 0.013378,
+          "p75": 0.027244,
+          "p90": 0.04057,
+          "z_score_vs_nacional": -0.2702
         },
         "volatilidad": {
-          "media": 0.157301,
-          "media_pct": 15.73,
-          "p10": 0.117073,
-          "p25": 0.130383,
-          "p50_mediana": 0.147653,
-          "p75": 0.1703,
-          "p90": 0.217879,
-          "z_score_vs_nacional": 1.1782
+          "media": 0.078448,
+          "media_pct": 7.84,
+          "p10": 0.041931,
+          "p25": 0.059396,
+          "p50_mediana": 0.079185,
+          "p75": 0.097461,
+          "p90": 0.115283,
+          "z_score_vs_nacional": -0.2248
         },
         "constancia_sobre_mediana": {
-          "media": 0.491667,
-          "media_pct": 49.17,
-          "p10": 0.0,
-          "p25": 0.333333,
-          "p50_mediana": 0.5,
-          "p75": 0.666667,
-          "p90": 0.833333,
-          "z_score_vs_nacional": -0.0212
+          "media": 0.681059,
+          "media_pct": 68.11,
+          "p10": 0.18,
+          "p25": 0.5,
+          "p50_mediana": 0.8,
+          "p75": 1.0,
+          "p90": 1.0,
+          "z_score_vs_nacional": 0.5191
         },
         "brecha_genero_media": {
-          "media": 0.073052,
-          "media_pct": 7.31,
-          "p10": 0.038771,
-          "p25": 0.055794,
-          "p50_mediana": 0.073509,
-          "p75": 0.089002,
-          "p90": 0.107406,
-          "z_score_vs_nacional": -0.1152
+          "media": 0.100027,
+          "media_pct": 10.0,
+          "p10": 0.057281,
+          "p25": 0.072698,
+          "p50_mediana": 0.094533,
+          "p75": 0.122204,
+          "p90": 0.153485,
+          "z_score_vs_nacional": 0.5384
         },
-        "brecha_genero_tendencia": {
-          "media": 0.006447,
-          "media_pct": 0.64,
-          "p10": -0.001226,
-          "p25": 0.002606,
-          "p50_mediana": 0.006574,
-          "p75": 0.010385,
-          "p90": 0.014662,
-          "z_score_vs_nacional": 0.217
+        "brecha_juvenil_18_29_vs_30_59": {
+          "media": -0.165937,
+          "media_pct": -16.59,
+          "p10": -0.225374,
+          "p25": -0.192621,
+          "p50_mediana": -0.159814,
+          "p75": -0.133132,
+          "p90": -0.113946,
+          "z_score_vs_nacional": -0.8871
         },
-        "brecha_generacional_60_vs_18_29": {
-          "media": 0.139242,
-          "media_pct": 13.92,
-          "p10": 0.061878,
-          "p25": 0.110276,
-          "p50_mediana": 0.144415,
-          "p75": 0.176635,
-          "p90": 0.204065,
-          "z_score_vs_nacional": -0.0277
+        "retencion_primer_voto": {
+          "media": 0.869566,
+          "media_pct": 86.96,
+          "p10": 0.810999,
+          "p25": 0.838311,
+          "p50_mediana": 0.871578,
+          "p75": 0.901082,
+          "p90": 0.932169,
+          "z_score_vs_nacional": -0.1741
         },
         "pct_ln_rural": {
-          "media": 0.223943,
-          "media_pct": 22.39,
-          "p10": 0.0,
-          "p25": 0.0,
-          "p50_mediana": 0.154775,
-          "p75": 0.393839,
-          "p90": 0.61839,
-          "z_score_vs_nacional": -0.3948
+          "media": 0.578926,
+          "media_pct": 57.89,
+          "p10": 0.223844,
+          "p25": 0.429357,
+          "p50_mediana": 0.628208,
+          "p75": 0.766147,
+          "p90": 0.853422,
+          "z_score_vs_nacional": 0.8725
         },
-        "cagr_ln_2009_2024": {
-          "media": 0.017057,
-          "media_pct": 1.71,
-          "p10": 0.001775,
-          "p25": 0.007533,
-          "p50_mediana": 0.01483,
-          "p75": 0.021233,
-          "p90": 0.028306,
-          "z_score_vs_nacional": 0.1323
+        "rezago_espacial_part": {
+          "media": 0.573318,
+          "media_pct": 57.33,
+          "p10": 0.505553,
+          "p25": 0.541,
+          "p50_mediana": 0.579118,
+          "p75": 0.604753,
+          "p90": 0.62841,
+          "z_score_vs_nacional": -0.1566
         },
         "part_2009": {
-          "media": 0.368057,
-          "media_pct": 36.81,
-          "p10": 0.253083,
-          "p25": 0.312513,
-          "p50_mediana": 0.368619,
-          "p75": 0.425346,
-          "p90": 0.500613,
-          "z_score_vs_nacional": -0.6619
+          "media": 0.505503,
+          "media_pct": 50.55,
+          "p10": 0.38964,
+          "p25": 0.441468,
+          "p50_mediana": 0.499205,
+          "p75": 0.566551,
+          "p90": 0.632908,
+          "z_score_vs_nacional": 0.3333
         },
         "part_2012": {
-          "media": 0.62935,
-          "media_pct": 62.94,
-          "p10": 0.525851,
-          "p25": 0.584587,
-          "p50_mediana": 0.632115,
-          "p75": 0.674111,
-          "p90": 0.721212,
-          "z_score_vs_nacional": -0.0801
+          "media": 0.668756,
+          "media_pct": 66.88,
+          "p10": 0.567844,
+          "p25": 0.62866,
+          "p50_mediana": 0.677271,
+          "p75": 0.717414,
+          "p90": 0.751205,
+          "z_score_vs_nacional": 0.2968
         },
         "part_2015": {
-          "media": 0.372545,
-          "media_pct": 37.25,
-          "p10": 0.161649,
-          "p25": 0.308756,
-          "p50_mediana": 0.382475,
-          "p75": 0.456516,
-          "p90": 0.543568,
-          "z_score_vs_nacional": -0.757
+          "media": 0.556668,
+          "media_pct": 55.67,
+          "p10": 0.428672,
+          "p25": 0.480341,
+          "p50_mediana": 0.545485,
+          "p75": 0.63184,
+          "p90": 0.697053,
+          "z_score_vs_nacional": 0.1596
         },
         "part_2018": {
-          "media": 0.678607,
-          "media_pct": 67.86,
-          "p10": 0.578045,
-          "p25": 0.6176,
-          "p50_mediana": 0.671802,
-          "p75": 0.739992,
-          "p90": 0.799187,
-          "z_score_vs_nacional": 0.4612
+          "media": 0.679233,
+          "media_pct": 67.92,
+          "p10": 0.598678,
+          "p25": 0.639426,
+          "p50_mediana": 0.678735,
+          "p75": 0.724776,
+          "p90": 0.758645,
+          "z_score_vs_nacional": 0.1544
         },
         "part_2021": {
-          "media": 0.603644,
-          "media_pct": 60.36,
-          "p10": 0.396402,
-          "p25": 0.519903,
-          "p50_mediana": 0.627776,
-          "p75": 0.716588,
-          "p90": 0.792585,
-          "z_score_vs_nacional": 0.1749
+          "media": 0.651844,
+          "media_pct": 65.18,
+          "p10": 0.495963,
+          "p25": 0.584742,
+          "p50_mediana": 0.663101,
+          "p75": 0.733109,
+          "p90": 0.779722,
+          "z_score_vs_nacional": 0.3608
         },
         "part_2024": {
-          "media": 0.655306,
-          "media_pct": 65.53,
-          "p10": 0.534808,
-          "p25": 0.58797,
-          "p50_mediana": 0.654722,
-          "p75": 0.724752,
-          "p90": 0.782224,
-          "z_score_vs_nacional": 0.5584
+          "media": 0.626527,
+          "media_pct": 62.65,
+          "p10": 0.52911,
+          "p25": 0.579255,
+          "p50_mediana": 0.625604,
+          "p75": 0.676926,
+          "p90": 0.726766,
+          "z_score_vs_nacional": 0.0136
         },
         "part_media_presidencial": {
-          "media": 0.654421,
-          "media_pct": 65.44,
-          "p10": 0.567293,
-          "p25": 0.607993,
-          "p50_mediana": 0.651398,
-          "p75": 0.700353,
-          "p90": 0.744487,
-          "z_score_vs_nacional": 0.4131
+          "media": 0.659035,
+          "media_pct": 65.9,
+          "p10": 0.571097,
+          "p25": 0.619746,
+          "p50_mediana": 0.664067,
+          "p75": 0.702025,
+          "p90": 0.736438,
+          "z_score_vs_nacional": 0.1784
         },
         "part_media_intermedia": {
-          "media": 0.448082,
-          "media_pct": 44.81,
-          "p10": 0.322078,
-          "p25": 0.388632,
-          "p50_mediana": 0.45083,
-          "p75": 0.507749,
-          "p90": 0.564355,
-          "z_score_vs_nacional": -0.513
+          "media": 0.5768,
+          "media_pct": 57.68,
+          "p10": 0.483535,
+          "p25": 0.525254,
+          "p50_mediana": 0.571844,
+          "p75": 0.623945,
+          "p90": 0.675397,
+          "z_score_vs_nacional": 0.4349
         },
         "part_media_jovenes_18_29": {
-          "media": 0.470942,
-          "media_pct": 47.09,
-          "p10": 0.361798,
-          "p25": 0.421935,
-          "p50_mediana": 0.471489,
-          "p75": 0.524274,
-          "p90": 0.567623,
-          "z_score_vs_nacional": -0.0371
+          "media": 0.498298,
+          "media_pct": 49.83,
+          "p10": 0.39856,
+          "p25": 0.455155,
+          "p50_mediana": 0.500171,
+          "p75": 0.552444,
+          "p90": 0.59176,
+          "z_score_vs_nacional": 0.0172
         },
         "part_media_adultos_30_59": {
-          "media": 0.574577,
-          "media_pct": 57.46,
-          "p10": 0.474297,
-          "p25": 0.52653,
-          "p50_mediana": 0.574166,
-          "p75": 0.621697,
-          "p90": 0.679411,
-          "z_score_vs_nacional": -0.1284
+          "media": 0.664235,
+          "media_pct": 66.42,
+          "p10": 0.574397,
+          "p25": 0.615836,
+          "p50_mediana": 0.665041,
+          "p75": 0.711795,
+          "p90": 0.761331,
+          "z_score_vs_nacional": 0.4788
         },
         "part_media_adultos_60_mas": {
-          "media": 0.610165,
-          "media_pct": 61.02,
-          "p10": 0.509929,
-          "p25": 0.568587,
-          "p50_mediana": 0.615929,
-          "p75": 0.657763,
-          "p90": 0.696653,
-          "z_score_vs_nacional": -0.0697
+          "media": 0.69454,
+          "media_pct": 69.45,
+          "p10": 0.619289,
+          "p25": 0.654288,
+          "p50_mediana": 0.694666,
+          "p75": 0.732387,
+          "p90": 0.772886,
+          "z_score_vs_nacional": 0.5359
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.196243,
+          "media_pct": 19.62,
+          "p10": 0.120001,
+          "p25": 0.157772,
+          "p50_mediana": 0.194435,
+          "p75": 0.232243,
+          "p90": 0.270732,
+          "z_score_vs_nacional": 0.6277
+        },
+        "brecha_adultos_mayores_60_vs_30_59": {
+          "media": 0.030305,
+          "media_pct": 3.03,
+          "p10": -0.023383,
+          "p25": 0.002658,
+          "p50_mediana": 0.034453,
+          "p75": 0.058074,
+          "p90": 0.076737,
+          "z_score_vs_nacional": 0.0004
+        },
+        "edad_pico_participacion": {
+          "media": 62.547059,
+          "media_pct": 62.55,
+          "p10": 54.5,
+          "p25": 64.5,
+          "p50_mediana": 64.5,
+          "p75": 64.5,
+          "p90": 64.5,
+          "z_score_vs_nacional": 0.3106
         },
         "pct_ln_jovenes_18_29": {
-          "media": 0.283874,
-          "media_pct": 28.39,
-          "p10": 0.23647,
-          "p25": 0.261632,
-          "p50_mediana": 0.287164,
-          "p75": 0.307752,
-          "p90": 0.328322,
-          "z_score_vs_nacional": 0.123
+          "media": 0.29287,
+          "media_pct": 29.29,
+          "p10": 0.241511,
+          "p25": 0.267885,
+          "p50_mediana": 0.297318,
+          "p75": 0.317024,
+          "p90": 0.339007,
+          "z_score_vs_nacional": 0.3414
         },
         "pct_ln_adultos_60_mas": {
-          "media": 0.189356,
-          "media_pct": 18.94,
-          "p10": 0.133478,
-          "p25": 0.150932,
-          "p50_mediana": 0.182468,
-          "p75": 0.217426,
-          "p90": 0.255267,
-          "z_score_vs_nacional": -0.1976
+          "media": 0.194546,
+          "media_pct": 19.45,
+          "p10": 0.144365,
+          "p25": 0.16418,
+          "p50_mediana": 0.189426,
+          "p75": 0.218876,
+          "p90": 0.250791,
+          "z_score_vs_nacional": -0.1103
         },
         "pct_ln_urbana": {
-          "media": 0.427218,
-          "media_pct": 42.72,
+          "media": 0.170603,
+          "media_pct": 17.06,
           "p10": 0.0,
           "p25": 0.0,
-          "p50_mediana": 0.37471,
-          "p75": 0.74833,
-          "p90": 1.0,
-          "z_score_vs_nacional": 0.2415
+          "p50_mediana": 0.086664,
+          "p75": 0.27691,
+          "p90": 0.49781,
+          "z_score_vs_nacional": -0.5349
         },
         "pct_ln_mixta": {
-          "media": 0.348839,
-          "media_pct": 34.88,
+          "media": 0.250471,
+          "media_pct": 25.05,
           "p10": 0.0,
-          "p25": 0.039829,
-          "p50_mediana": 0.305226,
-          "p75": 0.526621,
-          "p90": 0.924137,
-          "z_score_vs_nacional": 0.1069
+          "p25": 0.080321,
+          "p50_mediana": 0.19053,
+          "p75": 0.344836,
+          "p90": 0.565746,
+          "z_score_vs_nacional": -0.2349
         },
         "ln_2024": {
-          "media": 30190.220455,
-          "media_pct": 30190.22,
-          "p10": 1471.0,
-          "p25": 3562.75,
-          "p50_mediana": 8472.5,
-          "p75": 18271.0,
-          "p90": 47913.2,
-          "z_score_vs_nacional": -0.0808
+          "media": 21853.150588,
+          "media_pct": 21853.15,
+          "p10": 2989.2,
+          "p25": 5690.0,
+          "p50_mediana": 11880.0,
+          "p75": 21480.0,
+          "p90": 44672.2,
+          "z_score_vs_nacional": -0.1517
         },
         "tasa_voto_anticipado_por_10k": {
-          "media": 0.388457,
-          "media_pct": 0.39,
+          "media": 0.21481,
+          "media_pct": 0.21,
           "p10": 0.0,
           "p25": 0.0,
           "p50_mediana": 0.0,
-          "p75": 0.215362,
-          "p90": 1.32765,
-          "z_score_vs_nacional": 0.1416
+          "p75": 0.0,
+          "p90": 0.778733,
+          "z_score_vs_nacional": -0.0545
+        },
+        "part_edad_18_19": {
+          "media": 0.573012,
+          "media_pct": 57.3,
+          "p10": 0.463345,
+          "p25": 0.52819,
+          "p50_mediana": 0.577685,
+          "p75": 0.635679,
+          "p90": 0.678361,
+          "z_score_vs_nacional": -0.0447
+        },
+        "part_edad_20_24": {
+          "media": 0.484809,
+          "media_pct": 48.48,
+          "p10": 0.382482,
+          "p25": 0.436688,
+          "p50_mediana": 0.485945,
+          "p75": 0.543674,
+          "p90": 0.577267,
+          "z_score_vs_nacional": -0.0693
+        },
+        "part_edad_25_29": {
+          "media": 0.494799,
+          "media_pct": 49.48,
+          "p10": 0.393802,
+          "p25": 0.442678,
+          "p50_mediana": 0.494514,
+          "p75": 0.548275,
+          "p90": 0.594744,
+          "z_score_vs_nacional": 0.0811
+        },
+        "part_edad_30_39": {
+          "media": 0.599073,
+          "media_pct": 59.91,
+          "p10": 0.500471,
+          "p25": 0.543346,
+          "p50_mediana": 0.598977,
+          "p75": 0.64962,
+          "p90": 0.701149,
+          "z_score_vs_nacional": 0.3264
+        },
+        "part_edad_40_49": {
+          "media": 0.689992,
+          "media_pct": 69.0,
+          "p10": 0.603291,
+          "p25": 0.640456,
+          "p50_mediana": 0.691694,
+          "p75": 0.739174,
+          "p90": 0.784529,
+          "z_score_vs_nacional": 0.4736
+        },
+        "part_edad_50_59": {
+          "media": 0.736923,
+          "media_pct": 73.69,
+          "p10": 0.656761,
+          "p25": 0.694026,
+          "p50_mediana": 0.735821,
+          "p75": 0.783314,
+          "p90": 0.823654,
+          "z_score_vs_nacional": 0.5566
+        },
+        "part_edad_60_69": {
+          "media": 0.754997,
+          "media_pct": 75.5,
+          "p10": 0.678505,
+          "p25": 0.71675,
+          "p50_mediana": 0.758303,
+          "p75": 0.795023,
+          "p90": 0.831479,
+          "z_score_vs_nacional": 0.5563
+        },
+        "part_edad_70_mas": {
+          "media": 0.637252,
+          "media_pct": 63.73,
+          "p10": 0.555266,
+          "p25": 0.5978,
+          "p50_mediana": 0.637993,
+          "p75": 0.680412,
+          "p90": 0.715808,
+          "z_score_vs_nacional": 0.4173
         }
       }
     },
     {
       "cluster_id": 3,
-      "n_municipios": 79,
-      "pct_municipios_nacional": 3.19,
-      "poblacion_lista_nominal_2024": 715243,
-      "pct_lista_nominal_nacional": 0.73,
-      "n_municipios_baja_confiabilidad": 14,
-      "pct_baja_confiabilidad": 17.72,
+      "n_municipios": 554,
+      "pct_municipios_nacional": 22.37,
+      "poblacion_lista_nominal_2024": 18074124,
+      "pct_lista_nominal_nacional": 18.38,
+      "n_municipios_baja_confiabilidad": 133,
+      "pct_baja_confiabilidad": 24.01,
+      "municipio_prototipo_medoide": {
+        "cve_geo": "21109",
+        "nom_mun": "Oriental",
+        "nom_ent": "Puebla",
+        "distancia_centroide": 0.4548,
+        "part_media_global": 0.5982,
+        "part_media_global_pct": 59.82,
+        "ln_2024": 14124
+      },
       "top_5_variables_definitorias_shap": [
         {
+          "feature": "pendiente_tendencia",
+          "mean_abs_shap": 3.06324,
+          "cluster_mean": 0.05971,
+          "national_mean": 0.02284,
+          "z_score_vs_nacional": 1.0736,
+          "direccion": "ALTA (+)"
+        },
+        {
           "feature": "volatilidad",
-          "mean_abs_shap": 6.68233,
-          "cluster_mean": 0.20633,
-          "national_mean": 0.10111,
-          "z_score_vs_nacional": 2.2062,
+          "mean_abs_shap": 2.60388,
+          "cluster_mean": 0.13526,
+          "national_mean": 0.08729,
+          "z_score_vs_nacional": 1.2192,
           "direccion": "ALTA (+)"
         },
         {
           "feature": "caida_presidencial_intermedia",
-          "mean_abs_shap": 5.75449,
-          "cluster_mean": -0.05931,
-          "national_mean": 0.10322,
-          "z_score_vs_nacional": -1.9298,
-          "direccion": "BAJA (-)"
+          "mean_abs_shap": 1.45219,
+          "cluster_mean": 0.18288,
+          "national_mean": 0.11574,
+          "z_score_vs_nacional": 0.9463,
+          "direccion": "ALTA (+)"
         },
         {
-          "feature": "pendiente_tendencia",
-          "mean_abs_shap": 0.99965,
-          "cluster_mean": -0.01372,
-          "national_mean": 0.01393,
-          "z_score_vs_nacional": -0.9513,
-          "direccion": "BAJA (-)"
+          "feature": "retencion_primer_voto",
+          "mean_abs_shap": 0.68127,
+          "cluster_mean": 0.9151,
+          "national_mean": 0.88773,
+          "z_score_vs_nacional": 0.2623,
+          "direccion": "ALTA (+)"
         },
         {
-          "feature": "brecha_genero_media",
-          "mean_abs_shap": 0.97186,
-          "cluster_mean": 0.05399,
-          "national_mean": 0.0772,
-          "z_score_vs_nacional": -0.6438,
-          "direccion": "BAJA (-)"
-        },
-        {
-          "feature": "brecha_genero_tendencia",
-          "mean_abs_shap": 0.43404,
-          "cluster_mean": -0.00056,
-          "national_mean": 0.00459,
-          "z_score_vs_nacional": -0.6031,
+          "feature": "part_media_global",
+          "mean_abs_shap": 0.25848,
+          "cluster_mean": 0.5803,
+          "national_mean": 0.58373,
+          "z_score_vs_nacional": -0.0346,
           "direccion": "BAJA (-)"
         }
       ],
       "entidades_predominantes": [
         {
+          "cve_ent": "21",
+          "nom_ent": "Puebla",
+          "n_municipios_en_cluster": 166,
+          "pct_del_cluster": 29.96
+        },
+        {
           "cve_ent": "20",
-          "nom_ent": "OAXACA",
-          "n_municipios_en_cluster": 21,
-          "pct_del_cluster": 26.58
+          "nom_ent": "Oaxaca",
+          "n_municipios_en_cluster": 74,
+          "pct_del_cluster": 13.36
         },
         {
           "cve_ent": "07",
-          "nom_ent": "CHIAPAS",
-          "n_municipios_en_cluster": 10,
-          "pct_del_cluster": 12.66
+          "nom_ent": "Chiapas",
+          "n_municipios_en_cluster": 73,
+          "pct_del_cluster": 13.18
         },
         {
-          "cve_ent": "26",
-          "nom_ent": "SONORA",
-          "n_municipios_en_cluster": 10,
-          "pct_del_cluster": 12.66
+          "cve_ent": "29",
+          "nom_ent": "Tlaxcala",
+          "n_municipios_en_cluster": 56,
+          "pct_del_cluster": 10.11
         },
         {
-          "cve_ent": "13",
-          "nom_ent": "HIDALGO",
-          "n_municipios_en_cluster": 7,
-          "pct_del_cluster": 8.86
-        },
-        {
-          "cve_ent": "30",
-          "nom_ent": "VERACRUZ",
-          "n_municipios_en_cluster": 6,
-          "pct_del_cluster": 7.59
+          "cve_ent": "12",
+          "nom_ent": "Guerrero",
+          "n_municipios_en_cluster": 29,
+          "pct_del_cluster": 5.23
         }
       ],
       "municipios_mas_representativos": [
         {
-          "cve_geo": "30013",
-          "nom_mun": "AmatitlÃ¡n",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 1.3249,
-          "part_media_global": 0.5253,
-          "part_media_global_pct": 52.53,
-          "ln_2024": 6067
+          "cve_geo": "21109",
+          "nom_mun": "Oriental",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.4548,
+          "part_media_global": 0.5982,
+          "part_media_global_pct": 59.82,
+          "ln_2024": 14124
         },
         {
-          "cve_geo": "13052",
-          "nom_mun": "San Bartolo Tutotepec",
-          "nom_ent": "HIDALGO",
-          "distancia_centroide": 1.3802,
-          "part_media_global": 0.4938,
-          "part_media_global_pct": 49.38,
-          "ln_2024": 13626
+          "cve_geo": "32037",
+          "nom_mun": "Pánuco",
+          "nom_ent": "Zacatecas",
+          "distancia_centroide": 0.5289,
+          "part_media_global": 0.5759,
+          "part_media_global_pct": 57.59,
+          "ln_2024": 13123
         },
         {
-          "cve_geo": "20515",
-          "nom_mun": "Santo Domingo Tehuantepec",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 1.4476,
-          "part_media_global": 0.5038,
-          "part_media_global_pct": 50.38,
-          "ln_2024": 51532
+          "cve_geo": "29009",
+          "nom_mun": "Cuaxomulco",
+          "nom_ent": "Tlaxcala",
+          "distancia_centroide": 0.6316,
+          "part_media_global": 0.6159,
+          "part_media_global_pct": 61.59,
+          "ln_2024": 4965
         },
         {
-          "cve_geo": "07030",
-          "nom_mun": "Chicomuselo",
-          "nom_ent": "CHIAPAS",
-          "distancia_centroide": 1.5621,
-          "part_media_global": 0.4781,
-          "part_media_global_pct": 47.81,
-          "ln_2024": 26330
+          "cve_geo": "29024",
+          "nom_mun": "Panotla",
+          "nom_ent": "Tlaxcala",
+          "distancia_centroide": 0.6672,
+          "part_media_global": 0.5566,
+          "part_media_global_pct": 55.66,
+          "ln_2024": 22075
         },
         {
-          "cve_geo": "21108",
-          "nom_mun": "Olintla",
-          "nom_ent": "PUEBLA",
-          "distancia_centroide": 1.5935,
-          "part_media_global": 0.6378,
-          "part_media_global_pct": 63.78,
-          "ln_2024": 8895
+          "cve_geo": "21152",
+          "nom_mun": "Tecali de Herrera",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.6684,
+          "part_media_global": 0.5964,
+          "part_media_global_pct": 59.64,
+          "ln_2024": 16887
         },
         {
-          "cve_geo": "08051",
-          "nom_mun": "Ocampo",
-          "nom_ent": "CHIHUAHUA",
-          "distancia_centroide": 1.6373,
-          "part_media_global": 0.4378,
-          "part_media_global_pct": 43.78,
-          "ln_2024": 6496
+          "cve_geo": "21211",
+          "nom_mun": "Zaragoza",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.7178,
+          "part_media_global": 0.5962,
+          "part_media_global_pct": 59.62,
+          "ln_2024": 12921
         },
         {
-          "cve_geo": "30095",
-          "nom_mun": "Juan RodrÃ­guez Clara",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 1.665,
-          "part_media_global": 0.4698,
-          "part_media_global_pct": 46.98,
-          "ln_2024": 26920
+          "cve_geo": "21081",
+          "nom_mun": "Huitziltepec",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.7376,
+          "part_media_global": 0.557,
+          "part_media_global_pct": 55.7,
+          "ln_2024": 4397
         },
         {
-          "cve_geo": "20306",
-          "nom_mun": "San Pedro Huilotepec",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 1.6848,
-          "part_media_global": 0.5541,
-          "part_media_global_pct": 55.41,
-          "ln_2024": 2501
+          "cve_geo": "21068",
+          "nom_mun": "Guadalupe Victoria",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.7564,
+          "part_media_global": 0.6033,
+          "part_media_global_pct": 60.33,
+          "ln_2024": 12988
         },
         {
-          "cve_geo": "13004",
-          "nom_mun": "Agua Blanca de Iturbide",
-          "nom_ent": "HIDALGO",
-          "distancia_centroide": 1.6917,
-          "part_media_global": 0.4472,
-          "part_media_global_pct": 44.72,
-          "ln_2024": 8048
+          "cve_geo": "21129",
+          "nom_mun": "San José Chiapa",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.7706,
+          "part_media_global": 0.6141,
+          "part_media_global_pct": 61.41,
+          "ln_2024": 7317
         },
         {
-          "cve_geo": "14019",
-          "nom_mun": "BolaÃ±os",
-          "nom_ent": "JALISCO",
-          "distancia_centroide": 1.741,
-          "part_media_global": 0.6114,
-          "part_media_global_pct": 61.14,
-          "ln_2024": 6630
+          "cve_geo": "21180",
+          "nom_mun": "Tlahuapan",
+          "nom_ent": "Puebla",
+          "distancia_centroide": 0.7883,
+          "part_media_global": 0.5508,
+          "part_media_global_pct": 55.08,
+          "ln_2024": 31113
         }
       ],
       "trayectoria_media": {
-        "2009": 0.528543,
-        "2012": 0.654808,
-        "2015": 0.524527,
-        "2018": 0.386996,
-        "2021": 0.574468,
-        "2024": 0.407819
+        "2009": 0.388295,
+        "2012": 0.637007,
+        "2015": 0.474644,
+        "2018": 0.704818,
+        "2021": 0.661763,
+        "2024": 0.678637
       },
       "trayectoria_media_pct": {
-        "2009": 52.85,
-        "2012": 65.48,
-        "2015": 52.45,
-        "2018": 38.7,
-        "2021": 57.45,
-        "2024": 40.78
+        "2009": 38.83,
+        "2012": 63.7,
+        "2015": 47.46,
+        "2018": 70.48,
+        "2021": 66.18,
+        "2024": 67.86
+      },
+      "trayectoria_p10_pct": {
+        "2009": 30.0,
+        "2012": 54.28,
+        "2015": 34.47,
+        "2018": 61.8,
+        "2021": 53.16,
+        "2024": 57.56
+      },
+      "trayectoria_p90_pct": {
+        "2009": 48.81,
+        "2012": 72.59,
+        "2015": 65.16,
+        "2018": 78.57,
+        "2021": 77.72,
+        "2024": 76.54
+      },
+      "curva_edad_8grupos_pct": {
+        "18-19": 59.52,
+        "20-24": 51.02,
+        "25-29": 49.94,
+        "30-39": 56.84,
+        "40-49": 64.35,
+        "50-59": 68.49,
+        "60-69": 70.6,
+        "70+": 60.19
       },
       "estadisticas_features": {
         "part_media_global": {
-          "media": 0.51286,
-          "media_pct": 51.29,
-          "p10": 0.387713,
-          "p25": 0.458099,
-          "p50_mediana": 0.49378,
-          "p75": 0.569202,
-          "p90": 0.642685,
-          "z_score_vs_nacional": -0.4764
+          "media": 0.580304,
+          "media_pct": 58.03,
+          "p10": 0.507195,
+          "p25": 0.540041,
+          "p50_mediana": 0.579219,
+          "p75": 0.6207,
+          "p90": 0.657269,
+          "z_score_vs_nacional": -0.0346
         },
         "caida_presidencial_intermedia": {
-          "media": -0.059305,
-          "media_pct": -5.93,
-          "p10": -0.189443,
-          "p25": -0.116877,
-          "p50_mediana": -0.062174,
-          "p75": -0.003856,
-          "p90": 0.04846,
-          "z_score_vs_nacional": -1.9298
+          "media": 0.182881,
+          "media_pct": 18.29,
+          "p10": 0.116754,
+          "p25": 0.14692,
+          "p50_mediana": 0.178358,
+          "p75": 0.218686,
+          "p90": 0.259311,
+          "z_score_vs_nacional": 0.9463
         },
         "pendiente_tendencia": {
-          "media": -0.013721,
-          "media_pct": -1.37,
-          "p10": -0.058259,
-          "p25": -0.035765,
-          "p50_mediana": -0.004784,
-          "p75": 0.006159,
-          "p90": 0.027069,
-          "z_score_vs_nacional": -0.9513
+          "media": 0.059706,
+          "media_pct": 5.97,
+          "p10": 0.026632,
+          "p25": 0.039468,
+          "p50_mediana": 0.053439,
+          "p75": 0.068932,
+          "p90": 0.090717,
+          "z_score_vs_nacional": 1.0736
         },
         "volatilidad": {
-          "media": 0.20633,
-          "media_pct": 20.63,
-          "p10": 0.147573,
-          "p25": 0.165477,
-          "p50_mediana": 0.20297,
-          "p75": 0.2395,
-          "p90": 0.278211,
-          "z_score_vs_nacional": 2.2062
+          "media": 0.135257,
+          "media_pct": 13.53,
+          "p10": 0.103928,
+          "p25": 0.118251,
+          "p50_mediana": 0.133899,
+          "p75": 0.151039,
+          "p90": 0.167604,
+          "z_score_vs_nacional": 1.2192
         },
         "constancia_sobre_mediana": {
-          "media": 0.505485,
-          "media_pct": 50.55,
+          "media": 0.523345,
+          "media_pct": 52.33,
           "p10": 0.166667,
           "p25": 0.333333,
           "p50_mediana": 0.5,
           "p75": 0.666667,
           "p90": 0.833333,
-          "z_score_vs_nacional": 0.0181
+          "z_score_vs_nacional": 0.0983
         },
         "brecha_genero_media": {
-          "media": 0.053989,
-          "media_pct": 5.4,
-          "p10": 0.020745,
-          "p25": 0.033912,
-          "p50_mediana": 0.054788,
-          "p75": 0.0659,
-          "p90": 0.091413,
-          "z_score_vs_nacional": -0.6438
+          "media": 0.082893,
+          "media_pct": 8.29,
+          "p10": 0.043878,
+          "p25": 0.064026,
+          "p50_mediana": 0.081882,
+          "p75": 0.099633,
+          "p90": 0.121767,
+          "z_score_vs_nacional": 0.0819
         },
-        "brecha_genero_tendencia": {
-          "media": -0.000565,
-          "media_pct": -0.06,
-          "p10": -0.012962,
-          "p25": -0.006353,
-          "p50_mediana": 0.0,
-          "p75": 0.005329,
-          "p90": 0.009869,
-          "z_score_vs_nacional": -0.6031
+        "brecha_juvenil_18_29_vs_30_59": {
+          "media": -0.104823,
+          "media_pct": -10.48,
+          "p10": -0.143895,
+          "p25": -0.123329,
+          "p50_mediana": -0.104558,
+          "p75": -0.08707,
+          "p90": -0.064496,
+          "z_score_vs_nacional": 0.2139
         },
-        "brecha_generacional_60_vs_18_29": {
-          "media": 0.109406,
-          "media_pct": 10.94,
-          "p10": 0.002309,
-          "p25": 0.053725,
-          "p50_mediana": 0.116528,
-          "p75": 0.148266,
-          "p90": 0.179285,
-          "z_score_vs_nacional": -0.4246
+        "retencion_primer_voto": {
+          "media": 0.915098,
+          "media_pct": 91.51,
+          "p10": 0.848822,
+          "p25": 0.880654,
+          "p50_mediana": 0.910774,
+          "p75": 0.945501,
+          "p90": 0.990542,
+          "z_score_vs_nacional": 0.2623
         },
         "pct_ln_rural": {
-          "media": 0.34708,
-          "media_pct": 34.71,
+          "media": 0.314467,
+          "media_pct": 31.45,
           "p10": 0.0,
-          "p25": 0.0,
-          "p50_mediana": 0.29148,
-          "p75": 0.667511,
-          "p90": 0.768355,
-          "z_score_vs_nacional": 0.0448
+          "p25": 0.016489,
+          "p50_mediana": 0.300952,
+          "p75": 0.528045,
+          "p90": 0.698475,
+          "z_score_vs_nacional": -0.0716
         },
-        "cagr_ln_2009_2024": {
-          "media": 0.010909,
-          "media_pct": 1.09,
-          "p10": -0.004254,
-          "p25": 0.004986,
-          "p50_mediana": 0.012281,
-          "p75": 0.016519,
-          "p90": 0.023751,
-          "z_score_vs_nacional": -0.099
+        "rezago_espacial_part": {
+          "media": 0.574162,
+          "media_pct": 57.42,
+          "p10": 0.513603,
+          "p25": 0.553267,
+          "p50_mediana": 0.577497,
+          "p75": 0.602785,
+          "p90": 0.623061,
+          "z_score_vs_nacional": -0.1448
         },
         "part_2009": {
-          "media": 0.528543,
-          "media_pct": 52.85,
-          "p10": 0.346623,
-          "p25": 0.42437,
-          "p50_mediana": 0.511295,
-          "p75": 0.607996,
-          "p90": 0.746734,
-          "z_score_vs_nacional": 0.5137
+          "media": 0.388295,
+          "media_pct": 38.83,
+          "p10": 0.300032,
+          "p25": 0.333543,
+          "p50_mediana": 0.3834,
+          "p75": 0.43763,
+          "p90": 0.488082,
+          "z_score_vs_nacional": -0.6194
         },
         "part_2012": {
-          "media": 0.654808,
-          "media_pct": 65.48,
-          "p10": 0.534761,
-          "p25": 0.608575,
-          "p50_mediana": 0.682938,
-          "p75": 0.744325,
-          "p90": 0.854376,
-          "z_score_vs_nacional": 0.1547
+          "media": 0.637007,
+          "media_pct": 63.7,
+          "p10": 0.542769,
+          "p25": 0.594808,
+          "p50_mediana": 0.63691,
+          "p75": 0.677239,
+          "p90": 0.725897,
+          "z_score_vs_nacional": -0.0303
         },
         "part_2015": {
-          "media": 0.524527,
-          "media_pct": 52.45,
-          "p10": 0.332107,
-          "p25": 0.420512,
-          "p50_mediana": 0.525962,
-          "p75": 0.619948,
-          "p90": 0.80561,
-          "z_score_vs_nacional": 0.1853
+          "media": 0.474644,
+          "media_pct": 47.46,
+          "p10": 0.34472,
+          "p25": 0.394597,
+          "p50_mediana": 0.449167,
+          "p75": 0.546775,
+          "p90": 0.651594,
+          "z_score_vs_nacional": -0.3966
         },
         "part_2018": {
-          "media": 0.386996,
-          "media_pct": 38.7,
-          "p10": 0.0,
-          "p25": 0.104276,
-          "p50_mediana": 0.415864,
-          "p75": 0.630949,
-          "p90": 0.712072,
-          "z_score_vs_nacional": -1.7898
+          "media": 0.704818,
+          "media_pct": 70.48,
+          "p10": 0.617979,
+          "p25": 0.660334,
+          "p50_mediana": 0.71084,
+          "p75": 0.746751,
+          "p90": 0.785748,
+          "z_score_vs_nacional": 0.4398
         },
         "part_2021": {
-          "media": 0.574468,
-          "media_pct": 57.45,
-          "p10": 0.339189,
-          "p25": 0.426561,
-          "p50_mediana": 0.595932,
-          "p75": 0.736802,
-          "p90": 0.827437,
-          "z_score_vs_nacional": -0.0171
+          "media": 0.661763,
+          "media_pct": 66.18,
+          "p10": 0.531569,
+          "p25": 0.601098,
+          "p50_mediana": 0.681688,
+          "p75": 0.727388,
+          "p90": 0.777215,
+          "z_score_vs_nacional": 0.4367
         },
         "part_2024": {
-          "media": 0.407819,
-          "media_pct": 40.78,
-          "p10": 0.0,
-          "p25": 0.147922,
-          "p50_mediana": 0.493257,
-          "p75": 0.641737,
-          "p90": 0.705808,
-          "z_score_vs_nacional": -1.3495
+          "media": 0.678637,
+          "media_pct": 67.86,
+          "p10": 0.575563,
+          "p25": 0.628906,
+          "p50_mediana": 0.688847,
+          "p75": 0.719775,
+          "p90": 0.765419,
+          "z_score_vs_nacional": 0.5249
         },
         "part_media_presidencial": {
-          "media": 0.483208,
-          "media_pct": 48.32,
-          "p10": 0.391486,
-          "p25": 0.419377,
-          "p50_mediana": 0.47462,
-          "p75": 0.541622,
-          "p90": 0.614436,
-          "z_score_vs_nacional": -1.3049
+          "media": 0.674307,
+          "media_pct": 67.43,
+          "p10": 0.595494,
+          "p25": 0.63476,
+          "p50_mediana": 0.676148,
+          "p75": 0.713339,
+          "p90": 0.748246,
+          "z_score_vs_nacional": 0.342
         },
         "part_media_intermedia": {
-          "media": 0.542513,
-          "media_pct": 54.25,
-          "p10": 0.372556,
-          "p25": 0.464293,
-          "p50_mediana": 0.531837,
-          "p75": 0.614137,
-          "p90": 0.709648,
-          "z_score_vs_nacional": 0.2689
+          "media": 0.491426,
+          "media_pct": 49.14,
+          "p10": 0.400527,
+          "p25": 0.445311,
+          "p50_mediana": 0.492989,
+          "p75": 0.541602,
+          "p90": 0.58416,
+          "z_score_vs_nacional": -0.3053
         },
         "part_media_jovenes_18_29": {
-          "media": 0.439438,
-          "media_pct": 43.94,
-          "p10": 0.287517,
-          "p25": 0.365478,
-          "p50_mediana": 0.419484,
-          "p75": 0.503164,
-          "p90": 0.637247,
-          "z_score_vs_nacional": -0.2983
+          "media": 0.503579,
+          "media_pct": 50.36,
+          "p10": 0.417186,
+          "p25": 0.457697,
+          "p50_mediana": 0.500644,
+          "p75": 0.542972,
+          "p90": 0.595691,
+          "z_score_vs_nacional": 0.0592
         },
         "part_media_adultos_30_59": {
-          "media": 0.533935,
-          "media_pct": 53.39,
-          "p10": 0.407059,
-          "p25": 0.483386,
-          "p50_mediana": 0.517834,
-          "p75": 0.595299,
-          "p90": 0.666953,
-          "z_score_vs_nacional": -0.5155
+          "media": 0.608402,
+          "media_pct": 60.84,
+          "p10": 0.5247,
+          "p25": 0.562935,
+          "p50_mediana": 0.604405,
+          "p75": 0.650543,
+          "p90": 0.696267,
+          "z_score_vs_nacional": -0.0413
         },
         "part_media_adultos_60_mas": {
-          "media": 0.551784,
-          "media_pct": 55.18,
-          "p10": 0.452657,
-          "p25": 0.483156,
-          "p50_mediana": 0.539172,
-          "p75": 0.616726,
-          "p90": 0.669041,
-          "z_score_vs_nacional": -0.6811
+          "media": 0.641173,
+          "media_pct": 64.12,
+          "p10": 0.560063,
+          "p25": 0.607402,
+          "p50_mediana": 0.643098,
+          "p75": 0.681411,
+          "p90": 0.714688,
+          "z_score_vs_nacional": -0.0203
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.137594,
+          "media_pct": 13.76,
+          "p10": 0.056495,
+          "p25": 0.108521,
+          "p50_mediana": 0.14626,
+          "p75": 0.175511,
+          "p90": 0.202482,
+          "z_score_vs_nacional": -0.1197
+        },
+        "brecha_adultos_mayores_60_vs_30_59": {
+          "media": 0.032771,
+          "media_pct": 3.28,
+          "p10": -0.026313,
+          "p25": 0.004069,
+          "p50_mediana": 0.033014,
+          "p75": 0.066661,
+          "p90": 0.088869,
+          "z_score_vs_nacional": 0.0512
+        },
+        "edad_pico_participacion": {
+          "media": 60.068592,
+          "media_pct": 60.07,
+          "p10": 54.5,
+          "p25": 64.5,
+          "p50_mediana": 64.5,
+          "p75": 64.5,
+          "p90": 64.5,
+          "z_score_vs_nacional": 0.1332
         },
         "pct_ln_jovenes_18_29": {
-          "media": 0.273748,
-          "media_pct": 27.37,
-          "p10": 0.214841,
-          "p25": 0.240717,
-          "p50_mediana": 0.275354,
-          "p75": 0.30023,
-          "p90": 0.332447,
-          "z_score_vs_nacional": -0.1229
+          "media": 0.291276,
+          "media_pct": 29.13,
+          "p10": 0.243406,
+          "p25": 0.269865,
+          "p50_mediana": 0.2924,
+          "p75": 0.314768,
+          "p90": 0.337122,
+          "z_score_vs_nacional": 0.3027
         },
         "pct_ln_adultos_60_mas": {
-          "media": 0.210092,
-          "media_pct": 21.01,
-          "p10": 0.138929,
-          "p25": 0.165377,
-          "p50_mediana": 0.203427,
-          "p75": 0.245291,
-          "p90": 0.266086,
-          "z_score_vs_nacional": 0.1514
+          "media": 0.184775,
+          "media_pct": 18.48,
+          "p10": 0.130994,
+          "p25": 0.147693,
+          "p50_mediana": 0.175761,
+          "p75": 0.213382,
+          "p90": 0.249382,
+          "z_score_vs_nacional": -0.2748
         },
         "pct_ln_urbana": {
-          "media": 0.201536,
-          "media_pct": 20.15,
+          "media": 0.373564,
+          "media_pct": 37.36,
           "p10": 0.0,
           "p25": 0.0,
-          "p50_mediana": 0.0,
-          "p75": 0.315542,
-          "p90": 0.790169,
-          "z_score_vs_nacional": -0.4413
+          "p50_mediana": 0.312241,
+          "p75": 0.623748,
+          "p90": 0.998211,
+          "z_score_vs_nacional": 0.0792
         },
         "pct_ln_mixta": {
-          "media": 0.451384,
-          "media_pct": 45.14,
-          "p10": 0.062825,
-          "p25": 0.176839,
-          "p50_mediana": 0.353688,
-          "p75": 0.731084,
-          "p90": 1.0,
-          "z_score_vs_nacional": 0.4632
+          "media": 0.311969,
+          "media_pct": 31.2,
+          "p10": 0.0,
+          "p25": 0.062668,
+          "p50_mediana": 0.268879,
+          "p75": 0.469054,
+          "p90": 0.770396,
+          "z_score_vs_nacional": -0.0212
         },
         "ln_2024": {
-          "media": 9053.708861,
-          "media_pct": 9053.71,
-          "p10": 778.2,
-          "p25": 1674.0,
-          "p50_mediana": 5465.0,
-          "p75": 10459.5,
-          "p90": 23638.0,
-          "z_score_vs_nacional": -0.2606
+          "media": 32624.772563,
+          "media_pct": 32624.77,
+          "p10": 2362.2,
+          "p25": 4679.75,
+          "p50_mediana": 9783.5,
+          "p75": 20554.5,
+          "p90": 49084.9,
+          "z_score_vs_nacional": -0.0601
         },
         "tasa_voto_anticipado_por_10k": {
-          "media": 0.311063,
-          "media_pct": 0.31,
+          "media": 0.274036,
+          "media_pct": 0.27,
           "p10": 0.0,
           "p25": 0.0,
           "p50_mediana": 0.0,
-          "p75": 0.0,
-          "p90": 0.413609,
-          "z_score_vs_nacional": 0.0542
+          "p75": 0.099213,
+          "p90": 0.8901,
+          "z_score_vs_nacional": 0.0124
+        },
+        "part_edad_18_19": {
+          "media": 0.595231,
+          "media_pct": 59.52,
+          "p10": 0.502587,
+          "p25": 0.544244,
+          "p50_mediana": 0.592376,
+          "p75": 0.643279,
+          "p90": 0.69747,
+          "z_score_vs_nacional": 0.1145
+        },
+        "part_edad_20_24": {
+          "media": 0.51022,
+          "media_pct": 51.02,
+          "p10": 0.424743,
+          "p25": 0.465979,
+          "p50_mediana": 0.507638,
+          "p75": 0.55251,
+          "p90": 0.607825,
+          "z_score_vs_nacional": 0.1261
+        },
+        "part_edad_25_29": {
+          "media": 0.499381,
+          "media_pct": 49.94,
+          "p10": 0.411476,
+          "p25": 0.45241,
+          "p50_mediana": 0.493599,
+          "p75": 0.540169,
+          "p90": 0.594232,
+          "z_score_vs_nacional": 0.118
+        },
+        "part_edad_30_39": {
+          "media": 0.568376,
+          "media_pct": 56.84,
+          "p10": 0.480882,
+          "p25": 0.521051,
+          "p50_mediana": 0.56161,
+          "p75": 0.61343,
+          "p90": 0.670343,
+          "z_score_vs_nacional": 0.0627
+        },
+        "part_edad_40_49": {
+          "media": 0.643526,
+          "media_pct": 64.35,
+          "p10": 0.561872,
+          "p25": 0.595259,
+          "p50_mediana": 0.640979,
+          "p75": 0.68882,
+          "p90": 0.735575,
+          "z_score_vs_nacional": 0.0377
+        },
+        "part_edad_50_59": {
+          "media": 0.684915,
+          "media_pct": 68.49,
+          "p10": 0.60368,
+          "p25": 0.643529,
+          "p50_mediana": 0.684039,
+          "p75": 0.729907,
+          "p90": 0.76863,
+          "z_score_vs_nacional": 0.0403
+        },
+        "part_edad_60_69": {
+          "media": 0.706021,
+          "media_pct": 70.6,
+          "p10": 0.631655,
+          "p25": 0.673549,
+          "p50_mediana": 0.70852,
+          "p75": 0.745147,
+          "p90": 0.780873,
+          "z_score_vs_nacional": 0.0427
+        },
+        "part_edad_70_mas": {
+          "media": 0.601862,
+          "media_pct": 60.19,
+          "p10": 0.524646,
+          "p25": 0.562779,
+          "p50_mediana": 0.602506,
+          "p75": 0.644581,
+          "p90": 0.679139,
+          "z_score_vs_nacional": 0.0547
         }
       }
     },
     {
       "cluster_id": 4,
-      "n_municipios": 553,
-      "pct_municipios_nacional": 22.33,
-      "poblacion_lista_nominal_2024": 57777865,
-      "pct_lista_nominal_nacional": 58.76,
-      "n_municipios_baja_confiabilidad": 35,
-      "pct_baja_confiabilidad": 6.33,
+      "n_municipios": 659,
+      "pct_municipios_nacional": 26.6,
+      "poblacion_lista_nominal_2024": 45053420,
+      "pct_lista_nominal_nacional": 45.82,
+      "n_municipios_baja_confiabilidad": 167,
+      "pct_baja_confiabilidad": 25.34,
+      "municipio_prototipo_medoide": {
+        "cve_geo": "30017",
+        "nom_mun": "La Antigua",
+        "nom_ent": "Veracruz",
+        "distancia_centroide": 0.6366,
+        "part_media_global": 0.527,
+        "part_media_global_pct": 52.7,
+        "ln_2024": 24758
+      },
       "top_5_variables_definitorias_shap": [
         {
-          "feature": "brecha_generacional_60_vs_18_29",
-          "mean_abs_shap": 1.42159,
-          "cluster_mean": 0.19359,
-          "national_mean": 0.14132,
-          "z_score_vs_nacional": 0.6955,
-          "direccion": "ALTA (+)"
+          "feature": "retencion_primer_voto",
+          "mean_abs_shap": 1.77749,
+          "cluster_mean": 0.82026,
+          "national_mean": 0.88773,
+          "z_score_vs_nacional": -0.6466,
+          "direccion": "BAJA (-)"
         },
         {
-          "feature": "brecha_genero_tendencia",
-          "mean_abs_shap": 1.27379,
-          "cluster_mean": 5e-05,
-          "national_mean": 0.00459,
-          "z_score_vs_nacional": -0.5314,
+          "feature": "constancia_sobre_mediana",
+          "mean_abs_shap": 1.37013,
+          "cluster_mean": 0.13452,
+          "national_mean": 0.4865,
+          "z_score_vs_nacional": -0.939,
           "direccion": "BAJA (-)"
         },
         {
           "feature": "part_media_global",
-          "mean_abs_shap": 0.96316,
-          "cluster_mean": 0.50082,
-          "national_mean": 0.56165,
-          "z_score_vs_nacional": -0.5941,
+          "mean_abs_shap": 1.35231,
+          "cluster_mean": 0.49973,
+          "national_mean": 0.58373,
+          "z_score_vs_nacional": -0.8505,
           "direccion": "BAJA (-)"
         },
         {
-          "feature": "pendiente_tendencia",
-          "mean_abs_shap": 0.74067,
-          "cluster_mean": -6e-05,
-          "national_mean": 0.01393,
-          "z_score_vs_nacional": -0.4813,
+          "feature": "brecha_genero_media",
+          "mean_abs_shap": 0.55404,
+          "cluster_mean": 0.06717,
+          "national_mean": 0.07982,
+          "z_score_vs_nacional": -0.3369,
           "direccion": "BAJA (-)"
         },
         {
-          "feature": "cagr_ln_2009_2024",
-          "mean_abs_shap": 0.71691,
-          "cluster_mean": 0.01934,
-          "national_mean": 0.01354,
-          "z_score_vs_nacional": 0.218,
+          "feature": "brecha_juvenil_18_29_vs_30_59",
+          "mean_abs_shap": 0.43028,
+          "cluster_mean": -0.11571,
+          "national_mean": -0.1167,
+          "z_score_vs_nacional": 0.0177,
           "direccion": "ALTA (+)"
         }
       ],
       "entidades_predominantes": [
         {
           "cve_ent": "20",
-          "nom_ent": "OAXACA",
-          "n_municipios_en_cluster": 158,
-          "pct_del_cluster": 28.57
+          "nom_ent": "Oaxaca",
+          "n_municipios_en_cluster": 209,
+          "pct_del_cluster": 31.71
         },
         {
           "cve_ent": "30",
-          "nom_ent": "VERACRUZ",
-          "n_municipios_en_cluster": 57,
-          "pct_del_cluster": 10.31
+          "nom_ent": "Veracruz",
+          "n_municipios_en_cluster": 70,
+          "pct_del_cluster": 10.62
         },
         {
-          "cve_ent": "15",
-          "nom_ent": "ESTADO DE MEXICO",
-          "n_municipios_en_cluster": 45,
-          "pct_del_cluster": 8.14
+          "cve_ent": "16",
+          "nom_ent": "Michoacán",
+          "n_municipios_en_cluster": 62,
+          "pct_del_cluster": 9.41
         },
         {
-          "cve_ent": "13",
-          "nom_ent": "HIDALGO",
-          "n_municipios_en_cluster": 31,
+          "cve_ent": "08",
+          "nom_ent": "Chihuahua",
+          "n_municipios_en_cluster": 49,
+          "pct_del_cluster": 7.44
+        },
+        {
+          "cve_ent": "10",
+          "nom_ent": "Durango",
+          "n_municipios_en_cluster": 37,
           "pct_del_cluster": 5.61
-        },
-        {
-          "cve_ent": "11",
-          "nom_ent": "GUANAJUATO",
-          "n_municipios_en_cluster": 21,
-          "pct_del_cluster": 3.8
         }
       ],
       "municipios_mas_representativos": [
         {
-          "cve_geo": "11027",
-          "nom_mun": "Salamanca",
-          "nom_ent": "GUANAJUATO",
-          "distancia_centroide": 0.638,
-          "part_media_global": 0.4892,
-          "part_media_global_pct": 48.92,
-          "ln_2024": 227007
+          "cve_geo": "30017",
+          "nom_mun": "La Antigua",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.6366,
+          "part_media_global": 0.527,
+          "part_media_global_pct": 52.7,
+          "ln_2024": 24758
         },
         {
-          "cve_geo": "10005",
-          "nom_mun": "Durango",
-          "nom_ent": "DURANGO",
-          "distancia_centroide": 0.6881,
-          "part_media_global": 0.4707,
-          "part_media_global_pct": 47.07,
-          "ln_2024": 519542
+          "cve_geo": "32042",
+          "nom_mun": "Sombrerete",
+          "nom_ent": "Zacatecas",
+          "distancia_centroide": 0.6717,
+          "part_media_global": 0.4982,
+          "part_media_global_pct": 49.82,
+          "ln_2024": 49788
         },
         {
-          "cve_geo": "30042",
-          "nom_mun": "Coatzintla",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.7039,
-          "part_media_global": 0.5089,
-          "part_media_global_pct": 50.89,
-          "ln_2024": 40007
+          "cve_geo": "30103",
+          "nom_mun": "Martínez de la Torre",
+          "nom_ent": "Veracruz",
+          "distancia_centroide": 0.6719,
+          "part_media_global": 0.5092,
+          "part_media_global_pct": 50.92,
+          "ln_2024": 83259
         },
         {
-          "cve_geo": "32010",
-          "nom_mun": "Fresnillo",
-          "nom_ent": "ZACATECAS",
-          "distancia_centroide": 0.7192,
-          "part_media_global": 0.5308,
-          "part_media_global_pct": 53.08,
-          "ln_2024": 174741
+          "cve_geo": "16034",
+          "nom_mun": "Hidalgo",
+          "nom_ent": "Michoacán",
+          "distancia_centroide": 0.7168,
+          "part_media_global": 0.5013,
+          "part_media_global_pct": 50.13,
+          "ln_2024": 95518
         },
         {
-          "cve_geo": "11031",
-          "nom_mun": "San Francisco del RincÃ³n",
-          "nom_ent": "GUANAJUATO",
-          "distancia_centroide": 0.7517,
-          "part_media_global": 0.502,
-          "part_media_global_pct": 50.2,
-          "ln_2024": 101714
+          "cve_geo": "18005",
+          "nom_mun": "Compostela",
+          "nom_ent": "Nayarit",
+          "distancia_centroide": 0.7586,
+          "part_media_global": 0.4678,
+          "part_media_global_pct": 46.78,
+          "ln_2024": 63924
         },
         {
-          "cve_geo": "15019",
-          "nom_mun": "Capulhuac",
-          "nom_ent": "ESTADO DE MEXICO",
-          "distancia_centroide": 0.7679,
-          "part_media_global": 0.5342,
-          "part_media_global_pct": 53.42,
-          "ln_2024": 28816
+          "cve_geo": "16107",
+          "nom_mun": "Yurécuaro",
+          "nom_ent": "Michoacán",
+          "distancia_centroide": 0.7728,
+          "part_media_global": 0.5125,
+          "part_media_global_pct": 51.25,
+          "ln_2024": 24610
         },
         {
-          "cve_geo": "23002",
-          "nom_mun": "Cozumel",
-          "nom_ent": "QUINTANA ROO",
-          "distancia_centroide": 0.7687,
-          "part_media_global": 0.533,
-          "part_media_global_pct": 53.3,
-          "ln_2024": 73184
+          "cve_geo": "16067",
+          "nom_mun": "Pátzcuaro",
+          "nom_ent": "Michoacán",
+          "distancia_centroide": 0.7846,
+          "part_media_global": 0.4819,
+          "part_media_global_pct": 48.19,
+          "ln_2024": 74752
         },
         {
-          "cve_geo": "20014",
-          "nom_mun": "Candelaria Loxicha",
-          "nom_ent": "OAXACA",
-          "distancia_centroide": 0.7714,
-          "part_media_global": 0.4985,
-          "part_media_global_pct": 49.85,
-          "ln_2024": 7667
+          "cve_geo": "11020",
+          "nom_mun": "León",
+          "nom_ent": "Guanajuato",
+          "distancia_centroide": 0.7966,
+          "part_media_global": 0.5144,
+          "part_media_global_pct": 51.44,
+          "ln_2024": 1272160
         },
         {
-          "cve_geo": "17018",
-          "nom_mun": "Temixco",
-          "nom_ent": "MORELOS",
-          "distancia_centroide": 0.8006,
-          "part_media_global": 0.4796,
-          "part_media_global_pct": 47.96,
-          "ln_2024": 92580
+          "cve_geo": "25004",
+          "nom_mun": "Concordia",
+          "nom_ent": "Sinaloa",
+          "distancia_centroide": 0.8198,
+          "part_media_global": 0.5072,
+          "part_media_global_pct": 50.72,
+          "ln_2024": 19849
         },
         {
-          "cve_geo": "16113",
-          "nom_mun": "ZitÃ¡cuaro",
-          "nom_ent": "MICHOACAN",
-          "distancia_centroide": 0.8138,
-          "part_media_global": 0.4915,
-          "part_media_global_pct": 49.15,
-          "ln_2024": 125890
+          "cve_geo": "18017",
+          "nom_mun": "Tepic",
+          "nom_ent": "Nayarit",
+          "distancia_centroide": 0.8222,
+          "part_media_global": 0.5124,
+          "part_media_global_pct": 51.24,
+          "ln_2024": 328603
         }
       ],
       "trayectoria_media": {
-        "2009": 0.436812,
-        "2012": 0.598882,
-        "2015": 0.434372,
-        "2018": 0.561773,
-        "2021": 0.466476,
-        "2024": 0.506576
+        "2009": 0.387604,
+        "2012": 0.570805,
+        "2015": 0.438852,
+        "2018": 0.598381,
+        "2021": 0.503015,
+        "2024": 0.555462
       },
       "trayectoria_media_pct": {
-        "2009": 43.68,
-        "2012": 59.89,
-        "2015": 43.44,
-        "2018": 56.18,
-        "2021": 46.65,
-        "2024": 50.66
+        "2009": 38.76,
+        "2012": 57.08,
+        "2015": 43.89,
+        "2018": 59.84,
+        "2021": 50.3,
+        "2024": 55.55
+      },
+      "trayectoria_p10_pct": {
+        "2009": 29.06,
+        "2012": 47.55,
+        "2015": 32.37,
+        "2018": 51.4,
+        "2021": 37.46,
+        "2024": 46.61
+      },
+      "trayectoria_p90_pct": {
+        "2009": 47.43,
+        "2012": 65.07,
+        "2015": 57.07,
+        "2018": 66.68,
+        "2021": 63.23,
+        "2024": 63.78
+      },
+      "curva_edad_8grupos_pct": {
+        "18-19": 49.97,
+        "20-24": 40.44,
+        "25-29": 38.88,
+        "30-39": 46.3,
+        "40-49": 54.79,
+        "50-59": 59.55,
+        "60-69": 62.56,
+        "70+": 52.52
       },
       "estadisticas_features": {
         "part_media_global": {
-          "media": 0.500815,
-          "media_pct": 50.08,
-          "p10": 0.409218,
-          "p25": 0.460766,
-          "p50_mediana": 0.505493,
-          "p75": 0.549385,
-          "p90": 0.586896,
-          "z_score_vs_nacional": -0.5941
+          "media": 0.499726,
+          "media_pct": 49.97,
+          "p10": 0.423988,
+          "p25": 0.466894,
+          "p50_mediana": 0.507163,
+          "p75": 0.540105,
+          "p90": 0.566387,
+          "z_score_vs_nacional": -0.8505
         },
         "caida_presidencial_intermedia": {
-          "media": 0.109857,
-          "media_pct": 10.99,
-          "p10": 0.034138,
-          "p25": 0.073728,
-          "p50_mediana": 0.110833,
-          "p75": 0.149001,
-          "p90": 0.179052,
-          "z_score_vs_nacional": 0.0789
+          "media": 0.135797,
+          "media_pct": 13.58,
+          "p10": 0.074975,
+          "p25": 0.103593,
+          "p50_mediana": 0.134357,
+          "p75": 0.167961,
+          "p90": 0.205813,
+          "z_score_vs_nacional": 0.2827
         },
         "pendiente_tendencia": {
-          "media": -6.1e-05,
-          "media_pct": -0.01,
-          "p10": -0.023597,
-          "p25": -0.011733,
-          "p50_mediana": 0.000654,
-          "p75": 0.013872,
-          "p90": 0.024252,
-          "z_score_vs_nacional": -0.4813
+          "media": 0.017191,
+          "media_pct": 1.72,
+          "p10": -0.005751,
+          "p25": 0.005308,
+          "p50_mediana": 0.018028,
+          "p75": 0.029477,
+          "p90": 0.041238,
+          "z_score_vs_nacional": -0.1645
         },
         "volatilidad": {
-          "media": 0.083006,
-          "media_pct": 8.3,
-          "p10": 0.053109,
-          "p25": 0.06476,
-          "p50_mediana": 0.083154,
-          "p75": 0.098276,
-          "p90": 0.115698,
-          "z_score_vs_nacional": -0.3795
+          "media": 0.08892,
+          "media_pct": 8.89,
+          "p10": 0.060836,
+          "p25": 0.073124,
+          "p50_mediana": 0.089196,
+          "p75": 0.102736,
+          "p90": 0.118382,
+          "z_score_vs_nacional": 0.0413
         },
         "constancia_sobre_mediana": {
-          "media": 0.273779,
-          "media_pct": 27.38,
-          "p10": 0.0,
-          "p25": 0.0,
-          "p50_mediana": 0.166667,
-          "p75": 0.5,
-          "p90": 0.666667,
-          "z_score_vs_nacional": -0.6412
-        },
-        "brecha_genero_media": {
-          "media": 0.084771,
-          "media_pct": 8.48,
-          "p10": 0.055323,
-          "p25": 0.06672,
-          "p50_mediana": 0.080877,
-          "p75": 0.100638,
-          "p90": 0.119313,
-          "z_score_vs_nacional": 0.2098
-        },
-        "brecha_genero_tendencia": {
-          "media": 4.9e-05,
-          "media_pct": 0.0,
-          "p10": -0.00659,
-          "p25": -0.002763,
-          "p50_mediana": 0.0002,
-          "p75": 0.003535,
-          "p90": 0.006779,
-          "z_score_vs_nacional": -0.5314
-        },
-        "brecha_generacional_60_vs_18_29": {
-          "media": 0.19359,
-          "media_pct": 19.36,
-          "p10": 0.124455,
-          "p25": 0.16111,
-          "p50_mediana": 0.192844,
-          "p75": 0.220131,
-          "p90": 0.262826,
-          "z_score_vs_nacional": 0.6955
-        },
-        "pct_ln_rural": {
-          "media": 0.23778,
-          "media_pct": 23.78,
-          "p10": 0.0,
-          "p25": 0.016928,
-          "p50_mediana": 0.171789,
-          "p75": 0.406517,
-          "p90": 0.572457,
-          "z_score_vs_nacional": -0.3454
-        },
-        "cagr_ln_2009_2024": {
-          "media": 0.019337,
-          "media_pct": 1.93,
-          "p10": 0.004315,
-          "p25": 0.010163,
-          "p50_mediana": 0.015636,
-          "p75": 0.02215,
-          "p90": 0.032878,
-          "z_score_vs_nacional": 0.218
-        },
-        "part_2009": {
-          "media": 0.436812,
-          "media_pct": 43.68,
-          "p10": 0.312927,
-          "p25": 0.369803,
-          "p50_mediana": 0.439201,
-          "p75": 0.502845,
-          "p90": 0.563673,
-          "z_score_vs_nacional": -0.1582
-        },
-        "part_2012": {
-          "media": 0.598882,
-          "media_pct": 59.89,
-          "p10": 0.503808,
-          "p25": 0.557826,
-          "p50_mediana": 0.606688,
-          "p75": 0.651267,
-          "p90": 0.693185,
-          "z_score_vs_nacional": -0.3611
-        },
-        "part_2015": {
-          "media": 0.434372,
-          "media_pct": 43.44,
-          "p10": 0.304811,
-          "p25": 0.378716,
-          "p50_mediana": 0.43728,
-          "p75": 0.501219,
-          "p90": 0.554214,
-          "z_score_vs_nacional": -0.3736
-        },
-        "part_2018": {
-          "media": 0.561773,
-          "media_pct": 56.18,
-          "p10": 0.436492,
-          "p25": 0.509512,
-          "p50_mediana": 0.577275,
-          "p75": 0.628561,
-          "p90": 0.665506,
-          "z_score_vs_nacional": -0.4407
-        },
-        "part_2021": {
-          "media": 0.466476,
-          "media_pct": 46.65,
-          "p10": 0.327421,
-          "p25": 0.397494,
-          "p50_mediana": 0.464169,
-          "p75": 0.532896,
-          "p90": 0.599869,
-          "z_score_vs_nacional": -0.7275
-        },
-        "part_2024": {
-          "media": 0.506576,
-          "media_pct": 50.66,
-          "p10": 0.385215,
-          "p25": 0.454079,
-          "p50_mediana": 0.518067,
-          "p75": 0.570188,
-          "p90": 0.614538,
-          "z_score_vs_nacional": -0.5881
-        },
-        "part_media_presidencial": {
-          "media": 0.555744,
-          "media_pct": 55.57,
-          "p10": 0.458104,
-          "p25": 0.511538,
-          "p50_mediana": 0.564172,
-          "p75": 0.609585,
-          "p90": 0.646171,
-          "z_score_vs_nacional": -0.5771
-        },
-        "part_media_intermedia": {
-          "media": 0.445887,
-          "media_pct": 44.59,
-          "p10": 0.340049,
-          "p25": 0.400388,
-          "p50_mediana": 0.446654,
-          "p75": 0.500246,
-          "p90": 0.544129,
-          "z_score_vs_nacional": -0.5312
-        },
-        "part_media_jovenes_18_29": {
-          "media": 0.396528,
-          "media_pct": 39.65,
-          "p10": 0.295998,
-          "p25": 0.350868,
-          "p50_mediana": 0.404471,
-          "p75": 0.45305,
-          "p90": 0.488009,
-          "z_score_vs_nacional": -0.6542
-        },
-        "part_media_adultos_30_59": {
-          "media": 0.52717,
-          "media_pct": 52.72,
-          "p10": 0.437947,
-          "p25": 0.488287,
-          "p50_mediana": 0.530672,
-          "p75": 0.577741,
-          "p90": 0.617312,
-          "z_score_vs_nacional": -0.5799
-        },
-        "part_media_adultos_60_mas": {
-          "media": 0.590118,
-          "media_pct": 59.01,
-          "p10": 0.498603,
-          "p25": 0.547252,
-          "p50_mediana": 0.595371,
-          "p75": 0.645471,
-          "p90": 0.684368,
-          "z_score_vs_nacional": -0.2797
-        },
-        "pct_ln_jovenes_18_29": {
-          "media": 0.288842,
-          "media_pct": 28.88,
-          "p10": 0.258758,
-          "p25": 0.272461,
-          "p50_mediana": 0.288592,
-          "p75": 0.30642,
-          "p90": 0.323719,
-          "z_score_vs_nacional": 0.2436
-        },
-        "pct_ln_adultos_60_mas": {
-          "media": 0.174449,
-          "media_pct": 17.44,
-          "p10": 0.12465,
-          "p25": 0.148143,
-          "p50_mediana": 0.17262,
-          "p75": 0.196263,
-          "p90": 0.22677,
-          "z_score_vs_nacional": -0.4486
-        },
-        "pct_ln_urbana": {
-          "media": 0.475031,
-          "media_pct": 47.5,
-          "p10": 0.0,
-          "p25": 0.167232,
-          "p50_mediana": 0.499918,
-          "p75": 0.742478,
-          "p90": 0.934967,
-          "z_score_vs_nacional": 0.3862
-        },
-        "pct_ln_mixta": {
-          "media": 0.287188,
-          "media_pct": 28.72,
-          "p10": 0.0,
-          "p25": 0.072443,
-          "p50_mediana": 0.188225,
-          "p75": 0.423008,
-          "p90": 0.779935,
-          "z_score_vs_nacional": -0.1073
-        },
-        "ln_2024": {
-          "media": 104480.768535,
-          "media_pct": 104480.77,
-          "p10": 1804.4,
-          "p25": 5428.0,
-          "p50_mediana": 33512.0,
-          "p75": 94265.0,
-          "p90": 267129.6,
-          "z_score_vs_nacional": 0.5508
-        },
-        "tasa_voto_anticipado_por_10k": {
-          "media": 0.269904,
-          "media_pct": 0.27,
+          "media": 0.134522,
+          "media_pct": 13.45,
           "p10": 0.0,
           "p25": 0.0,
           "p50_mediana": 0.0,
-          "p75": 0.331197,
-          "p90": 0.713341,
-          "z_score_vs_nacional": 0.0077
+          "p75": 0.2,
+          "p90": 0.4,
+          "z_score_vs_nacional": -0.939
+        },
+        "brecha_genero_media": {
+          "media": 0.067171,
+          "media_pct": 6.72,
+          "p10": 0.029446,
+          "p25": 0.049305,
+          "p50_mediana": 0.066808,
+          "p75": 0.086162,
+          "p90": 0.106751,
+          "z_score_vs_nacional": -0.3369
+        },
+        "brecha_juvenil_18_29_vs_30_59": {
+          "media": -0.115715,
+          "media_pct": -11.57,
+          "p10": -0.169022,
+          "p25": -0.135213,
+          "p50_mediana": -0.114191,
+          "p75": -0.093664,
+          "p90": -0.068741,
+          "z_score_vs_nacional": 0.0177
+        },
+        "retencion_primer_voto": {
+          "media": 0.820259,
+          "media_pct": 82.03,
+          "p10": 0.738431,
+          "p25": 0.796052,
+          "p50_mediana": 0.834246,
+          "p75": 0.863993,
+          "p90": 0.880933,
+          "z_score_vs_nacional": -0.6466
+        },
+        "pct_ln_rural": {
+          "media": 0.275205,
+          "media_pct": 27.52,
+          "p10": 0.0,
+          "p25": 0.034119,
+          "p50_mediana": 0.228228,
+          "p75": 0.447668,
+          "p90": 0.626402,
+          "z_score_vs_nacional": -0.2118
+        },
+        "rezago_espacial_part": {
+          "media": 0.545279,
+          "media_pct": 54.53,
+          "p10": 0.486738,
+          "p25": 0.507044,
+          "p50_mediana": 0.537585,
+          "p75": 0.582003,
+          "p90": 0.615711,
+          "z_score_vs_nacional": -0.5492
+        },
+        "part_2009": {
+          "media": 0.387604,
+          "media_pct": 38.76,
+          "p10": 0.290629,
+          "p25": 0.331148,
+          "p50_mediana": 0.392436,
+          "p75": 0.441782,
+          "p90": 0.474332,
+          "z_score_vs_nacional": -0.625
+        },
+        "part_2012": {
+          "media": 0.570805,
+          "media_pct": 57.08,
+          "p10": 0.475542,
+          "p25": 0.526299,
+          "p50_mediana": 0.581892,
+          "p75": 0.621882,
+          "p90": 0.650668,
+          "z_score_vs_nacional": -0.7123
+        },
+        "part_2015": {
+          "media": 0.438852,
+          "media_pct": 43.89,
+          "p10": 0.323713,
+          "p25": 0.375068,
+          "p50_mediana": 0.428672,
+          "p75": 0.477278,
+          "p90": 0.57069,
+          "z_score_vs_nacional": -0.6393
+        },
+        "part_2018": {
+          "media": 0.598381,
+          "media_pct": 59.84,
+          "p10": 0.513959,
+          "p25": 0.564049,
+          "p50_mediana": 0.607521,
+          "p75": 0.643238,
+          "p90": 0.666775,
+          "z_score_vs_nacional": -0.7477
+        },
+        "part_2021": {
+          "media": 0.503015,
+          "media_pct": 50.3,
+          "p10": 0.374614,
+          "p25": 0.43381,
+          "p50_mediana": 0.503855,
+          "p75": 0.57113,
+          "p90": 0.632332,
+          "z_score_vs_nacional": -0.779
+        },
+        "part_2024": {
+          "media": 0.555462,
+          "media_pct": 55.55,
+          "p10": 0.46611,
+          "p25": 0.517573,
+          "p50_mediana": 0.559873,
+          "p75": 0.595782,
+          "p90": 0.637847,
+          "z_score_vs_nacional": -0.6838
+        },
+        "part_media_presidencial": {
+          "media": 0.568146,
+          "media_pct": 56.81,
+          "p10": 0.488046,
+          "p25": 0.534975,
+          "p50_mediana": 0.575332,
+          "p75": 0.609385,
+          "p90": 0.638941,
+          "z_score_vs_nacional": -0.7951
+        },
+        "part_media_intermedia": {
+          "media": 0.43235,
+          "media_pct": 43.23,
+          "p10": 0.336482,
+          "p25": 0.394153,
+          "p50_mediana": 0.437604,
+          "p75": 0.477261,
+          "p90": 0.511315,
+          "z_score_vs_nacional": -0.8176
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.404453,
+          "media_pct": 40.45,
+          "p10": 0.308623,
+          "p25": 0.363243,
+          "p50_mediana": 0.413142,
+          "p75": 0.452248,
+          "p90": 0.487608,
+          "z_score_vs_nacional": -0.7285
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.520168,
+          "media_pct": 52.02,
+          "p10": 0.430075,
+          "p25": 0.484611,
+          "p50_mediana": 0.528498,
+          "p75": 0.565593,
+          "p90": 0.594376,
+          "z_score_vs_nacional": -0.8631
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.568838,
+          "media_pct": 56.88,
+          "p10": 0.470892,
+          "p25": 0.524637,
+          "p50_mediana": 0.575024,
+          "p75": 0.621613,
+          "p90": 0.658242,
+          "z_score_vs_nacional": -0.7741
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.164385,
+          "media_pct": 16.44,
+          "p10": 0.063447,
+          "p25": 0.125799,
+          "p50_mediana": 0.173636,
+          "p75": 0.213184,
+          "p90": 0.238033,
+          "z_score_vs_nacional": 0.2217
+        },
+        "brecha_adultos_mayores_60_vs_30_59": {
+          "media": 0.04867,
+          "media_pct": 4.87,
+          "p10": -0.015218,
+          "p25": 0.018135,
+          "p50_mediana": 0.051936,
+          "p75": 0.08329,
+          "p90": 0.103795,
+          "z_score_vs_nacional": 0.3788
+        },
+        "edad_pico_participacion": {
+          "media": 58.771624,
+          "media_pct": 58.77,
+          "p10": 18.5,
+          "p25": 64.5,
+          "p50_mediana": 64.5,
+          "p75": 64.5,
+          "p90": 64.5,
+          "z_score_vs_nacional": 0.0403
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.265598,
+          "media_pct": 26.56,
+          "p10": 0.217151,
+          "p25": 0.243335,
+          "p50_mediana": 0.270615,
+          "p75": 0.291805,
+          "p90": 0.309717,
+          "z_score_vs_nacional": -0.3208
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.212268,
+          "media_pct": 21.23,
+          "p10": 0.147623,
+          "p25": 0.169462,
+          "p50_mediana": 0.199467,
+          "p75": 0.242249,
+          "p90": 0.302244,
+          "z_score_vs_nacional": 0.1881
+        },
+        "pct_ln_urbana": {
+          "media": 0.428218,
+          "media_pct": 42.82,
+          "p10": 0.0,
+          "p25": 0.081866,
+          "p50_mediana": 0.423335,
+          "p75": 0.69183,
+          "p90": 0.934629,
+          "z_score_vs_nacional": 0.2445
+        },
+        "pct_ln_mixta": {
+          "media": 0.296577,
+          "media_pct": 29.66,
+          "p10": 0.0,
+          "p25": 0.076324,
+          "p50_mediana": 0.204435,
+          "p75": 0.42801,
+          "p90": 0.794695,
+          "z_score_vs_nacional": -0.0747
+        },
+        "ln_2024": {
+          "media": 68366.342944,
+          "media_pct": 68366.34,
+          "p10": 1110.0,
+          "p25": 3285.0,
+          "p50_mediana": 15198.0,
+          "p75": 45195.0,
+          "p90": 149970.4,
+          "z_score_vs_nacional": 0.2438
+        },
+        "tasa_voto_anticipado_por_10k": {
+          "media": 0.344132,
+          "media_pct": 0.34,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.319297,
+          "p90": 0.851617,
+          "z_score_vs_nacional": 0.0915
+        },
+        "part_edad_18_19": {
+          "media": 0.499738,
+          "media_pct": 49.97,
+          "p10": 0.369458,
+          "p25": 0.451895,
+          "p50_mediana": 0.509759,
+          "p75": 0.559725,
+          "p90": 0.617829,
+          "z_score_vs_nacional": -0.5697
+        },
+        "part_edad_20_24": {
+          "media": 0.404383,
+          "media_pct": 40.44,
+          "p10": 0.299014,
+          "p25": 0.364978,
+          "p50_mediana": 0.41312,
+          "p75": 0.454849,
+          "p90": 0.492409,
+          "z_score_vs_nacional": -0.6876
+        },
+        "part_edad_25_29": {
+          "media": 0.388803,
+          "media_pct": 38.88,
+          "p10": 0.300637,
+          "p25": 0.353147,
+          "p50_mediana": 0.39635,
+          "p75": 0.432076,
+          "p90": 0.461736,
+          "z_score_vs_nacional": -0.7728
+        },
+        "part_edad_30_39": {
+          "media": 0.463015,
+          "media_pct": 46.3,
+          "p10": 0.371368,
+          "p25": 0.427015,
+          "p50_mediana": 0.472536,
+          "p75": 0.506233,
+          "p90": 0.535713,
+          "z_score_vs_nacional": -0.8424
+        },
+        "part_edad_40_49": {
+          "media": 0.547879,
+          "media_pct": 54.79,
+          "p10": 0.457391,
+          "p25": 0.51243,
+          "p50_mediana": 0.557648,
+          "p75": 0.589858,
+          "p90": 0.621505,
+          "z_score_vs_nacional": -0.8594
+        },
+        "part_edad_50_59": {
+          "media": 0.595546,
+          "media_pct": 59.55,
+          "p10": 0.505576,
+          "p25": 0.55637,
+          "p50_mediana": 0.605182,
+          "p75": 0.640906,
+          "p90": 0.672412,
+          "z_score_vs_nacional": -0.8468
+        },
+        "part_edad_60_69": {
+          "media": 0.625591,
+          "media_pct": 62.56,
+          "p10": 0.526173,
+          "p25": 0.581246,
+          "p50_mediana": 0.634484,
+          "p75": 0.679337,
+          "p90": 0.711332,
+          "z_score_vs_nacional": -0.8006
+        },
+        "part_edad_70_mas": {
+          "media": 0.525159,
+          "media_pct": 52.52,
+          "p10": 0.432786,
+          "p25": 0.479433,
+          "p50_mediana": 0.525719,
+          "p75": 0.579109,
+          "p90": 0.615439,
+          "z_score_vs_nacional": -0.7312
         }
       }
     },
     {
       "cluster_id": 5,
-      "n_municipios": 488,
-      "pct_municipios_nacional": 19.7,
-      "poblacion_lista_nominal_2024": 11612921,
-      "pct_lista_nominal_nacional": 11.81,
-      "n_municipios_baja_confiabilidad": 86,
-      "pct_baja_confiabilidad": 17.62,
+      "n_municipios": 191,
+      "pct_municipios_nacional": 7.71,
+      "poblacion_lista_nominal_2024": 557450,
+      "pct_lista_nominal_nacional": 0.57,
+      "n_municipios_baja_confiabilidad": 103,
+      "pct_baja_confiabilidad": 53.93,
+      "municipio_prototipo_medoide": {
+        "cve_geo": "20318",
+        "nom_mun": "San Pedro Molinos",
+        "nom_ent": "Oaxaca",
+        "distancia_centroide": 0.7335,
+        "part_media_global": 0.5238,
+        "part_media_global_pct": 52.38,
+        "ln_2024": 531
+      },
       "top_5_variables_definitorias_shap": [
         {
-          "feature": "cagr_ln_2009_2024",
-          "mean_abs_shap": 3.2131,
-          "cluster_mean": 0.00036,
-          "national_mean": 0.01354,
-          "z_score_vs_nacional": -0.4958,
+          "feature": "retencion_primer_voto",
+          "mean_abs_shap": 4.71173,
+          "cluster_mean": 1.04685,
+          "national_mean": 0.88773,
+          "z_score_vs_nacional": 1.5251,
+          "direccion": "ALTA (+)"
+        },
+        {
+          "feature": "brecha_juvenil_18_29_vs_30_59",
+          "mean_abs_shap": 3.0713,
+          "cluster_mean": -0.19089,
+          "national_mean": -0.1167,
+          "z_score_vs_nacional": -1.3367,
           "direccion": "BAJA (-)"
         },
         {
           "feature": "brecha_genero_media",
-          "mean_abs_shap": 2.33627,
-          "cluster_mean": 0.04597,
-          "national_mean": 0.0772,
-          "z_score_vs_nacional": -0.8662,
-          "direccion": "BAJA (-)"
-        },
-        {
-          "feature": "part_media_global",
-          "mean_abs_shap": 0.50707,
-          "cluster_mean": 0.49624,
-          "national_mean": 0.56165,
-          "z_score_vs_nacional": -0.6387,
+          "mean_abs_shap": 1.43852,
+          "cluster_mean": 0.04668,
+          "national_mean": 0.07982,
+          "z_score_vs_nacional": -0.8828,
           "direccion": "BAJA (-)"
         },
         {
           "feature": "constancia_sobre_mediana",
-          "mean_abs_shap": 0.47105,
-          "cluster_mean": 0.25171,
-          "national_mean": 0.49913,
-          "z_score_vs_nacional": -0.704,
+          "mean_abs_shap": 0.7688,
+          "cluster_mean": 0.12661,
+          "national_mean": 0.4865,
+          "z_score_vs_nacional": -0.9601,
           "direccion": "BAJA (-)"
         },
         {
-          "feature": "volatilidad",
-          "mean_abs_shap": 0.3132,
-          "cluster_mean": 0.09331,
-          "national_mean": 0.10111,
-          "z_score_vs_nacional": -0.1635,
+          "feature": "rezago_espacial_part",
+          "mean_abs_shap": 0.67177,
+          "cluster_mean": 0.52086,
+          "national_mean": 0.5845,
+          "z_score_vs_nacional": -0.8911,
           "direccion": "BAJA (-)"
         }
       ],
       "entidades_predominantes": [
         {
           "cve_ent": "20",
-          "nom_ent": "OAXACA",
-          "n_municipios_en_cluster": 179,
-          "pct_del_cluster": 36.68
+          "nom_ent": "Oaxaca",
+          "n_municipios_en_cluster": 182,
+          "pct_del_cluster": 95.29
         },
         {
-          "cve_ent": "30",
-          "nom_ent": "VERACRUZ",
-          "n_municipios_en_cluster": 61,
-          "pct_del_cluster": 12.5
-        },
-        {
-          "cve_ent": "16",
-          "nom_ent": "MICHOACAN",
-          "n_municipios_en_cluster": 56,
-          "pct_del_cluster": 11.48
+          "cve_ent": "07",
+          "nom_ent": "Chiapas",
+          "n_municipios_en_cluster": 5,
+          "pct_del_cluster": 2.62
         },
         {
           "cve_ent": "08",
-          "nom_ent": "CHIHUAHUA",
-          "n_municipios_en_cluster": 43,
-          "pct_del_cluster": 8.81
+          "nom_ent": "Chihuahua",
+          "n_municipios_en_cluster": 1,
+          "pct_del_cluster": 0.52
         },
         {
-          "cve_ent": "10",
-          "nom_ent": "DURANGO",
-          "n_municipios_en_cluster": 27,
-          "pct_del_cluster": 5.53
+          "cve_ent": "12",
+          "nom_ent": "Guerrero",
+          "n_municipios_en_cluster": 1,
+          "pct_del_cluster": 0.52
+        },
+        {
+          "cve_ent": "18",
+          "nom_ent": "Nayarit",
+          "n_municipios_en_cluster": 1,
+          "pct_del_cluster": 0.52
         }
       ],
       "municipios_mas_representativos": [
         {
-          "cve_geo": "30191",
-          "nom_mun": "Vega de Alatorre",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.7987,
-          "part_media_global": 0.5276,
-          "part_media_global_pct": 52.76,
-          "ln_2024": 15198
+          "cve_geo": "20318",
+          "nom_mun": "San Pedro Molinos",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 0.7335,
+          "part_media_global": 0.5238,
+          "part_media_global_pct": 52.38,
+          "ln_2024": 531
         },
         {
-          "cve_geo": "12058",
-          "nom_mun": "TÃ©cpan de Galeana",
-          "nom_ent": "GUERRERO",
-          "distancia_centroide": 0.8054,
-          "part_media_global": 0.528,
-          "part_media_global_pct": 52.8,
-          "ln_2024": 50603
+          "cve_geo": "20064",
+          "nom_mun": "Nejapa de Madero",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 0.8956,
+          "part_media_global": 0.4848,
+          "part_media_global_pct": 48.48,
+          "ln_2024": 5976
         },
         {
-          "cve_geo": "30173",
-          "nom_mun": "Tierra Blanca",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.8091,
-          "part_media_global": 0.5003,
-          "part_media_global_pct": 50.03,
-          "ln_2024": 74586
+          "cve_geo": "20281",
+          "nom_mun": "San Miguel Tequixtepec",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 0.9647,
+          "part_media_global": 0.4779,
+          "part_media_global_pct": 47.79,
+          "ln_2024": 764
         },
         {
-          "cve_geo": "08031",
-          "nom_mun": "Guerrero",
-          "nom_ent": "CHIHUAHUA",
-          "distancia_centroide": 0.8735,
-          "part_media_global": 0.4486,
-          "part_media_global_pct": 44.86,
-          "ln_2024": 30790
+          "cve_geo": "20389",
+          "nom_mun": "Santa Inés del Monte",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.0686,
+          "part_media_global": 0.4547,
+          "part_media_global_pct": 45.47,
+          "ln_2024": 1928
         },
         {
-          "cve_geo": "16038",
-          "nom_mun": "Huetamo",
-          "nom_ent": "MICHOACAN",
-          "distancia_centroide": 0.9091,
-          "part_media_global": 0.4649,
-          "part_media_global_pct": 46.49,
-          "ln_2024": 34332
+          "cve_geo": "20454",
+          "nom_mun": "Santiago Astata",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.0952,
+          "part_media_global": 0.4912,
+          "part_media_global_pct": 49.12,
+          "ln_2024": 3145
         },
         {
-          "cve_geo": "32007",
-          "nom_mun": "ConcepciÃ³n del Oro",
-          "nom_ent": "ZACATECAS",
-          "distancia_centroide": 0.9265,
-          "part_media_global": 0.5634,
-          "part_media_global_pct": 56.34,
-          "ln_2024": 9795
+          "cve_geo": "20397",
+          "nom_mun": "Santa María Alotepec",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.1052,
+          "part_media_global": 0.4772,
+          "part_media_global_pct": 47.72,
+          "ln_2024": 2094
         },
         {
-          "cve_geo": "30204",
-          "nom_mun": "Tres Valles",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.9275,
-          "part_media_global": 0.4651,
-          "part_media_global_pct": 46.51,
-          "ln_2024": 31893
+          "cve_geo": "20250",
+          "nom_mun": "San Mateo Peñasco",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.1121,
+          "part_media_global": 0.4827,
+          "part_media_global_pct": 48.27,
+          "ln_2024": 1583
         },
         {
-          "cve_geo": "30063",
-          "nom_mun": "Las Choapas",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.9334,
-          "part_media_global": 0.4634,
-          "part_media_global_pct": 46.34,
-          "ln_2024": 56521
+          "cve_geo": "20029",
+          "nom_mun": "Eloxochitlán de Flores Magón",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.1434,
+          "part_media_global": 0.5207,
+          "part_media_global_pct": 52.07,
+          "ln_2024": 2743
         },
         {
-          "cve_geo": "30145",
-          "nom_mun": "Sayula de AlemÃ¡n",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.9368,
-          "part_media_global": 0.5468,
-          "part_media_global_pct": 54.68,
-          "ln_2024": 23125
+          "cve_geo": "20504",
+          "nom_mun": "Santiago Zoochila",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.153,
+          "part_media_global": 0.5388,
+          "part_media_global_pct": 53.88,
+          "ln_2024": 361
         },
         {
-          "cve_geo": "30143",
-          "nom_mun": "San Juan Evangelista",
-          "nom_ent": "VERACRUZ",
-          "distancia_centroide": 0.944,
-          "part_media_global": 0.5144,
-          "part_media_global_pct": 51.44,
-          "ln_2024": 24147
+          "cve_geo": "20429",
+          "nom_mun": "Santa María Quiegolani",
+          "nom_ent": "Oaxaca",
+          "distancia_centroide": 1.1551,
+          "part_media_global": 0.5699,
+          "part_media_global_pct": 56.99,
+          "ln_2024": 1392
         }
       ],
       "trayectoria_media": {
-        "2009": 0.380276,
-        "2012": 0.565377,
-        "2015": 0.434418,
-        "2018": 0.556694,
-        "2021": 0.512159,
-        "2024": 0.528525
+        "2009": 0.3995,
+        "2012": 0.566262,
+        "2015": 0.432036,
+        "2018": 0.593,
+        "2021": 0.478971,
+        "2024": 0.521414
       },
       "trayectoria_media_pct": {
-        "2009": 38.03,
-        "2012": 56.54,
-        "2015": 43.44,
-        "2018": 55.67,
-        "2021": 51.22,
-        "2024": 52.85
+        "2009": 39.95,
+        "2012": 56.63,
+        "2015": 43.2,
+        "2018": 59.3,
+        "2021": 47.9,
+        "2024": 52.14
+      },
+      "trayectoria_p10_pct": {
+        "2009": 30.2,
+        "2012": 47.37,
+        "2015": 34.72,
+        "2018": 51.58,
+        "2021": 35.9,
+        "2024": 41.21
+      },
+      "trayectoria_p90_pct": {
+        "2009": 48.88,
+        "2012": 63.87,
+        "2015": 51.21,
+        "2018": 66.21,
+        "2021": 57.82,
+        "2024": 59.71
+      },
+      "curva_edad_8grupos_pct": {
+        "18-19": 37.43,
+        "20-24": 33.04,
+        "25-29": 35.62,
+        "30-39": 46.76,
+        "40-49": 55.9,
+        "50-59": 61.02,
+        "60-69": 63.39,
+        "70+": 50.75
       },
       "estadisticas_features": {
         "part_media_global": {
-          "media": 0.496241,
-          "media_pct": 49.62,
-          "p10": 0.399155,
-          "p25": 0.452057,
-          "p50_mediana": 0.499926,
-          "p75": 0.547365,
-          "p90": 0.587387,
-          "z_score_vs_nacional": -0.6387
+          "media": 0.49756,
+          "media_pct": 49.76,
+          "p10": 0.409508,
+          "p25": 0.465193,
+          "p50_mediana": 0.501345,
+          "p75": 0.5392,
+          "p90": 0.572529,
+          "z_score_vs_nacional": -0.8724
         },
         "caida_presidencial_intermedia": {
-          "media": 0.107914,
-          "media_pct": 10.79,
-          "p10": 0.033127,
-          "p25": 0.074487,
-          "p50_mediana": 0.112992,
-          "p75": 0.146952,
-          "p90": 0.174894,
-          "z_score_vs_nacional": 0.0558
+          "media": 0.121153,
+          "media_pct": 12.12,
+          "p10": 0.080425,
+          "p25": 0.098618,
+          "p50_mediana": 0.120559,
+          "p75": 0.14658,
+          "p90": 0.165401,
+          "z_score_vs_nacional": 0.0763
         },
         "pendiente_tendencia": {
-          "media": 0.019707,
-          "media_pct": 1.97,
-          "p10": -0.005909,
-          "p25": 0.007255,
-          "p50_mediana": 0.01988,
-          "p75": 0.03361,
-          "p90": 0.042238,
-          "z_score_vs_nacional": 0.1987
+          "media": 0.013554,
+          "media_pct": 1.36,
+          "p10": -0.010153,
+          "p25": 0.001333,
+          "p50_mediana": 0.013643,
+          "p75": 0.024942,
+          "p90": 0.034544,
+          "z_score_vs_nacional": -0.2704
         },
         "volatilidad": {
-          "media": 0.093309,
-          "media_pct": 9.33,
-          "p10": 0.062272,
-          "p25": 0.075302,
-          "p50_mediana": 0.092128,
-          "p75": 0.110336,
-          "p90": 0.123932,
-          "z_score_vs_nacional": -0.1635
+          "media": 0.077681,
+          "media_pct": 7.77,
+          "p10": 0.058277,
+          "p25": 0.066049,
+          "p50_mediana": 0.074921,
+          "p75": 0.0897,
+          "p90": 0.10054,
+          "z_score_vs_nacional": -0.2443
         },
         "constancia_sobre_mediana": {
-          "media": 0.251708,
-          "media_pct": 25.17,
+          "media": 0.126614,
+          "media_pct": 12.66,
           "p10": 0.0,
           "p25": 0.0,
-          "p50_mediana": 0.166667,
-          "p75": 0.333333,
-          "p90": 0.666667,
-          "z_score_vs_nacional": -0.704
+          "p50_mediana": 0.0,
+          "p75": 0.166667,
+          "p90": 0.4,
+          "z_score_vs_nacional": -0.9601
         },
         "brecha_genero_media": {
-          "media": 0.045969,
-          "media_pct": 4.6,
-          "p10": 0.006555,
-          "p25": 0.028061,
-          "p50_mediana": 0.049351,
-          "p75": 0.066341,
-          "p90": 0.08421,
-          "z_score_vs_nacional": -0.8662
+          "media": 0.046679,
+          "media_pct": 4.67,
+          "p10": -0.009753,
+          "p25": 0.01351,
+          "p50_mediana": 0.045054,
+          "p75": 0.077098,
+          "p90": 0.1022,
+          "z_score_vs_nacional": -0.8828
         },
-        "brecha_genero_tendencia": {
-          "media": 0.005433,
-          "media_pct": 0.54,
-          "p10": -0.00339,
-          "p25": 0.000851,
-          "p50_mediana": 0.004872,
-          "p75": 0.010167,
-          "p90": 0.014276,
-          "z_score_vs_nacional": 0.0983
+        "brecha_juvenil_18_29_vs_30_59": {
+          "media": -0.190894,
+          "media_pct": -19.09,
+          "p10": -0.258327,
+          "p25": -0.219675,
+          "p50_mediana": -0.191121,
+          "p75": -0.159069,
+          "p90": -0.129388,
+          "z_score_vs_nacional": -1.3367
         },
-        "brecha_generacional_60_vs_18_29": {
-          "media": 0.144134,
-          "media_pct": 14.41,
-          "p10": 0.0466,
-          "p25": 0.094874,
-          "p50_mediana": 0.14617,
-          "p75": 0.196858,
-          "p90": 0.243772,
-          "z_score_vs_nacional": 0.0374
+        "retencion_primer_voto": {
+          "media": 1.046853,
+          "media_pct": 104.69,
+          "p10": 0.890837,
+          "p25": 0.922717,
+          "p50_mediana": 0.981602,
+          "p75": 1.064283,
+          "p90": 1.312944,
+          "z_score_vs_nacional": 1.5251
         },
         "pct_ln_rural": {
-          "media": 0.352168,
-          "media_pct": 35.22,
-          "p10": 0.0,
-          "p25": 0.092619,
-          "p50_mediana": 0.365387,
-          "p75": 0.560187,
-          "p90": 0.708866,
-          "z_score_vs_nacional": 0.063
-        },
-        "cagr_ln_2009_2024": {
-          "media": 0.000355,
-          "media_pct": 0.04,
-          "p10": -0.01095,
-          "p25": -0.004975,
-          "p50_mediana": 0.001444,
-          "p75": 0.006522,
-          "p90": 0.010644,
-          "z_score_vs_nacional": -0.4958
-        },
-        "part_2009": {
-          "media": 0.380276,
-          "media_pct": 38.03,
-          "p10": 0.268554,
-          "p25": 0.306767,
-          "p50_mediana": 0.385693,
-          "p75": 0.44105,
-          "p90": 0.500369,
-          "z_score_vs_nacional": -0.5724
-        },
-        "part_2012": {
-          "media": 0.565377,
-          "media_pct": 56.54,
-          "p10": 0.445125,
-          "p25": 0.508862,
-          "p50_mediana": 0.57946,
-          "p75": 0.631361,
-          "p90": 0.67118,
-          "z_score_vs_nacional": -0.6701
-        },
-        "part_2015": {
-          "media": 0.434418,
-          "media_pct": 43.44,
-          "p10": 0.290174,
-          "p25": 0.362559,
-          "p50_mediana": 0.439236,
-          "p75": 0.509783,
-          "p90": 0.583202,
-          "z_score_vs_nacional": -0.3733
-        },
-        "part_2018": {
-          "media": 0.556694,
-          "media_pct": 55.67,
-          "p10": 0.445148,
-          "p25": 0.508264,
-          "p50_mediana": 0.566495,
-          "p75": 0.62154,
-          "p90": 0.661124,
-          "z_score_vs_nacional": -0.4799
-        },
-        "part_2021": {
-          "media": 0.512159,
-          "media_pct": 51.22,
-          "p10": 0.357143,
-          "p25": 0.433341,
-          "p50_mediana": 0.511938,
-          "p75": 0.586598,
-          "p90": 0.672213,
-          "z_score_vs_nacional": -0.427
-        },
-        "part_2024": {
-          "media": 0.528525,
-          "media_pct": 52.85,
-          "p10": 0.412862,
-          "p25": 0.48149,
-          "p50_mediana": 0.534309,
-          "p75": 0.585255,
-          "p90": 0.635023,
-          "z_score_vs_nacional": -0.4189
-        },
-        "part_media_presidencial": {
-          "media": 0.550199,
-          "media_pct": 55.02,
-          "p10": 0.451288,
-          "p25": 0.502579,
-          "p50_mediana": 0.555553,
-          "p75": 0.601055,
-          "p90": 0.642468,
-          "z_score_vs_nacional": -0.6327
-        },
-        "part_media_intermedia": {
-          "media": 0.442284,
-          "media_pct": 44.23,
-          "p10": 0.328279,
-          "p25": 0.389731,
-          "p50_mediana": 0.443284,
-          "p75": 0.498892,
-          "p90": 0.540755,
-          "z_score_vs_nacional": -0.561
-        },
-        "part_media_jovenes_18_29": {
-          "media": 0.399157,
-          "media_pct": 39.92,
-          "p10": 0.283273,
-          "p25": 0.353262,
-          "p50_mediana": 0.410866,
-          "p75": 0.456065,
-          "p90": 0.491144,
-          "z_score_vs_nacional": -0.6324
-        },
-        "part_media_adultos_30_59": {
-          "media": 0.521352,
-          "media_pct": 52.14,
-          "p10": 0.416613,
-          "p25": 0.474263,
-          "p50_mediana": 0.52271,
-          "p75": 0.574857,
-          "p90": 0.623807,
-          "z_score_vs_nacional": -0.6354
-        },
-        "part_media_adultos_60_mas": {
-          "media": 0.543291,
-          "media_pct": 54.33,
-          "p10": 0.438067,
-          "p25": 0.48817,
-          "p50_mediana": 0.544096,
-          "p75": 0.596387,
-          "p90": 0.647516,
-          "z_score_vs_nacional": -0.7701
-        },
-        "pct_ln_jovenes_18_29": {
-          "media": 0.245263,
-          "media_pct": 24.53,
-          "p10": 0.197408,
-          "p25": 0.221588,
-          "p50_mediana": 0.245376,
-          "p75": 0.271783,
-          "p90": 0.293469,
-          "z_score_vs_nacional": -0.8145
-        },
-        "pct_ln_adultos_60_mas": {
-          "media": 0.253164,
-          "media_pct": 25.32,
-          "p10": 0.176946,
-          "p25": 0.204148,
-          "p50_mediana": 0.240891,
-          "p75": 0.289948,
-          "p90": 0.346114,
-          "z_score_vs_nacional": 0.8766
-        },
-        "pct_ln_urbana": {
-          "media": 0.331938,
-          "media_pct": 33.19,
+          "media": 0.225725,
+          "media_pct": 22.57,
           "p10": 0.0,
           "p25": 0.0,
-          "p50_mediana": 0.261238,
-          "p75": 0.557558,
-          "p90": 0.94528,
-          "z_score_vs_nacional": -0.0468
+          "p50_mediana": 0.0,
+          "p75": 0.466011,
+          "p90": 0.633847,
+          "z_score_vs_nacional": -0.3884
+        },
+        "rezago_espacial_part": {
+          "media": 0.520864,
+          "media_pct": 52.09,
+          "p10": 0.484791,
+          "p25": 0.500744,
+          "p50_mediana": 0.518823,
+          "p75": 0.537871,
+          "p90": 0.556146,
+          "z_score_vs_nacional": -0.8911
+        },
+        "part_2009": {
+          "media": 0.3995,
+          "media_pct": 39.95,
+          "p10": 0.302017,
+          "p25": 0.357218,
+          "p50_mediana": 0.405463,
+          "p75": 0.449324,
+          "p90": 0.488829,
+          "z_score_vs_nacional": -0.5283
+        },
+        "part_2012": {
+          "media": 0.566262,
+          "media_pct": 56.63,
+          "p10": 0.473747,
+          "p25": 0.530235,
+          "p50_mediana": 0.57087,
+          "p75": 0.604052,
+          "p90": 0.63865,
+          "z_score_vs_nacional": -0.7591
+        },
+        "part_2015": {
+          "media": 0.432036,
+          "media_pct": 43.2,
+          "p10": 0.347239,
+          "p25": 0.395273,
+          "p50_mediana": 0.428672,
+          "p75": 0.469822,
+          "p90": 0.512146,
+          "z_score_vs_nacional": -0.6855
+        },
+        "part_2018": {
+          "media": 0.593,
+          "media_pct": 59.3,
+          "p10": 0.515785,
+          "p25": 0.560446,
+          "p50_mediana": 0.600539,
+          "p75": 0.628374,
+          "p90": 0.66212,
+          "z_score_vs_nacional": -0.8077
+        },
+        "part_2021": {
+          "media": 0.478971,
+          "media_pct": 47.9,
+          "p10": 0.358982,
+          "p25": 0.422807,
+          "p50_mediana": 0.486175,
+          "p75": 0.52946,
+          "p90": 0.57821,
+          "z_score_vs_nacional": -0.9631
+        },
+        "part_2024": {
+          "media": 0.521414,
+          "media_pct": 52.14,
+          "p10": 0.412118,
+          "p25": 0.475778,
+          "p50_mediana": 0.539211,
+          "p75": 0.56513,
+          "p90": 0.597087,
+          "z_score_vs_nacional": -1.0179
+        },
+        "part_media_presidencial": {
+          "media": 0.558794,
+          "media_pct": 55.88,
+          "p10": 0.471683,
+          "p25": 0.525646,
+          "p50_mediana": 0.568083,
+          "p75": 0.601434,
+          "p90": 0.628091,
+          "z_score_vs_nacional": -0.8953
+        },
+        "part_media_intermedia": {
+          "media": 0.437641,
+          "media_pct": 43.76,
+          "p10": 0.341858,
+          "p25": 0.39728,
+          "p50_mediana": 0.441115,
+          "p75": 0.48056,
+          "p90": 0.523927,
+          "z_score_vs_nacional": -0.7717
+        },
+        "part_media_jovenes_18_29": {
+          "media": 0.3463,
+          "media_pct": 34.63,
+          "p10": 0.232661,
+          "p25": 0.287536,
+          "p50_mediana": 0.33663,
+          "p75": 0.407643,
+          "p90": 0.456643,
+          "z_score_vs_nacional": -1.1907
+        },
+        "part_media_adultos_30_59": {
+          "media": 0.537194,
+          "media_pct": 53.72,
+          "p10": 0.426152,
+          "p25": 0.480856,
+          "p50_mediana": 0.534617,
+          "p75": 0.607683,
+          "p90": 0.662027,
+          "z_score_vs_nacional": -0.7045
+        },
+        "part_media_adultos_60_mas": {
+          "media": 0.561708,
+          "media_pct": 56.17,
+          "p10": 0.446622,
+          "p25": 0.502134,
+          "p50_mediana": 0.56377,
+          "p75": 0.623331,
+          "p90": 0.677247,
+          "z_score_vs_nacional": -0.8484
+        },
+        "brecha_generacional_60_vs_18_29": {
+          "media": 0.215409,
+          "media_pct": 21.54,
+          "p10": 0.121677,
+          "p25": 0.164686,
+          "p50_mediana": 0.213272,
+          "p75": 0.266465,
+          "p90": 0.321151,
+          "z_score_vs_nacional": 0.8719
+        },
+        "brecha_adultos_mayores_60_vs_30_59": {
+          "media": 0.024514,
+          "media_pct": 2.45,
+          "p10": -0.057694,
+          "p25": -0.012125,
+          "p50_mediana": 0.025817,
+          "p75": 0.062599,
+          "p90": 0.10373,
+          "z_score_vs_nacional": -0.119
+        },
+        "edad_pico_participacion": {
+          "media": 60.924084,
+          "media_pct": 60.92,
+          "p10": 54.5,
+          "p25": 64.5,
+          "p50_mediana": 64.5,
+          "p75": 64.5,
+          "p90": 64.5,
+          "z_score_vs_nacional": 0.1944
+        },
+        "pct_ln_jovenes_18_29": {
+          "media": 0.256314,
+          "media_pct": 25.63,
+          "p10": 0.188327,
+          "p25": 0.215353,
+          "p50_mediana": 0.255655,
+          "p75": 0.296131,
+          "p90": 0.324913,
+          "z_score_vs_nacional": -0.5462
+        },
+        "pct_ln_adultos_60_mas": {
+          "media": 0.256848,
+          "media_pct": 25.68,
+          "p10": 0.160969,
+          "p25": 0.189617,
+          "p50_mediana": 0.250371,
+          "p75": 0.307367,
+          "p90": 0.371347,
+          "z_score_vs_nacional": 0.9386
+        },
+        "pct_ln_urbana": {
+          "media": 0.272232,
+          "media_pct": 27.22,
+          "p10": 0.0,
+          "p25": 0.0,
+          "p50_mediana": 0.0,
+          "p75": 0.5144,
+          "p90": 1.0,
+          "z_score_vs_nacional": -0.2274
         },
         "pct_ln_mixta": {
-          "media": 0.315894,
-          "media_pct": 31.59,
+          "media": 0.502043,
+          "media_pct": 50.2,
           "p10": 0.0,
-          "p25": 0.079252,
-          "p50_mediana": 0.232233,
-          "p75": 0.456541,
-          "p90": 0.798664,
-          "z_score_vs_nacional": -0.0076
+          "p25": 0.0,
+          "p50_mediana": 0.500726,
+          "p75": 1.0,
+          "p90": 1.0,
+          "z_score_vs_nacional": 0.6393
         },
         "ln_2024": {
-          "media": 23796.969262,
-          "media_pct": 23796.97,
-          "p10": 604.5,
-          "p25": 1539.0,
-          "p50_mediana": 6650.5,
-          "p75": 20551.75,
-          "p90": 37981.0,
-          "z_score_vs_nacional": -0.1352
+          "media": 2918.586387,
+          "media_pct": 2918.59,
+          "p10": 361.0,
+          "p25": 629.5,
+          "p50_mediana": 1281.0,
+          "p75": 2721.5,
+          "p90": 5360.0,
+          "z_score_vs_nacional": -0.3127
         },
         "tasa_voto_anticipado_por_10k": {
-          "media": 0.260637,
-          "media_pct": 0.26,
+          "media": 0.288506,
+          "media_pct": 0.29,
           "p10": 0.0,
           "p25": 0.0,
           "p50_mediana": 0.0,
           "p75": 0.0,
-          "p90": 0.698538,
-          "z_score_vs_nacional": -0.0028
+          "p90": 0.0,
+          "z_score_vs_nacional": 0.0287
+        },
+        "part_edad_18_19": {
+          "media": 0.374262,
+          "media_pct": 37.43,
+          "p10": 0.232292,
+          "p25": 0.287647,
+          "p50_mediana": 0.363806,
+          "p75": 0.446881,
+          "p90": 0.521295,
+          "z_score_vs_nacional": -1.4688
+        },
+        "part_edad_20_24": {
+          "media": 0.330362,
+          "media_pct": 33.04,
+          "p10": 0.224952,
+          "p25": 0.264134,
+          "p50_mediana": 0.324842,
+          "p75": 0.380826,
+          "p90": 0.439619,
+          "z_score_vs_nacional": -1.2568
+        },
+        "part_edad_25_29": {
+          "media": 0.356239,
+          "media_pct": 35.62,
+          "p10": 0.250348,
+          "p25": 0.290487,
+          "p50_mediana": 0.343671,
+          "p75": 0.415778,
+          "p90": 0.485206,
+          "z_score_vs_nacional": -1.0351
+        },
+        "part_edad_30_39": {
+          "media": 0.467634,
+          "media_pct": 46.76,
+          "p10": 0.357054,
+          "p25": 0.403495,
+          "p50_mediana": 0.462957,
+          "p75": 0.528242,
+          "p90": 0.596341,
+          "z_score_vs_nacional": -0.8027
+        },
+        "part_edad_40_49": {
+          "media": 0.558955,
+          "media_pct": 55.9,
+          "p10": 0.45291,
+          "p25": 0.495633,
+          "p50_mediana": 0.555733,
+          "p75": 0.622003,
+          "p90": 0.682557,
+          "z_score_vs_nacional": -0.7556
+        },
+        "part_edad_50_59": {
+          "media": 0.610241,
+          "media_pct": 61.02,
+          "p10": 0.494484,
+          "p25": 0.551973,
+          "p50_mediana": 0.612829,
+          "p75": 0.676219,
+          "p90": 0.735871,
+          "z_score_vs_nacional": -0.7009
+        },
+        "part_edad_60_69": {
+          "media": 0.633871,
+          "media_pct": 63.39,
+          "p10": 0.501063,
+          "p25": 0.576901,
+          "p50_mediana": 0.642703,
+          "p75": 0.69611,
+          "p90": 0.754597,
+          "z_score_vs_nacional": -0.7138
+        },
+        "part_edad_70_mas": {
+          "media": 0.507461,
+          "media_pct": 50.75,
+          "p10": 0.392625,
+          "p25": 0.450463,
+          "p50_mediana": 0.50457,
+          "p75": 0.571033,
+          "p90": 0.619757,
+          "z_score_vs_nacional": -0.9126
         }
       }
     }

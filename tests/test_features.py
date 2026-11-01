@@ -50,15 +50,38 @@ def test_features_ranges_and_integrity() -> None:
 
 
 def test_no_temporal_leakage_and_imputation_flags() -> None:
-    """Verifica que las banderas de imputación coincidan exactamente con municipios de creación posterior a 2009."""
+    """Verifica banderas de imputación v2 (cobertura >= 90%), Shrinkage Bayesiano, 8 grupos de edad + FPCA y econometría espacial."""
     df = pd.read_parquet(FEAT_PATH)
     incomplete = df["n_elecciones_observadas"] < 6
     assert (df["flag_imputacion_trayectoria"] == incomplete).all()
 
-    # Verificar que en municipios con panel completo (6 elecciones), part_YYYY == part_YYYY_raw
-    complete_df = df[~df["flag_imputacion_trayectoria"]]
+    # En municipios medianos/grandes (LN >= 10,000) con las 6 elecciones válidas, el Shrinkage Bayesiano (M=450)
+    # converge a la tasa cruda (< 3 p.p. de diferencia), y a nivel nacional reduce la volatilidad de muestra pequeña
+    complete_large = df[(~df["flag_imputacion_trayectoria"]) & (df["ln_2024"] >= 10000)]
     for y in [2009, 2012, 2015, 2018, 2021, 2024]:
-        assert np.allclose(complete_df[f"part_{y}"], complete_df[f"part_{y}_raw"], equal_nan=False)
+        assert np.allclose(complete_large[f"part_{y}"], complete_large[f"part_{y}_raw"], atol=0.03, equal_nan=False)
+    assert df["volatilidad"].mean() < df["volatilidad_unshrunk"].mean()
+
+    # Verificar que las nuevas variables v2 (8 grupos de edad, FPCA, PELT, MAD, IForest, Gi*) existan
+    for v2_col in [
+        "part_edad_18_19",
+        "part_edad_20_24",
+        "part_edad_25_29",
+        "part_edad_30_39",
+        "part_edad_40_49",
+        "part_edad_50_59",
+        "part_edad_60_69",
+        "part_edad_70_mas",
+        "fpca_edad_pc1",
+        "fpca_edad_pc2",
+        "fpca_edad_pc3",
+        "retencion_primer_voto",
+        "mad_zscore_max",
+        "tiene_cambio_estructural_pelt",
+        "anomalia_iforest",
+        "gi_star_z",
+    ]:
+        assert v2_col in df.columns, f"Falta columna v2 {v2_col} en features_municipio.parquet"
 
     # Verificar que Moran's I y LISA estén calculados
     assert df["moran_global_i"].notna().all()

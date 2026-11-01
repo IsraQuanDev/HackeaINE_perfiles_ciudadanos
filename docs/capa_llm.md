@@ -6,84 +6,84 @@ Cada perfil fue generado exclusivamente a partir de `data/processed/perfiles_car
 
 ### Perfil 0: Cohesión Comunitaria Sostenida
 - **Lema:** *Territorios de alta participación constante en elecciones presidenciales e intermedias*
-- **Narrativa (107 palabras):** El perfil territorial 0, denominado Cohesión Comunitaria Sostenida, agrupa 539 municipios del país con una lista nominal acumulada en 2024 de 8,089,025 personas inscritas, teniendo presencia destacada en entidades como JALISCO. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 67.76% y una diferencia promedio entre elecciones presidenciales e intermedias de 4.04 puntos porcentuales, con una pendiente temporal de 0.03 puntos por ciclo electoral. Su composición territorial presenta 34.87% de lista nominal en secciones rurales, una participación juvenil media de 62.28% frente a 69.85% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 7.91 puntos.
-- **Comunidad ilustrativa:** [EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a GÃ³mez FarÃ­as (TAMAULIPAS), donde el padrón presenta 34.87% de secciones rurales y una participación histórica media de 67.76%.
+- **Narrativa (107 palabras):** El perfil territorial 0, denominado Cohesión Comunitaria Sostenida, agrupa 111 municipios del país con una lista nominal acumulada en 2024 de 1,718,428 personas inscritas, teniendo presencia destacada en entidades como Yucatán. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 79.26% y una diferencia promedio entre elecciones presidenciales e intermedias de 12.18 puntos porcentuales, con una pendiente temporal de 2.58 puntos por ciclo electoral. Su composición territorial presenta 11.93% de lista nominal en secciones rurales, una participación juvenil media de 75.14% frente a 81.82% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 7.42 puntos.
+- **Comunidad ilustrativa:** [DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Baca (Yucatán, clave INEGI 31004), con participación histórica media de 81.14% dentro de un perfil que promedia 79.26% de participación y 11.93% de lista nominal en secciones rurales.
 - **Datos clave con evidencia verificada:**
-  - `part_media_global.media_pct` = **`67.76`** — Participación media histórica 2009-2024 de 67.76% en los 539 municipios del perfil.
-  - `caida_presidencial_intermedia.media_pct` = **`4.04`** — Diferencia media entre elecciones presidenciales e intermedias de 4.04 puntos porcentuales.
-  - `pct_ln_rural.media_pct` = **`34.87`** — Proporción media de lista nominal en secciones rurales equivalente a 34.87%.
+  - `part_media_global.media_pct` = **`79.26`** — Participación media histórica 2009-2024 de 79.26% en los 111 municipios del perfil.
+  - `caida_presidencial_intermedia.media_pct` = **`12.18`** — Diferencia media entre elecciones presidenciales e intermedias de 12.18 puntos porcentuales.
+  - `pct_ln_rural.media_pct` = **`11.93`** — Proporción media de lista nominal en secciones rurales equivalente a 11.93%.
 - **Tono de comunicación recomendado:** Reconocimiento al compromiso comunitario, corresponsabilidad intergeneracional y preservación de asambleas informativas locales.
-
-#### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
-- **Objetivo:** Incrementar la asistencia a las urnas de las juventudes (18 a 29 años) en entornos urbanos y mixtos para reducir la brecha generacional frente al grupo de 60+ años.
-- **Acción concreta:** Ejecutar circuitos universitarios y de educación media superior 'Mi Primer Voto 2027' junto con recordatorios digitales geolocalizados del sistema 'Ubica tu Casilla' del INE.
-- **Canales:** Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla', Foros presenciales en universidades, tecnológicos y planteles de educación media superior, Comunicación institucional en transporte público y centros de trabajo
-- **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
-- **KPI medible:** Tasa de participación media del grupo de 18 a 29 años en el perfil (%) | **Línea base:** `62.28%` $\rightarrow$ **Meta 2027:** `65.28%`
-- **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
-
-### Perfil 1: Participación Rural y Femenina
-- **Lema:** *Municipios con mayoría de secciones rurales, ascenso sostenido y liderazgo cívico de mujeres*
-- **Narrativa (108 palabras):** El perfil territorial 1, denominado Participación Rural y Femenina, agrupa 378 municipios del país con una lista nominal acumulada en 2024 de 6,851,597 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 59.2% y una diferencia promedio entre elecciones presidenciales e intermedias de 9.1 puntos porcentuales, con una pendiente temporal de 1.72 puntos por ciclo electoral. Su composición territorial presenta 55.92% de lista nominal en secciones rurales, una participación juvenil media de 49.18% frente a 65.57% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 11.35 puntos.
-- **Comunidad ilustrativa:** [EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a Charo (MICHOACAN), donde el padrón presenta 55.92% de secciones rurales y una participación histórica media de 59.2%.
-- **Datos clave con evidencia verificada:**
-  - `part_media_global.media_pct` = **`59.2`** — Participación media histórica 2009-2024 de 59.2% en los 378 municipios del perfil.
-  - `caida_presidencial_intermedia.media_pct` = **`9.1`** — Diferencia media entre elecciones presidenciales e intermedias de 9.1 puntos porcentuales.
-  - `pct_ln_rural.media_pct` = **`55.92`** — Proporción media de lista nominal en secciones rurales equivalente a 55.92%.
-- **Tono de comunicación recomendado:** Comunicación comunitaria cercana, perifoneo local, radio regional y fortalecimiento del liderazgo cívico de las mujeres.
-
-#### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
-- **Objetivo:** Fortalecer la cobertura informativa y accesibilidad electoral en secciones rurales y mixtas y promover el conocimiento oportuno de la ubicación de casillas.
-- **Acción concreta:** Implementar brigadas itinerantes de capacitación cívica DECEyEC en cabeceras y localidades rurales, acompañadas de cápsulas informativas en radios comunitarias y lenguas nacionales.
-- **Canales:** Radios comunitarias y perifoneo en localidades rurales y mixtas, Asambleas informativas presenciales coordinadas por Juntas Distritales Ejecutivas del INE, Materiales impresos y señalética comunitaria en centros de salud, mercados y plazas públicas
-- **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
-- **KPI medible:** Tasa de participación media en elección intermedia en municipios del perfil (%) | **Línea base:** `54.66%` $\rightarrow$ **Meta 2027:** `56.66%`
-- **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
-
-### Perfil 2: Impulso Cívico en Ascenso
-- **Lema:** *Territorios con fuerte crecimiento de participación entre 2009 y 2024 y brecha en intermedias*
-- **Narrativa (108 palabras):** El perfil territorial 2, denominado Impulso Cívico en Ascenso, agrupa 440 municipios del país con una lista nominal acumulada en 2024 de 13,283,697 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 55.13% y una diferencia promedio entre elecciones presidenciales e intermedias de 20.63 puntos porcentuales, con una pendiente temporal de 4.39 puntos por ciclo electoral. Su composición territorial presenta 22.39% de lista nominal en secciones rurales, una participación juvenil media de 47.09% frente a 61.02% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 7.31 puntos.
-- **Comunidad ilustrativa:** [EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a San Pedro y San Pablo Teposcolula (OAXACA), donde el padrón presenta 22.39% de secciones rurales y una participación histórica media de 55.13%.
-- **Datos clave con evidencia verificada:**
-  - `part_media_global.media_pct` = **`55.13`** — Participación media histórica 2009-2024 de 55.13% en los 440 municipios del perfil.
-  - `caida_presidencial_intermedia.media_pct` = **`20.63`** — Diferencia media entre elecciones presidenciales e intermedias de 20.63 puntos porcentuales.
-  - `pct_ln_rural.media_pct` = **`22.39`** — Proporción media de lista nominal en secciones rurales equivalente a 22.39%.
-- **Tono de comunicación recomendado:** Mensaje constructivo de consolidación democrática, enfocado en sostener el crecimiento en los comicios intermedios de 2027.
 
 #### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
 - **Objetivo:** Reducir la brecha de abstención entre elecciones presidenciales e intermedias mediante campañas informativas sobre las atribuciones de la Cámara de Diputados en la elección 2027.
 - **Acción concreta:** Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.
 - **Canales:** Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla', Foros presenciales en universidades, tecnológicos y planteles de educación media superior, Comunicación institucional en transporte público y centros de trabajo
 - **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
-- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `44.81%` $\rightarrow$ **Meta 2027:** `47.31%`
+- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `73.22%` $\rightarrow$ **Meta 2027:** `75.72%`
 - **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
 
-### Perfil 3: Dinámica Local Volátil
-- **Lema:** *Municipios con alta variabilidad entre ciclos electorales que requieren acompañamiento focalizado*
-- **Narrativa (107 palabras):** El perfil territorial 3, denominado Dinámica Local Volátil, agrupa 79 municipios del país con una lista nominal acumulada en 2024 de 715,243 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 51.29% y una diferencia promedio entre elecciones presidenciales e intermedias de -5.93 puntos porcentuales, con una pendiente temporal de -1.37 puntos por ciclo electoral. Su composición territorial presenta 34.71% de lista nominal en secciones rurales, una participación juvenil media de 43.94% frente a 55.18% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 5.4 puntos.
-- **Comunidad ilustrativa:** [EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a AmatitlÃ¡n (VERACRUZ), donde el padrón presenta 34.71% de secciones rurales y una participación histórica media de 51.29%.
+### Perfil 1: Participación Rural y Femenina
+- **Lema:** *Municipios con mayoría de secciones rurales, ascenso sostenido y liderazgo cívico de mujeres*
+- **Narrativa (108 palabras):** El perfil territorial 1, denominado Participación Rural y Femenina, agrupa 537 municipios del país con una lista nominal acumulada en 2024 de 23,639,337 personas inscritas, teniendo presencia destacada en entidades como Jalisco. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 65.08% y una diferencia promedio entre elecciones presidenciales e intermedias de 4.52 puntos porcentuales, con una pendiente temporal de 0.18 puntos por ciclo electoral. Su composición territorial presenta 31.78% de lista nominal en secciones rurales, una participación juvenil media de 59.98% frente a 68.84% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 8.91 puntos.
+- **Comunidad ilustrativa:** [DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Mazamitla (Jalisco, clave INEGI 14061), con participación histórica media de 66.07% dentro de un perfil que promedia 65.08% de participación y 31.78% de lista nominal en secciones rurales.
 - **Datos clave con evidencia verificada:**
-  - `part_media_global.media_pct` = **`51.29`** — Participación media histórica 2009-2024 de 51.29% en los 79 municipios del perfil.
-  - `caida_presidencial_intermedia.media_pct` = **`-5.93`** — Diferencia media entre elecciones presidenciales e intermedias de -5.93 puntos porcentuales.
-  - `pct_ln_rural.media_pct` = **`34.71`** — Proporción media de lista nominal en secciones rurales equivalente a 34.71%.
-- **Tono de comunicación recomendado:** Pedagogía cívica continua y fortalecimiento de condiciones operativas e informativas en cada proceso electoral.
+  - `part_media_global.media_pct` = **`65.08`** — Participación media histórica 2009-2024 de 65.08% en los 537 municipios del perfil.
+  - `caida_presidencial_intermedia.media_pct` = **`4.52`** — Diferencia media entre elecciones presidenciales e intermedias de 4.52 puntos porcentuales.
+  - `pct_ln_rural.media_pct` = **`31.78`** — Proporción media de lista nominal en secciones rurales equivalente a 31.78%.
+- **Tono de comunicación recomendado:** Comunicación comunitaria cercana, perifoneo local, radio regional y fortalecimiento del liderazgo cívico de las mujeres.
 
 #### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
 - **Objetivo:** Incrementar la asistencia a las urnas de las juventudes (18 a 29 años) en entornos urbanos y mixtos para reducir la brecha generacional frente al grupo de 60+ años.
 - **Acción concreta:** Ejecutar circuitos universitarios y de educación media superior 'Mi Primer Voto 2027' junto con recordatorios digitales geolocalizados del sistema 'Ubica tu Casilla' del INE.
 - **Canales:** Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla', Foros presenciales en universidades, tecnológicos y planteles de educación media superior, Comunicación institucional en transporte público y centros de trabajo
 - **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
-- **KPI medible:** Tasa de participación media del grupo de 18 a 29 años en el perfil (%) | **Línea base:** `43.94%` $\rightarrow$ **Meta 2027:** `46.94%`
+- **KPI medible:** Tasa de participación media del grupo de 18 a 29 años en el perfil (%) | **Línea base:** `59.98%` $\rightarrow$ **Meta 2027:** `62.98%`
+- **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
+
+### Perfil 2: Impulso Cívico en Ascenso
+- **Lema:** *Territorios con fuerte crecimiento de participación entre 2009 y 2024 y brecha en intermedias*
+- **Narrativa (108 palabras):** El perfil territorial 2, denominado Impulso Cívico en Ascenso, agrupa 425 municipios del país con una lista nominal acumulada en 2024 de 9,287,589 personas inscritas, teniendo presencia destacada en entidades como Veracruz. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 61.78% y una diferencia promedio entre elecciones presidenciales e intermedias de 8.22 puntos porcentuales, con una pendiente temporal de 1.36 puntos por ciclo electoral. Su composición territorial presenta 57.89% de lista nominal en secciones rurales, una participación juvenil media de 49.83% frente a 69.45% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 10.0 puntos.
+- **Comunidad ilustrativa:** [DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Altotonga (Veracruz, clave INEGI 30011), con participación histórica media de 59.9% dentro de un perfil que promedia 61.78% de participación y 57.89% de lista nominal en secciones rurales.
+- **Datos clave con evidencia verificada:**
+  - `part_media_global.media_pct` = **`61.78`** — Participación media histórica 2009-2024 de 61.78% en los 425 municipios del perfil.
+  - `caida_presidencial_intermedia.media_pct` = **`8.22`** — Diferencia media entre elecciones presidenciales e intermedias de 8.22 puntos porcentuales.
+  - `pct_ln_rural.media_pct` = **`57.89`** — Proporción media de lista nominal en secciones rurales equivalente a 57.89%.
+- **Tono de comunicación recomendado:** Mensaje constructivo de consolidación democrática, enfocado en sostener el crecimiento en los comicios intermedios de 2027.
+
+#### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
+- **Objetivo:** Fortalecer la cobertura informativa y accesibilidad electoral en secciones rurales y mixtas y promover el conocimiento oportuno de la ubicación de casillas.
+- **Acción concreta:** Implementar brigadas itinerantes de capacitación cívica DECEyEC en cabeceras y localidades rurales, acompañadas de cápsulas informativas en radios comunitarias y lenguas nacionales.
+- **Canales:** Radios comunitarias y perifoneo en localidades rurales y mixtas, Asambleas informativas presenciales coordinadas por Juntas Distritales Ejecutivas del INE, Materiales impresos y señalética comunitaria en centros de salud, mercados y plazas públicas
+- **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
+- **KPI medible:** Tasa de participación media en elección intermedia en municipios del perfil (%) | **Línea base:** `57.68%` $\rightarrow$ **Meta 2027:** `59.68%`
+- **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
+
+### Perfil 3: Dinámica Local Volátil
+- **Lema:** *Municipios con alta variabilidad entre ciclos electorales que requieren acompañamiento focalizado*
+- **Narrativa (107 palabras):** El perfil territorial 3, denominado Dinámica Local Volátil, agrupa 554 municipios del país con una lista nominal acumulada en 2024 de 18,074,124 personas inscritas, teniendo presencia destacada en entidades como Puebla. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 58.03% y una diferencia promedio entre elecciones presidenciales e intermedias de 18.29 puntos porcentuales, con una pendiente temporal de 5.97 puntos por ciclo electoral. Su composición territorial presenta 31.45% de lista nominal en secciones rurales, una participación juvenil media de 50.36% frente a 64.12% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 8.29 puntos.
+- **Comunidad ilustrativa:** [DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Oriental (Puebla, clave INEGI 21109), con participación histórica media de 59.82% dentro de un perfil que promedia 58.03% de participación y 31.45% de lista nominal en secciones rurales.
+- **Datos clave con evidencia verificada:**
+  - `part_media_global.media_pct` = **`58.03`** — Participación media histórica 2009-2024 de 58.03% en los 554 municipios del perfil.
+  - `caida_presidencial_intermedia.media_pct` = **`18.29`** — Diferencia media entre elecciones presidenciales e intermedias de 18.29 puntos porcentuales.
+  - `pct_ln_rural.media_pct` = **`31.45`** — Proporción media de lista nominal en secciones rurales equivalente a 31.45%.
+- **Tono de comunicación recomendado:** Pedagogía cívica continua y fortalecimiento de condiciones operativas e informativas en cada proceso electoral.
+
+#### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
+- **Objetivo:** Reducir la brecha de abstención entre elecciones presidenciales e intermedias mediante campañas informativas sobre las atribuciones de la Cámara de Diputados en la elección 2027.
+- **Acción concreta:** Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.
+- **Canales:** Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla', Foros presenciales en universidades, tecnológicos y planteles de educación media superior, Comunicación institucional en transporte público y centros de trabajo
+- **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
+- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `49.14%` $\rightarrow$ **Meta 2027:** `51.64%`
 - **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
 
 ### Perfil 4: Dinámica Urbana Intermitente
 - **Lema:** *Centros urbanos y mixtos con amplia brecha generacional entre jóvenes y adultos mayores*
-- **Narrativa (107 palabras):** El perfil territorial 4, denominado Dinámica Urbana Intermitente, agrupa 553 municipios del país con una lista nominal acumulada en 2024 de 57,777,865 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 50.08% y una diferencia promedio entre elecciones presidenciales e intermedias de 10.99 puntos porcentuales, con una pendiente temporal de -0.01 puntos por ciclo electoral. Su composición territorial presenta 23.78% de lista nominal en secciones rurales, una participación juvenil media de 39.65% frente a 59.01% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 8.48 puntos.
-- **Comunidad ilustrativa:** [EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a Salamanca (GUANAJUATO), donde el padrón presenta 23.78% de secciones rurales y una participación histórica media de 50.08%.
+- **Narrativa (107 palabras):** El perfil territorial 4, denominado Dinámica Urbana Intermitente, agrupa 659 municipios del país con una lista nominal acumulada en 2024 de 45,053,420 personas inscritas, teniendo presencia destacada en entidades como Oaxaca. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 49.97% y una diferencia promedio entre elecciones presidenciales e intermedias de 13.58 puntos porcentuales, con una pendiente temporal de 1.72 puntos por ciclo electoral. Su composición territorial presenta 27.52% de lista nominal en secciones rurales, una participación juvenil media de 40.45% frente a 56.88% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 6.72 puntos.
+- **Comunidad ilustrativa:** [DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): La Antigua (Veracruz, clave INEGI 30017), con participación histórica media de 52.7% dentro de un perfil que promedia 49.97% de participación y 27.52% de lista nominal en secciones rurales.
 - **Datos clave con evidencia verificada:**
-  - `part_media_global.media_pct` = **`50.08`** — Participación media histórica 2009-2024 de 50.08% en los 553 municipios del perfil.
-  - `caida_presidencial_intermedia.media_pct` = **`10.99`** — Diferencia media entre elecciones presidenciales e intermedias de 10.99 puntos porcentuales.
-  - `pct_ln_rural.media_pct` = **`23.78`** — Proporción media de lista nominal en secciones rurales equivalente a 23.78%.
+  - `part_media_global.media_pct` = **`49.97`** — Participación media histórica 2009-2024 de 49.97% en los 659 municipios del perfil.
+  - `caida_presidencial_intermedia.media_pct` = **`13.58`** — Diferencia media entre elecciones presidenciales e intermedias de 13.58 puntos porcentuales.
+  - `pct_ln_rural.media_pct` = **`27.52`** — Proporción media de lista nominal en secciones rurales equivalente a 27.52%.
 - **Tono de comunicación recomendado:** Comunicación digital hiperlocal, vinculación con universidades y empleadores para facilitar el primer voto juvenil.
 
 #### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
@@ -91,17 +91,17 @@ Cada perfil fue generado exclusivamente a partir de `data/processed/perfiles_car
 - **Acción concreta:** Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.
 - **Canales:** Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla', Foros presenciales en universidades, tecnológicos y planteles de educación media superior, Comunicación institucional en transporte público y centros de trabajo
 - **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
-- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `44.59%` $\rightarrow$ **Meta 2027:** `47.09%`
+- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `43.23%` $\rightarrow$ **Meta 2027:** `45.73%`
 - **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
 
 ### Perfil 5: Prioridad de Reactivación Cívica
 - **Lema:** *Territorios con retos de abstención estructural en elecciones intermedias que requieren atención prioritaria*
-- **Narrativa (108 palabras):** El perfil territorial 5, denominado Prioridad de Reactivación Cívica, agrupa 488 municipios del país con una lista nominal acumulada en 2024 de 11,612,921 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 49.62% y una diferencia promedio entre elecciones presidenciales e intermedias de 10.79 puntos porcentuales, con una pendiente temporal de 1.97 puntos por ciclo electoral. Su composición territorial presenta 35.22% de lista nominal en secciones rurales, una participación juvenil media de 39.92% frente a 54.33% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 4.6 puntos.
-- **Comunidad ilustrativa:** [EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a Vega de Alatorre (VERACRUZ), donde el padrón presenta 35.22% de secciones rurales y una participación histórica media de 49.62%.
+- **Narrativa (108 palabras):** El perfil territorial 5, denominado Prioridad de Reactivación Cívica, agrupa 191 municipios del país con una lista nominal acumulada en 2024 de 557,450 personas inscritas, teniendo presencia destacada en entidades como Oaxaca. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 49.76% y una diferencia promedio entre elecciones presidenciales e intermedias de 12.12 puntos porcentuales, con una pendiente temporal de 1.36 puntos por ciclo electoral. Su composición territorial presenta 22.57% de lista nominal en secciones rurales, una participación juvenil media de 34.63% frente a 56.17% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 4.67 puntos.
+- **Comunidad ilustrativa:** [DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): San Pedro Molinos (Oaxaca, clave INEGI 20318), con participación histórica media de 52.38% dentro de un perfil que promedia 49.76% de participación y 22.57% de lista nominal en secciones rurales.
 - **Datos clave con evidencia verificada:**
-  - `part_media_global.media_pct` = **`49.62`** — Participación media histórica 2009-2024 de 49.62% en los 488 municipios del perfil.
-  - `caida_presidencial_intermedia.media_pct` = **`10.79`** — Diferencia media entre elecciones presidenciales e intermedias de 10.79 puntos porcentuales.
-  - `pct_ln_rural.media_pct` = **`35.22`** — Proporción media de lista nominal en secciones rurales equivalente a 35.22%.
+  - `part_media_global.media_pct` = **`49.76`** — Participación media histórica 2009-2024 de 49.76% en los 191 municipios del perfil.
+  - `caida_presidencial_intermedia.media_pct` = **`12.12`** — Diferencia media entre elecciones presidenciales e intermedias de 12.12 puntos porcentuales.
+  - `pct_ln_rural.media_pct` = **`22.57`** — Proporción media de lista nominal en secciones rurales equivalente a 22.57%.
 - **Tono de comunicación recomendado:** Empatía institucional, eliminación de barreras de traslado e información accesible sobre ubicación de casillas y derechos ciudadanos.
 
 #### Estrategia Recomendada (Tarea 7B — Alineada a ENCCÍVICA / DECEyEC)
@@ -109,6 +109,6 @@ Cada perfil fue generado exclusivamente a partir de `data/processed/perfiles_car
 - **Acción concreta:** Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.
 - **Canales:** Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla', Foros presenciales en universidades, tecnológicos y planteles de educación media superior, Comunicación institucional en transporte público y centros de trabajo
 - **Aliados institucionales:** Juntas Locales y Distritales Ejecutivas del INE (DECEyEC), Organismos Públicos Locales Electorales (OPL) de las entidades predominantes, Instituciones de Educación Superior y Media Superior públicas y privadas, Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista
-- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `44.23%` $\rightarrow$ **Meta 2027:** `46.73%`
+- **KPI medible:** Tasa de participación media del perfil en elección federal intermedia (%) | **Línea base:** `43.76%` $\rightarrow$ **Meta 2027:** `46.26%`
 - **Consideración ética:** Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).
 
