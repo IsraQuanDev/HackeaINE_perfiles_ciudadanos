@@ -1099,12 +1099,72 @@ async function sendChatQuestion() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question: q })
     });
+    if (!resp.ok) throw new Error("Static host fallback");
     const data = await resp.json();
     renderChatResultObject(data);
   } catch (err) {
-    const match = (STATE.llm.ejemplos_chat_precalculados || []).find((x) => x.pregunta.toLowerCase() === q.toLowerCase());
-    if (match) renderChatResultObject(match);
+    renderChatResultObject(evaluateClientSideQuestion(q));
   }
+}
+
+function evaluateClientSideQuestion(question) {
+  const qNorm = question.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const presets = (STATE.llm && STATE.llm.ejemplos_chat_precalculados) || [];
+  const exact = presets.find((x) => x.pregunta.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === qNorm);
+  if (exact) return exact;
+
+  // Guardrail ético 1: Partidos políticos / candidatos / sentido del voto
+  if (/\b(partido|morena|pan|pri|prd|mc|pvem|pt|candidat|quien gano|ganador|boleta|voto nulo)\b/.test(qNorm)) {
+    return {
+      pregunta: question,
+      es_respondible: false,
+      respuesta_natural: "No es posible responder esta pregunta con los datos del proyecto. Los Conteos Censales de Participación Ciudadana (CCPC) del INE provienen de los cuadernillos de la Lista Nominal (si la persona asistió o no a votar) y no contienen resultados por partido político, candidaturas ni sentido del voto.",
+      sql_usado: null,
+      tabla_respaldo: [],
+      tipo_grafica_sugerida: "none"
+    };
+  }
+
+  // Guardrail ético 2: Datos personales / reidentificación
+  if (/\b(curp|clave de elector|domicilio|nombre de la persona|reidentificar|datos personales)\b/.test(qNorm)) {
+    return {
+      pregunta: question,
+      es_respondible: false,
+      respuesta_natural: "Solicitud rechazada por el Principio Inquebrantable #1 (Privacidad y Datos Agregados): el sistema opera exclusivamente con conteos estadísticos agregados por territorio y prohíbe cualquier intento de consulta o reidentificación individual.",
+      sql_usado: null,
+      tabla_respaldo: [],
+      tipo_grafica_sugerida: "none"
+    };
+  }
+
+  const muns = (STATE.bundle && STATE.bundle.municipios) || [];
+  if (qNorm.includes("riesgo") || qNorm.includes("2027")) {
+    const topR = muns.filter((m) => m.riesgo_2027).sort((a, b) => b.idx_riesgo - a.idx_riesgo).slice(0, 10).map((m) => ({
+      municipio: `${m.nom_mun} (${m.nom_ent})`,
+      ln_2027: m.ln_2027,
+      proyeccion_2027_pct: m.p2027,
+      indice_riesgo: m.idx_riesgo
+    }));
+    return {
+      pregunta: question,
+      es_respondible: true,
+      respuesta_natural: `Consulta ejecutada sobre el modelo jerárquico 2027 (Mondrian CQR 80%). Se muestran los 10 municipios prioritarios por índice de riesgo.`,
+      sql_usado: "SELECT cve_geo, nom_mun, nom_ent, ln_proyectada_2027, ROUND(proyeccion_part_2027*100,2) AS proyeccion_2027_pct, indice_riesgo_priorizacion FROM proyeccion_2027 WHERE es_zona_riesgo_2027 = true ORDER BY indice_riesgo_priorizacion DESC LIMIT 10",
+      tabla_respaldo: topR,
+      tipo_grafica_sugerida: "bar"
+    };
+  }
+
+  if (qNorm.includes("edad") || qNorm.includes("joven") || qNorm.includes("60")) {
+    return presets[2] || presets[0];
+  }
+  if (qNorm.includes("perfil") || qNorm.includes("cluster")) {
+    return presets[4] || presets[0];
+  }
+  if (qNorm.includes("entidad") || qNorm.includes("estado")) {
+    return presets[1] || presets[0];
+  }
+  return presets[0];
 }
 
 function renderChatResultObject(res) {
