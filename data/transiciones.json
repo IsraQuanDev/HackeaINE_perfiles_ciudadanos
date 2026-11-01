@@ -7,537 +7,615 @@
   ],
   "resumen_cambios": {
     "total_municipios": 2477,
-    "municipios_cambiaron_2009_2015_vs_2018_2024": 1565,
-    "pct_municipios_cambiaron": 63.18,
-    "municipios_estables": 912
+    "municipios_cambiaron_2009_2015_vs_2018_2024": 1219,
+    "pct_municipios_cambiaron": 49.21,
+    "municipios_estables": 1258,
+    "permanencia_media_diagonal_markov": 0.7245,
+    "permanencia_azar_uniforme": 0.1667,
+    "ratio_permanencia_vs_azar": 4.35
   },
+  "matriz_markov_probabilidades": [
+    [
+      0.8957,
+      0.092,
+      0.0,
+      0.0123,
+      0.0,
+      0.0
+    ],
+    [
+      0.0091,
+      0.8917,
+      0.0231,
+      0.0295,
+      0.0456,
+      0.0011
+    ],
+    [
+      0.0,
+      0.1112,
+      0.7283,
+      0.1102,
+      0.0344,
+      0.0157
+    ],
+    [
+      0.0044,
+      0.4154,
+      0.1485,
+      0.3406,
+      0.066,
+      0.0251
+    ],
+    [
+      0.0,
+      0.0528,
+      0.0398,
+      0.2309,
+      0.6721,
+      0.0044
+    ],
+    [
+      0.0018,
+      0.0018,
+      0.0324,
+      0.1349,
+      0.0108,
+      0.8183
+    ]
+  ],
   "top_flujos_cambio": [
     {
-      "cluster_origen_2009_2015": 2,
-      "cluster_destino_2018_2024": 0,
-      "n_municipios": 191
+      "cluster_origen_2009_2015": 3,
+      "cluster_destino_2018_2024": 1,
+      "n_municipios": 387
     },
     {
       "cluster_origen_2009_2015": 4,
       "cluster_destino_2018_2024": 1,
-      "n_municipios": 158
+      "n_municipios": 334
     },
     {
       "cluster_origen_2009_2015": 4,
-      "cluster_destino_2018_2024": 0,
-      "n_municipios": 135
-    },
-    {
-      "cluster_origen_2009_2015": 5,
-      "cluster_destino_2018_2024": 0,
-      "n_municipios": 133
-    },
-    {
-      "cluster_origen_2009_2015": 2,
-      "cluster_destino_2018_2024": 1,
-      "n_municipios": 131
-    },
-    {
-      "cluster_origen_2009_2015": 2,
-      "cluster_destino_2018_2024": 4,
-      "n_municipios": 114
-    },
-    {
-      "cluster_origen_2009_2015": 1,
-      "cluster_destino_2018_2024": 0,
+      "cluster_destino_2018_2024": 2,
       "n_municipios": 100
     },
     {
-      "cluster_origen_2009_2015": 0,
-      "cluster_destino_2018_2024": 1,
-      "n_municipios": 95
+      "cluster_origen_2009_2015": 3,
+      "cluster_destino_2018_2024": 2,
+      "n_municipios": 94
     },
     {
-      "cluster_origen_2009_2015": 5,
+      "cluster_origen_2009_2015": 2,
+      "cluster_destino_2018_2024": 1,
+      "n_municipios": 76
+    },
+    {
+      "cluster_origen_2009_2015": 3,
       "cluster_destino_2018_2024": 4,
-      "n_municipios": 94
+      "n_municipios": 52
     },
     {
       "cluster_origen_2009_2015": 1,
       "cluster_destino_2018_2024": 4,
-      "n_municipios": 79
+      "n_municipios": 30
+    },
+    {
+      "cluster_origen_2009_2015": 5,
+      "cluster_destino_2018_2024": 1,
+      "n_municipios": 30
+    },
+    {
+      "cluster_origen_2009_2015": 5,
+      "cluster_destino_2018_2024": 2,
+      "n_municipios": 27
+    },
+    {
+      "cluster_origen_2009_2015": 3,
+      "cluster_destino_2018_2024": 5,
+      "n_municipios": 20
     }
   ],
   "top_municipios_cambio": [
     {
-      "cve_geo": "26006",
-      "nom_mun": "Atil",
-      "nom_ent": "SONORA",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 3,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 84.5,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -84.5,
-      "ln_2024": 747
-    },
-    {
-      "cve_geo": "19029",
-      "nom_mun": "Higueras",
-      "nom_ent": "NUEVO LEON",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 3,
-      "perfil_2015_2021": 3,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 82.45,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -82.45,
-      "ln_2024": 1541
-    },
-    {
-      "cve_geo": "20048",
-      "nom_mun": "Magdalena OcotlÃ¡n",
-      "nom_ent": "OAXACA",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 1,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 0.0,
-      "part_2024_pct": 82.14,
-      "delta_2009_2024_pp": 82.14,
-      "ln_2024": 879
-    },
-    {
-      "cve_geo": "26031",
-      "nom_mun": "Oquitoa",
-      "nom_ent": "SONORA",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 80.08,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -80.08,
-      "ln_2024": 446
-    },
-    {
-      "cve_geo": "26016",
-      "nom_mun": "Cucurpe",
-      "nom_ent": "SONORA",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 1,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 75.21,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -75.21,
-      "ln_2024": 1009
-    },
-    {
-      "cve_geo": "26043",
-      "nom_mun": "Tubutama",
-      "nom_ent": "SONORA",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 1,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 73.76,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -73.76,
-      "ln_2024": 1381
-    },
-    {
-      "cve_geo": "19044",
-      "nom_mun": "Rayones",
-      "nom_ent": "NUEVO LEON",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 0.0,
-      "part_2024_pct": 65.3,
-      "delta_2009_2024_pp": 65.3,
-      "ln_2024": 3040
-    },
-    {
-      "cve_geo": "26038",
-      "nom_mun": "SÃ¡ric",
-      "nom_ent": "SONORA",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 70.42,
-      "part_2024_pct": 5.2,
-      "delta_2009_2024_pp": -65.22,
-      "ln_2024": 1807
-    },
-    {
-      "cve_geo": "07055",
-      "nom_mun": "Metapa",
-      "nom_ent": "CHIAPAS",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 0.0,
-      "part_2024_pct": 64.19,
-      "delta_2009_2024_pp": 64.19,
-      "ln_2024": 5217
-    },
-    {
-      "cve_geo": "07088",
-      "nom_mun": "Suchiate",
-      "nom_ent": "CHIAPAS",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 5.03,
-      "part_2024_pct": 63.04,
-      "delta_2009_2024_pp": 58.0,
-      "ln_2024": 25140
-    },
-    {
-      "cve_geo": "20510",
-      "nom_mun": "Santo Domingo IxcatlÃ¡n",
-      "nom_ent": "OAXACA",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 5,
-      "perfil_2015_2021": 1,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 0.0,
-      "part_2024_pct": 57.98,
-      "delta_2009_2024_pp": 57.98,
-      "ln_2024": 514
-    },
-    {
-      "cve_geo": "26052",
-      "nom_mun": "Pitiquito",
-      "nom_ent": "SONORA",
-      "perfil_2009_2015": 0,
-      "perfil_2012_2018": 4,
-      "perfil_2015_2021": 5,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 65.21,
-      "part_2024_pct": 7.76,
-      "delta_2009_2024_pp": -57.46,
-      "ln_2024": 6420
-    },
-    {
-      "cve_geo": "20280",
-      "nom_mun": "San Miguel Tenango",
-      "nom_ent": "OAXACA",
-      "perfil_2009_2015": 4,
-      "perfil_2012_2018": 4,
-      "perfil_2015_2021": 4,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 57.12,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -57.12,
-      "ln_2024": 637
-    },
-    {
-      "cve_geo": "29049",
-      "nom_mun": "Santa Isabel Xiloxoxtla",
-      "nom_ent": "TLAXCALA",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 4,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 1,
-      "part_2009_pct": 28.12,
-      "part_2024_pct": 83.82,
-      "delta_2009_2024_pp": 55.7,
-      "ln_2024": 3721
-    },
-    {
       "cve_geo": "29047",
       "nom_mun": "San Juan Huactzinco",
-      "nom_ent": "TLAXCALA",
-      "perfil_2009_2015": 1,
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 4,
       "perfil_2012_2018": 4,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 0,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 3,
       "part_2009_pct": 25.67,
       "part_2024_pct": 80.69,
       "delta_2009_2024_pp": 55.02,
+      "tiene_cambio_estructural_pelt": true,
       "ln_2024": 5894
-    },
-    {
-      "cve_geo": "19049",
-      "nom_mun": "Santiago",
-      "nom_ent": "NUEVO LEON",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 4,
-      "part_2009_pct": 2.74,
-      "part_2024_pct": 56.84,
-      "delta_2009_2024_pp": 54.09,
-      "ln_2024": 44320
-    },
-    {
-      "cve_geo": "30073",
-      "nom_mun": "Huatusco",
-      "nom_ent": "VERACRUZ",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 4,
-      "perfil_2015_2021": 1,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 2.12,
-      "part_2024_pct": 55.94,
-      "delta_2009_2024_pp": 53.82,
-      "ln_2024": 44787
-    },
-    {
-      "cve_geo": "11008",
-      "nom_mun": "Manuel Doblado",
-      "nom_ent": "GUANAJUATO",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 1,
-      "perfil_2018_2024": 1,
-      "part_2009_pct": 0.0,
-      "part_2024_pct": 53.74,
-      "delta_2009_2024_pp": 53.74,
-      "ln_2024": 33899
-    },
-    {
-      "cve_geo": "08033",
-      "nom_mun": "HuejotitÃ¡n",
-      "nom_ent": "CHIHUAHUA",
-      "perfil_2009_2015": 5,
-      "perfil_2012_2018": 2,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 22.56,
-      "part_2024_pct": 75.8,
-      "delta_2009_2024_pp": 53.25,
-      "ln_2024": 1558
-    },
-    {
-      "cve_geo": "30061",
-      "nom_mun": "Chinameca",
-      "nom_ent": "VERACRUZ",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 4,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 3.32,
-      "part_2024_pct": 56.43,
-      "delta_2009_2024_pp": 53.11,
-      "ln_2024": 13617
     },
     {
       "cve_geo": "21069",
       "nom_mun": "Hermenegildo Galeana",
-      "nom_ent": "PUEBLA",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 2,
-      "perfil_2015_2021": 2,
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
       "perfil_2018_2024": 1,
       "part_2009_pct": 20.83,
-      "part_2024_pct": 73.74,
-      "delta_2009_2024_pp": 52.91,
+      "part_2024_pct": 75.22,
+      "delta_2009_2024_pp": 54.39,
+      "tiene_cambio_estructural_pelt": true,
       "ln_2024": 5544
     },
     {
-      "cve_geo": "07066",
-      "nom_mun": "PantelhÃ³",
-      "nom_ent": "CHIAPAS",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 1,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 3,
-      "part_2009_pct": 52.63,
-      "part_2024_pct": 0.0,
-      "delta_2009_2024_pp": -52.63,
-      "ln_2024": 15256
-    },
-    {
-      "cve_geo": "08064",
-      "nom_mun": "El Tule",
-      "nom_ent": "CHIHUAHUA",
-      "perfil_2009_2015": 5,
-      "perfil_2012_2018": 2,
-      "perfil_2015_2021": 2,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 21.33,
-      "part_2024_pct": 73.87,
-      "delta_2009_2024_pp": 52.53,
-      "ln_2024": 2648
-    },
-    {
-      "cve_geo": "07035",
-      "nom_mun": "Frontera Hidalgo",
-      "nom_ent": "CHIAPAS",
-      "perfil_2009_2015": 2,
-      "perfil_2012_2018": 0,
-      "perfil_2015_2021": 0,
-      "perfil_2018_2024": 0,
-      "part_2009_pct": 6.53,
-      "part_2024_pct": 58.9,
-      "delta_2009_2024_pp": 52.36,
-      "ln_2024": 10534
+      "cve_geo": "21013",
+      "nom_mun": "Altepexi",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 24.12,
+      "part_2024_pct": 77.61,
+      "delta_2009_2024_pp": 53.49,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 15121
     },
     {
       "cve_geo": "21006",
-      "nom_mun": "AhuacatlÃ¡n",
-      "nom_ent": "PUEBLA",
-      "perfil_2009_2015": 2,
+      "nom_mun": "Ahuacatlán",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 30.5,
+      "part_2024_pct": 80.88,
+      "delta_2009_2024_pp": 50.38,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 11390
+    },
+    {
+      "cve_geo": "21005",
+      "nom_mun": "Acteopan",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 35.64,
+      "part_2024_pct": 83.66,
+      "delta_2009_2024_pp": 48.01,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 2319
+    },
+    {
+      "cve_geo": "08049",
+      "nom_mun": "Nonoava",
+      "nom_ent": "Chihuahua",
+      "perfil_2009_2015": 4,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 28.51,
+      "part_2024_pct": 75.43,
+      "delta_2009_2024_pp": 46.92,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 2918
+    },
+    {
+      "cve_geo": "21147",
+      "nom_mun": "Santa Inés Ahuatempan",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 29.2,
+      "part_2024_pct": 75.41,
+      "delta_2009_2024_pp": 46.21,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 4876
+    },
+    {
+      "cve_geo": "29056",
+      "nom_mun": "San Jerónimo Zacualpan",
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 1,
+      "perfil_2015_2021": 1,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 39.67,
+      "part_2024_pct": 84.16,
+      "delta_2009_2024_pp": 44.49,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 3276
+    },
+    {
+      "cve_geo": "21107",
+      "nom_mun": "Ocoyucan",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 4,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 20.77,
+      "part_2024_pct": 64.84,
+      "delta_2009_2024_pp": 44.07,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 33389
+    },
+    {
+      "cve_geo": "29039",
+      "nom_mun": "Xaloztoc",
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 27.83,
+      "part_2024_pct": 71.78,
+      "delta_2009_2024_pp": 43.94,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 18969
+    },
+    {
+      "cve_geo": "21181",
+      "nom_mun": "Tlaltenango",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 4,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 29.15,
+      "part_2024_pct": 72.46,
+      "delta_2009_2024_pp": 43.31,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 5406
+    },
+    {
+      "cve_geo": "29028",
+      "nom_mun": "Teolocholco",
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 32.97,
+      "part_2024_pct": 76.13,
+      "delta_2009_2024_pp": 43.16,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 19434
+    },
+    {
+      "cve_geo": "21139",
+      "nom_mun": "San Nicolás de los Ranchos",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 5,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 30.96,
+      "part_2024_pct": 73.8,
+      "delta_2009_2024_pp": 42.84,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 8672
+    },
+    {
+      "cve_geo": "21100",
+      "nom_mun": "Molcaxac",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 31.94,
+      "part_2024_pct": 74.21,
+      "delta_2009_2024_pp": 42.27,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 5147
+    },
+    {
+      "cve_geo": "29052",
+      "nom_mun": "La Magdalena Tlaltelulco",
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 4,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 35.98,
+      "part_2024_pct": 78.25,
+      "delta_2009_2024_pp": 42.27,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 15172
+    },
+    {
+      "cve_geo": "20023",
+      "nom_mun": "Constancia del Rosario",
+      "nom_ent": "Oaxaca",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 4,
+      "perfil_2015_2021": 4,
+      "perfil_2018_2024": 4,
+      "part_2009_pct": 14.37,
+      "part_2024_pct": 56.55,
+      "delta_2009_2024_pp": 42.18,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 3300
+    },
+    {
+      "cve_geo": "21162",
+      "nom_mun": "Tepatlaxco de Hidalgo",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 27.3,
+      "part_2024_pct": 69.43,
+      "delta_2009_2024_pp": 42.12,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 13182
+    },
+    {
+      "cve_geo": "29032",
+      "nom_mun": "Tetlatlahuca",
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 32.93,
+      "part_2024_pct": 74.99,
+      "delta_2009_2024_pp": 42.06,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 10362
+    },
+    {
+      "cve_geo": "20485",
+      "nom_mun": "Santiago Suchilquitongo",
+      "nom_ent": "Oaxaca",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 31.45,
+      "part_2024_pct": 72.71,
+      "delta_2009_2024_pp": 41.26,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 8412
+    },
+    {
+      "cve_geo": "16093",
+      "nom_mun": "Tiquicheo de Nicolás Romero",
+      "nom_ent": "Michoacán",
+      "perfil_2009_2015": 3,
       "perfil_2012_2018": 2,
       "perfil_2015_2021": 2,
+      "perfil_2018_2024": 2,
+      "part_2009_pct": 25.42,
+      "part_2024_pct": 66.39,
+      "delta_2009_2024_pp": 40.97,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 10426
+    },
+    {
+      "cve_geo": "21059",
+      "nom_mun": "Chilchotla",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 2,
+      "part_2009_pct": 32.07,
+      "part_2024_pct": 72.24,
+      "delta_2009_2024_pp": 40.17,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 13547
+    },
+    {
+      "cve_geo": "29016",
+      "nom_mun": "Ixtenco",
+      "nom_ent": "Tlaxcala",
+      "perfil_2009_2015": 3,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
       "perfil_2018_2024": 1,
-      "part_2009_pct": 28.92,
-      "part_2024_pct": 80.88,
-      "delta_2009_2024_pp": 51.96,
-      "ln_2024": 11390
+      "part_2009_pct": 36.98,
+      "part_2024_pct": 76.74,
+      "delta_2009_2024_pp": 39.76,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 6010
+    },
+    {
+      "cve_geo": "21043",
+      "nom_mun": "Cuayuca de Andrade",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 4,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 32.69,
+      "part_2024_pct": 72.39,
+      "delta_2009_2024_pp": 39.69,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 2897
+    },
+    {
+      "cve_geo": "21014",
+      "nom_mun": "Amixtlán",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 5,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 2,
+      "part_2009_pct": 38.97,
+      "part_2024_pct": 78.38,
+      "delta_2009_2024_pp": 39.41,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 3927
+    },
+    {
+      "cve_geo": "21034",
+      "nom_mun": "Cohuecan",
+      "nom_ent": "Puebla",
+      "perfil_2009_2015": 5,
+      "perfil_2012_2018": 3,
+      "perfil_2015_2021": 3,
+      "perfil_2018_2024": 1,
+      "part_2009_pct": 36.56,
+      "part_2024_pct": 75.97,
+      "delta_2009_2024_pp": 39.41,
+      "tiene_cambio_estructural_pelt": true,
+      "ln_2024": 3770
     }
   ],
   "matrices_transicion": {
     "2009-2015_a_2012-2018": {
       "Perfil_0": {
-        "Perfil_0": 358,
-        "Perfil_1": 31,
-        "Perfil_2": 7,
-        "Perfil_3": 17,
-        "Perfil_4": 10,
-        "Perfil_5": 2
-      },
-      "Perfil_1": {
-        "Perfil_0": 98,
-        "Perfil_1": 132,
-        "Perfil_2": 28,
-        "Perfil_3": 14,
-        "Perfil_4": 84,
-        "Perfil_5": 1
-      },
-      "Perfil_2": {
-        "Perfil_0": 175,
-        "Perfil_1": 56,
-        "Perfil_2": 107,
-        "Perfil_3": 18,
-        "Perfil_4": 120,
-        "Perfil_5": 21
-      },
-      "Perfil_3": {
-        "Perfil_0": 0,
-        "Perfil_1": 2,
-        "Perfil_2": 34,
-        "Perfil_3": 5,
+        "Perfil_0": 94,
+        "Perfil_1": 18,
+        "Perfil_2": 0,
+        "Perfil_3": 0,
         "Perfil_4": 0,
         "Perfil_5": 0
       },
-      "Perfil_4": {
+      "Perfil_1": {
         "Perfil_0": 5,
-        "Perfil_1": 67,
-        "Perfil_2": 175,
-        "Perfil_3": 14,
-        "Perfil_4": 392,
-        "Perfil_5": 34
+        "Perfil_1": 428,
+        "Perfil_2": 9,
+        "Perfil_3": 24,
+        "Perfil_4": 10,
+        "Perfil_5": 0
+      },
+      "Perfil_2": {
+        "Perfil_0": 0,
+        "Perfil_1": 31,
+        "Perfil_2": 217,
+        "Perfil_3": 40,
+        "Perfil_4": 7,
+        "Perfil_5": 2
+      },
+      "Perfil_3": {
+        "Perfil_0": 8,
+        "Perfil_1": 213,
+        "Perfil_2": 138,
+        "Perfil_3": 158,
+        "Perfil_4": 42,
+        "Perfil_5": 13
+      },
+      "Perfil_4": {
+        "Perfil_0": 0,
+        "Perfil_1": 20,
+        "Perfil_2": 30,
+        "Perfil_3": 215,
+        "Perfil_4": 532,
+        "Perfil_5": 6
       },
       "Perfil_5": {
-        "Perfil_0": 38,
-        "Perfil_1": 31,
-        "Perfil_2": 59,
-        "Perfil_3": 16,
-        "Perfil_4": 105,
-        "Perfil_5": 221
+        "Perfil_0": 1,
+        "Perfil_1": 0,
+        "Perfil_2": 10,
+        "Perfil_3": 48,
+        "Perfil_4": 4,
+        "Perfil_5": 154
       }
     },
     "2012-2018_a_2015-2021": {
       "Perfil_0": {
-        "Perfil_0": 507,
-        "Perfil_1": 82,
-        "Perfil_2": 16,
-        "Perfil_3": 14,
-        "Perfil_4": 36,
-        "Perfil_5": 19
+        "Perfil_0": 102,
+        "Perfil_1": 2,
+        "Perfil_2": 0,
+        "Perfil_3": 4,
+        "Perfil_4": 0,
+        "Perfil_5": 0
       },
       "Perfil_1": {
-        "Perfil_0": 52,
-        "Perfil_1": 153,
-        "Perfil_2": 24,
-        "Perfil_3": 1,
-        "Perfil_4": 81,
-        "Perfil_5": 8
+        "Perfil_0": 4,
+        "Perfil_1": 646,
+        "Perfil_2": 18,
+        "Perfil_3": 22,
+        "Perfil_4": 20,
+        "Perfil_5": 0
       },
       "Perfil_2": {
-        "Perfil_0": 2,
-        "Perfil_1": 16,
-        "Perfil_2": 367,
-        "Perfil_3": 8,
-        "Perfil_4": 14,
-        "Perfil_5": 3
+        "Perfil_0": 0,
+        "Perfil_1": 18,
+        "Perfil_2": 289,
+        "Perfil_3": 68,
+        "Perfil_4": 17,
+        "Perfil_5": 12
       },
       "Perfil_3": {
         "Perfil_0": 0,
-        "Perfil_1": 5,
-        "Perfil_2": 1,
-        "Perfil_3": 66,
-        "Perfil_4": 4,
-        "Perfil_5": 8
+        "Perfil_1": 4,
+        "Perfil_2": 2,
+        "Perfil_3": 458,
+        "Perfil_4": 18,
+        "Perfil_5": 3
       },
       "Perfil_4": {
-        "Perfil_0": 11,
-        "Perfil_1": 99,
-        "Perfil_2": 137,
-        "Perfil_3": 1,
-        "Perfil_4": 361,
-        "Perfil_5": 102
+        "Perfil_0": 0,
+        "Perfil_1": 9,
+        "Perfil_2": 5,
+        "Perfil_3": 197,
+        "Perfil_4": 383,
+        "Perfil_5": 1
       },
       "Perfil_5": {
-        "Perfil_0": 23,
-        "Perfil_1": 21,
-        "Perfil_2": 34,
-        "Perfil_3": 4,
-        "Perfil_4": 28,
-        "Perfil_5": 169
+        "Perfil_0": 0,
+        "Perfil_1": 0,
+        "Perfil_2": 1,
+        "Perfil_3": 26,
+        "Perfil_4": 0,
+        "Perfil_5": 148
       }
     },
     "2015-2021_a_2018-2024": {
       "Perfil_0": {
-        "Perfil_0": 399,
-        "Perfil_1": 105,
-        "Perfil_2": 2,
-        "Perfil_3": 30,
-        "Perfil_4": 30,
-        "Perfil_5": 29
+        "Perfil_0": 96,
+        "Perfil_1": 10,
+        "Perfil_2": 0,
+        "Perfil_3": 0,
+        "Perfil_4": 0,
+        "Perfil_5": 0
       },
       "Perfil_1": {
-        "Perfil_0": 80,
-        "Perfil_1": 210,
-        "Perfil_2": 1,
-        "Perfil_3": 16,
-        "Perfil_4": 68,
-        "Perfil_5": 1
+        "Perfil_0": 8,
+        "Perfil_1": 589,
+        "Perfil_2": 16,
+        "Perfil_3": 9,
+        "Perfil_4": 55,
+        "Perfil_5": 2
       },
       "Perfil_2": {
-        "Perfil_0": 264,
-        "Perfil_1": 138,
-        "Perfil_2": 6,
-        "Perfil_3": 22,
-        "Perfil_4": 131,
-        "Perfil_5": 18
+        "Perfil_0": 0,
+        "Perfil_1": 64,
+        "Perfil_2": 234,
+        "Perfil_3": 4,
+        "Perfil_4": 11,
+        "Perfil_5": 2
       },
       "Perfil_3": {
-        "Perfil_0": 2,
-        "Perfil_1": 24,
-        "Perfil_2": 30,
-        "Perfil_3": 22,
-        "Perfil_4": 1,
-        "Perfil_5": 15
+        "Perfil_0": 0,
+        "Perfil_1": 544,
+        "Perfil_2": 132,
+        "Perfil_3": 8,
+        "Perfil_4": 61,
+        "Perfil_5": 30
       },
       "Perfil_4": {
-        "Perfil_0": 19,
-        "Perfil_1": 84,
-        "Perfil_2": 15,
-        "Perfil_3": 10,
-        "Perfil_4": 354,
-        "Perfil_5": 42
+        "Perfil_0": 0,
+        "Perfil_1": 68,
+        "Perfil_2": 38,
+        "Perfil_3": 12,
+        "Perfil_4": 319,
+        "Perfil_5": 1
       },
       "Perfil_5": {
-        "Perfil_0": 59,
-        "Perfil_1": 21,
-        "Perfil_2": 2,
-        "Perfil_3": 11,
-        "Perfil_4": 63,
+        "Perfil_0": 0,
+        "Perfil_1": 1,
+        "Perfil_2": 7,
+        "Perfil_3": 1,
+        "Perfil_4": 2,
         "Perfil_5": 153
       }
     }
@@ -546,144 +624,168 @@
     "nodes": [
       {
         "id": "2009-2015_C0",
+        "name": "2009-2015_C0",
         "ventana": "2009-2015",
         "cluster_id": 0,
         "label": "Perfil 0 (2009-2015)"
       },
       {
         "id": "2009-2015_C1",
+        "name": "2009-2015_C1",
         "ventana": "2009-2015",
         "cluster_id": 1,
         "label": "Perfil 1 (2009-2015)"
       },
       {
         "id": "2009-2015_C2",
+        "name": "2009-2015_C2",
         "ventana": "2009-2015",
         "cluster_id": 2,
         "label": "Perfil 2 (2009-2015)"
       },
       {
         "id": "2009-2015_C3",
+        "name": "2009-2015_C3",
         "ventana": "2009-2015",
         "cluster_id": 3,
         "label": "Perfil 3 (2009-2015)"
       },
       {
         "id": "2009-2015_C4",
+        "name": "2009-2015_C4",
         "ventana": "2009-2015",
         "cluster_id": 4,
         "label": "Perfil 4 (2009-2015)"
       },
       {
         "id": "2009-2015_C5",
+        "name": "2009-2015_C5",
         "ventana": "2009-2015",
         "cluster_id": 5,
         "label": "Perfil 5 (2009-2015)"
       },
       {
         "id": "2012-2018_C0",
+        "name": "2012-2018_C0",
         "ventana": "2012-2018",
         "cluster_id": 0,
         "label": "Perfil 0 (2012-2018)"
       },
       {
         "id": "2012-2018_C1",
+        "name": "2012-2018_C1",
         "ventana": "2012-2018",
         "cluster_id": 1,
         "label": "Perfil 1 (2012-2018)"
       },
       {
         "id": "2012-2018_C2",
+        "name": "2012-2018_C2",
         "ventana": "2012-2018",
         "cluster_id": 2,
         "label": "Perfil 2 (2012-2018)"
       },
       {
         "id": "2012-2018_C3",
+        "name": "2012-2018_C3",
         "ventana": "2012-2018",
         "cluster_id": 3,
         "label": "Perfil 3 (2012-2018)"
       },
       {
         "id": "2012-2018_C4",
+        "name": "2012-2018_C4",
         "ventana": "2012-2018",
         "cluster_id": 4,
         "label": "Perfil 4 (2012-2018)"
       },
       {
         "id": "2012-2018_C5",
+        "name": "2012-2018_C5",
         "ventana": "2012-2018",
         "cluster_id": 5,
         "label": "Perfil 5 (2012-2018)"
       },
       {
         "id": "2015-2021_C0",
+        "name": "2015-2021_C0",
         "ventana": "2015-2021",
         "cluster_id": 0,
         "label": "Perfil 0 (2015-2021)"
       },
       {
         "id": "2015-2021_C1",
+        "name": "2015-2021_C1",
         "ventana": "2015-2021",
         "cluster_id": 1,
         "label": "Perfil 1 (2015-2021)"
       },
       {
         "id": "2015-2021_C2",
+        "name": "2015-2021_C2",
         "ventana": "2015-2021",
         "cluster_id": 2,
         "label": "Perfil 2 (2015-2021)"
       },
       {
         "id": "2015-2021_C3",
+        "name": "2015-2021_C3",
         "ventana": "2015-2021",
         "cluster_id": 3,
         "label": "Perfil 3 (2015-2021)"
       },
       {
         "id": "2015-2021_C4",
+        "name": "2015-2021_C4",
         "ventana": "2015-2021",
         "cluster_id": 4,
         "label": "Perfil 4 (2015-2021)"
       },
       {
         "id": "2015-2021_C5",
+        "name": "2015-2021_C5",
         "ventana": "2015-2021",
         "cluster_id": 5,
         "label": "Perfil 5 (2015-2021)"
       },
       {
         "id": "2018-2024_C0",
+        "name": "2018-2024_C0",
         "ventana": "2018-2024",
         "cluster_id": 0,
         "label": "Perfil 0 (2018-2024)"
       },
       {
         "id": "2018-2024_C1",
+        "name": "2018-2024_C1",
         "ventana": "2018-2024",
         "cluster_id": 1,
         "label": "Perfil 1 (2018-2024)"
       },
       {
         "id": "2018-2024_C2",
+        "name": "2018-2024_C2",
         "ventana": "2018-2024",
         "cluster_id": 2,
         "label": "Perfil 2 (2018-2024)"
       },
       {
         "id": "2018-2024_C3",
+        "name": "2018-2024_C3",
         "ventana": "2018-2024",
         "cluster_id": 3,
         "label": "Perfil 3 (2018-2024)"
       },
       {
         "id": "2018-2024_C4",
+        "name": "2018-2024_C4",
         "ventana": "2018-2024",
         "cluster_id": 4,
         "label": "Perfil 4 (2018-2024)"
       },
       {
         "id": "2018-2024_C5",
+        "name": "2018-2024_C5",
         "ventana": "2018-2024",
         "cluster_id": 5,
         "label": "Perfil 5 (2018-2024)"
@@ -697,7 +799,7 @@
         "ventana_destino": "2012-2018",
         "cluster_origen": 0,
         "cluster_destino": 0,
-        "value": 358
+        "value": 94
       },
       {
         "source": "2009-2015_C0",
@@ -706,259 +808,214 @@
         "ventana_destino": "2012-2018",
         "cluster_origen": 0,
         "cluster_destino": 1,
-        "value": 31
+        "value": 18
       },
       {
-        "source": "2009-2015_C0",
+        "source": "2009-2015_C1",
+        "target": "2012-2018_C0",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 1,
+        "cluster_destino": 0,
+        "value": 5
+      },
+      {
+        "source": "2009-2015_C1",
+        "target": "2012-2018_C1",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 1,
+        "cluster_destino": 1,
+        "value": 428
+      },
+      {
+        "source": "2009-2015_C1",
         "target": "2012-2018_C2",
         "ventana_origen": "2009-2015",
         "ventana_destino": "2012-2018",
-        "cluster_origen": 0,
+        "cluster_origen": 1,
         "cluster_destino": 2,
-        "value": 7
+        "value": 9
       },
       {
-        "source": "2009-2015_C0",
+        "source": "2009-2015_C1",
         "target": "2012-2018_C3",
         "ventana_origen": "2009-2015",
         "ventana_destino": "2012-2018",
-        "cluster_origen": 0,
+        "cluster_origen": 1,
         "cluster_destino": 3,
-        "value": 17
+        "value": 24
       },
       {
-        "source": "2009-2015_C0",
+        "source": "2009-2015_C1",
         "target": "2012-2018_C4",
         "ventana_origen": "2009-2015",
         "ventana_destino": "2012-2018",
-        "cluster_origen": 0,
+        "cluster_origen": 1,
         "cluster_destino": 4,
         "value": 10
       },
       {
-        "source": "2009-2015_C0",
-        "target": "2012-2018_C5",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 0,
-        "cluster_destino": 5,
-        "value": 2
-      },
-      {
-        "source": "2009-2015_C1",
-        "target": "2012-2018_C0",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 1,
-        "cluster_destino": 0,
-        "value": 98
-      },
-      {
-        "source": "2009-2015_C1",
-        "target": "2012-2018_C1",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 1,
-        "cluster_destino": 1,
-        "value": 132
-      },
-      {
-        "source": "2009-2015_C1",
-        "target": "2012-2018_C2",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 1,
-        "cluster_destino": 2,
-        "value": 28
-      },
-      {
-        "source": "2009-2015_C1",
-        "target": "2012-2018_C3",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 1,
-        "cluster_destino": 3,
-        "value": 14
-      },
-      {
-        "source": "2009-2015_C1",
-        "target": "2012-2018_C4",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 1,
-        "cluster_destino": 4,
-        "value": 84
-      },
-      {
-        "source": "2009-2015_C1",
-        "target": "2012-2018_C5",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 1,
-        "cluster_destino": 5,
-        "value": 1
-      },
-      {
-        "source": "2009-2015_C2",
-        "target": "2012-2018_C0",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 2,
-        "cluster_destino": 0,
-        "value": 175
-      },
-      {
         "source": "2009-2015_C2",
         "target": "2012-2018_C1",
         "ventana_origen": "2009-2015",
         "ventana_destino": "2012-2018",
         "cluster_origen": 2,
-        "cluster_destino": 1,
-        "value": 56
-      },
-      {
-        "source": "2009-2015_C2",
-        "target": "2012-2018_C2",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 2,
-        "cluster_destino": 2,
-        "value": 107
-      },
-      {
-        "source": "2009-2015_C2",
-        "target": "2012-2018_C3",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 2,
-        "cluster_destino": 3,
-        "value": 18
-      },
-      {
-        "source": "2009-2015_C2",
-        "target": "2012-2018_C4",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 2,
-        "cluster_destino": 4,
-        "value": 120
-      },
-      {
-        "source": "2009-2015_C2",
-        "target": "2012-2018_C5",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 2,
-        "cluster_destino": 5,
-        "value": 21
-      },
-      {
-        "source": "2009-2015_C3",
-        "target": "2012-2018_C1",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 3,
-        "cluster_destino": 1,
-        "value": 2
-      },
-      {
-        "source": "2009-2015_C3",
-        "target": "2012-2018_C2",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 3,
-        "cluster_destino": 2,
-        "value": 34
-      },
-      {
-        "source": "2009-2015_C3",
-        "target": "2012-2018_C3",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 3,
-        "cluster_destino": 3,
-        "value": 5
-      },
-      {
-        "source": "2009-2015_C4",
-        "target": "2012-2018_C0",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 4,
-        "cluster_destino": 0,
-        "value": 5
-      },
-      {
-        "source": "2009-2015_C4",
-        "target": "2012-2018_C1",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 4,
-        "cluster_destino": 1,
-        "value": 67
-      },
-      {
-        "source": "2009-2015_C4",
-        "target": "2012-2018_C2",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 4,
-        "cluster_destino": 2,
-        "value": 175
-      },
-      {
-        "source": "2009-2015_C4",
-        "target": "2012-2018_C3",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 4,
-        "cluster_destino": 3,
-        "value": 14
-      },
-      {
-        "source": "2009-2015_C4",
-        "target": "2012-2018_C4",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 4,
-        "cluster_destino": 4,
-        "value": 392
-      },
-      {
-        "source": "2009-2015_C4",
-        "target": "2012-2018_C5",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 4,
-        "cluster_destino": 5,
-        "value": 34
-      },
-      {
-        "source": "2009-2015_C5",
-        "target": "2012-2018_C0",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 5,
-        "cluster_destino": 0,
-        "value": 38
-      },
-      {
-        "source": "2009-2015_C5",
-        "target": "2012-2018_C1",
-        "ventana_origen": "2009-2015",
-        "ventana_destino": "2012-2018",
-        "cluster_origen": 5,
         "cluster_destino": 1,
         "value": 31
       },
       {
+        "source": "2009-2015_C2",
+        "target": "2012-2018_C2",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 2,
+        "cluster_destino": 2,
+        "value": 217
+      },
+      {
+        "source": "2009-2015_C2",
+        "target": "2012-2018_C3",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 2,
+        "cluster_destino": 3,
+        "value": 40
+      },
+      {
+        "source": "2009-2015_C2",
+        "target": "2012-2018_C4",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 2,
+        "cluster_destino": 4,
+        "value": 7
+      },
+      {
+        "source": "2009-2015_C2",
+        "target": "2012-2018_C5",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 2,
+        "cluster_destino": 5,
+        "value": 2
+      },
+      {
+        "source": "2009-2015_C3",
+        "target": "2012-2018_C0",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 3,
+        "cluster_destino": 0,
+        "value": 8
+      },
+      {
+        "source": "2009-2015_C3",
+        "target": "2012-2018_C1",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 3,
+        "cluster_destino": 1,
+        "value": 213
+      },
+      {
+        "source": "2009-2015_C3",
+        "target": "2012-2018_C2",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 3,
+        "cluster_destino": 2,
+        "value": 138
+      },
+      {
+        "source": "2009-2015_C3",
+        "target": "2012-2018_C3",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 3,
+        "cluster_destino": 3,
+        "value": 158
+      },
+      {
+        "source": "2009-2015_C3",
+        "target": "2012-2018_C4",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 3,
+        "cluster_destino": 4,
+        "value": 42
+      },
+      {
+        "source": "2009-2015_C3",
+        "target": "2012-2018_C5",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 3,
+        "cluster_destino": 5,
+        "value": 13
+      },
+      {
+        "source": "2009-2015_C4",
+        "target": "2012-2018_C1",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 4,
+        "cluster_destino": 1,
+        "value": 20
+      },
+      {
+        "source": "2009-2015_C4",
+        "target": "2012-2018_C2",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 4,
+        "cluster_destino": 2,
+        "value": 30
+      },
+      {
+        "source": "2009-2015_C4",
+        "target": "2012-2018_C3",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 4,
+        "cluster_destino": 3,
+        "value": 215
+      },
+      {
+        "source": "2009-2015_C4",
+        "target": "2012-2018_C4",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 4,
+        "cluster_destino": 4,
+        "value": 532
+      },
+      {
+        "source": "2009-2015_C4",
+        "target": "2012-2018_C5",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 4,
+        "cluster_destino": 5,
+        "value": 6
+      },
+      {
+        "source": "2009-2015_C5",
+        "target": "2012-2018_C0",
+        "ventana_origen": "2009-2015",
+        "ventana_destino": "2012-2018",
+        "cluster_origen": 5,
+        "cluster_destino": 0,
+        "value": 1
+      },
+      {
         "source": "2009-2015_C5",
         "target": "2012-2018_C2",
         "ventana_origen": "2009-2015",
         "ventana_destino": "2012-2018",
         "cluster_origen": 5,
         "cluster_destino": 2,
-        "value": 59
+        "value": 10
       },
       {
         "source": "2009-2015_C5",
@@ -967,7 +1024,7 @@
         "ventana_destino": "2012-2018",
         "cluster_origen": 5,
         "cluster_destino": 3,
-        "value": 16
+        "value": 48
       },
       {
         "source": "2009-2015_C5",
@@ -976,7 +1033,7 @@
         "ventana_destino": "2012-2018",
         "cluster_origen": 5,
         "cluster_destino": 4,
-        "value": 105
+        "value": 4
       },
       {
         "source": "2009-2015_C5",
@@ -985,7 +1042,7 @@
         "ventana_destino": "2012-2018",
         "cluster_origen": 5,
         "cluster_destino": 5,
-        "value": 221
+        "value": 154
       },
       {
         "source": "2012-2018_C0",
@@ -994,7 +1051,7 @@
         "ventana_destino": "2015-2021",
         "cluster_origen": 0,
         "cluster_destino": 0,
-        "value": 507
+        "value": 102
       },
       {
         "source": "2012-2018_C0",
@@ -1003,115 +1060,70 @@
         "ventana_destino": "2015-2021",
         "cluster_origen": 0,
         "cluster_destino": 1,
-        "value": 82
-      },
-      {
-        "source": "2012-2018_C0",
-        "target": "2015-2021_C2",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 0,
-        "cluster_destino": 2,
-        "value": 16
-      },
-      {
-        "source": "2012-2018_C0",
-        "target": "2015-2021_C3",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 0,
-        "cluster_destino": 3,
-        "value": 14
-      },
-      {
-        "source": "2012-2018_C0",
-        "target": "2015-2021_C4",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 0,
-        "cluster_destino": 4,
-        "value": 36
-      },
-      {
-        "source": "2012-2018_C0",
-        "target": "2015-2021_C5",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 0,
-        "cluster_destino": 5,
-        "value": 19
-      },
-      {
-        "source": "2012-2018_C1",
-        "target": "2015-2021_C0",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 1,
-        "cluster_destino": 0,
-        "value": 52
-      },
-      {
-        "source": "2012-2018_C1",
-        "target": "2015-2021_C1",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 1,
-        "cluster_destino": 1,
-        "value": 153
-      },
-      {
-        "source": "2012-2018_C1",
-        "target": "2015-2021_C2",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 1,
-        "cluster_destino": 2,
-        "value": 24
-      },
-      {
-        "source": "2012-2018_C1",
-        "target": "2015-2021_C3",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 1,
-        "cluster_destino": 3,
-        "value": 1
-      },
-      {
-        "source": "2012-2018_C1",
-        "target": "2015-2021_C4",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 1,
-        "cluster_destino": 4,
-        "value": 81
-      },
-      {
-        "source": "2012-2018_C1",
-        "target": "2015-2021_C5",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 1,
-        "cluster_destino": 5,
-        "value": 8
-      },
-      {
-        "source": "2012-2018_C2",
-        "target": "2015-2021_C0",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 2,
-        "cluster_destino": 0,
         "value": 2
       },
       {
+        "source": "2012-2018_C0",
+        "target": "2015-2021_C3",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 0,
+        "cluster_destino": 3,
+        "value": 4
+      },
+      {
+        "source": "2012-2018_C1",
+        "target": "2015-2021_C0",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 1,
+        "cluster_destino": 0,
+        "value": 4
+      },
+      {
+        "source": "2012-2018_C1",
+        "target": "2015-2021_C1",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 1,
+        "cluster_destino": 1,
+        "value": 646
+      },
+      {
+        "source": "2012-2018_C1",
+        "target": "2015-2021_C2",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 1,
+        "cluster_destino": 2,
+        "value": 18
+      },
+      {
+        "source": "2012-2018_C1",
+        "target": "2015-2021_C3",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 1,
+        "cluster_destino": 3,
+        "value": 22
+      },
+      {
+        "source": "2012-2018_C1",
+        "target": "2015-2021_C4",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 1,
+        "cluster_destino": 4,
+        "value": 20
+      },
+      {
         "source": "2012-2018_C2",
         "target": "2015-2021_C1",
         "ventana_origen": "2012-2018",
         "ventana_destino": "2015-2021",
         "cluster_origen": 2,
         "cluster_destino": 1,
-        "value": 16
+        "value": 18
       },
       {
         "source": "2012-2018_C2",
@@ -1120,7 +1132,7 @@
         "ventana_destino": "2015-2021",
         "cluster_origen": 2,
         "cluster_destino": 2,
-        "value": 367
+        "value": 289
       },
       {
         "source": "2012-2018_C2",
@@ -1129,7 +1141,7 @@
         "ventana_destino": "2015-2021",
         "cluster_origen": 2,
         "cluster_destino": 3,
-        "value": 8
+        "value": 68
       },
       {
         "source": "2012-2018_C2",
@@ -1138,7 +1150,7 @@
         "ventana_destino": "2015-2021",
         "cluster_origen": 2,
         "cluster_destino": 4,
-        "value": 14
+        "value": 17
       },
       {
         "source": "2012-2018_C2",
@@ -1146,233 +1158,161 @@
         "ventana_origen": "2012-2018",
         "ventana_destino": "2015-2021",
         "cluster_origen": 2,
+        "cluster_destino": 5,
+        "value": 12
+      },
+      {
+        "source": "2012-2018_C3",
+        "target": "2015-2021_C1",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 3,
+        "cluster_destino": 1,
+        "value": 4
+      },
+      {
+        "source": "2012-2018_C3",
+        "target": "2015-2021_C2",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 3,
+        "cluster_destino": 2,
+        "value": 2
+      },
+      {
+        "source": "2012-2018_C3",
+        "target": "2015-2021_C3",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 3,
+        "cluster_destino": 3,
+        "value": 458
+      },
+      {
+        "source": "2012-2018_C3",
+        "target": "2015-2021_C4",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 3,
+        "cluster_destino": 4,
+        "value": 18
+      },
+      {
+        "source": "2012-2018_C3",
+        "target": "2015-2021_C5",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 3,
         "cluster_destino": 5,
         "value": 3
       },
       {
-        "source": "2012-2018_C3",
+        "source": "2012-2018_C4",
         "target": "2015-2021_C1",
         "ventana_origen": "2012-2018",
         "ventana_destino": "2015-2021",
-        "cluster_origen": 3,
+        "cluster_origen": 4,
         "cluster_destino": 1,
+        "value": 9
+      },
+      {
+        "source": "2012-2018_C4",
+        "target": "2015-2021_C2",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 4,
+        "cluster_destino": 2,
         "value": 5
       },
       {
-        "source": "2012-2018_C3",
+        "source": "2012-2018_C4",
+        "target": "2015-2021_C3",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 4,
+        "cluster_destino": 3,
+        "value": 197
+      },
+      {
+        "source": "2012-2018_C4",
+        "target": "2015-2021_C4",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 4,
+        "cluster_destino": 4,
+        "value": 383
+      },
+      {
+        "source": "2012-2018_C4",
+        "target": "2015-2021_C5",
+        "ventana_origen": "2012-2018",
+        "ventana_destino": "2015-2021",
+        "cluster_origen": 4,
+        "cluster_destino": 5,
+        "value": 1
+      },
+      {
+        "source": "2012-2018_C5",
         "target": "2015-2021_C2",
         "ventana_origen": "2012-2018",
         "ventana_destino": "2015-2021",
-        "cluster_origen": 3,
+        "cluster_origen": 5,
         "cluster_destino": 2,
         "value": 1
       },
       {
-        "source": "2012-2018_C3",
+        "source": "2012-2018_C5",
         "target": "2015-2021_C3",
         "ventana_origen": "2012-2018",
         "ventana_destino": "2015-2021",
-        "cluster_origen": 3,
+        "cluster_origen": 5,
         "cluster_destino": 3,
-        "value": 66
+        "value": 26
       },
       {
-        "source": "2012-2018_C3",
-        "target": "2015-2021_C4",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 3,
-        "cluster_destino": 4,
-        "value": 4
-      },
-      {
-        "source": "2012-2018_C3",
+        "source": "2012-2018_C5",
         "target": "2015-2021_C5",
         "ventana_origen": "2012-2018",
         "ventana_destino": "2015-2021",
-        "cluster_origen": 3,
+        "cluster_origen": 5,
         "cluster_destino": 5,
+        "value": 148
+      },
+      {
+        "source": "2015-2021_C0",
+        "target": "2018-2024_C0",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 0,
+        "cluster_destino": 0,
+        "value": 96
+      },
+      {
+        "source": "2015-2021_C0",
+        "target": "2018-2024_C1",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 0,
+        "cluster_destino": 1,
+        "value": 10
+      },
+      {
+        "source": "2015-2021_C1",
+        "target": "2018-2024_C0",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 1,
+        "cluster_destino": 0,
         "value": 8
       },
       {
-        "source": "2012-2018_C4",
-        "target": "2015-2021_C0",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 4,
-        "cluster_destino": 0,
-        "value": 11
-      },
-      {
-        "source": "2012-2018_C4",
-        "target": "2015-2021_C1",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 4,
-        "cluster_destino": 1,
-        "value": 99
-      },
-      {
-        "source": "2012-2018_C4",
-        "target": "2015-2021_C2",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 4,
-        "cluster_destino": 2,
-        "value": 137
-      },
-      {
-        "source": "2012-2018_C4",
-        "target": "2015-2021_C3",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 4,
-        "cluster_destino": 3,
-        "value": 1
-      },
-      {
-        "source": "2012-2018_C4",
-        "target": "2015-2021_C4",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 4,
-        "cluster_destino": 4,
-        "value": 361
-      },
-      {
-        "source": "2012-2018_C4",
-        "target": "2015-2021_C5",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 4,
-        "cluster_destino": 5,
-        "value": 102
-      },
-      {
-        "source": "2012-2018_C5",
-        "target": "2015-2021_C0",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 5,
-        "cluster_destino": 0,
-        "value": 23
-      },
-      {
-        "source": "2012-2018_C5",
-        "target": "2015-2021_C1",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 5,
-        "cluster_destino": 1,
-        "value": 21
-      },
-      {
-        "source": "2012-2018_C5",
-        "target": "2015-2021_C2",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 5,
-        "cluster_destino": 2,
-        "value": 34
-      },
-      {
-        "source": "2012-2018_C5",
-        "target": "2015-2021_C3",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 5,
-        "cluster_destino": 3,
-        "value": 4
-      },
-      {
-        "source": "2012-2018_C5",
-        "target": "2015-2021_C4",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 5,
-        "cluster_destino": 4,
-        "value": 28
-      },
-      {
-        "source": "2012-2018_C5",
-        "target": "2015-2021_C5",
-        "ventana_origen": "2012-2018",
-        "ventana_destino": "2015-2021",
-        "cluster_origen": 5,
-        "cluster_destino": 5,
-        "value": 169
-      },
-      {
-        "source": "2015-2021_C0",
-        "target": "2018-2024_C0",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 0,
-        "cluster_destino": 0,
-        "value": 399
-      },
-      {
-        "source": "2015-2021_C0",
-        "target": "2018-2024_C1",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 0,
-        "cluster_destino": 1,
-        "value": 105
-      },
-      {
-        "source": "2015-2021_C0",
-        "target": "2018-2024_C2",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 0,
-        "cluster_destino": 2,
-        "value": 2
-      },
-      {
-        "source": "2015-2021_C0",
-        "target": "2018-2024_C3",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 0,
-        "cluster_destino": 3,
-        "value": 30
-      },
-      {
-        "source": "2015-2021_C0",
-        "target": "2018-2024_C4",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 0,
-        "cluster_destino": 4,
-        "value": 30
-      },
-      {
-        "source": "2015-2021_C0",
-        "target": "2018-2024_C5",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 0,
-        "cluster_destino": 5,
-        "value": 29
-      },
-      {
-        "source": "2015-2021_C1",
-        "target": "2018-2024_C0",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 1,
-        "cluster_destino": 0,
-        "value": 80
-      },
-      {
         "source": "2015-2021_C1",
         "target": "2018-2024_C1",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
         "cluster_origen": 1,
         "cluster_destino": 1,
-        "value": 210
+        "value": 589
       },
       {
         "source": "2015-2021_C1",
@@ -1381,25 +1321,25 @@
         "ventana_destino": "2018-2024",
         "cluster_origen": 1,
         "cluster_destino": 2,
-        "value": 1
-      },
-      {
-        "source": "2015-2021_C1",
-        "target": "2018-2024_C3",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 1,
-        "cluster_destino": 3,
         "value": 16
       },
       {
         "source": "2015-2021_C1",
+        "target": "2018-2024_C3",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 1,
+        "cluster_destino": 3,
+        "value": 9
+      },
+      {
+        "source": "2015-2021_C1",
         "target": "2018-2024_C4",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
         "cluster_origen": 1,
         "cluster_destino": 4,
-        "value": 68
+        "value": 55
       },
       {
         "source": "2015-2021_C1",
@@ -1408,214 +1348,178 @@
         "ventana_destino": "2018-2024",
         "cluster_origen": 1,
         "cluster_destino": 5,
-        "value": 1
-      },
-      {
-        "source": "2015-2021_C2",
-        "target": "2018-2024_C0",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 2,
-        "cluster_destino": 0,
-        "value": 264
-      },
-      {
-        "source": "2015-2021_C2",
-        "target": "2018-2024_C1",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 2,
-        "cluster_destino": 1,
-        "value": 138
-      },
-      {
-        "source": "2015-2021_C2",
-        "target": "2018-2024_C2",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 2,
-        "cluster_destino": 2,
-        "value": 6
-      },
-      {
-        "source": "2015-2021_C2",
-        "target": "2018-2024_C3",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 2,
-        "cluster_destino": 3,
-        "value": 22
-      },
-      {
-        "source": "2015-2021_C2",
-        "target": "2018-2024_C4",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 2,
-        "cluster_destino": 4,
-        "value": 131
-      },
-      {
-        "source": "2015-2021_C2",
-        "target": "2018-2024_C5",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 2,
-        "cluster_destino": 5,
-        "value": 18
-      },
-      {
-        "source": "2015-2021_C3",
-        "target": "2018-2024_C0",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 3,
-        "cluster_destino": 0,
         "value": 2
       },
       {
-        "source": "2015-2021_C3",
+        "source": "2015-2021_C2",
         "target": "2018-2024_C1",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
-        "cluster_origen": 3,
+        "cluster_origen": 2,
         "cluster_destino": 1,
-        "value": 24
+        "value": 64
       },
       {
-        "source": "2015-2021_C3",
+        "source": "2015-2021_C2",
         "target": "2018-2024_C2",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
-        "cluster_origen": 3,
+        "cluster_origen": 2,
         "cluster_destino": 2,
-        "value": 30
+        "value": 234
       },
       {
-        "source": "2015-2021_C3",
+        "source": "2015-2021_C2",
         "target": "2018-2024_C3",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
-        "cluster_origen": 3,
+        "cluster_origen": 2,
         "cluster_destino": 3,
-        "value": 22
+        "value": 4
       },
       {
-        "source": "2015-2021_C3",
+        "source": "2015-2021_C2",
         "target": "2018-2024_C4",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
-        "cluster_origen": 3,
+        "cluster_origen": 2,
         "cluster_destino": 4,
-        "value": 1
-      },
-      {
-        "source": "2015-2021_C3",
-        "target": "2018-2024_C5",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 3,
-        "cluster_destino": 5,
-        "value": 15
-      },
-      {
-        "source": "2015-2021_C4",
-        "target": "2018-2024_C0",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 4,
-        "cluster_destino": 0,
-        "value": 19
-      },
-      {
-        "source": "2015-2021_C4",
-        "target": "2018-2024_C1",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 4,
-        "cluster_destino": 1,
-        "value": 84
-      },
-      {
-        "source": "2015-2021_C4",
-        "target": "2018-2024_C2",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 4,
-        "cluster_destino": 2,
-        "value": 15
-      },
-      {
-        "source": "2015-2021_C4",
-        "target": "2018-2024_C3",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 4,
-        "cluster_destino": 3,
-        "value": 10
-      },
-      {
-        "source": "2015-2021_C4",
-        "target": "2018-2024_C4",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 4,
-        "cluster_destino": 4,
-        "value": 354
-      },
-      {
-        "source": "2015-2021_C4",
-        "target": "2018-2024_C5",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 4,
-        "cluster_destino": 5,
-        "value": 42
-      },
-      {
-        "source": "2015-2021_C5",
-        "target": "2018-2024_C0",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 5,
-        "cluster_destino": 0,
-        "value": 59
-      },
-      {
-        "source": "2015-2021_C5",
-        "target": "2018-2024_C1",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 5,
-        "cluster_destino": 1,
-        "value": 21
-      },
-      {
-        "source": "2015-2021_C5",
-        "target": "2018-2024_C2",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 5,
-        "cluster_destino": 2,
-        "value": 2
-      },
-      {
-        "source": "2015-2021_C5",
-        "target": "2018-2024_C3",
-        "ventana_origen": "2015-2021",
-        "ventana_destino": "2018-2024",
-        "cluster_origen": 5,
-        "cluster_destino": 3,
         "value": 11
       },
       {
+        "source": "2015-2021_C2",
+        "target": "2018-2024_C5",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 2,
+        "cluster_destino": 5,
+        "value": 2
+      },
+      {
+        "source": "2015-2021_C3",
+        "target": "2018-2024_C1",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 3,
+        "cluster_destino": 1,
+        "value": 544
+      },
+      {
+        "source": "2015-2021_C3",
+        "target": "2018-2024_C2",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 3,
+        "cluster_destino": 2,
+        "value": 132
+      },
+      {
+        "source": "2015-2021_C3",
+        "target": "2018-2024_C3",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 3,
+        "cluster_destino": 3,
+        "value": 8
+      },
+      {
+        "source": "2015-2021_C3",
+        "target": "2018-2024_C4",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 3,
+        "cluster_destino": 4,
+        "value": 61
+      },
+      {
+        "source": "2015-2021_C3",
+        "target": "2018-2024_C5",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 3,
+        "cluster_destino": 5,
+        "value": 30
+      },
+      {
+        "source": "2015-2021_C4",
+        "target": "2018-2024_C1",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 4,
+        "cluster_destino": 1,
+        "value": 68
+      },
+      {
+        "source": "2015-2021_C4",
+        "target": "2018-2024_C2",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 4,
+        "cluster_destino": 2,
+        "value": 38
+      },
+      {
+        "source": "2015-2021_C4",
+        "target": "2018-2024_C3",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 4,
+        "cluster_destino": 3,
+        "value": 12
+      },
+      {
+        "source": "2015-2021_C4",
+        "target": "2018-2024_C4",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 4,
+        "cluster_destino": 4,
+        "value": 319
+      },
+      {
+        "source": "2015-2021_C4",
+        "target": "2018-2024_C5",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 4,
+        "cluster_destino": 5,
+        "value": 1
+      },
+      {
+        "source": "2015-2021_C5",
+        "target": "2018-2024_C1",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 5,
+        "cluster_destino": 1,
+        "value": 1
+      },
+      {
+        "source": "2015-2021_C5",
+        "target": "2018-2024_C2",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 5,
+        "cluster_destino": 2,
+        "value": 7
+      },
+      {
+        "source": "2015-2021_C5",
+        "target": "2018-2024_C3",
+        "ventana_origen": "2015-2021",
+        "ventana_destino": "2018-2024",
+        "cluster_origen": 5,
+        "cluster_destino": 3,
+        "value": 1
+      },
+      {
         "source": "2015-2021_C5",
         "target": "2018-2024_C4",
         "ventana_origen": "2015-2021",
         "ventana_destino": "2018-2024",
         "cluster_origen": 5,
         "cluster_destino": 4,
-        "value": 63
+        "value": 2
       },
       {
         "source": "2015-2021_C5",

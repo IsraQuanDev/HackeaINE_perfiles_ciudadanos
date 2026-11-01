@@ -1,28 +1,28 @@
 {
-  "version_prompts": "1.0",
+  "version_prompts": "2.0",
   "verificador_grounding_activo": true,
   "narrativas_perfiles": [
     {
       "cluster_id": 0,
       "nombre": "Cohesión Comunitaria Sostenida",
       "lema": "Territorios de alta participación constante en elecciones presidenciales e intermedias",
-      "descripcion_narrativa": "El perfil territorial 0, denominado Cohesión Comunitaria Sostenida, agrupa 539 municipios del país con una lista nominal acumulada en 2024 de 8,089,025 personas inscritas, teniendo presencia destacada en entidades como JALISCO. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 67.76% y una diferencia promedio entre elecciones presidenciales e intermedias de 4.04 puntos porcentuales, con una pendiente temporal de 0.03 puntos por ciclo electoral. Su composición territorial presenta 34.87% de lista nominal en secciones rurales, una participación juvenil media de 62.28% frente a 69.85% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 7.91 puntos.",
-      "comunidad_ilustrativa": "[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a GÃ³mez FarÃ­as (TAMAULIPAS), donde el padrón presenta 34.87% de secciones rurales y una participación histórica media de 67.76%.",
+      "descripcion_narrativa": "El perfil territorial 0, denominado Cohesión Comunitaria Sostenida, agrupa 111 municipios del país con una lista nominal acumulada en 2024 de 1,718,428 personas inscritas, teniendo presencia destacada en entidades como Yucatán. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 79.26% y una diferencia promedio entre elecciones presidenciales e intermedias de 12.18 puntos porcentuales, con una pendiente temporal de 2.58 puntos por ciclo electoral. Su composición territorial presenta 11.93% de lista nominal en secciones rurales, una participación juvenil media de 75.14% frente a 81.82% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 7.42 puntos.",
+      "comunidad_ilustrativa": "[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Baca (Yucatán, clave INEGI 31004), con participación histórica media de 81.14% dentro de un perfil que promedia 79.26% de participación y 11.93% de lista nominal en secciones rurales.",
       "datos_clave": [
         {
           "indicador": "part_media_global.media_pct",
-          "descripcion": "Participación media histórica 2009-2024 de 67.76% en los 539 municipios del perfil.",
-          "evidencia": 67.76
+          "descripcion": "Participación media histórica 2009-2024 de 79.26% en los 111 municipios del perfil.",
+          "evidencia": 79.26
         },
         {
           "indicador": "caida_presidencial_intermedia.media_pct",
-          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 4.04 puntos porcentuales.",
-          "evidencia": 4.04
+          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 12.18 puntos porcentuales.",
+          "evidencia": 12.18
         },
         {
           "indicador": "pct_ln_rural.media_pct",
-          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 34.87%.",
-          "evidencia": 34.87
+          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 11.93%.",
+          "evidencia": 11.93
         }
       ],
       "tono_comunicacion": "Reconocimiento al compromiso comunitario, corresponsabilidad intergeneracional y preservación de asambleas informativas locales."
@@ -31,23 +31,23 @@
       "cluster_id": 1,
       "nombre": "Participación Rural y Femenina",
       "lema": "Municipios con mayoría de secciones rurales, ascenso sostenido y liderazgo cívico de mujeres",
-      "descripcion_narrativa": "El perfil territorial 1, denominado Participación Rural y Femenina, agrupa 378 municipios del país con una lista nominal acumulada en 2024 de 6,851,597 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 59.2% y una diferencia promedio entre elecciones presidenciales e intermedias de 9.1 puntos porcentuales, con una pendiente temporal de 1.72 puntos por ciclo electoral. Su composición territorial presenta 55.92% de lista nominal en secciones rurales, una participación juvenil media de 49.18% frente a 65.57% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 11.35 puntos.",
-      "comunidad_ilustrativa": "[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a Charo (MICHOACAN), donde el padrón presenta 55.92% de secciones rurales y una participación histórica media de 59.2%.",
+      "descripcion_narrativa": "El perfil territorial 1, denominado Participación Rural y Femenina, agrupa 537 municipios del país con una lista nominal acumulada en 2024 de 23,639,337 personas inscritas, teniendo presencia destacada en entidades como Jalisco. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 65.08% y una diferencia promedio entre elecciones presidenciales e intermedias de 4.52 puntos porcentuales, con una pendiente temporal de 0.18 puntos por ciclo electoral. Su composición territorial presenta 31.78% de lista nominal en secciones rurales, una participación juvenil media de 59.98% frente a 68.84% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 8.91 puntos.",
+      "comunidad_ilustrativa": "[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Mazamitla (Jalisco, clave INEGI 14061), con participación histórica media de 66.07% dentro de un perfil que promedia 65.08% de participación y 31.78% de lista nominal en secciones rurales.",
       "datos_clave": [
         {
           "indicador": "part_media_global.media_pct",
-          "descripcion": "Participación media histórica 2009-2024 de 59.2% en los 378 municipios del perfil.",
-          "evidencia": 59.2
+          "descripcion": "Participación media histórica 2009-2024 de 65.08% en los 537 municipios del perfil.",
+          "evidencia": 65.08
         },
         {
           "indicador": "caida_presidencial_intermedia.media_pct",
-          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 9.1 puntos porcentuales.",
-          "evidencia": 9.1
+          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 4.52 puntos porcentuales.",
+          "evidencia": 4.52
         },
         {
           "indicador": "pct_ln_rural.media_pct",
-          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 55.92%.",
-          "evidencia": 55.92
+          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 31.78%.",
+          "evidencia": 31.78
         }
       ],
       "tono_comunicacion": "Comunicación comunitaria cercana, perifoneo local, radio regional y fortalecimiento del liderazgo cívico de las mujeres."
@@ -56,23 +56,23 @@
       "cluster_id": 2,
       "nombre": "Impulso Cívico en Ascenso",
       "lema": "Territorios con fuerte crecimiento de participación entre 2009 y 2024 y brecha en intermedias",
-      "descripcion_narrativa": "El perfil territorial 2, denominado Impulso Cívico en Ascenso, agrupa 440 municipios del país con una lista nominal acumulada en 2024 de 13,283,697 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 55.13% y una diferencia promedio entre elecciones presidenciales e intermedias de 20.63 puntos porcentuales, con una pendiente temporal de 4.39 puntos por ciclo electoral. Su composición territorial presenta 22.39% de lista nominal en secciones rurales, una participación juvenil media de 47.09% frente a 61.02% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 7.31 puntos.",
-      "comunidad_ilustrativa": "[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a San Pedro y San Pablo Teposcolula (OAXACA), donde el padrón presenta 22.39% de secciones rurales y una participación histórica media de 55.13%.",
+      "descripcion_narrativa": "El perfil territorial 2, denominado Impulso Cívico en Ascenso, agrupa 425 municipios del país con una lista nominal acumulada en 2024 de 9,287,589 personas inscritas, teniendo presencia destacada en entidades como Veracruz. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 61.78% y una diferencia promedio entre elecciones presidenciales e intermedias de 8.22 puntos porcentuales, con una pendiente temporal de 1.36 puntos por ciclo electoral. Su composición territorial presenta 57.89% de lista nominal en secciones rurales, una participación juvenil media de 49.83% frente a 69.45% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 10.0 puntos.",
+      "comunidad_ilustrativa": "[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Altotonga (Veracruz, clave INEGI 30011), con participación histórica media de 59.9% dentro de un perfil que promedia 61.78% de participación y 57.89% de lista nominal en secciones rurales.",
       "datos_clave": [
         {
           "indicador": "part_media_global.media_pct",
-          "descripcion": "Participación media histórica 2009-2024 de 55.13% en los 440 municipios del perfil.",
-          "evidencia": 55.13
+          "descripcion": "Participación media histórica 2009-2024 de 61.78% en los 425 municipios del perfil.",
+          "evidencia": 61.78
         },
         {
           "indicador": "caida_presidencial_intermedia.media_pct",
-          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 20.63 puntos porcentuales.",
-          "evidencia": 20.63
+          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 8.22 puntos porcentuales.",
+          "evidencia": 8.22
         },
         {
           "indicador": "pct_ln_rural.media_pct",
-          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 22.39%.",
-          "evidencia": 22.39
+          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 57.89%.",
+          "evidencia": 57.89
         }
       ],
       "tono_comunicacion": "Mensaje constructivo de consolidación democrática, enfocado en sostener el crecimiento en los comicios intermedios de 2027."
@@ -81,23 +81,23 @@
       "cluster_id": 3,
       "nombre": "Dinámica Local Volátil",
       "lema": "Municipios con alta variabilidad entre ciclos electorales que requieren acompañamiento focalizado",
-      "descripcion_narrativa": "El perfil territorial 3, denominado Dinámica Local Volátil, agrupa 79 municipios del país con una lista nominal acumulada en 2024 de 715,243 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 51.29% y una diferencia promedio entre elecciones presidenciales e intermedias de -5.93 puntos porcentuales, con una pendiente temporal de -1.37 puntos por ciclo electoral. Su composición territorial presenta 34.71% de lista nominal en secciones rurales, una participación juvenil media de 43.94% frente a 55.18% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 5.4 puntos.",
-      "comunidad_ilustrativa": "[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a AmatitlÃ¡n (VERACRUZ), donde el padrón presenta 34.71% de secciones rurales y una participación histórica media de 51.29%.",
+      "descripcion_narrativa": "El perfil territorial 3, denominado Dinámica Local Volátil, agrupa 554 municipios del país con una lista nominal acumulada en 2024 de 18,074,124 personas inscritas, teniendo presencia destacada en entidades como Puebla. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 58.03% y una diferencia promedio entre elecciones presidenciales e intermedias de 18.29 puntos porcentuales, con una pendiente temporal de 5.97 puntos por ciclo electoral. Su composición territorial presenta 31.45% de lista nominal en secciones rurales, una participación juvenil media de 50.36% frente a 64.12% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 8.29 puntos.",
+      "comunidad_ilustrativa": "[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): Oriental (Puebla, clave INEGI 21109), con participación histórica media de 59.82% dentro de un perfil que promedia 58.03% de participación y 31.45% de lista nominal en secciones rurales.",
       "datos_clave": [
         {
           "indicador": "part_media_global.media_pct",
-          "descripcion": "Participación media histórica 2009-2024 de 51.29% en los 79 municipios del perfil.",
-          "evidencia": 51.29
+          "descripcion": "Participación media histórica 2009-2024 de 58.03% en los 554 municipios del perfil.",
+          "evidencia": 58.03
         },
         {
           "indicador": "caida_presidencial_intermedia.media_pct",
-          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de -5.93 puntos porcentuales.",
-          "evidencia": -5.93
+          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 18.29 puntos porcentuales.",
+          "evidencia": 18.29
         },
         {
           "indicador": "pct_ln_rural.media_pct",
-          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 34.71%.",
-          "evidencia": 34.71
+          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 31.45%.",
+          "evidencia": 31.45
         }
       ],
       "tono_comunicacion": "Pedagogía cívica continua y fortalecimiento de condiciones operativas e informativas en cada proceso electoral."
@@ -106,23 +106,23 @@
       "cluster_id": 4,
       "nombre": "Dinámica Urbana Intermitente",
       "lema": "Centros urbanos y mixtos con amplia brecha generacional entre jóvenes y adultos mayores",
-      "descripcion_narrativa": "El perfil territorial 4, denominado Dinámica Urbana Intermitente, agrupa 553 municipios del país con una lista nominal acumulada en 2024 de 57,777,865 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 50.08% y una diferencia promedio entre elecciones presidenciales e intermedias de 10.99 puntos porcentuales, con una pendiente temporal de -0.01 puntos por ciclo electoral. Su composición territorial presenta 23.78% de lista nominal en secciones rurales, una participación juvenil media de 39.65% frente a 59.01% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 8.48 puntos.",
-      "comunidad_ilustrativa": "[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a Salamanca (GUANAJUATO), donde el padrón presenta 23.78% de secciones rurales y una participación histórica media de 50.08%.",
+      "descripcion_narrativa": "El perfil territorial 4, denominado Dinámica Urbana Intermitente, agrupa 659 municipios del país con una lista nominal acumulada en 2024 de 45,053,420 personas inscritas, teniendo presencia destacada en entidades como Oaxaca. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 49.97% y una diferencia promedio entre elecciones presidenciales e intermedias de 13.58 puntos porcentuales, con una pendiente temporal de 1.72 puntos por ciclo electoral. Su composición territorial presenta 27.52% de lista nominal en secciones rurales, una participación juvenil media de 40.45% frente a 56.88% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 6.72 puntos.",
+      "comunidad_ilustrativa": "[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): La Antigua (Veracruz, clave INEGI 30017), con participación histórica media de 52.7% dentro de un perfil que promedia 49.97% de participación y 27.52% de lista nominal en secciones rurales.",
       "datos_clave": [
         {
           "indicador": "part_media_global.media_pct",
-          "descripcion": "Participación media histórica 2009-2024 de 50.08% en los 553 municipios del perfil.",
-          "evidencia": 50.08
+          "descripcion": "Participación media histórica 2009-2024 de 49.97% en los 659 municipios del perfil.",
+          "evidencia": 49.97
         },
         {
           "indicador": "caida_presidencial_intermedia.media_pct",
-          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 10.99 puntos porcentuales.",
-          "evidencia": 10.99
+          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 13.58 puntos porcentuales.",
+          "evidencia": 13.58
         },
         {
           "indicador": "pct_ln_rural.media_pct",
-          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 23.78%.",
-          "evidencia": 23.78
+          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 27.52%.",
+          "evidencia": 27.52
         }
       ],
       "tono_comunicacion": "Comunicación digital hiperlocal, vinculación con universidades y empleadores para facilitar el primer voto juvenil."
@@ -131,23 +131,23 @@
       "cluster_id": 5,
       "nombre": "Prioridad de Reactivación Cívica",
       "lema": "Territorios con retos de abstención estructural en elecciones intermedias que requieren atención prioritaria",
-      "descripcion_narrativa": "El perfil territorial 5, denominado Prioridad de Reactivación Cívica, agrupa 488 municipios del país con una lista nominal acumulada en 2024 de 11,612,921 personas inscritas, teniendo presencia destacada en entidades como OAXACA. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 49.62% y una diferencia promedio entre elecciones presidenciales e intermedias de 10.79 puntos porcentuales, con una pendiente temporal de 1.97 puntos por ciclo electoral. Su composición territorial presenta 35.22% de lista nominal en secciones rurales, una participación juvenil media de 39.92% frente a 54.33% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 4.6 puntos.",
-      "comunidad_ilustrativa": "[EJEMPLO FICTICIO ILUSTRATIVO DE COMUNIDAD TERRITORIAL, NO PERSONA INDIVIDUAL] Municipio tipo con características estadísticas similares a Vega de Alatorre (VERACRUZ), donde el padrón presenta 35.22% de secciones rurales y una participación histórica media de 49.62%.",
+      "descripcion_narrativa": "El perfil territorial 5, denominado Prioridad de Reactivación Cívica, agrupa 191 municipios del país con una lista nominal acumulada en 2024 de 557,450 personas inscritas, teniendo presencia destacada en entidades como Oaxaca. En el ciclo histórico 2009 a 2024 registra una tasa de participación media global de 49.76% y una diferencia promedio entre elecciones presidenciales e intermedias de 12.12 puntos porcentuales, con una pendiente temporal de 1.36 puntos por ciclo electoral. Su composición territorial presenta 22.57% de lista nominal en secciones rurales, una participación juvenil media de 34.63% frente a 56.17% en personas mayores de sesenta años, y una brecha media entre mujeres y hombres de 4.67 puntos.",
+      "comunidad_ilustrativa": "[DATO REAL · MUNICIPIO PROTOTIPO MEDOIDE DEL PERFIL, COMUNIDAD TERRITORIAL NO PERSONA INDIVIDUAL] Municipio prototipo real (medoide de menor distancia al centroide del perfil): San Pedro Molinos (Oaxaca, clave INEGI 20318), con participación histórica media de 52.38% dentro de un perfil que promedia 49.76% de participación y 22.57% de lista nominal en secciones rurales.",
       "datos_clave": [
         {
           "indicador": "part_media_global.media_pct",
-          "descripcion": "Participación media histórica 2009-2024 de 49.62% en los 488 municipios del perfil.",
-          "evidencia": 49.62
+          "descripcion": "Participación media histórica 2009-2024 de 49.76% en los 191 municipios del perfil.",
+          "evidencia": 49.76
         },
         {
           "indicador": "caida_presidencial_intermedia.media_pct",
-          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 10.79 puntos porcentuales.",
-          "evidencia": 10.79
+          "descripcion": "Diferencia media entre elecciones presidenciales e intermedias de 12.12 puntos porcentuales.",
+          "evidencia": 12.12
         },
         {
           "indicador": "pct_ln_rural.media_pct",
-          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 35.22%.",
-          "evidencia": 35.22
+          "descripcion": "Proporción media de lista nominal en secciones rurales equivalente a 22.57%.",
+          "evidencia": 22.57
         }
       ],
       "tono_comunicacion": "Empatía institucional, eliminación de barreras de traslado e información accesible sobre ubicación de casillas y derechos ciudadanos."
@@ -157,7 +157,7 @@
     {
       "cluster_id": 0,
       "nombre_perfil": "Cohesión Comunitaria Sostenida",
-      "objetivo": "Incrementar la asistencia a las urnas de las juventudes (18 a 29 años) en entornos urbanos y mixtos para reducir la brecha generacional frente al grupo de 60+ años.",
+      "objetivo": "Reducir la brecha de abstención entre elecciones presidenciales e intermedias mediante campañas informativas sobre las atribuciones de la Cámara de Diputados en la elección 2027.",
       "canales": [
         "Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla'",
         "Foros presenciales en universidades, tecnológicos y planteles de educación media superior",
@@ -170,22 +170,22 @@
         "Instituciones de Educación Superior y Media Superior públicas y privadas",
         "Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista"
       ],
-      "accion_concreta": "Ejecutar circuitos universitarios y de educación media superior 'Mi Primer Voto 2027' junto con recordatorios digitales geolocalizados del sistema 'Ubica tu Casilla' del INE.",
-      "kpi_medible": "Tasa de participación media del grupo de 18 a 29 años en el perfil (%)",
-      "linea_base": 62.28,
+      "accion_concreta": "Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.",
+      "kpi_medible": "Tasa de participación media del perfil en elección federal intermedia (%)",
+      "linea_base": 73.22,
       "unidad_kpi": "%",
-      "meta_2027": 65.28,
+      "meta_2027": 75.72,
       "riesgo_consideracion_etica": "Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).",
       "fundamento_institucional_ine": "Fundamentado en los ejes de la Estrategia Nacional de Cultura Cívica (ENCCÍVICA: Verdad, Diálogo y Exigencia) y en los Programas de Promoción de la Participación Ciudadana de la DECEyEC del INE."
     },
     {
       "cluster_id": 1,
       "nombre_perfil": "Participación Rural y Femenina",
-      "objetivo": "Fortalecer la cobertura informativa y accesibilidad electoral en secciones rurales y mixtas y promover el conocimiento oportuno de la ubicación de casillas.",
+      "objetivo": "Incrementar la asistencia a las urnas de las juventudes (18 a 29 años) en entornos urbanos y mixtos para reducir la brecha generacional frente al grupo de 60+ años.",
       "canales": [
-        "Radios comunitarias y perifoneo en localidades rurales y mixtas",
-        "Asambleas informativas presenciales coordinadas por Juntas Distritales Ejecutivas del INE",
-        "Materiales impresos y señalética comunitaria en centros de salud, mercados y plazas públicas"
+        "Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla'",
+        "Foros presenciales en universidades, tecnológicos y planteles de educación media superior",
+        "Comunicación institucional en transporte público y centros de trabajo"
       ],
       "mensaje_central": "Municipios con mayoría de secciones rurales, ascenso sostenido y liderazgo cívico de mujeres",
       "aliados_institucionales": [
@@ -194,22 +194,22 @@
         "Instituciones de Educación Superior y Media Superior públicas y privadas",
         "Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista"
       ],
-      "accion_concreta": "Implementar brigadas itinerantes de capacitación cívica DECEyEC en cabeceras y localidades rurales, acompañadas de cápsulas informativas en radios comunitarias y lenguas nacionales.",
-      "kpi_medible": "Tasa de participación media en elección intermedia en municipios del perfil (%)",
-      "linea_base": 54.66,
+      "accion_concreta": "Ejecutar circuitos universitarios y de educación media superior 'Mi Primer Voto 2027' junto con recordatorios digitales geolocalizados del sistema 'Ubica tu Casilla' del INE.",
+      "kpi_medible": "Tasa de participación media del grupo de 18 a 29 años en el perfil (%)",
+      "linea_base": 59.98,
       "unidad_kpi": "%",
-      "meta_2027": 56.66,
+      "meta_2027": 62.98,
       "riesgo_consideracion_etica": "Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).",
       "fundamento_institucional_ine": "Fundamentado en los ejes de la Estrategia Nacional de Cultura Cívica (ENCCÍVICA: Verdad, Diálogo y Exigencia) y en los Programas de Promoción de la Participación Ciudadana de la DECEyEC del INE."
     },
     {
       "cluster_id": 2,
       "nombre_perfil": "Impulso Cívico en Ascenso",
-      "objetivo": "Reducir la brecha de abstención entre elecciones presidenciales e intermedias mediante campañas informativas sobre las atribuciones de la Cámara de Diputados en la elección 2027.",
+      "objetivo": "Fortalecer la cobertura informativa y accesibilidad electoral en secciones rurales y mixtas y promover el conocimiento oportuno de la ubicación de casillas.",
       "canales": [
-        "Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla'",
-        "Foros presenciales en universidades, tecnológicos y planteles de educación media superior",
-        "Comunicación institucional en transporte público y centros de trabajo"
+        "Radios comunitarias y perifoneo en localidades rurales y mixtas",
+        "Asambleas informativas presenciales coordinadas por Juntas Distritales Ejecutivas del INE",
+        "Materiales impresos y señalética comunitaria en centros de salud, mercados y plazas públicas"
       ],
       "mensaje_central": "Territorios con fuerte crecimiento de participación entre 2009 y 2024 y brecha en intermedias",
       "aliados_institucionales": [
@@ -218,18 +218,18 @@
         "Instituciones de Educación Superior y Media Superior públicas y privadas",
         "Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista"
       ],
-      "accion_concreta": "Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.",
-      "kpi_medible": "Tasa de participación media del perfil en elección federal intermedia (%)",
-      "linea_base": 44.81,
+      "accion_concreta": "Implementar brigadas itinerantes de capacitación cívica DECEyEC en cabeceras y localidades rurales, acompañadas de cápsulas informativas en radios comunitarias y lenguas nacionales.",
+      "kpi_medible": "Tasa de participación media en elección intermedia en municipios del perfil (%)",
+      "linea_base": 57.68,
       "unidad_kpi": "%",
-      "meta_2027": 47.31,
+      "meta_2027": 59.68,
       "riesgo_consideracion_etica": "Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).",
       "fundamento_institucional_ine": "Fundamentado en los ejes de la Estrategia Nacional de Cultura Cívica (ENCCÍVICA: Verdad, Diálogo y Exigencia) y en los Programas de Promoción de la Participación Ciudadana de la DECEyEC del INE."
     },
     {
       "cluster_id": 3,
       "nombre_perfil": "Dinámica Local Volátil",
-      "objetivo": "Incrementar la asistencia a las urnas de las juventudes (18 a 29 años) en entornos urbanos y mixtos para reducir la brecha generacional frente al grupo de 60+ años.",
+      "objetivo": "Reducir la brecha de abstención entre elecciones presidenciales e intermedias mediante campañas informativas sobre las atribuciones de la Cámara de Diputados en la elección 2027.",
       "canales": [
         "Plataformas digitales, mensajería móvil e integración con el portal 'Ubica tu Casilla'",
         "Foros presenciales en universidades, tecnológicos y planteles de educación media superior",
@@ -242,11 +242,11 @@
         "Instituciones de Educación Superior y Media Superior públicas y privadas",
         "Organizaciones de la sociedad civil y redes comunitarias acreditadas sin filiación partidista"
       ],
-      "accion_concreta": "Ejecutar circuitos universitarios y de educación media superior 'Mi Primer Voto 2027' junto con recordatorios digitales geolocalizados del sistema 'Ubica tu Casilla' del INE.",
-      "kpi_medible": "Tasa de participación media del grupo de 18 a 29 años en el perfil (%)",
-      "linea_base": 43.94,
+      "accion_concreta": "Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.",
+      "kpi_medible": "Tasa de participación media del perfil en elección federal intermedia (%)",
+      "linea_base": 49.14,
       "unidad_kpi": "%",
-      "meta_2027": 46.94,
+      "meta_2027": 51.64,
       "riesgo_consideracion_etica": "Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).",
       "fundamento_institucional_ine": "Fundamentado en los ejes de la Estrategia Nacional de Cultura Cívica (ENCCÍVICA: Verdad, Diálogo y Exigencia) y en los Programas de Promoción de la Participación Ciudadana de la DECEyEC del INE."
     },
@@ -268,9 +268,9 @@
       ],
       "accion_concreta": "Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.",
       "kpi_medible": "Tasa de participación media del perfil en elección federal intermedia (%)",
-      "linea_base": 44.59,
+      "linea_base": 43.23,
       "unidad_kpi": "%",
-      "meta_2027": 47.09,
+      "meta_2027": 45.73,
       "riesgo_consideracion_etica": "Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).",
       "fundamento_institucional_ine": "Fundamentado en los ejes de la Estrategia Nacional de Cultura Cívica (ENCCÍVICA: Verdad, Diálogo y Exigencia) y en los Programas de Promoción de la Participación Ciudadana de la DECEyEC del INE."
     },
@@ -292,11 +292,67 @@
       ],
       "accion_concreta": "Desplegar jornadas de Diálogos Comunitarios y Foros Informativos Distritales en los 60 días previos a la jornada electoral de 2027, explicando qué se elige en una elección intermedia.",
       "kpi_medible": "Tasa de participación media del perfil en elección federal intermedia (%)",
-      "linea_base": 44.23,
+      "linea_base": 43.76,
       "unidad_kpi": "%",
-      "meta_2027": 46.73,
+      "meta_2027": 46.26,
       "riesgo_consideracion_etica": "Preservar en todo momento la estricta neutralidad e imparcialidad constitucional del INE; evitar mensajes que culpabilicen al electorado por la abstención y recordar que el perfil describe condiciones agregadas del municipio (prevención de falacia ecológica).",
       "fundamento_institucional_ine": "Fundamentado en los ejes de la Estrategia Nacional de Cultura Cívica (ENCCÍVICA: Verdad, Diálogo y Exigencia) y en los Programas de Promoción de la Participación Ciudadana de la DECEyEC del INE."
+    }
+  ],
+  "insights_verificados_sql": [
+    {
+      "id": "INS-01",
+      "categoria": "Curva de Edad (8 Grupos)",
+      "titulo": "El valle post-primer voto entre los 20 y 29 años",
+      "hallazgo": "Detectamos que en 2024 las juventudes de primer voto (18-19 años) participaron al 53.06%, pero la asistencia cae a 45.2% en el grupo 20-24 y a 44.15% en 25-29 años (-8.91 p.p.), antes de recuperarse hasta 69.9% en el grupo de 60-69 años.",
+      "metrica_destacada": "-8.91 p.p.",
+      "sql_verificacion": "SELECT ROUND(SUM(CASE WHEN grupo_edad='18-19' THEN votantes ELSE 0 END)::DOUBLE / SUM(CASE WHEN grupo_edad='18-19' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_18_19, ROUND(SUM(CASE WHEN grupo_edad='20-24' THEN votantes ELSE 0 END)::DOUBLE / SUM(CASE WHEN grupo_edad='20-24' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_20_24, ROUND(SUM(CASE WHEN grupo_edad='25-29' THEN votantes ELSE 0 END)::DOUBLE / SUM(CASE WHEN grupo_edad='25-29' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_25_29, ROUND(SUM(CASE WHEN grupo_edad='60-69' THEN votantes ELSE 0 END)::DOUBLE / SUM(CASE WHEN grupo_edad='60-69' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_60_69 FROM v_municipio_edad_8grupos WHERE anio = 2024",
+      "vista_destino": "perfiles"
+    },
+    {
+      "id": "INS-02",
+      "categoria": "Brecha de Género",
+      "titulo": "Liderazgo sostenido de participación femenina nacional",
+      "hallazgo": "Detectamos que en la elección federal 2024 las mujeres registraron una tasa de participación de 62.02% frente a 52.87% en hombres, consolidando una ventaja cívica femenina de +9.14 puntos porcentuales a nivel nacional.",
+      "metrica_destacada": "+9.14 p.p.",
+      "sql_verificacion": "SELECT ROUND(SUM(votantes_mujeres)::DOUBLE / SUM(ln_mujeres) * 100, 2) AS p_muj, ROUND(SUM(votantes_hombres)::DOUBLE / SUM(ln_hombres) * 100, 2) AS p_hom, ROUND((SUM(votantes_mujeres)::DOUBLE / SUM(ln_mujeres) - SUM(votantes_hombres)::DOUBLE / SUM(ln_hombres)) * 100, 2) AS brecha_pp FROM v_municipio_eleccion WHERE anio = 2024 AND participacion IS NOT NULL",
+      "vista_destino": "mapa"
+    },
+    {
+      "id": "INS-03",
+      "categoria": "Ciclo Electoral",
+      "titulo": "Contracción estructural en elecciones intermedias",
+      "hallazgo": "Detectamos que la participación nacional promedio en comicios presidenciales alcanza 58.37%, mientras que en elecciones intermedias desciende a 45.81%, una brecha agregada de 12.56 puntos porcentuales.",
+      "metrica_destacada": "-12.56 p.p.",
+      "sql_verificacion": "SELECT ROUND(SUM(CASE WHEN tipo_eleccion='presidencial' THEN votantes ELSE 0 END)::DOUBLE / SUM(CASE WHEN tipo_eleccion='presidencial' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_pres, ROUND(SUM(CASE WHEN tipo_eleccion='intermedia' THEN votantes ELSE 0 END)::DOUBLE / SUM(CASE WHEN tipo_eleccion='intermedia' THEN lista_nominal ELSE 0 END) * 100, 2) AS p_inter FROM v_entidad_eleccion WHERE modalidad = 'presencial'",
+      "vista_destino": "dinamica"
+    },
+    {
+      "id": "INS-04",
+      "categoria": "Econometría Espacial",
+      "titulo": "Fuerte contagio territorial de la participación (Moran's I)",
+      "hallazgo": "Detectamos una autocorrelación espacial global altamente significativa (I de Moran = 0.4526, p = 0.001), con 336 municipios en corredores de alta participación (Hotspots HH) y 497 en polos de abstención (Coldspots LL).",
+      "metrica_destacada": "I = 0.4526",
+      "sql_verificacion": "SELECT ROUND(FIRST(moran_global_i), 4) AS moran_i, SUM(CASE WHEN lisa_cluster = 'HH (Alto-Alto)' THEN 1 ELSE 0 END) AS n_hh, SUM(CASE WHEN lisa_cluster = 'LL (Bajo-Bajo)' THEN 1 ELSE 0 END) AS n_ll FROM features_municipio",
+      "vista_destino": "mapa"
+    },
+    {
+      "id": "INS-05",
+      "categoria": "Cohesión Comunitaria",
+      "titulo": "Mayor participación en municipios predominantemente rurales",
+      "hallazgo": "Detectamos que los 742 municipios con mayoría de lista nominal rural (>=50%) promedian 60.68% de participación histórica frente a 57.38% en municipios urbanos y mixtos (+3.3 p.p.).",
+      "metrica_destacada": "+3.3 p.p.",
+      "sql_verificacion": "SELECT ROUND(AVG(CASE WHEN pct_ln_rural >= 0.5 THEN part_media_global END) * 100, 2) AS p_rural, ROUND(AVG(CASE WHEN pct_ln_rural < 0.5 THEN part_media_global END) * 100, 2) AS p_urb, SUM(CASE WHEN pct_ln_rural >= 0.5 THEN 1 ELSE 0 END) AS n_rural FROM features_municipio",
+      "vista_destino": "perfiles"
+    },
+    {
+      "id": "INS-06",
+      "categoria": "Alerta Temprana 2027",
+      "titulo": "Focalización de zonas de riesgo para la intermedia 2027",
+      "hallazgo": "Detectamos 189 municipios en zona de riesgo prioritario para 2027 (participación esperada media de 61.06%), los cuales concentran una lista nominal proyectada de 16,724,132 ciudadanas y ciudadanos.",
+      "metrica_destacada": "189 muns.",
+      "sql_verificacion": "SELECT SUM(CASE WHEN es_zona_riesgo_2027 THEN 1 ELSE 0 END) AS n_riesgo, SUM(CASE WHEN es_zona_riesgo_2027 THEN ln_proyectada_2027 ELSE 0 END) AS ln_riesgo, ROUND(AVG(CASE WHEN es_zona_riesgo_2027 THEN proyeccion_part_2027 END) * 100, 2) AS p_riesgo_2027 FROM proyeccion_2027",
+      "vista_destino": "pronostico"
     }
   ],
   "ejemplos_chat_precalculados": [
@@ -319,232 +375,232 @@
     {
       "pregunta": "¿Qué entidades federativas tuvieron la mayor participación presencial en 2024?",
       "es_respondible": true,
-      "respuesta_natural": "Consulta verificada sobre el catálogo DuckDB (32 fila(s) recuperadas). Resultado principal: cve_ent=09, nom_ent=CIUDAD DE MEXICO, lista_nominal=7918590.0, votantes=5383288.0, participacion_pct=67.98.",
+      "respuesta_natural": "Consulta verificada sobre el catálogo DuckDB (32 fila(s) recuperadas). Resultado principal: cve_ent=31, nom_ent=Yucatán, lista_nominal=1766077.0, votantes=1165576.0, participacion_pct=71.45.",
       "sql_usado": "SELECT cve_ent, nom_ent, lista_nominal, votantes, ROUND(participacion * 100, 2) AS participacion_pct FROM v_entidad_eleccion WHERE modalidad = 'presencial' AND anio = 2024 ORDER BY participacion DESC LIMIT 32",
       "tabla_respaldo": [
         {
-          "cve_ent": "09",
-          "nom_ent": "CIUDAD DE MEXICO",
-          "lista_nominal": 7918590.0,
-          "votantes": 5383288.0,
-          "participacion_pct": 67.98
-        },
-        {
           "cve_ent": "31",
-          "nom_ent": "YUCATAN",
+          "nom_ent": "Yucatán",
           "lista_nominal": 1766077.0,
           "votantes": 1165576.0,
-          "participacion_pct": 66.0
+          "participacion_pct": 71.45
         },
         {
           "cve_ent": "29",
-          "nom_ent": "TLAXCALA",
+          "nom_ent": "Tlaxcala",
           "lista_nominal": 1042696.0,
           "votantes": 684285.0,
-          "participacion_pct": 65.63
+          "participacion_pct": 70.09
         },
         {
-          "cve_ent": "15",
-          "nom_ent": "ESTADO DE MEXICO",
-          "lista_nominal": 13026772.0,
-          "votantes": 7959555.0,
-          "participacion_pct": 61.1
-        },
-        {
-          "cve_ent": "13",
-          "nom_ent": "HIDALGO",
-          "lista_nominal": 2386306.0,
-          "votantes": 1427044.0,
-          "participacion_pct": 59.8
-        },
-        {
-          "cve_ent": "22",
-          "nom_ent": "QUERETARO",
-          "lista_nominal": 1899053.0,
-          "votantes": 1131708.0,
-          "participacion_pct": 59.59
-        },
-        {
-          "cve_ent": "21",
-          "nom_ent": "PUEBLA",
-          "lista_nominal": 4978673.0,
-          "votantes": 2963223.0,
-          "participacion_pct": 59.52
-        },
-        {
-          "cve_ent": "17",
-          "nom_ent": "MORELOS",
-          "lista_nominal": 1549606.0,
-          "votantes": 891464.0,
-          "participacion_pct": 57.53
-        },
-        {
-          "cve_ent": "01",
-          "nom_ent": "AGUASCALIENTES",
-          "lista_nominal": 1097171.0,
-          "votantes": 626084.0,
-          "participacion_pct": 57.06
-        },
-        {
-          "cve_ent": "24",
-          "nom_ent": "SAN LUIS POTOSI",
-          "lista_nominal": 2185470.0,
-          "votantes": 1239523.0,
-          "participacion_pct": 56.72
-        },
-        {
-          "cve_ent": "32",
-          "nom_ent": "ZACATECAS",
-          "lista_nominal": 1265939.0,
-          "votantes": 715780.0,
-          "participacion_pct": 56.54
-        },
-        {
-          "cve_ent": "30",
-          "nom_ent": "VERACRUZ",
-          "lista_nominal": 6080517.0,
-          "votantes": 3392712.0,
-          "participacion_pct": 55.8
+          "cve_ent": "09",
+          "nom_ent": "Ciudad de México",
+          "lista_nominal": 7918590.0,
+          "votantes": 5383288.0,
+          "participacion_pct": 69.31
         },
         {
           "cve_ent": "05",
-          "nom_ent": "COAHUILA",
+          "nom_ent": "Coahuila",
           "lista_nominal": 2410670.0,
           "votantes": 1332644.0,
-          "participacion_pct": 55.28
+          "participacion_pct": 64.65
         },
         {
-          "cve_ent": "06",
-          "nom_ent": "COLIMA",
-          "lista_nominal": 584921.0,
-          "votantes": 321763.0,
-          "participacion_pct": 55.01
+          "cve_ent": "21",
+          "nom_ent": "Puebla",
+          "lista_nominal": 4978673.0,
+          "votantes": 2963223.0,
+          "participacion_pct": 64.27
         },
         {
-          "cve_ent": "27",
-          "nom_ent": "TABASCO",
-          "lista_nominal": 1811510.0,
-          "votantes": 996395.0,
-          "participacion_pct": 55.0
+          "cve_ent": "15",
+          "nom_ent": "Estado de México",
+          "lista_nominal": 13026772.0,
+          "votantes": 7959555.0,
+          "participacion_pct": 63.85
         },
         {
-          "cve_ent": "20",
-          "nom_ent": "OAXACA",
-          "lista_nominal": 3116671.0,
-          "votantes": 1703640.0,
-          "participacion_pct": 54.66
-        },
-        {
-          "cve_ent": "07",
-          "nom_ent": "CHIAPAS",
-          "lista_nominal": 4003376.0,
-          "votantes": 2180203.0,
-          "participacion_pct": 54.46
-        },
-        {
-          "cve_ent": "12",
-          "nom_ent": "GUERRERO",
-          "lista_nominal": 2643256.0,
-          "votantes": 1424264.0,
-          "participacion_pct": 53.88
-        },
-        {
-          "cve_ent": "14",
-          "nom_ent": "JALISCO",
-          "lista_nominal": 6619379.0,
-          "votantes": 3555352.0,
-          "participacion_pct": 53.71
-        },
-        {
-          "cve_ent": "11",
-          "nom_ent": "GUANAJUATO",
-          "lista_nominal": 4831159.0,
-          "votantes": 2592525.0,
-          "participacion_pct": 53.66
+          "cve_ent": "13",
+          "nom_ent": "Hidalgo",
+          "lista_nominal": 2386306.0,
+          "votantes": 1427044.0,
+          "participacion_pct": 63.61
         },
         {
           "cve_ent": "04",
-          "nom_ent": "CAMPECHE",
+          "nom_ent": "Campeche",
           "lista_nominal": 694600.0,
           "votantes": 372086.0,
-          "participacion_pct": 53.57
+          "participacion_pct": 62.92
         },
         {
-          "cve_ent": "23",
-          "nom_ent": "QUINTANA ROO",
-          "lista_nominal": 1460071.0,
-          "votantes": 773940.0,
-          "participacion_pct": 53.01
+          "cve_ent": "07",
+          "nom_ent": "Chiapas",
+          "lista_nominal": 4003376.0,
+          "votantes": 2180203.0,
+          "participacion_pct": 61.77
         },
         {
-          "cve_ent": "10",
-          "nom_ent": "DURANGO",
-          "lista_nominal": 1397549.0,
-          "votantes": 735959.0,
-          "participacion_pct": 52.66
+          "cve_ent": "17",
+          "nom_ent": "Morelos",
+          "lista_nominal": 1549606.0,
+          "votantes": 891464.0,
+          "participacion_pct": 61.44
+        },
+        {
+          "cve_ent": "24",
+          "nom_ent": "San Luis Potosí",
+          "lista_nominal": 2185470.0,
+          "votantes": 1239523.0,
+          "participacion_pct": 61.23
+        },
+        {
+          "cve_ent": "22",
+          "nom_ent": "Querétaro",
+          "lista_nominal": 1899053.0,
+          "votantes": 1131708.0,
+          "participacion_pct": 60.98
+        },
+        {
+          "cve_ent": "27",
+          "nom_ent": "Tabasco",
+          "lista_nominal": 1811510.0,
+          "votantes": 996395.0,
+          "participacion_pct": 59.89
+        },
+        {
+          "cve_ent": "32",
+          "nom_ent": "Zacatecas",
+          "lista_nominal": 1265939.0,
+          "votantes": 715780.0,
+          "participacion_pct": 58.93
+        },
+        {
+          "cve_ent": "20",
+          "nom_ent": "Oaxaca",
+          "lista_nominal": 3116671.0,
+          "votantes": 1703640.0,
+          "participacion_pct": 58.66
+        },
+        {
+          "cve_ent": "01",
+          "nom_ent": "Aguascalientes",
+          "lista_nominal": 1097171.0,
+          "votantes": 626084.0,
+          "participacion_pct": 58.66
+        },
+        {
+          "cve_ent": "30",
+          "nom_ent": "Veracruz",
+          "lista_nominal": 6080517.0,
+          "votantes": 3392712.0,
+          "participacion_pct": 58.41
+        },
+        {
+          "cve_ent": "14",
+          "nom_ent": "Jalisco",
+          "lista_nominal": 6619379.0,
+          "votantes": 3555352.0,
+          "participacion_pct": 57.06
+        },
+        {
+          "cve_ent": "12",
+          "nom_ent": "Guerrero",
+          "lista_nominal": 2643256.0,
+          "votantes": 1424264.0,
+          "participacion_pct": 56.75
+        },
+        {
+          "cve_ent": "06",
+          "nom_ent": "Colima",
+          "lista_nominal": 584921.0,
+          "votantes": 321763.0,
+          "participacion_pct": 56.45
+        },
+        {
+          "cve_ent": "11",
+          "nom_ent": "Guanajuato",
+          "lista_nominal": 4831159.0,
+          "votantes": 2592525.0,
+          "participacion_pct": 55.83
         },
         {
           "cve_ent": "18",
-          "nom_ent": "NAYARIT",
+          "nom_ent": "Nayarit",
           "lista_nominal": 950653.0,
           "votantes": 491815.0,
-          "participacion_pct": 51.73
+          "participacion_pct": 55.78
         },
         {
           "cve_ent": "19",
-          "nom_ent": "NUEVO LEON",
+          "nom_ent": "Nuevo León",
           "lista_nominal": 4466271.0,
           "votantes": 2303911.0,
-          "participacion_pct": 51.58
-        },
-        {
-          "cve_ent": "03",
-          "nom_ent": "BAJA CALIFORNIA SUR",
-          "lista_nominal": 613613.0,
-          "votantes": 310713.0,
-          "participacion_pct": 50.64
+          "participacion_pct": 55.7
         },
         {
           "cve_ent": "28",
-          "nom_ent": "TAMAULIPAS",
+          "nom_ent": "Tamaulipas",
           "lista_nominal": 2848982.0,
           "votantes": 1430666.0,
-          "participacion_pct": 50.22
+          "participacion_pct": 55.43
         },
         {
-          "cve_ent": "16",
-          "nom_ent": "MICHOACAN",
-          "lista_nominal": 3748985.0,
-          "votantes": 1856524.0,
-          "participacion_pct": 49.52
+          "cve_ent": "23",
+          "nom_ent": "Quintana Roo",
+          "lista_nominal": 1460071.0,
+          "votantes": 773940.0,
+          "participacion_pct": 54.73
         },
         {
           "cve_ent": "25",
-          "nom_ent": "SINALOA",
+          "nom_ent": "Sinaloa",
           "lista_nominal": 2360619.0,
           "votantes": 1162020.0,
-          "participacion_pct": 49.23
+          "participacion_pct": 54.52
         },
         {
-          "cve_ent": "26",
-          "nom_ent": "SONORA",
-          "lista_nominal": 2291013.0,
-          "votantes": 1018161.0,
-          "participacion_pct": 44.44
+          "cve_ent": "16",
+          "nom_ent": "Michoacán",
+          "lista_nominal": 3748985.0,
+          "votantes": 1856524.0,
+          "participacion_pct": 53.95
+        },
+        {
+          "cve_ent": "10",
+          "nom_ent": "Durango",
+          "lista_nominal": 1397549.0,
+          "votantes": 735959.0,
+          "participacion_pct": 53.74
+        },
+        {
+          "cve_ent": "03",
+          "nom_ent": "Baja California Sur",
+          "lista_nominal": 613613.0,
+          "votantes": 310713.0,
+          "participacion_pct": 53.06
         },
         {
           "cve_ent": "08",
-          "nom_ent": "CHIHUAHUA",
+          "nom_ent": "Chihuahua",
           "lista_nominal": 3082363.0,
           "votantes": 1360070.0,
-          "participacion_pct": 44.12
+          "participacion_pct": 51.86
+        },
+        {
+          "cve_ent": "26",
+          "nom_ent": "Sonora",
+          "lista_nominal": 2291013.0,
+          "votantes": 1018161.0,
+          "participacion_pct": 49.58
         },
         {
           "cve_ent": "02",
-          "nom_ent": "BAJA CALIFORNIA",
+          "nom_ent": "Baja California",
           "lista_nominal": 3197817.0,
           "votantes": 1396335.0,
-          "participacion_pct": 43.67
+          "participacion_pct": 47.05
         }
       ],
       "tipo_grafica_sugerida": "bar",
@@ -599,143 +655,143 @@
     {
       "pregunta": "¿Cuáles son los municipios en zona de riesgo prioritaria para la elección intermedia de 2027?",
       "es_respondible": true,
-      "respuesta_natural": "Consulta verificada sobre el catálogo DuckDB (15 fila(s) recuperadas). Resultado principal: cve_geo=19040, nom_mun=Monterrey, nom_ent=NUEVO LEON, cluster_id=4, ln_proyectada_2027=972863, proyeccion_2027_pct=50.21, indice_riesgo_priorizacion=52192.",
+      "respuesta_natural": "Consulta verificada sobre el catálogo DuckDB (15 fila(s) recuperadas). Resultado principal: cve_geo=08019, nom_mun=Chihuahua, nom_ent=Chihuahua, cluster_id=4, ln_proyectada_2027=793108, proyeccion_2027_pct=51.18, indice_riesgo_priorizacion=27188.",
       "sql_usado": "SELECT cve_geo, nom_mun, nom_ent, cluster_id, ln_proyectada_2027, ROUND(proyeccion_part_2027 * 100, 2) AS proyeccion_2027_pct, indice_riesgo_priorizacion FROM proyeccion_2027 WHERE es_zona_riesgo_2027 = true ORDER BY indice_riesgo_priorizacion DESC LIMIT 15",
       "tabla_respaldo": [
         {
-          "cve_geo": "19040",
-          "nom_mun": "Monterrey",
-          "nom_ent": "NUEVO LEON",
+          "cve_geo": "08019",
+          "nom_mun": "Chihuahua",
+          "nom_ent": "Chihuahua",
           "cluster_id": 4,
-          "ln_proyectada_2027": 972863,
-          "proyeccion_2027_pct": 50.21,
-          "indice_riesgo_priorizacion": 52192
+          "ln_proyectada_2027": 793108,
+          "proyeccion_2027_pct": 51.18,
+          "indice_riesgo_priorizacion": 27188
+        },
+        {
+          "cve_geo": "14098",
+          "nom_mun": "Tlajomulco de Zúñiga",
+          "nom_ent": "Jalisco",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 500858,
+          "proyeccion_2027_pct": 52.73,
+          "indice_riesgo_priorizacion": 25669
+        },
+        {
+          "cve_geo": "22014",
+          "nom_mun": "Querétaro",
+          "nom_ent": "Querétaro",
+          "cluster_id": 1,
+          "ln_proyectada_2027": 928612,
+          "proyeccion_2027_pct": 58.81,
+          "indice_riesgo_priorizacion": 21005
+        },
+        {
+          "cve_geo": "27004",
+          "nom_mun": "Centro",
+          "nom_ent": "Tabasco",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 549220,
+          "proyeccion_2027_pct": 57.14,
+          "indice_riesgo_priorizacion": 18780
+        },
+        {
+          "cve_geo": "31050",
+          "nom_mun": "Mérida",
+          "nom_ent": "Yucatán",
+          "cluster_id": 0,
+          "ln_proyectada_2027": 836604,
+          "proyeccion_2027_pct": 62.65,
+          "indice_riesgo_priorizacion": 16377
+        },
+        {
+          "cve_geo": "14099",
+          "nom_mun": "San Pedro Tlaquepaque",
+          "nom_ent": "Jalisco",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 556459,
+          "proyeccion_2027_pct": 49.33,
+          "indice_riesgo_priorizacion": 14486
         },
         {
           "cve_geo": "26049",
           "nom_mun": "Hermosillo",
-          "nom_ent": "SONORA",
-          "cluster_id": 4,
+          "nom_ent": "Sonora",
+          "cluster_id": 1,
           "ln_proyectada_2027": 728265,
-          "proyeccion_2027_pct": 41.3,
-          "indice_riesgo_priorizacion": 46057
-        },
-        {
-          "cve_geo": "05030",
-          "nom_mun": "Saltillo",
-          "nom_ent": "COAHUILA",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 705960,
-          "proyeccion_2027_pct": 43.45,
-          "indice_riesgo_priorizacion": 43359
-        },
-        {
-          "cve_geo": "22014",
-          "nom_mun": "QuerÃ©taro",
-          "nom_ent": "QUERETARO",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 928612,
-          "proyeccion_2027_pct": 48.8,
-          "indice_riesgo_priorizacion": 42638
-        },
-        {
-          "cve_geo": "19026",
-          "nom_mun": "Guadalupe",
-          "nom_ent": "NUEVO LEON",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 558646,
-          "proyeccion_2027_pct": 47.73,
-          "indice_riesgo_priorizacion": 35617
-        },
-        {
-          "cve_geo": "14120",
-          "nom_mun": "Zapopan",
-          "nom_ent": "JALISCO",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 1229132,
-          "proyeccion_2027_pct": 43.74,
-          "indice_riesgo_priorizacion": 34572
-        },
-        {
-          "cve_geo": "24028",
-          "nom_mun": "San Luis PotosÃ­",
-          "nom_ent": "SAN LUIS POTOSI",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 723854,
-          "proyeccion_2027_pct": 45.74,
-          "indice_riesgo_priorizacion": 29271
-        },
-        {
-          "cve_geo": "19018",
-          "nom_mun": "GarcÃ­a",
-          "nom_ent": "NUEVO LEON",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 274887,
-          "proyeccion_2027_pct": 41.45,
-          "indice_riesgo_priorizacion": 29030
-        },
-        {
-          "cve_geo": "14041",
-          "nom_mun": "Guadalajara",
-          "nom_ent": "JALISCO",
-          "cluster_id": 5,
-          "ln_proyectada_2027": 1260334,
-          "proyeccion_2027_pct": 47.9,
-          "indice_riesgo_priorizacion": 28915
-        },
-        {
-          "cve_geo": "19006",
-          "nom_mun": "Apodaca",
-          "nom_ent": "NUEVO LEON",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 536818,
-          "proyeccion_2027_pct": 43.9,
-          "indice_riesgo_priorizacion": 27630
-        },
-        {
-          "cve_geo": "11020",
-          "nom_mun": "LeÃ³n",
-          "nom_ent": "GUANAJUATO",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 1362782,
-          "proyeccion_2027_pct": 42.4,
-          "indice_riesgo_priorizacion": 25705
-        },
-        {
-          "cve_geo": "14098",
-          "nom_mun": "Tlajomulco de ZÃºÃ±iga",
-          "nom_ent": "JALISCO",
-          "cluster_id": 4,
-          "ln_proyectada_2027": 500858,
-          "proyeccion_2027_pct": 39.35,
-          "indice_riesgo_priorizacion": 24005
+          "proyeccion_2027_pct": 64.08,
+          "indice_riesgo_priorizacion": 13485
         },
         {
           "cve_geo": "19032",
-          "nom_mun": "JuÃ¡rez",
-          "nom_ent": "NUEVO LEON",
-          "cluster_id": 4,
+          "nom_mun": "Juárez",
+          "nom_ent": "Nuevo León",
+          "cluster_id": 1,
           "ln_proyectada_2027": 335874,
-          "proyeccion_2027_pct": 38.89,
-          "indice_riesgo_priorizacion": 23994
+          "proyeccion_2027_pct": 51.37,
+          "indice_riesgo_priorizacion": 13174
         },
         {
-          "cve_geo": "19021",
-          "nom_mun": "Gral. Escobedo",
-          "nom_ent": "NUEVO LEON",
+          "cve_geo": "14102",
+          "nom_mun": "Tonalá",
+          "nom_ent": "Jalisco",
           "cluster_id": 4,
-          "ln_proyectada_2027": 382896,
-          "proyeccion_2027_pct": 40.87,
-          "indice_riesgo_priorizacion": 23387
+          "ln_proyectada_2027": 430856,
+          "proyeccion_2027_pct": 47.0,
+          "indice_riesgo_priorizacion": 10926
         },
         {
-          "cve_geo": "31050",
-          "nom_mun": "MÃ©rida",
-          "nom_ent": "YUCATAN",
+          "cve_geo": "25014",
+          "nom_mun": "Rosario",
+          "nom_ent": "Sinaloa",
           "cluster_id": 4,
-          "ln_proyectada_2027": 836604,
-          "proyeccion_2027_pct": 52.99,
-          "indice_riesgo_priorizacion": 20281
+          "ln_proyectada_2027": 40927,
+          "proyeccion_2027_pct": 54.31,
+          "indice_riesgo_priorizacion": 10366
+        },
+        {
+          "cve_geo": "24035",
+          "nom_mun": "Soledad de Graciano Sánchez",
+          "nom_ent": "San Luis Potosí",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 274053,
+          "proyeccion_2027_pct": 57.61,
+          "indice_riesgo_priorizacion": 9100
+        },
+        {
+          "cve_geo": "16103",
+          "nom_mun": "Uruapan",
+          "nom_ent": "Michoacán",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 282984,
+          "proyeccion_2027_pct": 46.83,
+          "indice_riesgo_priorizacion": 8152
+        },
+        {
+          "cve_geo": "15040",
+          "nom_mun": "Ixtapaluca",
+          "nom_ent": "Estado de México",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 408827,
+          "proyeccion_2027_pct": 62.0,
+          "indice_riesgo_priorizacion": 7449
+        },
+        {
+          "cve_geo": "26055",
+          "nom_mun": "San Luis Río Colorado",
+          "nom_ent": "Sonora",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 176490,
+          "proyeccion_2027_pct": 59.21,
+          "indice_riesgo_priorizacion": 7241
+        },
+        {
+          "cve_geo": "07090",
+          "nom_mun": "Tapachula",
+          "nom_ent": "Chiapas",
+          "cluster_id": 4,
+          "ln_proyectada_2027": 257794,
+          "proyeccion_2027_pct": 48.17,
+          "indice_riesgo_priorizacion": 7218
         }
       ],
       "tipo_grafica_sugerida": "bar",
@@ -744,56 +800,56 @@
     {
       "pregunta": "¿Cuántos municipios integran cada perfil territorial y cuál es su participación media?",
       "es_respondible": true,
-      "respuesta_natural": "Consulta verificada sobre el catálogo DuckDB (6 fila(s) recuperadas). Resultado principal: cluster_id=0, n_municipios=539, lista_nominal_2024=8089025.0, part_media_pct=67.76, caida_pres_inter_pp=4.04, brecha_genero_pp=7.91.",
+      "respuesta_natural": "Consulta verificada sobre el catálogo DuckDB (6 fila(s) recuperadas). Resultado principal: cluster_id=0, n_municipios=111, lista_nominal_2024=1718428.0, part_media_pct=79.26, caida_pres_inter_pp=12.18, brecha_genero_pp=7.42.",
       "sql_usado": "SELECT p.cluster_id, COUNT(*) AS n_municipios, SUM(f.ln_2024) AS lista_nominal_2024, ROUND(AVG(f.part_media_global) * 100, 2) AS part_media_pct, ROUND(AVG(f.caida_presidencial_intermedia) * 100, 2) AS caida_pres_inter_pp, ROUND(AVG(f.brecha_genero_media) * 100, 2) AS brecha_genero_pp FROM perfiles_municipio p JOIN features_municipio f ON p.cve_geo = f.cve_geo GROUP BY p.cluster_id ORDER BY p.cluster_id LIMIT 10",
       "tabla_respaldo": [
         {
           "cluster_id": 0,
-          "n_municipios": 539,
-          "lista_nominal_2024": 8089025.0,
-          "part_media_pct": 67.76,
-          "caida_pres_inter_pp": 4.04,
-          "brecha_genero_pp": 7.91
+          "n_municipios": 111,
+          "lista_nominal_2024": 1718428.0,
+          "part_media_pct": 79.26,
+          "caida_pres_inter_pp": 12.18,
+          "brecha_genero_pp": 7.42
         },
         {
           "cluster_id": 1,
-          "n_municipios": 378,
-          "lista_nominal_2024": 6851597.0,
-          "part_media_pct": 59.2,
-          "caida_pres_inter_pp": 9.1,
-          "brecha_genero_pp": 11.35
+          "n_municipios": 537,
+          "lista_nominal_2024": 23639337.0,
+          "part_media_pct": 65.08,
+          "caida_pres_inter_pp": 4.52,
+          "brecha_genero_pp": 8.91
         },
         {
           "cluster_id": 2,
-          "n_municipios": 440,
-          "lista_nominal_2024": 13283697.0,
-          "part_media_pct": 55.13,
-          "caida_pres_inter_pp": 20.63,
-          "brecha_genero_pp": 7.31
+          "n_municipios": 425,
+          "lista_nominal_2024": 9287589.0,
+          "part_media_pct": 61.78,
+          "caida_pres_inter_pp": 8.22,
+          "brecha_genero_pp": 10.0
         },
         {
           "cluster_id": 3,
-          "n_municipios": 79,
-          "lista_nominal_2024": 715243.0,
-          "part_media_pct": 51.29,
-          "caida_pres_inter_pp": -5.93,
-          "brecha_genero_pp": 5.4
+          "n_municipios": 554,
+          "lista_nominal_2024": 18074124.0,
+          "part_media_pct": 58.03,
+          "caida_pres_inter_pp": 18.29,
+          "brecha_genero_pp": 8.29
         },
         {
           "cluster_id": 4,
-          "n_municipios": 553,
-          "lista_nominal_2024": 57777865.0,
-          "part_media_pct": 50.08,
-          "caida_pres_inter_pp": 10.99,
-          "brecha_genero_pp": 8.48
+          "n_municipios": 659,
+          "lista_nominal_2024": 45053420.0,
+          "part_media_pct": 49.97,
+          "caida_pres_inter_pp": 13.58,
+          "brecha_genero_pp": 6.72
         },
         {
           "cluster_id": 5,
-          "n_municipios": 488,
-          "lista_nominal_2024": 11612921.0,
-          "part_media_pct": 49.62,
-          "caida_pres_inter_pp": 10.79,
-          "brecha_genero_pp": 4.6
+          "n_municipios": 191,
+          "lista_nominal_2024": 557450.0,
+          "part_media_pct": 49.76,
+          "caida_pres_inter_pp": 12.12,
+          "brecha_genero_pp": 4.67
         }
       ],
       "tipo_grafica_sugerida": "table",
